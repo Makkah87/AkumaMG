@@ -5,21 +5,21 @@
 ;			Var(1) : Intro Decider
 ;			Var(2) : Special Condition
 ;			Var(3) : Win Pose Decider
-;                       Var(4) : Shakunetsu Gou Hadou Resistance
-;                       Var(5) : Death Voice Add
-;                       Var(6) : Death Indicator
+;                   Var(4) : Shakunetsu Gou Hadou Resistance
+;                   Var(5) : Death Voice Add
+;                   Var(6) : Death Indicator
 ;			Var(7) : Shin Gouki Indicator
 ;			Var(8) : Hit Voice Randomizer
 ;			Var(9) : Mash Manager
-;                       Var(10): Shakunetsu Indicator
-;                       Var(11): Gou Hadou Limit
-;                       Var(12): Tenma Gou Zankuu Resistance*
-;                       Var(13): Artificial Intellegence
-;                       Var(14): Shoryuu limit (A.I)
-;                       Var(15): Messtatsu Gou Hadou Resistance
-;                       Var(16): Hyper Hadou In Play
-;                       Var(17): Juggle Manager
-;                       Var(18): Projectile Hit Detection
+;                   Var(10): Shakunetsu Indicator
+;                   Var(11): Gou Hadou Limit
+;                   Var(12): Tenma Gou Zankuu Resistance*
+;                   Var(13): Artificial Intellegence
+;                   Var(14): Shoryuu limit (A.I)
+;                   Var(15): Messtatsu Gou Hadou Resistance
+;                   Var(16): Hyper Hadou In Play
+;                   Var(17): Juggle Manager
+;                   Var(18): Projectile Hit Detection
 ;======================================================================
 ;			Floats
 ;----------------------------------------------------------------------
@@ -78,7 +78,7 @@ stand.friction = .85  ;Friction coefficient when standing
 crouch.friction = .82 ;Friction coefficient when crouching
 
 [Quotes]
-Victory1 = "Wow you really didn't last very long did you? Gotta step your game up, buddy."
+Victory1 = "Weak...."
 
 ;--------------------------------------------------------------------
 ; Lose by Time Over
@@ -663,9 +663,9 @@ ground.hittime  = 22
 guard.ctrltime = 12
 ground.velocity = -7.5
 air.velocity = ifelse(anim = 220,-6,-1.7),ifelse(anim = 220,-4.8,-8.2)
-envshake.time = 10
+envshake.time = ifelse(anim = 220,8,0)
 envshake.ampl = 2
-envshake.freq = 176
+envshake.freq = 120
 yaccel = 0.47
 ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
@@ -1489,15 +1489,8 @@ ground.slidetime = 17
 ground.hittime  = 10
 guard.ctrltime = 7
 ground.velocity = -7
-air.velocity = -12,4
-fall = ifelse(Enemynear, Pos Y < 0,1,0)
-fall.recover = 0
-envshake.time = 10
-envshake.ampl = 2
-envshake.freq = 176
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+air.velocity = -3.2,-5.7
+yaccel = 0.5
 
 ;--------------------------------------------------------------------
 ;Jump Light Kick
@@ -1682,15 +1675,8 @@ ground.type = High
 ground.slidetime = 15
 ground.hittime  = 15
 ground.velocity = -5
-air.velocity = -12,4
-fall = ifelse(Enemynear, Pos Y < 0,1,0)
-fall.recover = 0
-envshake.time = 10
-envshake.ampl = 2
-envshake.freq = 176
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+air.velocity = -5.3,-4
+yaccel = 0.5
 ;----------------------------------------------------------------------
 ;Over Head Throw
 ;----------------------------------------------------------------------
@@ -1769,7 +1755,7 @@ pos = -15, -95
 [State 810, Bind 5]
 type = TargetBind
 trigger1 = AnimElemTime(4) >= 0 && animelemtime(5) < 0
-pos = -40, -78
+pos = -40, -50
 
 [State 810, Hurt 11]
 type = TargetLifeAdd
@@ -1788,12 +1774,18 @@ type = TargetState
 trigger1 = AnimElem=5
 value = 821
 
-[State 810, Shake]
-type = null;envshake
-trigger1 = AnimElem = 5
-time = 5
-ampl = 3
-freq = 176
+[State 810, CornerPush]
+type = posadd
+trigger1 = animelemtime(5) >= 0 && target,frontedgebodydist <=10 && p2dist x > -140
+x = 10
+
+[State 810, Voice]
+type = playsnd
+trigger1 = animelem = 3
+value = 50,10
+channel = 1
+volumescale = 100
+
 
 [State 810, State End]
 type = ChangeState
@@ -1855,7 +1847,7 @@ value = 3
 [State 821, Posset]
 type = posset
 trigger1 = time = 3
-y = -30
+y = -13
 
 [State 821, Posadd]
 type = posadd
@@ -1872,8 +1864,8 @@ type  = envshake
 trigger1 = Vel Y > 0
 trigger1 = Pos Y >= -0
 freq  = 120
-time  = 20
-ampl  = -6
+time  = 5
+ampl  = -3
 
 [State 821, 2] ; Recover near ground (use ChangeState)
 type = ChangeState
@@ -2054,18 +2046,13 @@ air.velocity = ifelse((Parent,P2Dist X > 100 && Time <= 20),-7,-5),ifelse((Paren
 ground.slidetime = 18
 forcestand = 1
 fall = ifelse((P2Dist Y < 0 || P2Statetype = A || Parent, P2Dist X <= 100),1,0)
-envshake.time = 10
-envshake.ampl = 6
-envshake.freq = 176
 fall.recover = 0
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1002, HitDefMetsu]
 type = HitDef
@@ -2093,18 +2080,12 @@ palfx.add = 217,61,0
 palfx.sinadd = -255,-255,-255,80 ; 40
 palfx.color = 20
 fall = 1
-envshake.time = 10
-envshake.ampl = 6
-envshake.freq = 176
 fall.recover = 0
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 p1sprpriority = 5
 
 [State 1002, Effect]
@@ -2333,18 +2314,13 @@ air.velocity = ifelse((Parent,P2Dist X > 100 && Time <= 20),-7,-5),ifelse((Paren
 ground.slidetime = 18
 forcestand = 1
 fall = ifelse((P2Dist Y < 0 || P2Statetype = A || Parent, P2Dist X <= 100),1,0)
-envshake.time = 10
-envshake.ampl = 5
-envshake.freq = 176
 fall.recover = 0
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1016, HitDefMetsu]
 type = HitDef
@@ -2372,18 +2348,12 @@ palfx.add = 217,61,0
 palfx.sinadd = -255,-255,-255,80 ; 40
 palfx.color = 20
 fall = 1
-envshake.time = 10
-envshake.ampl = 6
-envshake.freq = 176
 fall.recover = 0
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 p1sprpriority = 5
 
 [State 1016, Effect]
@@ -2536,9 +2506,6 @@ ground.type = low
 air.velocity = -6,-6.396875
 ground.slidetime = 18
 forcestand = 1
-envshake.time = 5
-envshake.ampl = 5
-envshake.freq = 176
 fall = 1
 fall.recover = 0
 ground.cornerpush.veloff = 0
@@ -2546,9 +2513,6 @@ air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
-fall.envshake.time = 6
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 yaccel = 0.6
 p1sprpriority = 5
 
@@ -2577,18 +2541,12 @@ air.velocity = -5,-4.396875
 ground.slidetime = 18
 forcestand = 1
 fall = 0
-envshake.time = 5
-envshake.ampl = 5
-envshake.freq = 176
 fall.recover = 0
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
-fall.envshake.time = 6
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 yaccel = 0.428125
 p1sprpriority = 5
 
@@ -2667,7 +2625,7 @@ animtype  = Hard
 fall.animtype = hard
 damage    = ifelse(Var(0)<5,20,10), 4
 priority  = 5
-guardflag = MA
+guardflag = M
 pausetime = 12,12
 sparkno = s7003
 sparkxy = 1,-48
@@ -2680,12 +2638,7 @@ ground.velocity = 2,-7
 guard.velocity = -7
 air.velocity = 2,-1
 fall = 1
-envshake.time = 8
-envshake.ampl = 4
-envshake.freq = 176
-fall.envshake.time = 8
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1030, 4]
 type = HitDef
@@ -2695,7 +2648,7 @@ animtype  = Hard
 fall.animtype = hard
 damage    = ifelse(Var(0)<5,20,10), 4
 priority  = 5
-guardflag = MA
+guardflag = M
 pausetime = 12,12
 sparkno = s7003
 sparkxy = -10,-65
@@ -2708,13 +2661,8 @@ ground.velocity = 2,-7
 guard.velocity = -7
 air.velocity = 0,-7
 fall = 1
-envshake.time = 8
-envshake.ampl = 4
-envshake.freq = 176
 yaccel = 0.45
-fall.envshake.time = 8
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1030, GoingUp]
 type = ChangeState
@@ -2757,7 +2705,7 @@ animtype  = Medium
 fall.animtype = up
 damage    = ifelse(Var(0)<5,40,20), 4
 priority  = 5
-guardflag = MA
+guardflag = M
 pausetime = 12,11
 sparkno = s7003
 sparkxy = -10,-90
@@ -2770,14 +2718,8 @@ ground.velocity = -2,-9
 guard.velocity = -7
 air.velocity = -1.6,-10.5
 fall = 1
-envshake.time = 8
-envshake.ampl = 6
-envshake.freq = 176
 fall.recover = 0
 yaccel = 0.50
-fall.envshake.time = 8
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
 [State 1031, UpWard]
 type = velset
@@ -2911,7 +2853,7 @@ animtype  = hard
 fall.animtype = hard
 damage    = ifelse(Var(0)<5,20,10), 6
 priority  = 5
-guardflag = MA
+guardflag = M
 pausetime = 12,12
 sparkno = s7003
 sparkxy = 1,-48
@@ -2924,12 +2866,6 @@ ground.velocity = -2.3,-7
 guard.velocity = -7
 air.velocity = -3.5,-1
 fall = 1
-envshake.time = 8
-envshake.ampl = 4
-envshake.freq = 176
-fall.envshake.time = 8
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
 [State 1035, 4]
 type = HitDef
@@ -2939,7 +2875,7 @@ animtype  = hard
 fall.animtype = hard
 damage    = ifelse(Var(0)<5,20,10), 6
 priority  = 5
-guardflag = MA
+guardflag = M
 pausetime = 12,12
 sparkno = s7003
 sparkxy = -10,-65
@@ -2952,12 +2888,6 @@ ground.velocity = -2,-7.3
 guard.velocity = -7
 air.velocity = 0,-7.3
 fall = 1
-envshake.time = 8
-envshake.ampl = 4
-envshake.freq = 176
-fall.envshake.time = 8
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
 [State 1035, GoingUp]
 type = ChangeState
@@ -3000,7 +2930,7 @@ animtype  = hard
 fall.animtype = up
 damage    = ifelse(Var(0)<5,40,20), 4
 priority  = 5
-guardflag = MA
+guardflag = M
 pausetime = 12,11
 sparkno = s7003
 sparkxy = -10,-90
@@ -3013,14 +2943,9 @@ ground.velocity = -2,-12
 guard.velocity = -7
 air.velocity = -2,-11
 fall = 1
-envshake.time = 8
-envshake.ampl = 6
-envshake.freq = 176
 fall.recover = 0
 yaccel = 0.50
-fall.envshake.time = 8
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1036, UpWard]
 type = velset
@@ -3117,7 +3042,7 @@ animtype  = hard
 fall.animtype = hard
 damage    = ifelse(Var(0)<5,20,10), 8
 priority  = 5
-guardflag = MA
+guardflag = M
 pausetime = 12,12
 sparkno = s7003
 sparkxy = 1,-48
@@ -3130,12 +3055,6 @@ ground.velocity = -2,-7
 guard.velocity = -7
 air.velocity = -3.5,-2
 fall = 1
-envshake.time = 8
-envshake.ampl = 4
-envshake.freq = 176
-fall.envshake.time = 8
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
 [State 1040, 4]
 type = HitDef
@@ -3145,7 +3064,7 @@ animtype  = hard
 fall.animtype = hard
 damage    = ifelse(Var(0)<5,20,10), 8
 priority  = 5
-guardflag = MA
+guardflag = M
 pausetime = 12,11
 sparkno = s7003
 sparkxy = -10,-65
@@ -3158,12 +3077,6 @@ ground.velocity = -2,-7.3
 guard.velocity = -7
 air.velocity = 0,-7.3
 fall = 1
-envshake.time = 8
-envshake.ampl = 4
-envshake.freq = 176
-fall.envshake.time = 8
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
 [State 1040, GoingUp]
 type = ChangeState
@@ -3206,7 +3119,7 @@ animtype  = hard
 fall.animtype = up
 damage    = ifelse(Var(0)<5,40,20), 4
 priority  = 5
-guardflag = MA
+guardflag = M
 pausetime = 17,16
 sparkno = s7003
 sparkxy = -10,-90
@@ -3219,14 +3132,9 @@ ground.velocity = -2.3,-11
 guard.velocity = -7
 air.velocity = -2.3,-12.5
 fall = 1
-envshake.time = 8
-envshake.ampl = 6
-envshake.freq = 176
 fall.recover = 0
 yaccel = 0.50
-fall.envshake.time = 8
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1041, UpWard]
 type = velset
@@ -3964,13 +3872,8 @@ ground.hittime  = 18
 ground.velocity = -0.9,-4.6
 guard.velocity = -5
 air.velocity = -0.9,-3.6
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
 fall = 1
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1060, 4]
 type = HitDef
@@ -3993,12 +3896,6 @@ ground.velocity = ifelse(p2dist x > 0,-2.1,2.7),-9
 guard.velocity = -7
 air.velocity = ifelse(p2dist x > 0,-1.9, 1.9),-9
 fall = 1
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 yaccel = 0.45
 
 [State 1060, 5]
@@ -4153,13 +4050,8 @@ ground.hittime  = 18
 ground.velocity = -0.9,-4.6
 guard.velocity = -7
 air.velocity = -0.9,-3.6
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
 fall = 1
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1065, 4]
 type = HitDef
@@ -4182,12 +4074,6 @@ ground.velocity = ifelse(p2dist x > 0,-4.7,4.7),-4.5
 guard.velocity = -4
 air.velocity = ifelse(p2dist x > 0,-4.9,4.9),-4
 fall = 1
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 yaccel = 0.45
 
 [State 1065, 5]
@@ -4268,13 +4154,7 @@ ground.hittime  = 18
 ground.velocity = -0.9,-4.6
 guard.velocity = -4
 air.velocity = -0.9,-3.6
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
 fall = 1
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
 [State 1070, 4]
 type = HitDef
@@ -4297,12 +4177,6 @@ ground.velocity = ifelse(p2dist x > 0,-5.7,5.7),-4.5
 guard.velocity = -6
 air.velocity = ifelse(p2dist x > 0,-5.9,5.9),-4.6
 fall = 1
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 yaccel = 0.6
 
 [State 1070, 5]
@@ -4384,12 +4258,6 @@ guard.velocity = -7
 air.velocity = ifelse(p2dist x > 0,-1.5,1.5), -9
 forcestand = 1
 fall = 1
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 yaccel = 0.5
 
 [State 1080, set]
@@ -4477,12 +4345,6 @@ guard.velocity = -7
 air.velocity = ifelse(p2dist x > 0,-3,3), -5
 forcestand = 1
 fall = 1
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 yaccel = 0.45
 
 [State 1081, set]
@@ -4570,12 +4432,6 @@ guard.velocity = -7
 air.velocity = ifelse(p2dist x > 0,-3,3), -7
 forcestand = 1
 fall = 1
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 yaccel = 0.45
 
 [State 1082, set]
@@ -4652,14 +4508,9 @@ ground.velocity = -4
 guard.velocity = -6
 air.velocity = -2,-2
 airguard.velocity = -5.3,4.5
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
 air.fall = 1
 fall.recover = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1085, PosSet]
 type = posset
@@ -4778,18 +4629,12 @@ ground.velocity = -4
 guard.velocity = -6
 air.velocity = -2,-2
 airguard.velocity = -5.3,4.5
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
 air.fall = 1
 fall.recover = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
 [State 1095, Mash!!]
 type = HitDef
-triggerall = Movehit
+triggerall = Movehit && uniqhitcount < 3
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
@@ -4810,14 +4655,8 @@ ground.velocity = -4
 guard.velocity = -6
 air.velocity = -2,-2
 airguard.velocity = -5.3,4.5
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
 fall = ifelse((p2dist Y < 0 || p2statetype = A),1,0)
 fall.recover = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
 [State 1095, PosSet]
 type = posset
@@ -4898,18 +4737,12 @@ ground.velocity = -4
 guard.velocity = -6
 air.velocity = -2,-2
 airguard.velocity = -5.3,4.5
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
 air.fall = 1
 fall.recover = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
 [State 1100, Mash!!]
 type = HitDef
-triggerall = Movehit 
+triggerall = Movehit && uniqhitcount < 6
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
@@ -4930,14 +4763,9 @@ ground.velocity = -4
 guard.velocity = -6
 air.velocity = -2,-2
 airguard.velocity = -5.3,4.5
-envshake.time = 10
-envshake.ampl = 3
-envshake.freq = 176
 fall = ifelse((p2dist Y < 0 || p2statetype = A),1,0)
 fall.recover = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1100, PosSet]
 type = posset
@@ -5031,8 +4859,10 @@ triggerall = time > 1
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
-value = 1085
+value = 1114
 ctrl = 0
+;====================================================================
+;Sliding Sweep
 ;====================================================================
 [Statedef 1111]
 type    = S
@@ -5069,7 +4899,7 @@ y = 0
 [State 1111, Vel]
 type = velset
 trigger1 = Time = 0
-x = 8
+x = 12
 
 [State 1111, Land]
 type = posset
@@ -5096,9 +4926,7 @@ air.velocity = -1.2,-3.8
 guard.velocity = -5
 fall = 1
 fall.recover = 0
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
+
 
 [State 1111, End]
 type = ChangeState
@@ -5194,72 +5022,92 @@ trigger1 = Pos Y = 0
 value = 1062
 ctrl = 0
 ;====================================================================
-;Body Slam
+;Dive Kick
 ;====================================================================
 [Statedef 1114]
 type    = A
 movetype= A
 physics = N
-juggle  = 6
-anim = 1114
+juggle  = 4
+poweradd= 110
+velset = 0,0
+anim = 1087
 ctrl = 0
 sprpriority = 3
 
-[State 1114, Gravity]
-type = veladd
-trigger1 = 1 && Movecontact = 0
-y = 0.45
+[State 1114, VarAdd]
+type = VarAdd
+trigger1 = (NumTarget > 0) && (MoveHit)
+var(0) = 1
+persistent = 0
+ignorehitpause = 1
 
-[State 1114, Gravity]
-type = veladd
-trigger1 = 1 && Movecontact
-y = 0.60
+[State 1114, PosAdd]
+type = posadd
+trigger1 = !time
+y = -6
 
-[State 1114, 3]
+[State 1114, Freeze]
+type = posfreeze
+trigger1 = time = 0
+value = 6
+
+[State 1114, velset]
+type = velset
+trigger1 = time > 8
+x = 8
+y = 12
+
+[State 1114, 1]
+type = PlaySnd
+trigger1 = Time = 10
+value = 0, 1
+volumescale = 100
+
+[State 1114, Voice]
+type = PlaySnd
+trigger1 = Time = 8
+value = 50,20 ;16
+volumescale = 100
+
+[State 1114, 2]
 type = HitDef
 trigger1 = Time = 0
-attr = A, SA
-damage    = 70
-guardflag = HA
-priority = 4
-pausetime = 18,18
+attr = S, SA
+animtype  = Medium
+damage    = 52, 4
+priority  = 5
+guardflag = MA
+pausetime = 8,10
 sparkno = s7003
-sparkxy = -10,-60
-hitsound   = s120,6
+sparkxy = 10,-10
+hitsound   = s120,9
 guardsound = s5,0
-animtype = Hard
 ground.type = High
 ground.slidetime = 15
-ground.hittime  = 15
-ground.velocity = -4.3,6.3
-air.velocity = -4.3,5.0
-fall = 1
+ground.hittime  = 17
+ground.velocity = -4
+guard.velocity = -6
+air.velocity = -2,-2
+airguard.velocity = -5.3,4.5
+air.fall = 1
 fall.recover = 0
-envshake.time = 10
-envshake.ampl = 2
-envshake.freq = 176
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
-yaccel = 0.60
-fall.envshake.time = 15
-fall.envshake.freq = 176
-fall.envshake.ampl = 3
 
-[State 1114, Land]
-type = velset
-trigger1 = Pos Y > 36 && vel Y > 0
-y = 0
 
-[State 1114, Land]
+[State 1114, PosSet]
 type = posset
-trigger1 = Pos Y > 36
+trigger1 = pos y > 0
 y = 0
 
-[State 1114, End]
+[State 1114, VelSet]
+type = velset
+trigger1 = pos y >= 0 && vel y > 0
+y = 0
+
+[State 1114, 5]
 type = ChangeState
 trigger1 = Pos Y = 0
-value = 1115
+value = 1090
 ctrl = 0
 ;====================================================================
 [Statedef 1115]
@@ -5369,7 +5217,7 @@ triggerall = time > 1
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
-value = 1085
+value = 1114
 ctrl = 0
 ;--------------------------------------------------------------------
 ;Hyakki Shuu (Strong)
@@ -5393,8 +5241,8 @@ statetype = A
 [State 1130, Jump]
 type = velset
 trigger1 = animelem = 2
-y = -9.2
-x = 5.4
+y = -10.2
+x = 5.2
 
 [State 1130, Gravity]
 type = veladd
@@ -5448,7 +5296,7 @@ triggerall = time > 1
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
-value = 1085
+value = 1114
 ctrl = 0
 
 ;--------------------------------------------------------------------
@@ -6029,6 +5877,20 @@ type = ChangeAnim
 trigger1 = time = 15
 value = 1010
 
+
+[State 1160, Voice]
+type = PlaySnd
+trigger1 = anim = 1010 && animelem = 4
+value = 50, 10
+volumescale = 100
+channel = 1
+
+[State 1160, Hadou_SND]
+type = playsnd
+trigger1 = anim = 1010 && animelem = 4
+value = 122,7
+volumescale = 100
+
 [State 1160, Shakunetsu_Hadouken3]
 type = Helper
 triggerall = !numhelper(1161)
@@ -6274,6 +6136,19 @@ trigger1 = time = 0
 value = 50, 6
 volumescale = 100
 channel = 1
+
+[State 1165, Voice]
+type = PlaySnd
+trigger1 = anim = 1010 && animelem = 4
+value = 50, 10
+volumescale = 100
+channel = 1
+
+[State 1165, Hadou_SND]
+type = playsnd
+trigger1 = anim = 1010 && animelem = 4
+value = 122,7
+volumescale = 100
 
 [State 1165, 7]
 type = ChangeAnim
@@ -6577,6 +6452,19 @@ type = ChangeAnim
 trigger1 = time = 20
 value = 1010
 
+[State 1170, Voice]
+type = PlaySnd
+trigger1 = anim = 1010 && animelem = 4
+value = 50, 10
+volumescale = 100
+channel = 1
+
+[State 1170, Hadou_SND]
+type = playsnd
+trigger1 = anim = 1010 && animelem = 4
+value = 122,7
+volumescale = 100
+
 [State 1170, Shakunetsu_Hadouken3]
 type = Helper
 triggerall = !numhelper(1171)
@@ -6723,7 +6611,7 @@ guard.pausetime = 0,9
 sparkno = s7004
 Guard.Sparkno = -1
 sparkxy = 2,-5
-hitsound   = -1;s300,4
+hitsound   = s120,6
 guardsound = -1
 ground.type = low
 air.type = low
@@ -6764,7 +6652,7 @@ guard.pausetime = 0,9
 sparkno = s7004
 Guard.Sparkno = -1
 sparkxy = 2,-5
-hitsound   = -1;s300,4
+hitsound   = s120,6
 guardsound = -1
 ground.type = high
 air.type = low
@@ -6876,7 +6764,7 @@ trigger1 = 1
 flag = noshadow
 
 [State 1172, movehitSND]
-type = playsnd
+type = null;playsnd
 trigger1 = time = 0 && !var(30)
 value = 120,6
 ignorehitpause = 0
@@ -7084,9 +6972,6 @@ air.fall = 1
 fall.animtype = Hard
 fall.recover = 0
 p2facing = 1
-envshake.time = 3
-envshake.ampl = 2
-envshake.freq = 176
 
 
 [State 3000, Hit2]
@@ -7114,9 +6999,6 @@ airguard.velocity = -3,-1
 fall.animtype = Hard
 fall.recover = 0
 p2facing = 1
-envshake.time = 3
-envshake.ampl = 2
-envshake.freq = 176
 
 [State 3000, Hit3]
 type = HitDef
@@ -7143,9 +7025,6 @@ airguard.velocity = -3,-1
 fall.animtype = Hard
 fall.recover = 0
 p2facing = 1
-envshake.time = 3
-envshake.ampl = 2
-envshake.freq = 176
 
 [State 3000, Hit4]
 type = HitDef
@@ -7171,9 +7050,9 @@ airguard.velocity = -3,-3
 fall.animtype = Hard
 fall = 1
 fall.recover = 0
-envshake.time = 10
+envshake.time = 6
 envshake.ampl = 4
-envshake.freq = 176
+envshake.freq = 140
 p2facing = 1
 
 [State 3000, Hit5]
@@ -7200,9 +7079,9 @@ air.velocity = -3,-3.2
 airguard.velocity = -3,-3
 fall = 1
 fall.recover = 0
-envshake.time = 10
+envshake.time = 6
 envshake.ampl = 4
-envshake.freq = 176
+envshake.freq = 140
 p2facing = 1
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -7233,9 +7112,9 @@ air.velocity = -6,-9
 airguard.velocity = -3,-3
 fall.recover = 0
 fall = 1
-envshake.time = 10
+envshake.time = 6
 envshake.ampl = 5
-envshake.freq = 176
+envshake.freq = 140
 p2facing = 1
 yaccel = 0.60
 fall.envshake.time = 15
@@ -7571,7 +7450,7 @@ guard.pausetime = 0,9
 sparkno = s7004
 Guard.Sparkno = -1
 sparkxy = 2,-5
-hitsound   = -1;s300,4
+hitsound   = s120,6
 guardsound = -1
 ground.type = high
 air.type = low
@@ -7581,12 +7460,6 @@ ground.velocity = -5.7,-8
 guard.velocity = -7.5
 air.velocity = -4.7,-7
 airguard.velocity = -5, -4
-envshake.time = 5
-envshake.ampl = 4
-envshake.freq = 176
-fall.envshake.time = 10
-fall.envshake.ampl = 6
-fall.envshake.freq = 176
 yaccel = 0.5
 fall = 1
 fall.recover = 0
@@ -7858,9 +7731,6 @@ palfx.add = 217,61,0
 palfx.sinadd = -255,-255,-255,80 ; 40
 palfx.color = 20
 fall = 1
-envshake.time = 6
-envshake.ampl = -6 ;up and down
-envshake.freq = 120;speed
 fall.recover = 0
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -8202,10 +8072,10 @@ pos = 35, 0
 
 [State 3102, Hitsound]
 type = playsnd
-trigger1 =time=50||time=55||time=60||time=65||time=70||time=75||time=80||time=90||time=95||time=100||time=105||time=110||time=115||time=120||time=125||time=130
-value = 120,11
+trigger1 = time=50||time=55||time=60||time=65||time=70||time=75||time=80||time=90||time=95||time=100||time=105||time=110||time=115||time=120||time=125||time=130
+value = 120,6
 volumescale = 100
-channel = ifelse(random > 500,2,3)
+channel = 6; ifelse(random > 500,2,3)
 
 [State 3102, Rumble]
 type  = envshake
@@ -8730,7 +8600,7 @@ sprpriority = 1
 [State 105, 1]
 type = VelSet
 trigger1 = Time = 0
-x = -12
+x = -8
 
 [State 105, 2] ;Prevent run from canceling into walk
 type = AssertSpecial
@@ -8745,7 +8615,7 @@ flag = NoAutoTurn
 [State 105, 1]
 type = Veladd
 trigger1 = 1
-x = 0.32
+x = 0.30
 
 [State 105, 3]
 type = ChangeState

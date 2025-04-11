@@ -6,7 +6,7 @@
 name = "ZXAkuma"           ;Name of character
 displayname = "Akuma"   ;Name of character to display
 versiondate = 04,17,2022    ;Version date of character
-mugenversion = 1.0   ;Version of M.U.G.E.N character works on
+mugenversion = 1.1   ;Version of M.U.G.E.N character works on
 author = "Master Gouken"           ;Character author name
 pal.defaults = 6,3,4,2      ;Default palettes in order of preference
 localcoord = 320,240

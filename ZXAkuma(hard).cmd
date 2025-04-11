@@ -142,12 +142,48 @@ name = "metsu1"
 command = ~F, DF, D, DB, B, x
 
 [Command]
+name = "metsu1"
+command = ~F, DF, D, DB, x
+
+[Command]
+name = "metsu1"
+command = ~F, D, DB, x
+
+[Command]
+name = "metsu1"
+command = ~F, D, B, x
+
+[Command]
 name = "metsu2"
 command = ~F, DF, D, DB, B, y
 
 [Command]
+name = "metsu2"
+command = ~F, DF, D, DB, y
+
+[Command]
+name = "metsu2"
+command = ~F, D, DB, y
+
+[Command]
+name = "metsu2"
+command = ~F, D, B, y
+
+[Command]
 name = "metsu3"
 command = ~F, DF, D, DB, B, z
+
+[Command]
+name = "metsu3"
+command = ~F, DF, D, DB, z
+
+[Command]
+name = "metsu3"
+command = ~F, D, DB, z
+
+[Command]
+name = "metsu3"
+command = ~F, D, B, z
 
 [Command]
 name = "tatsu1"
@@ -734,15 +770,17 @@ trigger1 = ctrl
 [State -1, Over Head Throw]
 type = ChangeState
 value = 800
-triggerall = command = "grab1"
+triggerall = command = "z"
 triggerall = statetype = S
 triggerall = ctrl
 triggerall = stateno != 100
 triggerall = Var(13) = 0
 trigger1 = command = "holdfwd"
+trigger1 = p2bodydist X < 26
 trigger1 = (p2statetype = S) || (p2statetype = C)
 trigger1 = p2movetype != H
 trigger2 = command = "holdback"
+trigger2 = p2bodydist X < 10
 trigger2 = (p2statetype = S) || (p2statetype = C)
 trigger2 = p2movetype != H
 
