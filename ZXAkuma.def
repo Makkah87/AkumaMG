@@ -1,0 +1,49 @@
+; Definition file for ZXAkuma
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "ZXAkuma"           ;Name of character
+displayname = "Akuma"   ;Name of character to display
+versiondate = 04,17,2022    ;Version date of character
+mugenversion = 1.0   ;Version of M.U.G.E.N character works on
+author = "Master Gouken"           ;Character author name
+pal.defaults = 6,3,4,2      ;Default palettes in order of preference
+localcoord = 320,240
+
+; Files for the player
+[Files]
+cmd     = ZXAkuma(hard).cmd   ;Command set
+cns     = ZXAkuma.cns   ;Constants
+st      = ZXAkuma.cns   ;States
+stcommon= common1.cns    ;Common states
+sprite  = ZXAkuma.sff   ;Sprite
+anim    = ZXAkuma.air   ;Animation
+sound   = ZXAkuma.snd   ;Sound
+;====|Pallettes|====
+pal1    = Akuma1.act
+pal2    = Akuma2.act
+pal3    = Akuma3.act
+pal4    = Akuma4.act
+pal5    = Akuma5.act
+pal6    = Akuma6.act
+pal7    = ShinAkuma1.act
+pal8    = ShinAkuma2.act
+pal9    = ShinAkuma3.act
+pal10   = ShinAkuma4.act
+pal11   = ShinAkuma5.act
+pal12   = ShinAkuma6.act
+
+[Palette Keymap]
+a = 1
+b = 2
+c = 3
+x = 4
+y = 5
+z = 6
+a2 = 7
+b2 = 8
+c2 = 9
+x2 = 10
+y2 = 11
+z2 = 12

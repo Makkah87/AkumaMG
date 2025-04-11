@@ -1,0 +1,1014 @@
+;ZXAkuma's CMD file
+;=====================================================================
+;-| Super Motions |---------------------------------------------------------------------
+[Command]
+name = "shun"
+command = x,x,F,a,z
+time = 50
+
+[Command]
+name = "gousho"
+command = ~D, DF, F, D, DF, F, x
+time = 20
+
+[Command]
+name = "gousho"
+command = ~D, DF, F, D, DF, F, y
+time = 20
+
+[Command]
+name = "gousho"
+command = ~D, DF, F, D, DF, F, z
+time = 20
+
+[Command]
+name = "messatsu"
+command = ~D, DB, B, D, DB, B, x
+time = 20
+
+[Command]
+name = "messastu"
+command = ~D, DB, B, D, DB, B, y
+time = 20
+
+[Command]
+name = "messatsu"
+command = ~D, DB, B, D, DB, B, z
+time = 20
+
+;-| Special Motions |------------------------------------------------------
+[Command]
+name = "asurafwd1"
+command = ~F, D, DF, x+y
+
+[Command]
+name = "asurafwd1"
+command = ~F, D, DF, y+z
+
+[Command]
+name = "asurafwd1"
+command = ~F, D, DF, x+z
+
+[Command]
+name = "asurabk1"
+command = ~B, D, DB, x+y
+
+[Command]
+name = "asurabk1"
+command = ~B, D, DB, y+z
+
+[Command]
+name = "asurabk1"
+command = ~B, D, DB, x+z
+
+[Command]
+name = "asurafwd2"
+command = ~F, D, DF, a+b
+
+[Command]
+name = "asurafwd2"
+command = ~F, D, DF, b+c
+
+[Command]
+name = "asurafwd2"
+command = ~F, D, DF, a+c
+
+[Command]
+name = "asurabk2"
+command = ~B, D, DB, a+b
+
+[Command]
+name = "asurabk2"
+command = ~B, D, DB, b+c
+
+[Command]
+name = "asurabk2"
+command = ~B, D, DB, a+c
+
+[Command]
+name = "shoryu1"
+command = ~F, D, DF, x
+
+[Command]
+name = "shoryu2"
+command = ~F, D, DF, y
+
+[Command]
+name = "shoryu3"
+command = ~F, D, DF, z
+
+[Command]
+name = "hyakki1"
+command = ~F, D, DF, a
+
+[Command]
+name = "hyakki2"
+command = ~F, D, DF, b
+
+[Command]
+name = "hyakki3"
+command = ~F, D, DF, c
+
+[Command]
+name = "Gou1"
+command = ~D, DF, F, x
+
+[Command]
+name = "Gou2"
+command = ~D, DF, F, y
+
+[Command]
+name = "Gou3"
+command = ~D, DF, F, z
+
+[Command]
+name = "kujin1"
+command = ~D, DF, F, a
+
+[Command]
+name = "kujin2"
+command = ~D, DF, F, b
+
+[Command]
+name = "kujin3"
+command = ~D, DF, F, c
+
+[Command]
+name = "QCF_xy"
+command = ~D, DF, F, x+y
+
+[Command]
+name = "metsu1"
+command = ~F, DF, D, DB, B, x
+
+[Command]
+name = "metsu2"
+command = ~F, DF, D, DB, B, y
+
+[Command]
+name = "metsu3"
+command = ~F, DF, D, DB, B, z
+
+[Command]
+name = "tatsu1"
+command = ~D, DB, B, a
+
+[Command]
+name = "tatsu2"
+command = ~D, DB, B, b
+
+[Command]
+name = "tatsu3"
+command = ~D, DB, B, c
+
+[Command]
+name = "grab1"
+command = x+y
+
+[Command]
+name = "grab1"
+command = y+z
+
+[Command]
+name = "grab1"
+command = x+z
+
+[Command]
+name = "grab2"
+command = a+b
+
+[Command]
+name = "grab2"
+command = b+c
+
+[Command]
+name = "grab2"
+command = a+c
+
+[Command]
+name = "hop_k"
+command = /$F,b ;/$
+
+;-| Double Tap |-----------------------------------------------------------
+[Command]
+name = "FF"     ;Required (do not remove)
+command = F, F
+time = 10
+
+[Command]
+name = "BB"     ;Required (do not remove)
+command = B, B
+time = 10
+
+;-| 2/3 Button Combination |-----------------------------------------------
+[Command]
+name = "recovery";Required (do not remove)
+command = x+y
+time = 1
+
+;-| Dir + Button |---------------------------------------------------------
+[Command]
+name = "down_a"
+command = /$D,a
+time = 1
+
+[Command]
+name = "down_b"
+command = /$D,b
+time = 1
+
+;-|Charge
+[Command]
+name = "messcharge"
+command = /$x
+time = 1
+
+[Command]
+name = "messcharge"
+command = /$y
+time = 1
+
+[Command]
+name = "messcharge"
+command = /$z
+time = 1
+
+;-| Single Button |---------------------------------------------------------
+[Command]
+name = "a"
+command = a
+time = 1
+
+[Command]
+name = "b"
+command = b
+time = 1
+
+[Command]
+name = "c"
+command = c
+time = 1
+
+[Command]
+name = "x"
+command = x
+time = 1
+
+[Command]
+name = "y"
+command = y
+time = 1
+
+[Command]
+name = "z"
+command = z
+time = 1
+
+[Command]
+name = "start"
+command = s
+time = 1
+
+;-| Hold Dir |--------------------------------------------------------------
+[Command]
+name = "holdfwd";Required (do not remove)
+command = /$F
+time = 1
+
+[Command]
+name = "holdback";Required (do not remove)
+command = /$B
+time = 1
+
+[Command]
+name = "holdup" ;Required (do not remove)
+command = /$U
+time = 1
+
+[Command]
+name = "holddown";Required (do not remove)
+command = /$D
+time = 1
+
+;--------------------------------------------------------------------
+; 2. State entry
+;--------------------------------------------------------------------
+[Statedef -1]
+
+;====================================================================
+;			   Hyper Moves
+;====================================================================
+;Shun Goku Satsu
+[State -1, Shun Goku Satsu]
+type = ChangeState
+value = 3050
+triggerall = command = "shun"
+triggerall = power >= 3000
+triggerall = statetype != A
+triggerall = Var(13) = 0
+trigger1 = ctrl
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = stateno != [3050,3100)
+trigger2 = movecontact
+;--------------------------------------------------------------------
+;Messatsu Gou Hadou
+[State -1, Messatsu Gou Hadou]
+type = ChangeState
+value = 3010
+triggerall = command = "messatsu"
+triggerall = power >= 1000
+triggerall = statetype != A
+triggerall = Var(13) = 0
+trigger1 = ctrl
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = stateno != [3050,3100)
+trigger2 = movecontact
+;--------------------------------------------------------------------
+;Tenma Gou Zankuu
+[State -1, Tenma Gou Zankuu]
+type = ChangeState
+value = 3020
+triggerall = command = "gousho"
+triggerall = power >= 1000
+triggerall = statetype = A
+triggerall = Var(13) = 0
+trigger1 = ctrl
+trigger2 = hitdefattr = A, NA, SA, HA
+trigger2 = stateno != [3050,3100)
+trigger2 = movecontact
+;--------------------------------------------------------------------
+;Messatsu Gou Shoryu
+[State -1, Messatsu Gou Shoryu]
+type = ChangeState
+value = 3000
+triggerall = command = "gousho"
+triggerall = power >= 1000
+triggerall = stateno != 3000
+triggerall = Var(13) = 0
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = statetype != A
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = stateno = 52
+;====================================================================
+;			 Special Moves(Player)
+;====================================================================
+;Asura Senkuu (Long Forward)
+[State -1, Asura Senkuu (Long Forward)]
+type = ChangeState
+value = 1050
+triggerall = command = "asurafwd1"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399]) 
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Asura Senkuu (Long Forward)
+[State -1, Asura Senkuu (Long Forward)]
+type = ChangeState
+value = 1054
+triggerall = command = "asurabk1"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399]) 
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Asura Senkuu (Short Forward)
+[State -1, Asura Senkuu (ShortForward)]
+type = ChangeState
+value = 1056
+triggerall = command = "asurafwd2"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399]) 
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Asura Senkuu (Short Back)
+[State -1, Asura Senkuu (ShortBack)]
+type = ChangeState
+value = 1058
+triggerall = command = "asurabk2"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399]) 
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Gou Shoryu (Weak)
+[State -1, Gou Shoryu (Weak)]
+type = ChangeState
+value = 1030
+triggerall = command = "shoryu1"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Gou Shoryu (Medium)
+[State -1, Gou Shoryu (Medium)]
+type = ChangeState
+value = 1035
+triggerall = command = "shoryu2"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Gou Shoryu (Strong)
+[State -1, Gou Shoryu (Strong)]
+type = ChangeState
+value = 1040
+triggerall = command = "shoryu3"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Hyakki Shuu (Weak)
+[State -1, Hyakki Shuu (Weak)]
+type = ChangeState
+value = 1110
+triggerall = command = "hyakki1"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Hyakki Shuu (Medium)
+[State -1, Hyakki Shuu (Medium)]
+type = ChangeState
+value = 1120
+triggerall = command = "hyakki2"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Hyakki Shuu (Strong)
+[State -1, Hyakki Shuu (Strong)]
+type = ChangeState
+value = 1130
+triggerall = command = "hyakki3"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = stateno != 440 ;Except for sweep kick
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Gou Hadou (Weak)
+[State -1, Gou Hadou (Weak)]
+type = ChangeState
+value = 1000
+triggerall = command = "Gou1"
+triggerall = Var(13) = 0
+triggerall = Var(11) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Gou Hadou (Medium)
+[State -1, Gou Hadou (Medium)]
+type = ChangeState
+value = 1015
+triggerall = command = "Gou2"
+triggerall = Var(13) = 0
+triggerall = Var(11) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Gou Hadou (Strong)
+[State -1, Gou Hadou (Strong)]
+type = ChangeState
+value = 1020
+triggerall = command = "Gou3"
+triggerall = Var(13) = 0
+triggerall = Var(11) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Gou Zankuu (Weak)
+[State -1, Gou Zankuu (Weak)]
+type = ChangeState
+value = 1140
+triggerall = command = "Gou1"
+triggerall = Var(13) = 0
+triggerall = Var(11) = 0
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Gou Zankuu (Medium)
+[State -1, Gou Zankuu (Medium)]
+type = ChangeState
+value = 1145
+triggerall = command = "Gou2"
+triggerall = Var(13) = 0
+triggerall = Var(11) = 0
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Gou Zankuu (Strong)
+[State -1, Gou Zankuu (Strong)]
+type = ChangeState
+value = 1150
+triggerall = command = "Gou3"
+triggerall = Var(13) = 0
+triggerall = Var(11) = 0
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Tenma Kujin Kyaku (Weak)
+[State -1, Tenma Kujin Kyaku (Weak)]
+type = ChangeState
+value = 1085
+triggerall = command = "kujin1"
+triggerall = Var(13) = 0
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [600,699]) || (stateno = [400,499])
+trigger2 = movecontact
+;--------------------------------------------------------------------
+;Tenma Kujin Kyaku (Medium)
+[State -1, Tenma Kujin Kyaku (Medium)]
+type = ChangeState
+value = 1095
+triggerall = command = "kujin2"
+triggerall = Var(13) = 0
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [600,699]) || (stateno = [400,499])
+trigger2 = movecontact
+;--------------------------------------------------------------------
+;Tenma Kujin Kyaku (Strong)
+[State -1, Tenma Kujin Kyaku (Strong)]
+type = ChangeState
+value = 1100
+triggerall = command = "kujin3"
+triggerall = Var(13) = 0
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [600,699]) || (stateno = [400,499])
+trigger2 = movecontact
+;--------------------------------------------------------------------
+;Metsu Gou Hadou
+[State -1, Metsu Gou Hadou (Weak)]
+type = ChangeState
+value = 1160
+triggerall = command = "metsu1"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Metsu Gou Hadou
+[State -1, Metsu Gou Hadou (Medium)]
+type = ChangeState
+value = 1165
+triggerall = command = "metsu2"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Metsu Gou Hadou
+[State -1, Metsu Gou Hadou (Strong)]
+type = ChangeState
+value = 1170
+triggerall = command = "metsu3"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Tatsumaki Zankuu Kyaku (Weak)
+[State -1, Tatsumaki Zankuu Kyaku (Weak)]
+type = ChangeState
+value = 1060
+triggerall = command = "tatsu1"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Tatsumaki Zankuu Kyaku (Medium)
+[State -1, Tatsumaki Zankuu Kyaku (Medium)]
+type = ChangeState
+value = 1065
+triggerall = command = "tatsu2"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Tatsumaki Zankuu Kyaku (Strong)
+[State -1, Tatsumaki Zankuu Kyaku (Strong)]
+type = ChangeState
+value = 1070
+triggerall = command = "tatsu3"
+triggerall = Var(13) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Air Tatsumaki Zankuu Kyaku (Weak)
+[State -1, Air Tatsumaki Zankuu Kyaku (Weak)]
+type = ChangeState
+value = 1080
+triggerall = command = "tatsu1"
+triggerall = Var(13) = 0
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Air Tatsumaki Zankuu Kyaku (Medium)
+[State -1, Air Tatsumaki Zankuu Kyaku (Medium)]
+type = ChangeState
+value = 1081
+triggerall = command = "tatsu2"
+triggerall = Var(13) = 0
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;--------------------------------------------------------------------
+;Air Tatsumaki Zankuu Kyaku (Strong)
+[State -1, Air Tatsumaki Zankuu Kyaku (Strong)]
+type = ChangeState
+value = 1082
+triggerall = command = "tatsu3"
+triggerall = Var(13) = 0
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [300,399])
+trigger2 = movecontact
+trigger3 = stateno = 1090
+trigger4 = (stateno = [400,499]) && movecontact
+;====================================================================
+;--------------------------------------------------------------------
+;Run Fwd
+[State -1, Run Fwd]
+type = ChangeState
+value = 100
+triggerall = Var(13) = 0
+trigger1 = command = "FF"
+trigger1 = statetype = S
+trigger1 = ctrl
+
+;--------------------------------------------------------------------
+;Run Back
+[State -1, Run Back]
+type = ChangeState
+value = 105
+triggerall = Var(13) = 0
+trigger1 = command = "BB"
+trigger1 = statetype = S
+trigger1 = ctrl
+
+;--------------------------------------------------------------------
+;Over Head Throw
+[State -1, Over Head Throw]
+type = ChangeState
+value = 800
+triggerall = command = "grab1"
+triggerall = statetype = S
+triggerall = ctrl
+triggerall = stateno != 100
+triggerall = Var(13) = 0
+trigger1 = command = "holdfwd"
+trigger1 = (p2statetype = S) || (p2statetype = C)
+trigger1 = p2movetype != H
+trigger2 = command = "holdback"
+trigger2 = (p2statetype = S) || (p2statetype = C)
+trigger2 = p2movetype != H
+
+
+;====================================================================
+;			 Normal Moves(Player)
+;====================================================================
+;--------------------------------------------------------------------
+;Standing Hop Kick
+;--------------------------------------------------------------------
+[State -1, Standing Hop Kick]
+type = ChangeState
+value = 315
+triggerall = command = "hop_k"
+triggerall = command != "holddown"
+triggerall = Var(13) = 0
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = (stateno = 300||stateno = 200) && MoveContact
+trigger3 = stateno = 200 && MoveContact
+trigger4 = stateno = 52
+trigger5 = stateno = 1090
+;--------------------------------------------------------------------
+;Stand Light Punch
+;--------------------------------------------------------------------
+[State -1, Stand Light Punch]
+type = ChangeState
+value = 200
+triggerall = command = "x"
+triggerall = command != "holddown"
+triggerall = Var(13) = 0
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = time > 6
+trigger3 = stateno = 52
+trigger4 = stateno = 1090
+;--------------------------------------------------------------------
+;Stand Medium Punch
+;--------------------------------------------------------------------
+[State -1, Stand Medium Punch]
+type = ChangeState
+value = 210
+triggerall = command = "y"
+triggerall = command != "holddown"
+triggerall = Var(13) = 0
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = (stateno = 200 || stateno = 230) && MoveContact
+trigger3 = stateno = 300 && MoveContact
+trigger4 = stateno = 52
+trigger5 = stateno = 1090
+;--------------------------------------------------------------------
+;Stand Strong Punch
+;--------------------------------------------------------------------
+[State -1, Stand Strong Punch]
+type = ChangeState
+value = 220
+triggerall = command = "z"
+triggerall = command != "holddown"
+triggerall = Var(13) = 0
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = (stateno = 200 || stateno = 300) && MoveContact
+trigger3 = (stateno = 210 || stateno = 310) && MoveContact
+trigger4 = stateno = 52
+trigger5 = stateno = 1090
+;--------------------------------------------------------------------
+;Stand Light Kick
+;--------------------------------------------------------------------
+[State -1, Stand Light Kick]
+type = ChangeState
+value = 300
+triggerall = command = "a"
+triggerall = command != "holddown"
+triggerall = Var(13) = 0
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = stateno = 52
+trigger3 = stateno = 1090 && time > 1
+;--------------------------------------------------------------------
+;Standing Medium Kick
+;--------------------------------------------------------------------
+[State -1, Standing Medium Kick]
+type = ChangeState
+value = 310
+triggerall = command = "b"
+triggerall = command != "holddown"
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = (stateno = 300||stateno = 200) && MoveContact
+trigger3 = stateno = 200 && MoveContact
+trigger4 = stateno = 52
+trigger5 = stateno = 1090 && time > 1
+;--------------------------------------------------------------------
+;Standing Strong Kick
+;--------------------------------------------------------------------
+[State -1, Standing Strong Kick]
+type = ChangeState
+value = 320
+triggerall = command = "c"
+triggerall = command != "holddown"
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = (stateno = 300 || stateno = 200) && MoveContact
+trigger3 = (stateno = 200 || stateno = 310) && MoveContact
+trigger4 = stateno = 210 && MoveContact
+trigger5 = stateno = 52
+trigger6 = stateno = 1090 && time > 1
+;--------------------------------------------------------------------
+;Taunt
+[State -1, Taunt]
+type = ChangeState
+value = 195
+triggerall = command = "start"
+trigger1 = statetype != A
+trigger1 = ctrl
+
+;--------------------------------------------------------------------
+;Crouching Light Punch
+[State -1, Crouching Light Punch]
+type = ChangeState
+value = 400
+triggerall = command = "x"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+trigger2 = stateno = 52
+trigger3 = stateno = 1090
+;--------------------------------------------------------------------
+;Crouching Medium Punch
+[State -1, Crouching Medium Punch]
+type = ChangeState
+value = 410
+triggerall = command = "y"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+trigger2 = (stateno = 400) || (stateno = 430) && movecontact
+trigger3 = stateno = 52
+trigger4 = stateno = 1090
+;--------------------------------------------------------------------
+;Crouching Strong Punch
+[State -1, Crouching Strong Punch]
+type = ChangeState
+value = 420
+triggerall = command = "z"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+trigger2 = (stateno = 400 || stateno = 430) && MoveContact
+trigger3 = (stateno = 410 || stateno = 440) && MoveContact
+trigger4 = stateno = 52
+trigger5 = stateno = 1090
+;--------------------------------------------------------------------
+;Crouching Light Kick
+[State -1, Crouching Light Kick]
+type = ChangeState
+value = 430
+triggerall = command = "a"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+trigger2 = (stateno = 430) && (time > 9) && (movecontact && time > 5)
+trigger3 = stateno = 52
+trigger4 = stateno = 1090 && time >= 1
+;--------------------------------------------------------------------
+;Crouching Medium Kick
+[State -1, Crouching Medium Kick]
+type = ChangeState
+value = 440
+triggerall = command = "b"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+trigger2 = (stateno = 400 || stateno = 430) && movecontact
+trigger3 = stateno = 52
+trigger4 = stateno = 1090 && time >= 1
+;--------------------------------------------------------------------
+;Crouching Strong Kick
+[State -1, Crouching Strong Kick]
+type = ChangeState
+value = 450
+triggerall = command = "c"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+trigger2 = (stateno = 400 || stateno = 430 || stateno = 440) && movecontact
+trigger3 = stateno = 52
+trigger4 = stateno = 1090 && time >= 1
+;--------------------------------------------------------------------
+;Jump Light Punch
+[State -1, Jump Light Punch]
+type = ChangeState
+value = 600
+triggerall = command = "x"
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = stateno = 600
+trigger2 = statetime >= 7
+
+;--------------------------------------------------------------------
+;Jump Medium Punch
+[State -1, Jump Medium Punch]
+type = ChangeState
+value = 610
+triggerall = command = "y"
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = stateno = 600 || stateno = 630 ;jump_x or jump_a
+trigger2 = movecontact
+;--------------------------------------------------------------------
+;Jump Strong Punch
+[State -1, Jump Strong Punch]
+type = ChangeState
+value = 620
+triggerall = command = "z"
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = 600 || stateno = 630 || stateno = 610 || stateno = 640) && MoveContact
+;--------------------------------------------------------------------
+;Jump Light Kick
+[State -1, Jump Light Kick]
+type = ChangeState
+value = 630
+triggerall = command = "a"
+trigger1 = statetype = A
+trigger1 = ctrl
+
+;--------------------------------------------------------------------
+;Jump Medium Kick
+[State -1, Jump Strong Kick]
+type = ChangeState
+value = 640
+triggerall = command = "b"
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = stateno = 600 || stateno = 630 ;jump_x or jump_a
+trigger2 = movecontact
+
+;--------------------------------------------------------------------
+;Jump Strong Kick
+[State -1, Jump Strong Kick]
+type = ChangeState
+value = 650
+triggerall = command = "c"
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = 600 || stateno = 630 || stateno = 640 || stateno = 610) && MoveContact
