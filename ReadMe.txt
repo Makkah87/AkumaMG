@@ -1,17 +1,30 @@
 =======================================================================
-		      ZXAkuma V1.2 by Master Gouken
-                     E-mail: ikuzotomugen@yahoo.com
+		 ZXAkuma V2.0 by Makkah aka Master Gouken
+                     E-mail: gouken1987@hotmail.com
 =======================================================================
-Strory
+Story
 ------
-After crushing Gen in a long and brutal battle, Akuma finds himself internally damaged. He travels all over the world in an effort to find his bastard son Ryu in order to continue his legaacy. While on a raft sailing over the Bermuda Triangle, Akuma finds himself entangled in a powerfull vortex which transfers him to another dimension. A demension filled with many powerfull opponents for him to unleash his frustration. Akuma discovers a tournament called M.U.G.E.N where only the most powerfull fighters congregate and he hears rumors that his son, with "awakened powers" has entered. He also witnesses the arival of himself from different time streams and  Ken Masters who also seems to possess "evil intent". With a new challenge awaiting him, Akuma ventures into the tournament arena to fulfill his quest.
+After crushing Gen in a long and brutal battle, Akuma finds himself internally damaged. He travels all over the world in an effort to find Ryu in order to end his life in a battle worthy of him. While on a raft sailing over the Bermuda Triangle, Akuma finds himself entangled in a powerfull vortex which transfers him to another dimension. A demension filled with many powerfull opponents for him to unleash his frustration. Akuma discovers a tournament called M.U.G.E.N where only the most powerfull fighters congregate and he hears rumors that Ryu, with "awakened powers" has entered. He also witnesses the arival of himself from different time streams and Ken Masters who also seems to possess "evil intent". With a new challenge awaiting him, Akuma ventures into the tournament arena to fulfill his quest.
 
 Fixes
 -------
--Added somewhat of a damage dampener
--Fixed timing problem in the Tenma Gou Zankuu
--Made opponent turn around during MGS
--Other small fixes here and there
+-Complete overhaul to bring him to my current standards in 2025
+-Animations have been redone
+-Chain combos still work but are no longer the focus
+-A lot of balance changes related to OTGs, +/- frames and recovery of control
+-Toned down env shakes, and in many cases, outright removed them
+
+To-Do
+-------
+-Change FX graphics back to CPS quality
+-Add burning effect
+-Add hyper combo finish effect
+-Refine SGS finish effect
+-Add more voice samples to basic attacks
+-EX moves?
+-Greater differentiation between regular and Shin Akuma. Possibly combine the two
+-Refine aerial tatsu
+-Implement Tenma Gou Rassen: QCBx2 + K
 
 Why the name ZXAkuma?
 ---------------------
@@ -94,6 +107,4 @@ Credits
 
 -Zytor, for his Capcom palettes database.
 
--Last but certainly not least God, for giving me the skill and   understanding to code in MUGEN
-
--Oh and anyone else I may have forgotten...please forgive me if I have,  i've got a REALLY bad memory, which unfortunately seems to be   hereditory <:\ .
+-Oh and anyone else I may have forgotten...please forgive me if I have,  i've got a REALLY bad memory, which unfortunately seems to be hereditory <:\ .
