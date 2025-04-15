@@ -3,7 +3,7 @@
 ;----------------------  http://www.virtualltek.com  ----------------------;
 ;--------------------------------------------------------------------------;
 
-; 
+; Stand
 [Begin Action 0]
 Clsn2:2
   Clsn2[0] = -22, -76, 24, 1
@@ -31,7 +31,7 @@ Clsn2:2
 0,6, 0,0, 5
 
 
-; 
+; Stand-Turn
 [Begin Action 5]
 Clsn2:2
   Clsn2[0] = -21, -79, 23, 0
@@ -47,7 +47,7 @@ Clsn2:2
 1,2, 0,0, 2
 
 
-; 
+; Crouch-Turn
 [Begin Action 6]
 Clsn2:1
   Clsn2[0] = -20, -54, 23, 0
@@ -57,7 +57,7 @@ Clsn2:1
 5,2, 0,0, 4
 
 
-; 
+; Stand to Crouch
 [Begin Action 10]
 Clsn2:2
   Clsn2[0] = -18, -77, 21, 0
@@ -69,7 +69,7 @@ Clsn2:2
 6,1, 0,0, 2
 
 
-; 
+; Crouching
 [Begin Action 11]
 Clsn2:2
   Clsn2[0] = -21, -50, 23, 0
@@ -77,7 +77,7 @@ Clsn2:2
 6,0, 0,0, 1
 
 
-; 
+; Crouch to Stand
 [Begin Action 12]
 Clsn2:2
   Clsn2[0] = -25, -55, 25, 1
@@ -89,7 +89,7 @@ Clsn2:2
 10,0, 0,0, 1
 
 
-; 
+; Walk Forward
 [Begin Action 20]
 Clsn2:2
   Clsn2[0] = -22, -76, 24, 1
@@ -117,7 +117,7 @@ Clsn2:2
 10,5, 0,0, 6
 
 
-; 
+; Walk Backwards
 [Begin Action 21]
 Clsn2:2
   Clsn2[0] = -22, -76, 24, 1
@@ -145,7 +145,7 @@ Clsn2:2
 11,6, 0,0, 6
 
 
-; 
+; Ready to Jump
 [Begin Action 40]
 Clsn2:2
   Clsn2[0] = -18, -74, 22, 0
@@ -153,7 +153,7 @@ Clsn2:2
 15,1, 0,0, 2
 
 
-; 
+; Neutral Jump Up
 [Begin Action 41]
 Clsn2:1
   Clsn2[0] = -29, -103, 18, -18
@@ -163,7 +163,7 @@ Clsn2:1
 15,3, 0,0, -1
 
 
-; 
+; Jump Fwd 1
 [Begin Action 42]
 Clsn2:3
   Clsn2[0] = -29, -103, 18, -18
@@ -172,7 +172,7 @@ Clsn2:3
 21,0, 15,-1, -1
 
 
-; 
+; Jump Back 1
 [Begin Action 43]
 Clsn2:1
   Clsn2[0] = -25, -100, 25, -31
@@ -184,7 +184,7 @@ Clsn2:3
 20,2, 0,0, -1
 
 
-; 
+; Jump Neutral Decend
 [Begin Action 44]
 Clsn2:2
   Clsn2[0] = -24, -97, 20, -46
@@ -207,7 +207,7 @@ Clsn2:1
 15,8, 0,0, 3
 
 
-; 
+; Jump Forward Flip
 [Begin Action 45]
 Clsn2:2
   Clsn2[0] = 1, -96, 18, -77
@@ -237,7 +237,7 @@ Clsn2:1
 15,8, 0,0, 3
 
 
-; 
+; Jump Back Flip
 [Begin Action 46]
 Clsn2:2
   Clsn2[0] = -45, -83, -6, -52
@@ -267,7 +267,7 @@ Clsn2:2
 21,1, 0,0, 3
 
 
-; 
+; Land
 [Begin Action 47]
 Clsn2:2
   Clsn2[0] = -18, -76, 20, -2
@@ -275,7 +275,7 @@ Clsn2:2
 15,1, 0,0, 3
 
 
-; 
+; Dash FWD
 [Begin Action 100]
 Loopstart
 Clsn2:3
@@ -290,7 +290,7 @@ Clsn2:3
 21,1, 16,3, 3
 
 
-; 
+; Dash Back
 [Begin Action 105]
 Clsn2:3
   Clsn2[0] = -27, -93, 24, -42
@@ -304,7 +304,7 @@ Clsn2:3
 21,1, 16,3, 3
 
 
-; 
+; Dash Stop
 [Begin Action 107]
 Clsn2:2
   Clsn2[0] = -10, -88, 16, -65
@@ -312,7 +312,7 @@ Clsn2:2
 15,1, 0,0, 0
 
 
-; 
+; Back Dash Stop
 [Begin Action 108]
 Clsn2:2
   Clsn2[0] = -10, -87, 15, -67
@@ -320,7 +320,7 @@ Clsn2:2
 15,1, 0,0, 0
 
 
-; 
+; Stand Guard Start
 [Begin Action 120]
 Clsn2:2
   Clsn2[0] = -22, -76, 24, 1
@@ -328,21 +328,21 @@ Clsn2:2
 120,0, 0,0, 1
 
 
-; 
+; Crouch Guard Start
 [Begin Action 121]
 Clsn2:1
   Clsn2[0] = -23, -60, 24, 1
 125,0, 0,0, 1
 
 
-; 
+; Air Guard Start
 [Begin Action 122]
 Clsn2:1
   Clsn2[0] = -30, -100, 15, -39
 130,1, 0,0, 1
 
 
-; 
+; Stand Guarding
 [Begin Action 130]
 Clsn2:2
   Clsn2[0] = -22, -76, 24, 1
@@ -354,7 +354,7 @@ Clsn2:2
 120,1, 0,0, -1
 
 
-; 
+; Crouch Guarding
 [Begin Action 131]
 Clsn2:1
   Clsn2[0] = -25, -50, 20, 1
@@ -364,14 +364,14 @@ Clsn2:1
 125,1, 0,0, -1
 
 
-; 
+; Air Guarding
 [Begin Action 132]
 Clsn2:1
   Clsn2[0] = -30, -97, 12, -40
 130,1, 0,0, -1
 
 
-; 
+; Stand Guard Recover
 [Begin Action 140]
 Clsn2:2
   Clsn2[0] = -22, -76, 24, 1
@@ -379,14 +379,14 @@ Clsn2:2
 120,0, 0,0, 5
 
 
-; 
+; Crouch Guard Recover
 [Begin Action 141]
 Clsn2:1
   Clsn2[0] = -21, -58, 20, 1
 125,0, 0,0, 3
 
 
-; 
+; Air Guard Recover
 [Begin Action 142]
 Clsn2:1
   Clsn2[0] = -32, -103, 14, -37
@@ -416,12 +416,12 @@ Clsn2:2
 130,0, 0,0, -1
 
 
-; 
+; Time Over
 [Begin Action 170]
 5000,0, 0,0, -1
 
 
-; 
+; Win Stomp
 [Begin Action 181]
 190,1, 0,0, 4
 190,2, 0,0, 5
@@ -430,7 +430,7 @@ Clsn2:2
 190,14, 0,0, -1
 
 
-; 
+; Win Stomp Vibrate
 [Begin Action 182]
 190,1, 0,0, 4
 190,2, 0,0, 5
@@ -440,14 +440,14 @@ Loopstart
 190,14, 0,0, 3
 
 
-; 
+; Back Turn
 [Begin Action 183]
 10,1, 0,0, 5
 300,1, 0,0, 8
 190,0, 0,0, -1
 
 
-; 
+; Shin Intro
 [Begin Action 189]
 190,0, 0,0, 90
 190,1, 0,0, 4
@@ -481,7 +481,7 @@ Loopstart
 190,22, 0,0, 3
 
 
-; 
+; Intro Stomp
 [Begin Action 190]
 190,0, 0,0, 90
 190,1, 0,0, 4
@@ -498,7 +498,7 @@ Loopstart
 190,12, 0,0, 3
 
 
-; 
+; Ten
 [Begin Action 191]
 191,1, 0,0, 3
 191,2, 0,0, 3
@@ -509,7 +509,7 @@ Loopstart
 191,7, 0,0, -1
 
 
-; 
+; Ten Mirrored
 [Begin Action 192]
 191,1, 0,0, 3, H
 191,2, 0,0, 3, H
@@ -520,7 +520,7 @@ Loopstart
 191,7, 0,0, -1, H
 
 
-; 
+; Ten Receed
 [Begin Action 193]
 191,7, 0,0, 90
 191,6, 0,0, 5
@@ -531,7 +531,7 @@ Loopstart
 191,1, 0,0, 3
 
 
-; 
+; Ten Receed Mirrored
 [Begin Action 194]
 191,7, 0,0, 90, H
 191,6, 0,0, 5, H
@@ -542,7 +542,7 @@ Loopstart
 191,1, 0,0, 3, H
 
 
-; 
+; Taunt
 [Begin Action 195]
 Clsn2:2
   Clsn2[0] = 3, -72, 32, 1
@@ -654,7 +654,7 @@ Clsn2:4
 190,12, 0,0, 3
 
 
-; 
+; Shin Kanji Receed
 [Begin Action 196]
 192,6, 0,0, 69
 192,5, 0,0, 5
@@ -665,7 +665,7 @@ Clsn2:4
 192,0, 0,0, 3
 
 
-; 
+; Shin Kanji Receed Mirrored
 [Begin Action 197]
 192,6, 0,0, 69, H
 192,5, 0,0, 5, H
@@ -676,7 +676,7 @@ Clsn2:4
 192,0, 0,0, 3, H
 
 
-; 
+; Shin Kanji
 [Begin Action 198]
 192,0, 0,0, 3
 192,1, 0,0, 3
@@ -687,7 +687,7 @@ Clsn2:4
 192,6, 0,0, -1
 
 
-; 
+; Shin Kanji Mirrored
 [Begin Action 199]
 192,0, 0,0, 3, H
 192,1, 0,0, 3, H
@@ -698,7 +698,7 @@ Clsn2:4
 192,6, 0,0, -1, H
 
 
-; 
+; LP
 [Begin Action 200]
 Clsn2:1
   Clsn2[0] = -21, -90, 32, -1
@@ -714,7 +714,7 @@ Clsn2:1
 200,3, 0,0, 3
 
 
-; 
+; MP
 [Begin Action 210]
 Clsn2:1
   Clsn2[0] = -21, -90, 26, 0
@@ -736,7 +736,7 @@ Clsn2:1
 210,4, 0,0, 4
 
 
-; 
+; MP Close
 [Begin Action 211]
 Clsn2:1
   Clsn2[0] = -33, -86, 17, -2
@@ -759,7 +759,7 @@ Clsn2:1
 211,1, 0,0, 5
 
 
-; 
+; HP
 [Begin Action 220]
 Clsn2:2
   Clsn2[0] = -19, -47, 45, -1
@@ -792,7 +792,7 @@ Clsn2:1
 220,6, 0,0, 3
 
 
-; 
+; HP Close
 [Begin Action 221]
 Clsn2:1
   Clsn2[0] = -33, -88, 15, 0
@@ -816,7 +816,7 @@ Clsn2:1
 211,1, 0,0, 5
 
 
-; 
+; LK
 [Begin Action 300]
 Clsn2:1
   Clsn2[0] = -10, -88, 39, 0
@@ -841,7 +841,7 @@ Clsn2:1
 300,5, 0,0, 2
 
 
-; 
+; MK
 [Begin Action 310]
 Clsn2:2
   Clsn2[0] = -32, -99, -14, -77
@@ -873,7 +873,7 @@ Clsn2:2
 310,5, 0,0, 5
 
 
-; 
+; MK Close
 [Begin Action 312]
 Clsn2:2
   Clsn2[0] = 11, -87, 44, -59
@@ -898,7 +898,7 @@ Clsn2:2
 312,0, 0,0, 4
 
 
-; 
+; Hop Kick
 [Begin Action 315]
 Clsn2:1
   Clsn2[0] = -19, -80, 21, -1
@@ -927,7 +927,7 @@ Clsn2:2
 315,5, 0,0, -1
 
 
-; 
+; HK
 [Begin Action 320]
 Clsn2:1
   Clsn2[0] = -21, -74, 27, -1
@@ -950,7 +950,7 @@ Clsn2:1
 320,4, 0,0, 3
 
 
-; 
+; HK Close
 [Begin Action 321]
 Clsn2:1
   Clsn2[0] = -13, -89, 39, 2
@@ -986,7 +986,7 @@ Clsn2:2
 1,2, 0,0, 2
 
 
-; 
+; C LP
 [Begin Action 400]
 Clsn2:1
   Clsn2[0] = -18, -60, 30, 0
@@ -1002,7 +1002,7 @@ Clsn2:1
 400,2, 0,0, 3
 
 
-; 
+; C MP
 [Begin Action 410]
 Clsn2:1
   Clsn2[0] = -25, -58, 28, 1
@@ -1021,7 +1021,7 @@ Clsn2:1
 401,3, 0,0, 4
 
 
-; 
+; C MP
 [Begin Action 420]
 Clsn2:1
   Clsn2[0] = -21, -66, 32, 0
@@ -1049,7 +1049,7 @@ Clsn2:1
 402,5, 0,0, 4
 
 
-; 
+; C LK
 [Begin Action 430]
 Clsn2:1
   Clsn2[0] = -21, -58, 28, -1
@@ -1065,7 +1065,7 @@ Clsn2:1
 405,0, 0,0, 3
 
 
-; 
+; C MK
 [Begin Action 440]
 Clsn2:1
   Clsn2[0] = -21, -55, 28, 0
@@ -1088,7 +1088,7 @@ Clsn2:1
 406,4, 0,0, 4
 
 
-; 
+; C HK
 [Begin Action 450]
 Clsn2:1
   Clsn2[0] = -5, -56, 42, -1
@@ -1110,7 +1110,7 @@ Clsn2:1
 410,4, 0,0, 8
 
 
-; 
+; J LP
 [Begin Action 600]
 Clsn2:1
   Clsn2[0] = -20, -92, 25, -28
@@ -1126,7 +1126,7 @@ Clsn2:1
 600,2, 0,0, -1
 
 
-; 
+; J MP
 [Begin Action 610]
 Clsn2:1
   Clsn2[0] = -19, -93, 25, -25
@@ -1145,7 +1145,7 @@ Clsn2:1
 600,2, 0,0, -1
 
 
-; 
+; Overhead Chop
 [Begin Action 611]
 Clsn2:2
   Clsn2[0] = -31, -88, 13, -30
@@ -1170,18 +1170,18 @@ Clsn2:2
 Clsn1:1
   Clsn1[0] = 16, -52, 67, -39
 Clsn2:2
-  Clsn2[0] = -9, -86, 43, -28
+  Clsn2[0] = -9, -86, 67, -28
   Clsn2[1] = -39, -32, 24, 2
 215,5, 0,0, 2
 Clsn1:1
-  Clsn1[0] = 47, -30, 79, -18
+  Clsn1[0] = 17, -30, 79, -18
 Clsn2:2
   Clsn2[0] = -32, -31, 48, 3
-  Clsn2[1] = 1, -67, 64, -16
+  Clsn2[1] = 1, -67, 79, -16
 215,6, 0,0, 15
 
 
-; 
+; J HP
 [Begin Action 620]
 Clsn2:1
   Clsn2[0] = -19, -90, 29, -28
@@ -1200,7 +1200,7 @@ Clsn2:1
 600,2, 0,0, -1
 
 
-; 
+; J Neu LK
 [Begin Action 630]
 Clsn2:1
   Clsn2[0] = -35, -90, 11, -27
@@ -1228,7 +1228,7 @@ Clsn2:1
 15,8, -8,5, 3
 
 
-; 
+; J Neu MK
 [Begin Action 650]
 Clsn2:1
   Clsn2[0] = -40, -113, 8, -24
@@ -1253,7 +1253,7 @@ Clsn2:1
 315,7, 0,0, -1
 
 
-; 
+; J LK
 [Begin Action 660]
 Clsn2:1
   Clsn2[0] = -31, -94, 18, -42
@@ -1271,7 +1271,7 @@ Clsn2:1
 650,1, 0,0, -1
 
 
-; 
+; J MK
 [Begin Action 670]
 Clsn2:1
   Clsn2[0] = -31, -93, 16, -39
@@ -1293,7 +1293,7 @@ Clsn2:1
 660,0, 0,0, -1
 
 
-; 
+; J HK
 [Begin Action 680]
 Clsn2:1
   Clsn2[0] = -25, -90, 15, -39
@@ -1315,7 +1315,7 @@ Clsn2:1
 660,0, 0,0, -1
 
 
-; 
+; Throw Attempt
 [Begin Action 800]
 Clsn2:2
   Clsn2[0] = 7, -95, 30, -72
@@ -1343,7 +1343,7 @@ Clsn2:1
 1,2, 0,0, 6
 
 
-; 
+; Overhead Throw
 [Begin Action 810]
 820,0, 0,0, 11
 820,1, 0,0, 8
@@ -1352,7 +1352,7 @@ Clsn2:1
 820,4, 0,0, 29
 
 
-; 
+; Thrown By Overhead Throw
 [Begin Action 820]
 5000,0, 0,0, 11
 5002,20, 0,0, 8, H
@@ -1361,7 +1361,7 @@ Clsn2:1
 5030,30, 0,0, -1
 
 
-; 
+; Back Throw
 [Begin Action 830]
 820,0, 0,0, 10
 830,0, 0,0, 10
@@ -1391,7 +1391,7 @@ Clsn2:1
 5010,20, -31,-75, -1, VH
 
 
-; 
+; Gou Hadou
 [Begin Action 1000]
 Clsn2:2
   Clsn2[0] = -7, -91, 14, -68
@@ -1417,14 +1417,14 @@ Clsn2:2
 1000,4, 0,0, 3
 
 
-; 
+; Gou Hadou Recover
 [Begin Action 1001]
 Clsn2:1
   Clsn2[0] = -18, -80, 19, 1
 1,2, 0,0, 3
 
 
-; 
+; Gou Hadou Projectile
 [Begin Action 1002]
 Clsn1:1
   Clsn1[0] = -32, -12, 24, 15
@@ -1473,7 +1473,7 @@ Clsn2:1
 8000,7, 25,0, 1, , A
 
 
-; 
+; Gou Hadou Projectile Disperse
 [Begin Action 1003]
 8001,0, 25,0, 2, , A
 8001,1, 25,0, 2, , A
@@ -1510,7 +1510,7 @@ Clsn2:1
 6500,8, 0,0, 2, , A
 
 
-; 
+; Gou Hadou Medium
 [Begin Action 1007]
 Clsn2:2
   Clsn2[0] = -6, -89, 10, -75
@@ -1535,7 +1535,7 @@ Clsn2:2
 1000,4, 0,0, 3
 
 
-; 
+; Gou Hadou Strong
 [Begin Action 1008]
 Clsn2:2
   Clsn2[0] = -6, -87, 10, -73
@@ -1585,7 +1585,7 @@ Clsn2:2
 1000,4, 0,0, 3
 
 
-; 
+; Gou Shoryu Start
 [Begin Action 1030]
 Clsn1:1
   Clsn1[0] = -2, -70, 35, -12
@@ -1599,7 +1599,7 @@ Clsn2:1
 1010,2, 0,0, 2
 
 
-; 
+; Gou Shoryu Air
 [Begin Action 1031]
 Clsn1:1
   Clsn1[0] = 0, -130, 27, -56
@@ -1608,7 +1608,7 @@ Clsn2:1
 1010,3, 0,0, -1
 
 
-; 
+; Gou Shoryu Decend
 [Begin Action 1032]
 Clsn2:1
   Clsn2[0] = -24, -98, 17, -4
@@ -1618,7 +1618,7 @@ Clsn2:1
 1010,5, 0,0, -1
 
 
-; 
+; Gou Shoryu Land
 [Begin Action 1033]
 Clsn2:1
   Clsn2[0] = -22, -78, 14, -1
@@ -1631,7 +1631,7 @@ Clsn2:1
 1,2, 0,0, 3
 
 
-; 0
+; Ashura Senkuu Start
 [Begin Action 1050]
 Clsn2:3
   Clsn2[0] = -48, -36, 29, 0
@@ -1666,7 +1666,7 @@ Clsn2:5
 190,12, 0,0, 2
 
 
-; 
+; Ashura Senkuu FWD
 [Begin Action 1051]
 Loopstart
 Clsn2:2
@@ -1679,7 +1679,7 @@ Clsn2:2
 21,1, 26,3, 3
 
 
-; 
+; Ashura SEnkuu Turn
 [Begin Action 1052]
 Loopstart
 Clsn2:2
@@ -1692,7 +1692,7 @@ Clsn2:2
 21,1, -27,3, 3, H
 
 
-; 
+; Tatsu Start
 [Begin Action 1060]
 Clsn1:1
   Clsn1[0] = -3, -71, 31, -33
@@ -1721,7 +1721,7 @@ Clsn2:2
   Clsn2[1] = -23, -109, 0, -91
 1020,4, 0,0, 1
 Clsn1:1
-  Clsn1[0] = -81, -71, -43, -42
+  Clsn1[0] = -81, -71, -37, -42
 Clsn2:3
   Clsn2[0] = -26, -111, -7, -94
   Clsn2[1] = -27, -98, 9, -57
@@ -1732,7 +1732,7 @@ Clsn2:1
 1020,6, 0,0, 1
 
 
-; 
+; Tatsu End
 [Begin Action 1061]
 Clsn2:2
   Clsn2[0] = -26, -95, 17, -37
@@ -1752,7 +1752,7 @@ Clsn2:2
 1030,3, 0,0, 3
 
 
-; 
+; Tatsu Land
 [Begin Action 1062]
 Clsn2:2
   Clsn2[0] = -20, -71, 20, 0
@@ -1764,33 +1764,33 @@ Clsn2:2
 1,2, 0,0, 2
 
 
-; 
+; Kuu Chuu Tatsu
 [Begin Action 1080]
 Clsn2:1
   Clsn2[0] = -28, -95, 6, -41
 1020,2, 0,0, 4
 Loopstart
 Clsn1:1
-  Clsn1[0] = 13, -70, 55, -53
+  Clsn1[0] = 4, -73, 55, -47
 Clsn2:2
   Clsn2[0] = -1, -76, 43, -43
   Clsn2[1] = -28, -103, 10, -48
 1020,3, 0,0, 2
 Clsn2:1
-  Clsn2[0] = -27, -100, 4, -56
+  Clsn2[0] = -33, -100, 13, -56
 1020,4, 0,0, 1
 Clsn1:1
-  Clsn1[0] = -79, -70, -42, -51
+  Clsn1[0] = -79, -73, -33, -48
 Clsn2:2
   Clsn2[0] = -65, -75, -20, -46
   Clsn2[1] = -37, -98, 5, -47
 1020,5, 0,0, 2
 Clsn2:1
-  Clsn2[0] = -28, -95, 3, -46
+  Clsn2[0] = -30, -95, 12, -46
 1020,6, 0,0, 1
 
 
-; 
+; Tenma Kuujin Kyaku
 [Begin Action 1085]
 Clsn2:1
   Clsn2[0] = -30, -87, 14, -40
@@ -1806,7 +1806,7 @@ Clsn2:2
 680,0, 0,0, -1
 
 
-; 
+; Hyakki Gou Jin
 [Begin Action 1087]
 Clsn2:1
   Clsn2[0] = -30, -87, 14, -40
@@ -1822,7 +1822,7 @@ Clsn2:2
 680,0, 0,0, -1
 
 
-; 
+; Land
 [Begin Action 1090]
 Clsn2:2
   Clsn2[0] = -20, -72, 21, 0
@@ -1850,7 +1850,7 @@ Clsn2:2
 1,2, 0,0, 2
 
 
-; 
+; Hyakki Shuu Start
 [Begin Action 1110]
 Clsn2:2
   Clsn2[0] = -21, -73, 21, 0
@@ -1866,28 +1866,28 @@ Clsn2:2
 20,7, 13,-1, 2
 Loopstart
 Clsn1:1
-  Clsn1[0] = -5, -77, 18, -54
+  Clsn1[0] = -5, -92, 27, -54
 Clsn2:1
-  Clsn2[0] = -15, -92, 18, -54
+  Clsn2[0] = -15, -92, 27, -54
 690,5, 4,-52, 2
 Clsn1:1
-  Clsn1[0] = -5, -77, 18, -54
+  Clsn1[0] = -5, -92, 27, -54
 Clsn2:1
-  Clsn2[0] = -15, -92, 18, -54
+  Clsn2[0] = -15, -92, 27, -54
 690,6, 4,-52, 2
 Clsn1:1
-  Clsn1[0] = -5, -77, 18, -54
+  Clsn1[0] = -5, -92, 27, -54
 Clsn2:1
-  Clsn2[0] = -15, -92, 18, -54
+  Clsn2[0] = -15, -92, 27, -54
 690,7, 4,-52, 2
 Clsn1:1
-  Clsn1[0] = -5, -77, 18, -54
+  Clsn1[0] = -5, -92, 27, -54
 Clsn2:1
-  Clsn2[0] = -15, -92, 18, -54
+  Clsn2[0] = -15, -92, 27, -54
 690,8, 4,-52, 2
 
 
-; 
+; Hyakki Gou Zen
 [Begin Action 1111]
 Clsn2:1
   Clsn2[0] = -19, -51, 17, 0
@@ -1911,7 +1911,7 @@ Clsn2:1
 406,0, 0,0, 2
 
 
-; 
+; Hyakki Ground Recover
 [Begin Action 1112]
 Clsn2:1
   Clsn2[0] = -18, -54, 26, 2
@@ -1924,7 +1924,7 @@ Clsn2:1
 10,0, 0,0, 1
 
 
-; 
+; Hyakki Gou Shou
 [Begin Action 1113]
 Clsn2:1
   Clsn2[0] = -18, -91, 17, -31
@@ -1965,15 +1965,15 @@ Clsn2:1
 5040,10, 0,0, -1
 
 
-; 0
+; Hyakki Gou Sai
 [Begin Action 1116]
-840,0, 0,0, 2
-840,3, 0,0, 2
-840,2, 0,0, 2
-840,1, 0,0, 2
+840,0, 0,0, 3
+840,3, 0,0, 3
+840,2, 0,0, 3
+840,1, 0,0, 3
 
 
-; 0
+; Hit By Hyakki Gou Sai
 [Begin Action 1117]
 5011,10, 0,0, 2
 5041,20, 0,0, 2
@@ -1981,20 +1981,43 @@ Clsn2:1
 5071,20, 0,0, 2
 
 
-; 
-[Begin Action 1120]
-6040,0, 0,0, 2
-6040,1, 0,0, 2
-6040,2, 0,0, 2
-6040,3, 0,0, 2
-6040,4, 0,0, 2
-6040,5, 0,0, 2
-6040,6, 0,0, 2
-6040,7, 0,0, 2
-6040,8, 0,0, 2
-6040,9, 0,0, 2
-6040,10, 0,0, 2
+; Hyakki Flip Throw
+[Begin Action 1118]
+5080,3, 0,-29, 4
+20,4, 15,0, 3
+20,3, 0,0, 3
+LoopStart
+15,7, 0,0, 3
+15,8, 0,0, 3
 
+
+
+; Hyakki Shuu Back Break
+[Begin Action 1119]
+Clsn2: 2
+  Clsn2[0] = -23, -52, 29, 1
+  Clsn2[1] = -7, -67, 19, -44
+6,0, 0,0, 15
+Clsn2: 2
+  Clsn2[0] = -23, -52, 29, 1
+  Clsn2[1] = -7, -67, 19, -44
+6,1, 0,0, 3
+Clsn2: 2
+  Clsn2[0] = -23, -75, 29, 1
+  Clsn2[1] = -7, -90, 19, -67
+10,0, 0,0, 3
+
+; Hit By Hyakki Flip Throw
+[Begin Action 1120]
+5000,10, 0,0, 4
+5002,10, 0,0, 3
+5032,30, 0,0, 3
+5012,20, 0,0, -1, V
+
+; Hit By Back Breaker - Hitshake
+[Begin Action 1121]
+5012,30, -1,0, 1, V
+5012,30, 1,0, 1, V
 
 ; 
 [Begin Action 1123]
@@ -2360,20 +2383,20 @@ Clsn2:1
 8101,5, 25,0, 2, , A
 
 
-; 
+; Messatsu Gou Shoryu
 [Begin Action 3000]
 Clsn1:1
-  Clsn1[0] = 2, -58, 35, -31
+  Clsn1[0] = 2, -58, 35, 1
 Clsn2:1
   Clsn2[0] = -12, -68, 23, 1
 1010,1, 0,0, 4
 Clsn1:1
-  Clsn1[0] = 12, -72, 46, -40
+  Clsn1[0] = 12, -72, 46, 1
 Clsn2:1
   Clsn2[0] = -12, -88, 23, 1
 1010,2, 0,0, 2
 Clsn1:1
-  Clsn1[0] = 6, -125, 38, -39
+  Clsn1[0] = 6, -125, 38, -10
 Clsn2:1
   Clsn2[0] = -15, -99, 15, -10
 1010,3, 0,2, 6
@@ -2387,17 +2410,17 @@ Clsn2:1
   Clsn2[0] = -17, -89, 20, -1
 1010,6, 0,0, 2
 Clsn1:1
-  Clsn1[0] = 5, -57, 39, -32
+  Clsn1[0] = 5, -57, 39, 1
 Clsn2:1
   Clsn2[0] = -7, -69, 23, 1
 1010,1, 0,0, 3
 Clsn1:1
-  Clsn1[0] = 17, -74, 47, -40
+  Clsn1[0] = 17, -74, 47, 1
 Clsn2:1
   Clsn2[0] = -7, -86, 22, 1
 1010,2, 0,0, 2
 Clsn1:1
-  Clsn1[0] = 1, -118, 32, -38
+  Clsn1[0] = 1, -118, 32, -18
 Clsn2:1
   Clsn2[0] = -17, -97, 14, -18
 1010,3, 0,2, 6
@@ -2411,12 +2434,12 @@ Clsn2:1
   Clsn2[0] = -16, -79, 16, -2
 1010,6, 0,0, 2
 Clsn1:1
-  Clsn1[0] = 2, -58, 40, -31
+  Clsn1[0] = 2, -58, 40, 0
 Clsn2:1
   Clsn2[0] = -12, -65, 23, 0
 1010,1, 0,0, 3
 Clsn1:1
-  Clsn1[0] = 18, -72, 49, -42
+  Clsn1[0] = 18, -72, 51, 0
 Clsn2:1
   Clsn2[0] = -12, -96, 27, 0
 1010,2, 0,0, 2
@@ -3074,7 +3097,7 @@ Clsn2:1
 6070,4, 0,0, 2, , A
 
 
-; 
+; Shun Goku Satsu Start
 [Begin Action 3100]
 Loopstart
 Clsn1:1
@@ -3093,7 +3116,7 @@ Clsn2:3
 21,1, 16,3, 3
 
 
-; 
+; Shin Shun Goku Satsu Start
 [Begin Action 3101]
 Clsn1:1
   Clsn1[0] = -3, -102, 23, 1
@@ -3153,14 +3176,14 @@ Clsn2:3
 1100,0, 0,0, 3
 
 
-; 
+; SGS Attack
 [Begin Action 3102]
 820,0, 0,0, 135
 190,0, 0,0, 100
 10,1, 0,0, 5
 
 
-; 
+; SGS Victim
 [Begin Action 3103]
 5000,0, 0,0, 135
 5040,10, 0,0, -1
@@ -3182,27 +3205,27 @@ Clsn2:3
 8200,0, 0,0, -1
 
 
-; 
+; SGS Kanji 1
 [Begin Action 3106]
 191,7, 0,0, -1
 
 
-; 
+; SGS Kanji 1 Rev
 [Begin Action 3107]
 191,7, 0,0, -1, H
 
 
-; 
+; SGS Kanji 2
 [Begin Action 3108]
 192,6, 0,0, -1
 
 
-; 
+; SGS Kanji 2 Rev
 [Begin Action 3109]
 192,6, 0,0, -1, H
 
 
-; 
+; SGS Winpose
 [Begin Action 3110]
 190,0, 0,0, -1
 
@@ -3916,7 +3939,7 @@ Clsn2:3
 7025,6, 0,0, 2, , A
 
 
-; 
+; Throw Escape
 [Begin Action 5910]
 Clsn2:2
   Clsn2[0] = -26, -97, 5, -72
