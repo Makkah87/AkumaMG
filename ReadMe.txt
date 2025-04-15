@@ -25,18 +25,10 @@ To-Do
 -Greater differentiation between regular and Shin Akuma. Possibly combine the two
 -Refine aerial tatsu
 -Implement Tenma Gou Rassen: QCBx2 + K
+-Add Guard FX
+-Code Misogi
 
-Why the name ZXAkuma?
----------------------
-Well, truthfully in my M.U.G.E.N he is called Neo Gouki but half way through the project, I remembered that there is an auther who goes by that name. So at the last minute I came up with ZXAkuma. The Z is for zero as in Street Fighter Zero (where he is from...duh) and the X signifies a cross between many different geners.These include the marvel vs series CVS2 and my own personal style. I know its stupid but I guess I will come up with something better a little later on.
 
-Whats done
----------------
--All required sprites
--All required animations
--All basic moves
--All special moves
--All super Arts
 
 Move list
 ---------------
@@ -56,8 +48,9 @@ Tenma Kujin Kyaku : QCF + K (in air)
        -pressing K repeatedly will inflict additional damage
 
 Hyakki Shuu : dp + K
-       -kuu chuu ken: P (during hyakki shuu)
-       -Kuu chuu kyakuu : K (during hyakki shuu)
+       -Hyakki Gou Zan:  Press nothing
+       -Kyakki Gou Shou: P (during hyakki shuu)
+       -Hyakki Gou Jin : K (during hyakki shuu)
 
 Ashura Senkuu : dp + 2P / dp + 2K (forward)
                 rev dp +2P / rev dp + 2K (backward)
