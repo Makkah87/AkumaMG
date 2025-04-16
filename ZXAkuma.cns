@@ -5943,13 +5943,6 @@ trigger1= 1
 x=ifelse((time<2 && var(2)>1),0,7.2)
 y=0
 
-[State 1161, assert]
-type=trans
-trigger1= 1
-trans=addalpha
-alpha=256,256
-ignorehitpause=1
-
 [State 1161, energysnd]
 type = playsnd
 trigger1 = time = 0 && var(2)=1
@@ -6206,13 +6199,6 @@ type=velset
 trigger1= 1
 x=ifelse((time<2 && var(2)>1),0,7.2)
 y=0
-
-[State 1166, assert]
-type=trans
-trigger1= 1
-trans=addalpha
-alpha=256,256
-ignorehitpause=1
 
 [State 1166, energysnd]
 type = playsnd
@@ -6517,12 +6503,6 @@ trigger1= 1
 x=ifelse((time<2 && var(2)>1),0,7.2)
 y=0
 
-[State 1171, assert]
-type=trans
-trigger1= 1
-trans=addalpha
-alpha=256,256
-ignorehitpause=1
 
 [State 1171, energysnd]
 type = playsnd
@@ -6567,12 +6547,6 @@ ground.velocity = -5.7,0
 guard.velocity = -7.5
 air.velocity = -4.7,-7
 airguard.velocity = -5, -4
-envshake.time = 5
-envshake.ampl = 4
-envshake.freq = 176
-fall.envshake.time = 7
-fall.envshake.ampl = 6
-fall.envshake.freq = 176
 yaccel = 0.5
 air.fall = 1
 fall.recover = 0
@@ -6608,12 +6582,6 @@ ground.velocity = -5.7,0
 guard.velocity = -7.5
 air.velocity = -4.7,-7
 airguard.velocity = -5, -4
-envshake.time = 5
-envshake.ampl = 4
-envshake.freq = 176
-fall.envshake.time = 7
-fall.envshake.ampl = 6
-fall.envshake.freq = 176
 yaccel = 0.5
 air.fall = 1
 fall.recover = 0
@@ -6652,9 +6620,6 @@ airguard.velocity = -5, -4
 envshake.time = 5
 envshake.ampl = 8
 envshake.freq = 176
-fall.envshake.time = 5
-fall.envshake.ampl = 8
-fall.envshake.freq = 176
 yaccel = 0.5
 fall = 1
 fall.recover = 0
@@ -7373,7 +7338,7 @@ ignorehitpause=1
 [State 3005, anim]
 type=changeanim
 trigger1= !time && !prevstateno
-value=3016
+value=3017
 
 [State 3005, hitvar]
 type=varadd
@@ -7392,13 +7357,6 @@ type=velset
 trigger1= 1
 x=ifelse((time<2 && var(2)>1),0,9.8)
 y=0
-
-[State 3005, assert]
-type=trans
-trigger1= 1
-trans=addalpha
-alpha=256,256
-ignorehitpause=1
 
 [State 3001, energysnd]
 type = playsnd
@@ -7460,12 +7418,6 @@ airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
 
-[State 3001, Guardshake]
-type = envshake
-trigger1 = moveguarded
-time = 4
-ampl = 6
-freq = 176
 
 [State 3001, Reset]
 type = varset
@@ -7492,7 +7444,7 @@ value = 0
 [State 3005, end]
 type=changestate
 trigger1= movecontact
-value=ifelse(var(2)<8,3017,1003)
+value=ifelse(var(2)<8,3017,3018)
 ignorehitpause = 1
 
 [State 3005, end]
@@ -7507,7 +7459,7 @@ movetype= A
 physics = N
 juggle  = 0
 velset = 0,0
-anim = 3016
+anim = 3017
 ctrl = 0
 sprpriority = 6
 hitcountpersist = 1
@@ -7567,6 +7519,23 @@ trigger1 = time = 4 && !Var(30)
 trigger2 = time = 5 && Var(30)
 value = prevstateno
 
+;------------------
+;Projectile Disperse
+;--------------------
+[Statedef 3018]
+type    = A
+movetype= I
+physics = N
+juggle  = 0
+velset = 0,0
+anim = 3018
+ctrl = 0
+sprpriority = 6
+hitcountpersist = 1
+
+[State 3018, Destroy]
+type = destroyself
+trigger1 = !animtime
 
 ;----------------------------------------------------------------------
 ;Tenma Gou Zankuu
@@ -8953,9 +8922,10 @@ stateno = 9000
 id = 9000
 ignorehitpause = 1
 
-[State -2, RemoveAfterImagesOnHit]
+[State -2, RemoveAfterImages]
 type = AfterImageTime
-trigger1 = movetype = h &&!time
+trigger1 = movetype = h &&!time ;on hit
+trigger2 = stateno = 0
 Time = 0
 
 [State -2, Damage based on hits]
