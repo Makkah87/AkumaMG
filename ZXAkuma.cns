@@ -649,7 +649,6 @@ type = HitDef
 trigger1 = Time = 0
 attr = S, NA
 animtype  = Hard
-fall.animtype = hard
 Damage = 62,0
 guardflag = MA
 pausetime = 12,12
@@ -658,7 +657,6 @@ sparkxy = -17,-65
 hitsound   = s120,6
 guardsound = s5,0
 ground.type = high
-air.type = low
 ground.slidetime = 12
 ground.hittime  = 22
 guard.ctrltime = 12
@@ -952,8 +950,8 @@ ground.type = High
 ground.slidetime = 16
 ground.hittime  = 15
 ground.velocity = ifelse(anim = 321,-7, -9),0
-air.velocity = ifelse(anim = 321,-2.2,-6), ifelse(anim = 321,-3.2,-6)
-yaccel = 0.48
+air.velocity = ifelse(anim = 321,-2.2,-3.7), ifelse(anim = 321,-3.2,-7)
+yaccel = 0.6
 fall.envshake.time = 15
 fall.envshake.freq = 176
 fall.envshake.ampl = 3
