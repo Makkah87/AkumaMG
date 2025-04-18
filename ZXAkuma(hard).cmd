@@ -39,7 +39,7 @@ time = 20
 ;-| Special Motions |------------------------------------------------------
 [Command]
 name = "asurafwd1"
-command = ~F, D, DF, x+y+z
+command = ~F, D, DF, z+c
 
 ;[Command]
 ;name = "asurafwd1"
@@ -51,39 +51,39 @@ command = ~F, D, DF, x+y+z
 
 [Command]
 name = "asurabk1"
-command = ~B, D, DB, x+y
+command = ~B, D, DB, z+c
 
-[Command]
-name = "asurabk1"
-command = ~B, D, DB, y+z
+;[Command]
+;name = "asurabk1"
+;command = ~B, D, DB, y+z
 
-[Command]
-name = "asurabk1"
-command = ~B, D, DB, x+z
-
-[Command]
-name = "asurafwd2"
-command = ~F, D, DF, a+b
+;[Command]
+;name = "asurabk1"
+;command = ~B, D, DB, x+z
 
 [Command]
 name = "asurafwd2"
-command = ~F, D, DF, b+c
+command = ~F, D, DF, y+b
 
-[Command]
-name = "asurafwd2"
-command = ~F, D, DF, a+c
+;[Command]
+;name = "asurafwd2"
+;command = ~F, D, DF, b+c
 
-[Command]
-name = "asurabk2"
-command = ~B, D, DB, a+b
-
-[Command]
-name = "asurabk2"
-command = ~B, D, DB, b+c
+;[Command]
+;name = "asurafwd2"
+;command = ~F, D, DF, a+c
 
 [Command]
 name = "asurabk2"
-command = ~B, D, DB, a+c
+command = ~B, D, DB, y+b
+
+;[Command]
+;name = "asurabk2"
+;command = ~B, D, DB, b+c
+
+;[Command]
+;name = "asurabk2"
+;command = ~B, D, DB, a+c
 
 [Command]
 name = "shoryu1"

@@ -335,6 +335,11 @@ trigger1 = AnimElem = 5
 value = 50,10
 volumescale = 100
 
+[State 195, Shin Toggle]
+type = varset
+trigger1 = !time
+var(7) = ifelse(var(7) =0,1,0)
+
 [State 195, Snd 2]
 type = PlaySnd
 trigger1 = AnimElem = 5
@@ -1927,7 +1932,7 @@ type = Helper
 trigger1 = AnimElemtime(4) = 1 && time < 14
 name = "Gou_Hadou1"
 postype = P1
-pos = 57,-55
+pos = ifelse(parent, var(7) = 1,57, 80),-55
 ownpal = 1
 stateno = 1002
 id = 1002 
@@ -1950,7 +1955,7 @@ type    = S
 movetype= A
 physics = N
 velset = 3.8,0
-anim = ifelse(parent,var(10)=0,1002,1165)
+anim = ifelse(parent,var(10)=0,ifelse(parent,var(7)=0,1004,1002),1165)
 ctrl = 0
 sprpriority = 4
 
@@ -2194,7 +2199,7 @@ type = Helper
 trigger1 = AnimElemtime(4) = 1 && time < 14
 name = "Gou_Hadou2"
 postype = P1
-pos = 57,-55
+pos = ifelse(parent, var(7) = 1,57, 80),-55
 ownpal = 1
 stateno = 1016
 id = 1016 
@@ -2217,7 +2222,7 @@ type    = S
 movetype= A
 physics = N
 velset = 5.5,0
-anim = ifelse(parent,var(10)=0,1002,1165)
+anim = ifelse(parent,var(10)=0,ifelse(parent,var(7)=0,1004,1002),1165)
 ctrl = 0
 sprpriority = 4
 
@@ -2411,7 +2416,7 @@ type = Helper
 trigger1 = AnimElemtime(4) = 1 && time < 14
 name = "Gou_Hadou3"
 postype = P1
-pos = 57,-55
+pos = ifelse(parent, var(7) = 1,57, 80),-55
 ownpal = 1
 stateno = 1021
 id = 1021 
@@ -2435,7 +2440,7 @@ type    = S
 movetype= A
 physics = N
 velset = 6.2,0
-anim = ifelse(parent,var(10)=0,1002,1165)
+anim = ifelse(parent,var(10)=0,ifelse(parent,var(7)=0,1004,1002),1165)
 ctrl = 0
 sprpriority = 4
 
@@ -3878,7 +3883,6 @@ type = HitDef
 trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = hard
-fall.animtype = hard
 damage    = ifelse(Var(0)<5,35,15), 4
 priority  = 5
 guardflag = MA
@@ -4056,7 +4060,6 @@ type = HitDef
 trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = hard
-fall.animtype = hard
 damage    = 23, 4
 priority  = 5
 guardflag = MA
@@ -4158,8 +4161,7 @@ fall = 1
 type = HitDef
 trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
-animtype  = Medium
-fall.animtype = hard
+animtype  = Hard
 damage    = ifelse(Var(0)<5,22,12), 4
 priority  = 5
 guardflag = MA
@@ -4171,9 +4173,9 @@ guardsound = s5,0
 ground.type = Low
 ground.slidetime = 18
 ground.hittime  = 18
-ground.velocity = ifelse(p2dist x > 0,-5.7,5.7),-4.5
+ground.velocity = -3,-5.5
 guard.velocity = -6
-air.velocity = ifelse(p2dist x > 0,-5.9,5.9),-4.6
+air.velocity = -5.9,-4.3
 fall = 1
 yaccel = 0.6
 
@@ -4205,7 +4207,7 @@ ignorehitpause = 1
 type = NotHitBy
 trigger1 = time = 0
 value = SCA,SP,HP,NP
-time = 18
+time = 4
 
 [State 1080, Voice]
 type = playsnd
@@ -4292,7 +4294,7 @@ ignorehitpause = 1
 type = NotHitBy
 trigger1 = time = 0
 value = SCA,SP,HP,NP
-time = 18
+time = 4
 
 [State 1081, Voice]
 type = playsnd
@@ -4379,7 +4381,7 @@ ignorehitpause = 1
 type = NotHitBy
 trigger1 = time = 0
 value = SCA,SP,HP,NP
-time = 18
+time = 4
 
 [State 1082, Voice]
 type = playsnd
@@ -4835,7 +4837,7 @@ ctrl = 0
 
 [State 1110, Turn]
 type = turn
-triggerall = time > 1 && p2dist x < 0
+triggerall = time > 5 && p2dist x < 0
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
@@ -4845,6 +4847,7 @@ trigger6 = command = "z"
 
 [State 1110, Punch]
 type = ChangeState
+triggerall = time > 5
 trigger1 = command = "x"
 trigger2 = command = "y"
 trigger3 = command = "z"
@@ -5193,7 +5196,7 @@ ctrl = 0
 
 [State 1120, Turn]
 type = turn
-triggerall = time > 1 && p2dist x < 0
+triggerall = time > 5 && p2dist x < 0
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
@@ -5203,6 +5206,7 @@ trigger6 = command = "z"
 
 [State 1120, Punch]
 type = ChangeState
+triggerall = time > 5
 trigger1 = command = "x"
 trigger2 = command = "y"
 trigger3 = command = "z"
@@ -5272,7 +5276,7 @@ ctrl = 0
 
 [State 1130, Turn]
 type = turn
-triggerall = time > 1 && p2dist x < 0
+triggerall = time > 5 && p2dist x < 0
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
@@ -5282,6 +5286,7 @@ trigger6 = command = "z"
 
 [State 1130, Punch]
 type = ChangeState
+triggerall = time > 5
 trigger1 = command = "x"
 trigger2 = command = "y"
 trigger3 = command = "z"
@@ -5378,7 +5383,7 @@ movetype= A
 physics = N
 juggle  = 6
 velset = 4,3
-anim = 1141
+anim = ifelse(parent, var(7),1143,1141)
 ctrl = 0
 sprpriority = 5
 
@@ -5585,7 +5590,7 @@ movetype= A
 physics = N
 juggle  = 6
 velset = 4.2,3.2
-anim = 1141
+anim = ifelse(parent, var(7),1143,1141)
 ctrl = 0
 sprpriority = 5
 
@@ -5689,11 +5694,11 @@ y = 0.45
 
 [State 1150, ShinZankuu]
 type = Helper
-trigger1 = Var(7) = 1
+;trigger1 = Var(7) = 1
 trigger1 = AnimElemtime(1) = 1
 name = "Gou_Zankuu5"
 postype = P1
-pos = 70,-48
+pos = ifelse(var(7),60,70),ifelse(var(7),-50,-48) ;70,-48
 ownpal = 1
 stateno = 1151
 id = 1151 
@@ -5703,7 +5708,7 @@ type = Helper
 trigger1 = AnimElemtime(3) = 1
 name = "Gou_Zankuu6"
 postype = P1
-pos = 72,-43
+pos = ifelse(var(7),63,72),ifelse(var(7),-30,-43);72,-43
 ownpal = 1
 stateno = 1151
 id = 1151 
@@ -5750,7 +5755,7 @@ movetype= A
 physics = N
 juggle  = 6
 velset = 4.7,3.7
-anim = 1141
+anim = ifelse(parent, var(7),1143,1141)
 ctrl = 0
 sprpriority = 5
 

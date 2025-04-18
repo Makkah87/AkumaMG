@@ -52,9 +52,9 @@ Hyakki Shuu : dp + K
        -Kyakki Gou Shou: P (during hyakki shuu)
        -Hyakki Gou Jin : K (during hyakki shuu)
 
-Ashura Senkuu : dp + 2P / dp + 2K (forward)
-                rev dp +2P / rev dp + 2K (backward)
-*Punches go farther than kicks
+Ashura Senkuu : dp + HP+HK / dp + MP+MK (forward)
+                rev dp +HP+HK / rev dp +MP+MK (backward)
+*Hard P+K versions travel further
 
 ----------------
 Super Arts
