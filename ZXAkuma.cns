@@ -7648,12 +7648,12 @@ type = Projectile
 trigger1 = animelemtime(9) = 2
 ProjID = 3021
 projanim = 3021
-projhitanim = 1142
-projremanim = 1142
+projhitanim = 3026
+projremanim = 3026
 projscale = 1,1
 projremove = 1
 projremovetime = -1
-velocity =8.7,3.6
+velocity =5.6,3.6
 remvelocity = 0,0
 accel = 0,0
 projhits = 8

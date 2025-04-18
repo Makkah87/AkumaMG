@@ -39,15 +39,15 @@ time = 20
 ;-| Special Motions |------------------------------------------------------
 [Command]
 name = "asurafwd1"
-command = ~F, D, DF, x+y
+command = ~F, D, DF, x+y+z
 
-[Command]
-name = "asurafwd1"
-command = ~F, D, DF, y+z
+;[Command]
+;name = "asurafwd1"
+;command = ~F, D, DF, y+z
 
-[Command]
-name = "asurafwd1"
-command = ~F, D, DF, x+z
+;[Command]
+;name = "asurafwd1"
+;command = ~F, D, DF, x+z
 
 [Command]
 name = "asurabk1"
