@@ -2,24 +2,25 @@
 ;======================================================================
 ;                            Variable Table		
 ;======================================================================
+;			Var(0) :	Old Damage Scaler (Depricated)
 ;			Var(1) : Intro Decider
 ;			Var(2) : Special Condition
 ;			Var(3) : Win Pose Decider
-;                   Var(4) : Shakunetsu Gou Hadou Resistance
-;                   Var(5) : Death Voice Add
-;                   Var(6) : Death Indicator
+;              Var(4) : Shakunetsu Gou Hadou Resistance
+;              Var(5) : Death Voice Add
+;              Var(6) : Death Indicator
 ;			Var(7) : Shin Gouki Indicator
 ;			Var(8) : Hit Voice Randomizer
 ;			Var(9) : Mash Manager
-;                   Var(10): Shakunetsu Indicator
-;                   Var(11): Gou Hadou Limit
-;                   Var(12): Tenma Gou Zankuu Resistance*
-;                   Var(13): Artificial Intellegence
-;                   Var(14): Shoryuu limit (A.I)
-;                   Var(15): Messtatsu Gou Hadou Resistance
-;                   Var(16): Hyper Hadou In Play
-;                   Var(17): Juggle Manager
-;                   Var(18): Projectile Hit Detection
+;              Var(10): Shakunetsu Indicator
+;              Var(11): Gou Hadou Limit
+;              Var(12): Tenma Gou Zankuu Resistance*
+;              Var(13): Artificial Intellegence
+;              Var(14): Shoryuu limit (A.I)
+;              Var(15): Messtatsu Gou Hadou Resistance
+;              Var(16): Hyper Hadou In Play
+;              Var(17): Juggle Manager
+;              Var(18): Projectile Hit Detection
 ;======================================================================
 ;			Floats
 ;----------------------------------------------------------------------
@@ -668,6 +669,7 @@ guard.ctrltime = 12
 ground.velocity = -7.5
 air.velocity = ifelse(anim = 220,-6,-1.7),ifelse(anim = 220,-4.8,-8.2)
 envshake.time = ifelse(anim = 220,8,0)
+airguard.velocity = ifelse(anim = 220, -4.7,-1.7),ifelse(anim = 220,-4.4,-8.2)
 envshake.ampl = 2
 envshake.freq = 120
 yaccel = 0.47
@@ -1932,7 +1934,7 @@ type = Helper
 trigger1 = AnimElemtime(4) = 1 && time < 14
 name = "Gou_Hadou1"
 postype = P1
-pos = ifelse(parent, var(7) = 1,57, 80),-55
+pos = ifelse(var(7) = 1,57, 70),-55
 ownpal = 1
 stateno = 1002
 id = 1002 
@@ -2045,11 +2047,12 @@ ground.hittime = 18
 air.hittime = 18
 ground.velocity = ifelse((Parent,P2Dist X > 100 && Time <= 20),-7,-5),ifelse((Parent,P2Dist X > 100 && Time <= 20),0,-4.296875)
 ground.type = High
-air.velocity = ifelse((Parent,P2Dist X > 100 && Time <= 20),-7,-5),ifelse((Parent,P2Dist X > 100 && Time <= 20),0,-4.296875)
+air.velocity = ifelse((Parent,P2Dist X > 100 && Time <= 20),-4.5,-5),ifelse((Parent,P2Dist X > 100 && Time <= 20),-5,-4.296875)
 ground.slidetime = 18
 forcestand = 1
 fall = ifelse((P2Dist Y < 0 || P2Statetype = A || Parent, P2Dist X <= 100),1,0)
 fall.recover = 0
+air.fall = 1
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
@@ -2089,13 +2092,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-
-[State 1002, Effect]
-type = playsnd
-trigger1 = movecontact
-value = 15,1
-volumescale = 100
-channel = 3
 
 [State 1003, Hit]
 type = parentvarset
@@ -2150,6 +2146,18 @@ v = 18
 value = 0
 ignorehitpause = 1
 
+[State 1003, Hitsound]
+type= playsnd
+trigger1 = !var(30)&& (prevstateno = [1166,1172]) && !time
+value = 120,6
+channel = 6
+
+[State 1003, Guardsound]
+type= playsnd
+trigger1 = var(30)&& (prevstateno = [1166,1172]) && !time
+value = 5,0
+channel = 6
+
 [State 1003, InPlay]
 type = ParentVarSet
 trigger1 = time = 0
@@ -2198,7 +2206,7 @@ type = Helper
 trigger1 = AnimElemtime(4) = 1 && time < 14
 name = "Gou_Hadou2"
 postype = P1
-pos = ifelse(parent, var(7) = 1,57, 80),-55
+pos = ifelse(var(7) = 1,57, 70),-55
 ownpal = 1
 stateno = 1016
 id = 1016 
@@ -2312,11 +2320,12 @@ ground.hittime = 18
 air.hittime = 18
 ground.velocity = ifelse((Parent,P2Dist X > 100 && Time <= 20),-7,-5),ifelse((Parent,P2Dist X > 100 && Time <= 20),0,-4.296875)
 ground.type = High
-air.velocity = ifelse((Parent,P2Dist X > 100 && Time <= 20),-7,-5),ifelse((Parent,P2Dist X > 100 && Time <= 20),0,-4.296875)
+air.velocity = ifelse((Parent,P2Dist X > 100 && Time <= 20),-6,-5),ifelse((Parent,P2Dist X > 100 && Time <= 20),-5,-4.296875)
 ground.slidetime = 18
 forcestand = 1
 fall = ifelse((P2Dist Y < 0 || P2Statetype = A || Parent, P2Dist X <= 100),1,0)
 fall.recover = 0
+air.fall = 1
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
@@ -2356,13 +2365,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-
-[State 1016, Effect]
-type = playsnd
-trigger1 = movecontact
-value = 15,1
-volumescale = 100
-channel = 3
 
 [State 1003, Hit]
 type = parentvarset
@@ -2414,7 +2416,7 @@ type = Helper
 trigger1 = AnimElemtime(4) = 1 && time < 14
 name = "Gou_Hadou3"
 postype = P1
-pos = ifelse(parent, var(7) = 1,57, 80),-55
+pos = ifelse(var(7) = 1,57, 70),-55
 ownpal = 1
 stateno = 1021
 id = 1021 
@@ -2539,6 +2541,7 @@ air.velocity = -5,-4.396875
 ground.slidetime = 18
 forcestand = 1
 fall = 0
+air.fall = 1
 fall.recover = 0
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -2548,19 +2551,12 @@ guard.cornerpush.veloff = 0
 yaccel = 0.428125
 p1sprpriority = 5
 
-[State 1003, Hit]
+[State 1021, Hit]
 type = parentvarset
 trigger1 = movehit
 v = 18
 value = 1
 ignorehitpause = 1
-
-[State 1021, Effect]
-type = playsnd
-trigger1 = movecontact
-value = 15,1
-volumescale = 100
-channel = 3
 
 [State 1021, Dissolve]
 type = ChangeState
@@ -3183,7 +3179,7 @@ type    = S
 movetype= A
 physics = S
 juggle  = 4
-poweradd= 120
+poweradd= 0
 velset = 0,0
 anim = 1050
 ctrl = 0
@@ -5710,7 +5706,6 @@ id = 1151
 
 [State 1150, Voice]
 type = playsnd
-trigger1 = Var(7) = 1
 trigger1 = AnimElemtime(1) = 1
 trigger2 = AnimElemtime(3) = 1
 value = 50,15
@@ -5719,7 +5714,6 @@ channel = 1
 
 [State 1150, Effect]
 type = playsnd
-trigger1 = Var(7) = 1
 trigger1 = AnimElemtime(1) = 1
 trigger2 = AnimElemtime(3) = 1
 value = 122,7
@@ -5975,7 +5969,7 @@ sparkno = s7004
 Guard.Sparkno = -1
 sparkxy = 2,-5
 hitsound = s120,6
-guardsound = -1
+guardsound = s5,0
 ground.type = high
 air.type = low
 ground.slidetime = 20
@@ -5984,12 +5978,6 @@ ground.velocity = -2.3,-9
 guard.velocity = -7.5
 air.velocity = -2.3,-9
 airguard.velocity = -5, -4
-envshake.time = 5
-envshake.ampl = 8
-envshake.freq = 176
-fall.envshake.time = 5
-fall.envshake.ampl = 8
-fall.envshake.freq = 176
 yaccel = 0.5
 fall = 1
 fall.recover = 0
@@ -5999,14 +5987,7 @@ air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
-p1sprpriority = 5
-
-[State 1161, Guardshake]
-type = envshake
-trigger1 = moveguarded
-time = 4
-ampl = 6
-freq = 176
+p1sprpriority = 5	
 
 [State 1161, Reset]
 type = varset
@@ -6231,7 +6212,7 @@ guard.pausetime = 0,9
 sparkno = s7004
 Guard.Sparkno = -1
 sparkxy = 2,-5
-hitsound = s120,6
+hitsound = -1;s120,6
 guardsound = -1
 ground.type = high
 air.type = low
@@ -6241,12 +6222,6 @@ ground.velocity = -5.7,0
 guard.velocity = -7.5
 air.velocity = -4.7,-7
 airguard.velocity = -5, -4
-envshake.time = 5
-envshake.ampl = 4
-envshake.freq = 176
-fall.envshake.time = 7
-fall.envshake.ampl = 6
-fall.envshake.freq = 176
 yaccel = 0.5
 air.fall = 1
 fall.recover = 0
@@ -6282,12 +6257,6 @@ ground.velocity = -2.3,-9
 guard.velocity = -7.5
 air.velocity = -2.3,-9
 airguard.velocity = -5, -4
-envshake.time = 5
-envshake.ampl = 8
-envshake.freq = 176
-fall.envshake.time = 5
-fall.envshake.ampl = 8
-fall.envshake.freq = 176
 yaccel = 0.5
 fall = 1
 fall.recover = 0
@@ -6302,13 +6271,6 @@ palfx.time = 40 ;20
 palfx.add = 217,61,0
 palfx.sinadd = -255,-255,-255,80 ; 40
 palfx.color = 20
-
-[State 1166, Guardshake]
-type = envshake
-trigger1 = moveguarded
-time = 4
-ampl = 6
-freq = 176
 
 [State 1166, Reset]
 type = varset
@@ -6388,7 +6350,14 @@ type = playsnd
 trigger1 = time = 0 && !var(30)
 value = 120,6
 ignorehitpause = 0
-channel = 5
+channel = 6
+
+[State 1167, moveguardSND]
+type = playsnd
+trigger1 = time = 0 && var(30)
+value = 5,0
+ignorehitpause = 0
+channel = 6
 
 [State 1167, EnterPrevState]
 type = changestate
@@ -6535,7 +6504,7 @@ guard.pausetime = 0,9
 sparkno = s7004
 Guard.Sparkno = -1
 sparkxy = 2,-5
-hitsound   = s120,6
+hitsound   = -1;s120,6
 guardsound = -1
 ground.type = high
 air.type = low
@@ -6570,7 +6539,7 @@ guard.pausetime = 0,9
 sparkno = s7004
 Guard.Sparkno = -1
 sparkxy = 2,-5
-hitsound   = s120,6
+hitsound   = -1;s120,6
 guardsound = -1
 ground.type = low
 air.type = low
@@ -6605,7 +6574,7 @@ guard.pausetime = 0,9
 sparkno = s7004
 Guard.Sparkno = -1
 sparkxy = 2,-5
-hitsound   = s120,6
+hitsound   = -1;s120,6
 guardsound = -1
 ground.type = high
 air.type = low
@@ -6615,9 +6584,6 @@ ground.velocity = -2.3,-9
 guard.velocity = -7.5
 air.velocity = -2.3,-9
 airguard.velocity = -5, -4
-envshake.time = 5
-envshake.ampl = 8
-envshake.freq = 176
 yaccel = 0.5
 fall = 1
 fall.recover = 0
@@ -6632,13 +6598,6 @@ palfx.time = 40 ;20
 palfx.add = 217,61,0
 palfx.sinadd = -255,-255,-255,80 ; 40
 palfx.color = 20
-
-[State 1171, Guardshake]
-type = envshake
-trigger1 = moveguarded
-time = 4
-ampl = 6
-freq = 176
 
 [State 1171, Reset]
 type = varset
@@ -6714,11 +6673,18 @@ trigger1 = 1
 flag = noshadow
 
 [State 1172, movehitSND]
-type = null;playsnd
+type = playsnd
 trigger1 = time = 0 && !var(30)
 value = 120,6
 ignorehitpause = 0
-channel = 5
+channel = 6
+
+[State 1172, moveguardSND]
+type = playsnd
+trigger1 = time = 0 && var(30)
+value = 5,0
+ignorehitpause = 0
+channel = 6
 
 [State 1172, EnterPrevState]
 type = changestate
@@ -6804,13 +6770,13 @@ darken = 0
 type = Afterimage
 trigger1 = Time = 0
 time = 999
-length = 30
+length = 20
 palbright = 50,50,255
 palcontrast = 255,255,255
 palpostbright = 50,50,255
 PalAdd = -40,-40,0
 PalMul = 0.7,0.7,0.7
-FrameGap = 10
+FrameGap = 5
 
 [State 3050, Red Shadows]
 type = null;Afterimage
@@ -7396,7 +7362,7 @@ guard.pausetime = 0,9
 sparkno = s7004
 Guard.Sparkno = -1
 sparkxy = 2,-5
-hitsound   = s120,6
+hitsound   = -1;s120,6
 guardsound = -1
 ground.type = high
 air.type = low
@@ -7511,6 +7477,13 @@ value = 120,6
 ignorehitpause = 0
 channel = 6
 
+[State 3002, moveguardSND]
+type = playsnd
+trigger1 = time = 0 && var(30)
+value = 5,0
+ignorehitpause = 0
+channel = 6
+
 [State 3002, EnterPrevState]
 type = changestate
 trigger1 = time = 4 && !Var(30)
@@ -7529,7 +7502,25 @@ velset = 0,0
 anim = 3018
 ctrl = 0
 sprpriority = 6
-hitcountpersist = 1
+
+[State 3018, NoKage]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3002, movehitSND]
+type = playsnd
+trigger1 = time = 0 && !var(30)
+value = 120,6
+ignorehitpause = 0
+channel = 6
+
+[State 3002, moveguardSND]
+type = playsnd
+trigger1 = time = 0 && var(30)
+value = 5,0
+ignorehitpause = 0
+channel = 6
 
 [State 3018, Destroy]
 type = destroyself
@@ -8001,13 +7992,13 @@ type = bgpalfx
 trigger1 = time = 0
 add = 0,0,0
 time = 60
-sinadd = -255,-255,-255,190
+sinadd = 255,255,255,190
 
 [State 3102, blackout]
 type = envcolor
 trigger1 = Time > 31 && time <= 135
 time = 4
-value = 0, 0, 0
+value = 255, 255, 255
 under = 1
 
 [State 3102 CharBlackout]
@@ -8021,7 +8012,7 @@ type = palfx
 trigger1 = time = 20
 add = 0,0,0
 time = 60
-sinadd = -255,-255,-255,190
+sinadd = 255,255,255,190
 
 [State 3102, Bind 1]
 type = TargetBind
@@ -8251,7 +8242,7 @@ type = palfx
 trigger1 = time = 20
 add = 0,0,0
 time = 60
-sinadd = -255,-255,-255,190
+sinadd = 255,255,255,190
 
 [State 3103, 1]
 type = ChangeAnim2
@@ -8472,7 +8463,7 @@ sinadd = -255,-255,-255,170
 time = 45
 
 [State 3020, Dramatic Freeze]
-type = pause
+type = null;pause
 trigger1 = time = 0 && parent, stateno != 3110
 time = 25
 ignorehitpause = 1
@@ -8521,7 +8512,12 @@ type    = S
 physics = N
 anim = 100
 sprpriority = 1
-ctrl = 1
+ctrl = 0
+
+[State 100, AssumingDirectControl]
+type = ctrlset
+trigger1 = time = 5
+value = 1
 
 [State 100, 1]
 type = VelSet
@@ -8554,6 +8550,7 @@ type    = S
 physics = N
 anim = 105
 sprpriority = 1
+ctrl = 0
 
 [State 105, 1]
 type = VelSet
