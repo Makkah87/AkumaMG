@@ -1767,13 +1767,6 @@ type = TargetLifeAdd
 trigger1 = AnimElem = 5
 value = -78
 
-[State 810, Voice]
-type = playsnd
-trigger1 = animelem = 5
-value = 12,3
-volumescale = 100
-channel = 1
-
 [State 810, Throw 11]
 type = TargetState
 trigger1 = AnimElem=5
@@ -2105,9 +2098,6 @@ type = ChangeState
 trigger1 = movecontact && parent,var(10) = 0
 trigger2 = frontedgedist < -70
 trigger3 = backedgedist < -70
-trigger4 = parent,var(10) = 1 && uniqhitcount = Parent,Var(4)
-trigger5 = parent,Var(10) = 0 && Parent,Var(4) = 0
-trigger6 = parent,Var(10) = 1 && Parent,Var(4) <= 0
 ignorehitpause = 1
 value = 1003
 ctrl = 0
@@ -2378,9 +2368,6 @@ type = ChangeState
 trigger1 = movecontact && parent,var(10) = 0
 trigger2 = frontedgedist < -70
 trigger3 = backedgedist < -70
-trigger4 = parent,var(10) = 1 && uniqhitcount = Parent,Var(4)
-trigger5 = parent,Var(10) = 0 && Parent,Var(4) = 0
-trigger6 = parent,Var(10) = 1 && Parent,Var(4) <= 0
 ignorehitpause = 1
 value = 1003
 ctrl = 0
@@ -5935,12 +5922,6 @@ trigger1= 1
 x=ifelse((time<2 && var(2)>1),0,7.2)
 y=0
 
-[State 1161, energysnd]
-type = playsnd
-trigger1 = time = 0 && var(2)=1
-value = 1000,7
-volumescale = 100
-
 [State 1161, InPlay]
 type = parentvarset
 trigger1 = time = 0
@@ -6178,12 +6159,6 @@ type=velset
 trigger1= 1
 x=ifelse((time<2 && var(2)>1),0,7.2)
 y=0
-
-[State 1166, energysnd]
-type = playsnd
-trigger1 = time = 0 && var(2)=1
-value = 1000,7
-volumescale = 100
 
 [State 1166, InPlay]
 type = parentvarset
@@ -6469,13 +6444,6 @@ type=velset
 trigger1= 1
 x=ifelse((time<2 && var(2)>1),0,7.2)
 y=0
-
-
-[State 1171, energysnd]
-type = playsnd
-trigger1 = time = 0 && var(2)=1
-value = 1000,7
-volumescale = 100
 
 [State 1171, InPlay]
 type = parentvarset
@@ -7321,12 +7289,6 @@ type=velset
 trigger1= 1
 x=ifelse((time<2 && var(2)>1),0,9.8)
 y=0
-
-[State 3001, energysnd]
-type = playsnd
-trigger1 = time = 0 && var(2)=1
-value = 1000,7
-volumescale = 100
 
 [State 3001, InPlay]
 type = parentvarset
@@ -8891,8 +8853,8 @@ waveform = sine
 [State -2, Debug data]
 type = displaytoclipboard
 trigger1 = time >= 0
-text = "P2Dist X = %f,P2Dist Y = %f,backedgedist = %f,facing = %d, Damage Scale =%f,By Master Gouken"
-params = P2Dist X,P2Dist Y,backedgedist, facing, fvar(1)
+text = "Var(11) =%d,P2Dist X = %f,P2Dist Y = %f,backedgedist = %f,facing = %d, Damage Scale =%f,By Master Gouken"
+params = Var(11),P2Dist X,P2Dist Y,backedgedist, facing, fvar(1)
 
 [State -2, ReSetDampener]
 type = VarSet
