@@ -9086,3 +9086,21 @@ type = varset
 trigger1 = !var(13) && roundstate = 2 && Ailevel
 v = 13
 value = 1
+
+[State -3, Back Spark]
+type = explod
+triggerall = numtarget
+trigger1 = target, movetype = h
+trigger1 = movehit <=3 && !numexplod(7005)
+trigger1 = stateno = [1000,3999]
+trigger1 = target, time = 0
+anim = 7005
+id = 7005
+pos = target, const(size.mid.pos.x)-20,target, const(size.mid.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
+
+
