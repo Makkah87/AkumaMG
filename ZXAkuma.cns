@@ -2086,6 +2086,23 @@ airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
 
+[State 1002, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
+
 [State 1003, Hit]
 type = parentvarset
 trigger1 = movehit
@@ -2356,6 +2373,23 @@ airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
 
+[State 1016, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
+
 [State 1003, Hit]
 type = parentvarset
 trigger1 = movehit
@@ -2537,6 +2571,23 @@ airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 yaccel = 0.428125
 p1sprpriority = 5
+
+[State 1021, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
 
 [State 1021, Hit]
 type = parentvarset
@@ -3848,6 +3899,7 @@ sparkxy = 0,-65
 hitsound   = s120,9
 guardsound = s5,0
 ground.type = Low
+air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
 ground.velocity = -0.9,-4.6
@@ -3861,6 +3913,7 @@ type = HitDef
 trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = hard
+fall.animtype = hard
 damage    = ifelse(Var(0)<5,35,15), 4
 priority  = 5
 guardflag = MA
@@ -4025,6 +4078,7 @@ sparkxy = 0,-65
 hitsound   = s120,9
 guardsound = s5,0
 ground.type = Low
+air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
 ground.velocity = -0.9,-4.6
@@ -4038,6 +4092,7 @@ type = HitDef
 trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = hard
+fall.animtype = hard
 damage    = 23, 4
 priority  = 5
 guardflag = MA
@@ -4047,11 +4102,14 @@ sparkxy = -16,-65
 hitsound   = s120,9
 guardsound = s5,0
 ground.type = Low
+air.type = low
+air.animtype = hard
+fall.animtype = hard
 ground.slidetime = 18
 ground.hittime  = 18
 ground.velocity = ifelse(p2dist x > 0,-4.7,4.7),-4.5
 guard.velocity = -4
-air.velocity = ifelse(p2dist x > 0,-4.9,4.9),-4
+air.velocity = ifelse(p2dist x > 0,-4.7,4.7),-4.4
 fall = 1
 yaccel = 0.45
 
@@ -4128,6 +4186,7 @@ sparkxy = 0,-65
 hitsound   = s120,9
 guardsound = s5,0
 ground.type = Low
+air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
 ground.velocity = -0.9,-4.6
@@ -4140,6 +4199,7 @@ type = HitDef
 trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = Hard
+fall.animtype = hard
 damage    = ifelse(Var(0)<5,22,12), 4
 priority  = 5
 guardflag = MA
@@ -4149,11 +4209,12 @@ sparkxy = -16,-65
 hitsound   = s120,9
 guardsound = s5,0
 ground.type = Low
+air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
 ground.velocity = -3,-5.5
 guard.velocity = -6
-air.velocity = -5.9,-4.3
+air.velocity = -5.6,-4.7
 fall = 1
 yaccel = 0.6
 
@@ -4897,7 +4958,7 @@ sparkno = s7003
 sparkxy = -10,-15
 hitsound   = s120,9
 guardsound = s5,0
-ground.type = Trip
+ground.type = low
 ground.slidetime = 10
 ground.hittime  = 15
 ground.velocity = -3.9,-4.8
@@ -4962,7 +5023,7 @@ x= 0.9
 [State 1113, 3]
 type = HitDef
 trigger1 = Time = 0
-attr = A, NA
+attr = A, SA
 damage    = 70
 guardflag = HA
 priority = 4
@@ -5371,7 +5432,6 @@ trigger1 = !time
 x = 0.7
 y = 0.7
 
-
 [State 1141, Set]
 type = posset
 trigger1 = Pos Y > 4
@@ -5431,6 +5491,23 @@ air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
+
+[State 1141, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
 
 [State 1003, Hit]
 type = parentvarset
@@ -5639,6 +5716,23 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 
+[State 1146, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
+
 [State 1003, Hit]
 type = parentvarset
 trigger1 = movehit
@@ -5802,6 +5896,23 @@ air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
+
+[State 1151, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
 
 [State 1003, Hit]
 type = parentvarset
@@ -5969,6 +6080,23 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5	
+
+[State 1161, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
 
 [State 1161, Reset]
 type = varset
@@ -6247,6 +6375,23 @@ palfx.add = 217,61,0
 palfx.sinadd = -255,-255,-255,80 ; 40
 palfx.color = 20
 
+[State 1166, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
+
 [State 1166, Reset]
 type = varset
 trigger1 = frontedgedist < -100
@@ -6509,7 +6654,7 @@ Guard.Sparkno = -1
 sparkxy = 2,-5
 hitsound   = -1;s120,6
 guardsound = -1
-ground.type = low
+ground.type = high
 air.type = low
 ground.slidetime = 20
 ground.hittime  = 20
@@ -6566,6 +6711,23 @@ palfx.time = 40 ;20
 palfx.add = 217,61,0
 palfx.sinadd = -255,-255,-255,80 ; 40
 palfx.color = 20
+
+[State 1171, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
 
 [State 1171, Reset]
 type = varset
@@ -7052,6 +7214,9 @@ type = ChangeState
 trigger1 = Vel Y >= 0 && animelemtime(15) > 1
 value = 3001
 ctrl = 0
+
+;====================================================================
+;Messatsu Gou Shoryu Decending
 ;====================================================================
 [Statedef 3001]
 type    = A
@@ -7184,6 +7349,8 @@ trigger1 = time = 120 && command = "messcharge"
 trigger2 = Var(13) = 1 && time >= 60
 value = 3015
 ctrl = 0
+;======================================================================
+;Messatsu Gou Hadou Release
 ;======================================================================
 [Statedef 3015]
 type    = S
@@ -7349,6 +7516,22 @@ airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
 
+[State 3001, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
 
 [State 3001, Reset]
 type = varset
@@ -8860,13 +9043,9 @@ waveform = sine
 [State -2, Debug data]
 type = displaytoclipboard
 trigger1 = time >= 0
-text = "Var(11) =%d,P2Dist X = %f,P2Dist Y = %f,backedgedist = %f,facing = %d, Damage Scale =%f,By Master Gouken"
-params = Var(11),P2Dist X,P2Dist Y,backedgedist, facing, fvar(1)
-
-[State -2, ReSetDampener]
-type = VarSet
-trigger1 = (P2MoveType != H) && (Var(0) > 0)
-var(0) = 0
+text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,backedgedist = %f,facing = %d, Damage Scale =%f,By Master Gouken"
+params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,backedgedist, facing, fvar(1)
+ignorehitpause = 1
 
 [State -2, Dizzy Groan]
 type = PlaySnd
@@ -8885,6 +9064,44 @@ ownpal = 1
 stateno = 9000
 id = 9000
 ignorehitpause = 1
+
+[State -2, Back Spark Mid]
+type = explod
+triggerall = numtarget
+triggerall = (target,gethitvar(animtype)=2 || target,gethitvar(animtype)=0)
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+trigger2 = projhit = 1
+anim = 7005
+id = 7005
+pos = target, const(size.mid.pos.x)-20,target, const(size.mid.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
+
+[State -2, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target,gethitvar(animtype)>=3 || target,gethitvar(animtype)=1
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+trigger2 = projhit = 1
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
 
 [State -2, RemoveAfterImages]
 type = AfterImageTime
@@ -8914,7 +9131,6 @@ ignorehitpause=1
 ;----------------------------------------------------------------------
 ; States that are executed when in self's state file (use statedef-3)
 ;----------------------------------------------------------------------
-
 [Statedef -3]
 
 [State -3, Landing Sound]
@@ -9039,13 +9255,6 @@ trigger2 = movetype = h
 value = 60, var(8)
 channel = 1
 
-[State -3, Fall hit sound]
-type = playsnd
-triggerall = Time = 1
-triggerall = Alive = 1
-trigger1 = StateNo = 5100 && Random < 500
-value = 60,ifelse(random > 500,0,4)
-
 [State -3, Ground Hit]
 type = PlaySnd
 triggerall = Random < 330
@@ -9053,21 +9262,6 @@ triggerall = Time = 1
 triggerall = Alive = 1
 trigger1 = StateNo = 5080
 value = 60, 3
-
-[State -3, Weaken]
-type = AttackMulSet
-trigger1 = hitcount >= 5 && hitcount < 10 && stateno < 3000
-value = 0.3
-
-[State -3, Weaken]
-type = AttackMulSet
-trigger1 = hitcount >= 10 && stateno < 3000
-value = 0.1
-
-[State -3, Strengthen]
-type = AttackMulSet
-trigger1 = hitcount = 0
-value = 1
 
 [State -3, BeefUp]
 type = AttackMulSet
@@ -9087,16 +9281,38 @@ trigger1 = !var(13) && roundstate = 2 && Ailevel
 v = 13
 value = 1
 
-[State -3, Back Spark]
+[State -2, Back Spark Mid]
 type = explod
 triggerall = numtarget
-trigger1 = target, movetype = h
-trigger1 = movehit <=3 && !numexplod(7005)
-trigger1 = stateno = [1000,3999]
-trigger1 = target, time = 0
+triggerall = (target,gethitvar(animtype)=2 || target,gethitvar(animtype)=0)
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+trigger2 = projhit = 1
 anim = 7005
 id = 7005
 pos = target, const(size.mid.pos.x)-20,target, const(size.mid.pos.y)
+postype = p2
+bindtime = 999
+sprpriority = -10
+ignorehitpause = 1
+facing = -1
+
+[State -2, Back Spark High]
+type = explod
+triggerall = numtarget
+triggerall = target,gethitvar(animtype)>=3 || target,gethitvar(animtype)=1
+triggerall = target, movetype = h
+triggerall = target, stateno != [120,155]
+triggerall = target, time = 0
+trigger1 = movehit =[1,3]
+trigger1 = hitdefattr = SCA, SA,HA,SP,HP
+trigger2 = projhit = 1
+anim = 7005
+id = 7005
+pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
 postype = p2
 bindtime = 999
 sprpriority = -10
