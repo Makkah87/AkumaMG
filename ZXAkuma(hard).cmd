@@ -574,6 +574,7 @@ trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [300,399])
 trigger2 = movecontact
 trigger3 = (stateno = [400,499]) && movecontact
+trigger4 = stateno = 315 && movecontact
 ;--------------------------------------------------------------------
 ;Gou Zankuu (Medium)
 [State -1, Gou Zankuu (Medium)]
@@ -587,6 +588,7 @@ trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [300,399])
 trigger2 = movecontact
 trigger3 = (stateno = [400,499]) && movecontact
+trigger4 = stateno = 315 && movecontact
 ;--------------------------------------------------------------------
 ;Gou Zankuu (Strong)
 [State -1, Gou Zankuu (Strong)]
@@ -600,6 +602,7 @@ trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [300,399])
 trigger2 = movecontact
 trigger3 = (stateno = [400,499]) && movecontact
+trigger4 = stateno = 315 && movecontact
 ;--------------------------------------------------------------------
 ;Tenma Kujin Kyaku (Weak)
 [State -1, Tenma Kujin Kyaku (Weak)]
@@ -611,6 +614,7 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = (stateno = [600,699]) || (stateno = [400,499])
 trigger2 = movecontact
+trigger3 = stateno = 315 && movecontact
 ;--------------------------------------------------------------------
 ;Tenma Kujin Kyaku (Medium)
 [State -1, Tenma Kujin Kyaku (Medium)]
@@ -622,6 +626,7 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = (stateno = [600,699]) || (stateno = [400,499])
 trigger2 = movecontact
+trigger3 = stateno = 315 && movecontact
 ;--------------------------------------------------------------------
 ;Tenma Kujin Kyaku (Strong)
 [State -1, Tenma Kujin Kyaku (Strong)]
@@ -633,6 +638,7 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = (stateno = [600,699]) || (stateno = [400,499])
 trigger2 = movecontact
+trigger3 = stateno = 315 && movecontact
 ;--------------------------------------------------------------------
 ;Metsu Gou Hadou
 [State -1, Metsu Gou Hadou (Weak)]
@@ -722,6 +728,7 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = [600,650]
 trigger2 = movecontact
+trigger3 = stateno = 315 && movecontact
 ;--------------------------------------------------------------------
 ;Air Tatsumaki Zankuu Kyaku (Medium)
 [State -1, Air Tatsumaki Zankuu Kyaku (Medium)]
@@ -733,6 +740,7 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = [600,650]
 trigger2 = movecontact
+trigger3 = stateno = 315 && movecontact
 ;--------------------------------------------------------------------
 ;Air Tatsumaki Zankuu Kyaku (Strong)
 [State -1, Air Tatsumaki Zankuu Kyaku (Strong)]
@@ -744,6 +752,7 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = [600,650]
 trigger2 = movecontact
+trigger3 = stateno = 315 && movecontact
 ;====================================================================
 ;--------------------------------------------------------------------
 ;Run Fwd

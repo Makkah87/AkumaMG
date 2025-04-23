@@ -395,7 +395,7 @@ ignorehitpause = 1
 type = HitDef
 trigger1 = Time = 0
 attr = S, NA
-Damage = 23,0
+Damage = 28,0
 animtype = Light
 guardflag = MA
 hitflag = MAF
@@ -463,7 +463,7 @@ type = HitDef
 trigger1 = AnimElem = 3 && anim = 210
 attr = S, NA
 animtype  = Medium
-Damage = 57,0
+Damage = 62,0
 guardflag = MA
 pausetime = 10,10
 forcenofall = 1
@@ -489,7 +489,7 @@ type = HitDef
 trigger1 = AnimElem = 3 && anim = 211
 attr = S, NA
 animtype  = Medium
-Damage = 57,0
+Damage = 49,0
 guardflag = MA
 pausetime = 10,10
 forcenofall = 1
@@ -560,7 +560,7 @@ type = HitDef
 trigger1 = time = 0
 attr = S, NA
 animtype  = Medium
-Damage = 20,0
+Damage = 21,0
 guardflag = MA
 pausetime = 10,10
 guard.sparkno = s7006
@@ -585,7 +585,7 @@ type = HitDef
 trigger1 = AnimElem = 7
 attr = S, NA
 animtype  = Medium
-Damage = 57,0
+Damage = 35,0
 guardflag = MA
 pausetime = 10,10
 sparkno = S7001
@@ -659,7 +659,7 @@ type = HitDef
 trigger1 = Time = 0
 attr = S, NA
 animtype  = Hard
-Damage = 62,0
+Damage = 90,0
 guardflag = MA
 pausetime = 12,12
 sparkno = S7002
@@ -731,7 +731,7 @@ type = HitDef
 trigger1 = Time = 0
 attr = S, NA
 animtype  = Medium
-damage    = 26,0
+damage    = 28,0
 guardflag = MA
 pausetime = 8,8
 sparkno = S7000
@@ -789,7 +789,7 @@ type = HitDef
 trigger1 = Time = 0 && Anim = 310
 attr = S, NA
 animtype  = Medium
-damage    = 63,0
+damage    = 56,0
 guardflag = MA
 pausetime = 10,10
 sparkno = S7001
@@ -814,7 +814,7 @@ type = HitDef
 trigger1 = Time = 0 && Anim = 312
 attr = S, NA
 animtype  = Medium
-damage    = 63,0
+damage    = 56,0
 guardflag = MA
 pausetime = 10,10
 sparkno = S7001
@@ -950,24 +950,24 @@ type = PlaySnd
 trigger1 = Time = 2
 value = 0, 4
 
-[State 320, 2]
+[State 320, Far]
 type = HitDef
-trigger1 = Time = 0
+trigger1 = Time = 0 && anim = 320
 attr = S, NA
 animtype  = Medium
-damage    = 32,0
+damage    = 83,0
 guardflag = MA
 pausetime = 11,12
 sparkno = S7002
 guard.sparkno = s7006
-sparkxy = ifelse(anim=321,-18,-10),ifelse(anim=321,-69,-75)
+sparkxy = -10,-75
 hitsound   = s120,9
 guardsound = s5,0
 ground.type = High
 ground.slidetime = 16
 ground.hittime  = 15
-ground.velocity = ifelse(anim = 321,-7, -9),0
-air.velocity = ifelse(anim = 321,-2.2,-3.7), ifelse(anim = 321,-3.2,-7)
+ground.velocity = -9,0
+air.velocity = -3.7, -7
 yaccel = 0.6
 fall.envshake.time = 15
 fall.envshake.freq = 176
@@ -978,12 +978,40 @@ air.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 
-[State 320, 2]
+[State 320, Close 1]
 type = HitDef
-trigger1 = Animelem = 5
+trigger1 = Time = 0 && anim = 321
 attr = S, NA
 animtype  = Medium
-damage    = 20,0
+damage    = 56,0
+guardflag = MA
+pausetime = 11,12
+sparkno = S7002
+guard.sparkno = s7006
+sparkxy = -18,-69
+hitsound   = s120,9
+guardsound = s5,0
+ground.type = High
+ground.slidetime = 16
+ground.hittime  = 15
+ground.velocity = -7,0
+air.velocity = -2.2, -3.2
+yaccel = 0.6
+fall.envshake.time = 15
+fall.envshake.freq = 176
+fall.envshake.ampl = 3
+ground.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+
+[State 320, Close 2]
+type = HitDef
+trigger1 = Animelem = 5 && anim = 321
+attr = S, NA
+animtype  = Medium
+damage    = 35,0
 guardflag = MA
 pausetime = 12,12
 sparkno = S7002
@@ -996,7 +1024,7 @@ ground.slidetime = 12
 ground.hittime  = 15
 ground.velocity = -7
 air.velocity = -2.2,15
-fall = ifelse(enemynear, Pos Y < 0 || enemynear, Statetype = A,1,0)
+air.fall = 1
 fall.envshake.time = 15
 fall.envshake.freq = 176
 fall.envshake.ampl = 3
@@ -1040,7 +1068,7 @@ value = 0, 0
 type = HitDef
 trigger1 = Time = 0
 attr = C, NA
-damage = 23,0
+damage = 21,0
 priority  = 3
 animtype  = Light
 hitflag = MAF
@@ -1104,7 +1132,7 @@ value = 0, 0
 type = HitDef
 trigger1 = AnimElem = 3
 attr = C, NA
-damage = 37,0
+damage = 56,0
 animtype  = Medium
 hitflag = MAF
 guardflag = M
@@ -1161,7 +1189,7 @@ value = 0, 0
 type = HitDef
 trigger1 = Time = 0
 attr = C, NA
-damage    = 42,0
+damage    = 76,0
 animtype  = Medium
 hitflag = MAF
 guardflag = M
@@ -1182,9 +1210,6 @@ guard.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
-envshake.time = 10
-envshake.ampl = 2
-envshake.freq = 176
 
 [State 210, HitAnimElem]
 type = ChangeAnim
@@ -1230,7 +1255,7 @@ value = 0, 0
 type = HitDef
 trigger1 = Time = 0
 attr = C, NA
-damage = 28,0
+damage = 14,0
 animtype  = Light
 hitflag = MA
 guardflag = L
@@ -1289,7 +1314,7 @@ value = 0, 2
 type = HitDef
 trigger1 = Time = 0
 attr = C, NA
-damage = 30,0
+damage = 49,0
 hitflag = MA
 guardflag = L
 pausetime = 10,10
@@ -1346,7 +1371,7 @@ value = 0, 2
 type = HitDef
 trigger1 = Time = 0
 attr = C, NA
-damage    = 32,0
+damage    = 83,0
 hitflag = MA
 guardflag = L
 pausetime = 12,12
@@ -1403,7 +1428,7 @@ value = 0, 0
 type = HitDef
 trigger1 = Time = 0
 attr = A, NA
-damage    = 20,0
+damage    = 35,0
 guardflag = HA
 priority = 3
 pausetime = 8,8
@@ -1453,7 +1478,7 @@ value = 0, 1
 type = HitDef
 trigger1 = Time = 0
 attr = A, NA
-damage = 72,0
+damage = 49,0
 guardflag = HA
 priority = 4
 pausetime = 8,8
@@ -1499,7 +1524,7 @@ value = 0, 1
 type = HitDef
 trigger1 = Time = 0
 attr = A, NA
-damage = 80,0
+damage = 76,0
 guardflag = HA
 priority = 4
 pausetime = 8,8
@@ -1546,7 +1571,7 @@ value = 0, 0
 type = HitDef
 trigger1 = Time = 0 && anim = 660
 attr = A, NA
-damage = 26,0
+damage = 28,0
 guardflag = HA
 priority = 3
 pausetime = 8,8
@@ -1566,7 +1591,7 @@ air.velocity = -2,-3
 type = HitDef
 trigger1 = Time = 0 && anim = 630
 attr = A, NA
-damage = 26,0
+damage = 28,0
 guardflag = HA
 priority = 3
 pausetime = 8,8
@@ -1610,7 +1635,7 @@ value = 0, 1
 type = HitDef
 trigger1 = Time = 0 && anim = 670
 attr = A, NA
-damage = 70,0
+damage = 49,0
 guardflag = HA
 priority = 4
 pausetime = 8,8
@@ -1630,7 +1655,7 @@ air.velocity = -3,-4
 type = HitDef
 trigger1 = Time = 0 && anim = 630
 attr = A, NA
-damage = 70,0
+damage = 49,0
 guardflag = HA
 priority = 3
 pausetime = 8,8
@@ -1673,7 +1698,7 @@ value = 0, 1
 type = HitDef
 trigger1 = Time = 0 && anim = 650
 attr = A, NA
-damage = 70,0
+damage = 69,0
 guardflag = HA
 priority = 3
 pausetime = 8,8
@@ -1692,7 +1717,7 @@ air.velocity = -3.5,-1.6
 type = HitDef
 trigger1 = Time = 0 && anim = 680
 attr = A, NA
-damage = 70,0
+damage = 69,0
 guardflag = HA
 priority = 4
 pausetime = 12,12
@@ -1791,7 +1816,7 @@ pos = -40, -50
 [State 810, Hurt 11]
 type = TargetLifeAdd
 trigger1 = AnimElem = 5
-value = -78
+value = -118
 
 [State 810, Throw 11]
 type = TargetState
@@ -1887,8 +1912,8 @@ y = .5
 type  = envshake
 trigger1 = Vel Y > 0
 trigger1 = Pos Y >= -0
-freq  = 120
-time  = 5
+freq  = 112
+time  = 3
 ampl  = -3
 
 [State 821, 2] ; Recover near ground (use ChangeState)
@@ -1912,7 +1937,7 @@ value = 5210 ;HITFALL_AIRRECOVER
 type = lifeadd
 trigger1 = Vel Y > 0
 trigger1 = Pos Y >= 0
-value = -15
+value = -5
 
 [State 821, 4] ;Hit ground
 type = SelfState
@@ -2050,13 +2075,13 @@ ignorehitpause = 1
 
 [State 1002, HitDef]
 type = HitDef
-trigger1 = Time = 0 && Parent,Var(10) = 0
+trigger1 = Time = 0
 attr = S,SP
 hitflag = MAF
 guardflag = MA
 animtype = Hard
 priority = 5,hit
-damage = 40,20
+damage = 56,49
 sparkno = s7003
 guard.sparkno = s7006
 hitsound = s120,6
@@ -2081,7 +2106,7 @@ guard.cornerpush.veloff = 0
 
 
 [State 1002, HitDefMetsu]
-type = HitDef
+type = null;HitDef
 trigger1 = Time >= 0 && Parent,Var(10) = 1 && uniqhitcount < Parent,Var(4)
 attr = S,SP
 hitflag = MAF
@@ -2343,7 +2368,7 @@ hitflag = MAF
 guardflag = MA
 animtype = Hard
 priority = 5,hit
-damage = 60,30
+damage = 62,56
 sparkno = s7003
 guard.sparkno = s7006
 hitsound = s120,6
@@ -2368,7 +2393,7 @@ guard.cornerpush.veloff = 0
 
 
 [State 1016, HitDefMetsu]
-type = HitDef
+type = null;HitDef
 trigger1 = Time >= 0 && Parent,Var(10) = 1 && uniqhitcount < Parent,Var(4)
 attr = S,SP
 hitflag = MAF
@@ -2546,7 +2571,7 @@ hitflag = MAF
 guardflag = MA
 animtype = Hard
 priority = 5,hit
-damage = 70,30
+damage = 69,62
 sparkno = s7003
 guard.sparkno = s7006
 hitsound = s120,6
@@ -2577,7 +2602,7 @@ hitflag = MAF
 guardflag = MA
 animtype = Hard
 priority = 5,hit
-damage = 70,30
+damage = 69,62
 sparkno = s7003
 guard.sparkno = s7006
 hitsound = s120,6
@@ -2685,7 +2710,7 @@ trigger1 = AnimElemtime(1) = 1
 attr = A, SA
 animtype  = Hard
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,20,10), 4
+damage    = 69, 40
 priority  = 5
 guardflag = M
 pausetime = 12,12
@@ -2709,7 +2734,7 @@ trigger1 = AnimElem = 2
 attr = A, SA
 animtype  = Hard
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,20,10), 4
+damage    = 28, 14
 priority  = 5
 guardflag = M
 pausetime = 12,12
@@ -2767,7 +2792,7 @@ trigger1 = Time = 1
 attr = A, SA
 animtype  = Medium
 fall.animtype = up
-damage    = ifelse(Var(0)<5,40,20), 4
+damage    = 21, 14
 priority  = 5
 guardflag = M
 pausetime = 12,11
@@ -2916,7 +2941,7 @@ trigger1 = AnimElemtime(1) = 1
 attr = A, SA
 animtype  = hard
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,20,10), 6
+damage    = 76, 56
 priority  = 5
 guardflag = M
 pausetime = 12,12
@@ -2939,7 +2964,7 @@ trigger1 = AnimElem = 2
 attr = A, SA
 animtype  = hard
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,20,10), 6
+damage    = 28, 16
 priority  = 5
 guardflag = M
 pausetime = 12,12
@@ -2995,7 +3020,7 @@ trigger1 = Time = 1
 attr = A, SA
 animtype  = hard
 fall.animtype = up
-damage    = ifelse(Var(0)<5,40,20), 4
+damage    = 21, 14
 priority  = 5
 guardflag = M
 pausetime = 12,11
@@ -3108,7 +3133,7 @@ trigger1 = AnimElemtime(1) = 1
 attr = A, SA
 animtype  = hard
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,20,10), 8
+damage    = 83, 63
 priority  = 5
 guardflag = M
 pausetime = 12,12
@@ -3131,7 +3156,7 @@ trigger1 = AnimElem = 2
 attr = A, SA
 animtype  = hard
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,20,10), 8
+damage    = 28, 18
 priority  = 5
 guardflag = M
 pausetime = 12,11
@@ -3187,7 +3212,7 @@ trigger1 = Time = 1
 attr = A, SA
 animtype  = hard
 fall.animtype = up
-damage    = ifelse(Var(0)<5,40,20), 4
+damage    = 21, 14
 priority  = 5
 guardflag = M
 pausetime = 17,16
@@ -3929,7 +3954,7 @@ trigger1 = Time = 1
 attr = A, SA
 animtype  = hard
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,20,10), 4
+damage    = 35, 24
 priority  = 5
 guardflag = MA
 pausetime = 14,13
@@ -3953,7 +3978,7 @@ trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = hard
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,35,15), 4
+damage    = 42, 26
 priority  = 5
 guardflag = MA
 pausetime = 12,11
@@ -4108,7 +4133,7 @@ trigger1 = Time = 1
 attr = A, SA
 animtype  = hard
 fall.animtype = hard
-damage    = 20, 4
+damage    = 35, 24
 priority  = 5
 guardflag = MA
 pausetime = 14,13
@@ -4133,7 +4158,7 @@ trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = hard
 fall.animtype = hard
-damage    = 23, 4
+damage    = 43, 30
 priority  = 5
 guardflag = MA
 pausetime = 12,11
@@ -4218,7 +4243,7 @@ trigger1 = Time = 1
 attr = A, SA
 animtype  = Medium
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,20,10), 4
+damage    = 35, 20
 priority  = 5
 guardflag = MA
 pausetime = 14,13
@@ -4242,7 +4267,7 @@ trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = Hard
 fall.animtype = hard
-damage    = ifelse(Var(0)<5,22,12), 4
+damage    = 51, 40
 priority  = 5
 guardflag = MA
 pausetime = 12,11
@@ -4412,7 +4437,7 @@ type = HitDef
 trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = Medium
-damage    = 35, 4
+damage    = 40, 31
 priority  = 6,HIt
 guardflag = MA
 pausetime = 14,13
@@ -4500,7 +4525,7 @@ type = HitDef
 trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = Medium
-damage    = 35, 4
+damage    = 45, 34
 priority  = 6,HIt
 guardflag = MA
 pausetime = 14,13
@@ -5527,7 +5552,7 @@ hitflag = MA
 guardflag = MA
 animtype = Hard
 priority = 5,hit
-damage = 40,20
+damage = 42,20
 sparkno = s7003
 guard.sparkno = s7006
 hitsound = s120,6
@@ -5751,7 +5776,7 @@ hitflag = MA
 guardflag = MA
 animtype = Hard
 priority = 5,hit
-damage = 40,20
+damage = 49,20
 sparkno = s7003
 guard.sparkno = s7006
 hitsound = s120,6
@@ -5932,7 +5957,7 @@ hitflag = MA
 guardflag = MA
 animtype = Hard
 priority = 5,hit
-damage = 40,20
+damage = ifelse(var(7),56,40),30
 sparkno = s7003
 guard.sparkno = s7006
 hitsound = s120,6
@@ -6107,7 +6132,7 @@ type = HitDef
 trigger1 = !time
 attr = S, HP
 animtype = hard
-damage = 32, 12
+damage = 62, 45
 getpower = 0
 priority = 4
 guardflag = M
@@ -6138,6 +6163,10 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5	
+palfx.time = 40 ;20
+palfx.add = 217,61,0
+palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.color = 20
 
 [State 1161, Back Spark High]
 type = explod
@@ -6363,7 +6392,7 @@ type = HitDef
 trigger1 = var(2) <=1
 attr = S, HP
 animtype = hard
-damage = 32, 12
+damage = 35, 20
 getpower = 0
 priority = 4
 guardflag = M
@@ -6393,13 +6422,17 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
+palfx.time = 40 ;20
+palfx.add = 217,61,0
+palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.color = 20
 
 [State 1166, Hitdef]
 type = HitDef
 trigger1 = !time && var(2) =2
 attr = S, HP
 animtype = hard
-damage = 32, 12
+damage = 35, 20
 getpower = 0
 priority = 4
 guardflag = M
@@ -6667,7 +6700,7 @@ type = HitDef
 trigger1 = !time && var(2) <1
 attr = S, HP
 animtype  = hard
-damage    = 32, 12
+damage    = 28, 18
 getpower  = 0
 priority  = 4
 guardflag = M
@@ -6696,13 +6729,17 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
+palfx.time = 40 ;20
+palfx.add = 217,61,0
+palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.color = 20
 
 [State 1171, Hitdef]
 type = HitDef
 trigger1 = !time && var(2) <3
 attr = S, HP
 animtype  = hard
-damage    = 32, 12
+damage    = 28, 18
 getpower  = 0
 priority  = 4
 guardflag = M
@@ -6731,13 +6768,17 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
+palfx.time = 40 ;20
+palfx.add = 217,61,0
+palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.color = 20
 
 [State 1171, Hitdef]
 type = HitDef
 trigger1 = !time && var(2) >=3
 attr = S, HP
 animtype  = hard
-damage    = 32, 12
+damage    = 21, 12
 getpower  = 0
 priority  = 4
 guardflag = M
@@ -7546,7 +7587,7 @@ type = HitDef
 trigger1 = !time
 attr = S, HP
 animtype  = hard
-damage    = 32, 12
+damage    = 32, 20
 getpower  = 0
 priority  = 4
 guardflag = M
@@ -7871,7 +7912,7 @@ hitflag = MAF
 guardflag = M
 animtype = Hard
 priority = 5,hit
-damage = 27,8 ;20,8
+damage = 27,18 ;20,8
 sparkno = s7004
 guard.sparkno = s7006
 sparkxy = 15,15
