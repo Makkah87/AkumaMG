@@ -6,6 +6,14 @@ name = "shun"
 command = x,x,F,a,z
 time = 50
 
+name = "shun"
+command = x,x,~F+a,z
+time = 50
+
+name = "shun"
+command = x,x,~F+a+z
+time = 50
+
 [Command]
 name = "gousho"
 command = ~D, DF, F, D, DF, F, x

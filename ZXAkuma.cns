@@ -8183,7 +8183,7 @@ FrameGap = 5
 [State 3050, IGrabU]
 type = HitDef
 Trigger1 = Time = 0
-attr = S, HA
+attr = S, HT
 hitflag = M
 sparkno = -1 
 p1sprpriority = 1
@@ -8277,27 +8277,27 @@ pos = 35, 0
 
 [State 3102, Hitsound]
 type = playsnd
-trigger1 = time=50||time=55||time=60||time=65||time=70||time=75||time=80||time=90||time=95||time=100||time=105||time=110||time=115||time=120||time=125||time=130
+trigger1 = (time >= 50 && time <= 130) && time%5=0
 value = 120,6
 volumescale = 100
-channel = 6; ifelse(random > 500,2,3)
+channel = 6
 
 [State 3102, Rumble]
 type  = envshake
-trigger1 =time=50||time=55||time=60||time=65||time=70||time=75||time=80||time=90||time=95||time=100||time=105||time=110||time=115||time=120||time=125||time=130
-freq  = 120
-time  = 30
+trigger1 = (time >= 50 && time <= 130) && time%5=0
+freq  = 125
+time  = 10
 ampl  = -4
 
 [State 3102, Hit]
 type = targetlifeadd
-trigger1 =time=50||time=55||time=60||time=65||time=70||time=75||time=80||time=90||time=95||time=100||time=105||time=110||time=115||time=120||time=125
+trigger1 =(time >= 50 && time <= 130) && time%5=0
 value = -ceil(((target,lifemax)*0.47)/17)
 kill = 0
 
 [State 3102, Hitadd]
 type = hitadd
-trigger1 = time=50||time=55||time=60||time=65||time=70||time=75||time=80||time=90||time=95||time=100||time=105||time=110||time=115||time=120||time=125||time = 130
+trigger1 = (time >= 50 && time <= 130) && time%5=0
 value = 1
 
 [State 3102,Final]
@@ -9212,6 +9212,13 @@ type = AfterImageTime
 trigger1 = movetype = h &&!time ;on hit
 trigger2 = stateno = 0
 Time = 0
+
+[State -2, REmoveShunRedBG]
+type = bgpalfx
+trigger1 = prevstateno = 3050 && movetype = h
+add = 255,0,0
+time = 1
+sinadd = -255,-255,-255,240
 
 [State -2, Damage based on hits]
 type=varset
