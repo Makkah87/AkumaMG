@@ -6954,22 +6954,6 @@ stateno = 3200
 id = 3200
 supermovetime = 9999
 
-[State 3000, VarAdd]
-type = VarAdd
-triggerall = (NumTarget > 0) && (MoveHit)
-trigger1 = animelem = 1
-trigger2 = animelem = 2
-trigger3 = animelem = 3
-trigger4 = animelem = 7
-trigger5 = animelem = 8
-trigger6 = animelem = 9
-trigger7 = animelem = 13
-trigger8 = animelem = 14
-trigger9 = animelem = 15
-var(0) = 5
-persistent = 0
-ignorehitpause = 1
-
 [State 3000, SuperBG]
 type = null;bgpalfx
 trigger1 = time = 0
@@ -6997,7 +6981,7 @@ pos = 25, -57
 anim = -1
 sound = s3000, 1
 poweradd = -1000
-time = 45
+time = 54
 darken = 0
 
 [State 3050, Blue Shadows]
@@ -7426,7 +7410,7 @@ supermovetime = 9999
 type = bgpalfx
 trigger1 = time = 0
 add = -128,-128,-128
-time = 45
+time = 54
 
 [State 3010, Super A]
 type = SuperPause
@@ -7435,7 +7419,7 @@ pos = -5, -55
 anim = -1
 sound = s3000, 1
 poweradd = -1000
-time = 49 ;60
+time = 54
 movetime = 45
 darken = 0
 
@@ -8119,7 +8103,7 @@ anim = 3201
 postype = p1
 pos = 19,-86
 supermovetime = 64
-sprpriority = 3
+sprpriority = 11
 ownpal = 1
 
 [State 3050, RedBG]
@@ -8177,7 +8161,7 @@ length = 15
 PalPostBright = 0,0,0
 PalContrast = 160,20,20
 PalAdd      =   0, 0, 0
-PalMul      =  1.5 ,1.5 ,1.5
+;PalMul      =  1.25 ,1.25 ,1.25
 FrameGap = 5
 
 [State 3050, IGrabU]
@@ -8634,13 +8618,13 @@ ctrl = 1
 type = S
 movetype = I
 physics = N
-anim = 3200
+anim = -1
 sprpriority = 5
 
-[state 3200, spr]
-type = sprpriority
+[state 3200, Invis]
+type = assertspecial
 trigger1 = 1
-value = 5
+flag = invisible
 
 [State 3200, Assert]
 type = AssertSpecial
@@ -8648,39 +8632,66 @@ trigger1 = 1
 flag = noshadow
 ignorehitpause = 1
 
-[state 3200, bind]
-type = BindToParent
-trigger1 = parent, stateno = 3010
-pos = -31,-46
+[State 3200, Particles]
+type = Explod
+trigger1 = !time
+anim = 3200
+ID = 3200
+space = stage
+pos = Pos X + CameraPos X, Pos Y
+facing = facing
+bindtime = 1
+vel = 0,0
+removetime = -2
+supermovetime = 999
+pausemovetime = 0
+scale = 1,1
+sprpriority = 10
+ontop = 1
+ownpal = 1
 
-[state 3200, bind]
-type = BindToParent
-trigger1 = parent, stateno = 3000
-pos = 23,-47
+[State 3200, Horizontal Lightening]
+type = Explod
+trigger1 = time = 32
+anim = 3202
+ID = 3202
+space = stage
+pos = CameraPos X, Pos Y
+facing = facing
+bindtime = 1
+vel = 0,0
+removetime = -2
+supermovetime = 999
+pausemovetime = 0
+scale = 1,1
+sprpriority = 10
+ownpal = 1
 
-[state 3200, bind]
-type = BindToParent
-trigger1 = parent, stateno = 3020
-pos = 60, -52
-
-[state 3200, trans]
-type = Trans
-trigger1 = 1
-trans = add
-
-[state 3200, Angle0]
-type = AngleSet
-trigger1 = time
-value = (360*time)/39
+[State 3200, Vertical Lightening]
+type = Explod
+trigger1 = time = 43
+anim = 3203
+ID = 3203
+space = stage
+pos = Pos X + CameraPos X, 0
+facing = facing
+bindtime = 1
+vel = 0,0
+removetime = -2
+supermovetime = 999
+pausemovetime = 0
+scale = 1,1
+sprpriority = 10
+ownpal = 1
 
 [state 7030, Angle1]
 type = AngleDraw
 trigger1 = 1
-scale = 0.4,0.4
+scale = 1,1
 
 [state 3200, end]
 type = DestroySelf
-trigger1 = !animtime;time = 43
+trigger1 = time > 43 && numexplod(3203) = 0
 ;======================================================================
 ; K.O Effect
 ;======================================================================
