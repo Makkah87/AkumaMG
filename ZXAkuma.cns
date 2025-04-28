@@ -4,7 +4,7 @@
 ;======================================================================
 ;			Var(0) :	Old Damage Scaler (Depricated)
 ;			Var(1) : Intro Decider
-;			Var(2) : Special Condition
+;			Var(2) : Special Condition - Finished opponent with SGS
 ;			Var(3) : Win Pose Decider
 ;              Var(4) : Shakunetsu Gou Hadou Resistance
 ;              Var(5) : Death Voice Add
@@ -8521,7 +8521,7 @@ value = 0,0,0
 under = 1
 time = 260
 
-[State 3110 Blackout]
+[State 3110, Blackout]
 type = AssertSpecial
 triggerall = Var(2) = 0
 trigger1 = time >= 0 && time < 260
@@ -8542,13 +8542,26 @@ trigger1 = time = 0
 value = 122,9
 volumescale = 100
 
+[State 3110,HCF BG]
+type = explod
+trigger1 = time = 0
+anim = 3500
+space = screen
+pos = 0, 0
+facing = 1
+ownpal = 1
+sprpriority = -6
+removetime = 260
+scale = 0.83333333333333333333333333333333,1.0714285714285714285714285714286
+
 [State 3110,BigKanji]
 type = explod
 triggerall = Var(2) = 0
 trigger1 = time = 0 && var(7) = 0
 anim = 3104
-postype = left
-pos = 200,0
+space = screen
+pos = 160, 120
+facing = 1
 ownpal = 1
 sprpriority = -5
 removetime = 260
