@@ -3415,15 +3415,12 @@ Clsn2:3
 
 ; Ten
 [Begin Action 3104]
-Interpolate Scale
-8200,1, 0,0, 280, , S, 0.4,0.4
-Interpolate Scale
-8200,1, 0,0, 200, , , 0.6,0.6
+8200,1, 0,0, -1, , S, 0.5,0.5
 
 
 ; 
 [Begin Action 3105]
-8200,0, 0,0, -1
+8200,0, 0,0, -1, , S, 0.3,0.3
 
 
 ; SGS Kanji 1

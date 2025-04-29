@@ -8096,6 +8096,12 @@ stateno = 3200
 id = 3200
 supermovetime = 9999
 
+[State 3020, Muteki]
+type = nothitby
+trigger1 = !time
+value = SCA
+time = 5
+
 [State 3050, FlameCharge]
 type = explod
 trigger1 = time = 0
@@ -8168,7 +8174,7 @@ FrameGap = 5
 type = HitDef
 Trigger1 = Time = 0
 attr = S, HT
-hitflag = M
+hitflag = M-
 sparkno = -1 
 p1sprpriority = 1
 p2facing = 1 
@@ -8519,7 +8525,7 @@ triggerall = Var(2) = 0
 trigger1 = time = 0
 value = 0,0,0
 under = 1
-time = 260
+time = 240
 
 [State 3110, Blackout]
 type = AssertSpecial
@@ -8546,6 +8552,7 @@ volumescale = 100
 type = explod
 trigger1 = time = 0
 anim = 3500
+id = 3500
 space = screen
 pos = 0, 0
 facing = 1
@@ -8559,6 +8566,7 @@ type = explod
 triggerall = Var(2) = 0
 trigger1 = time = 0 && var(7) = 0
 anim = 3104
+id = 3104
 space = screen
 pos = 160, 120
 facing = 1
@@ -8566,16 +8574,25 @@ ownpal = 1
 sprpriority = -5
 removetime = 260
 
-[State 3110,BigKanji2]
+[State 3110,BigKanjiShin]
 type = explod
 triggerall = Var(2) = 0
 trigger1 = time = 0 && var(7) = 1
 anim = 3105
-postype = left
-pos = 20,-9
+id = 3105
+space = screen
+pos = 160, 120
+facing = 1
 ownpal = 1
 sprpriority = -5
-removetime = 265
+removetime = 260
+
+[State 3110, Remove HCF]
+type = removeexplod
+triggerall = time > 1
+trigger1 = !var(7) && numexplod(3104) = 0
+trigger2 = var(7) && numexplod(3105) = 0
+id = 3500
 
 [State 183, Ten]
 type = explod
@@ -8614,7 +8631,7 @@ pos = -2,-7
 sprpriority = 5
 
 
-[State 3110, SpecialCond]
+[State 3110, SpecialCond - Win by SGS Flag]
 type = varset
 trigger1 = time = 190 && Var(2) = 0 ;11
 v = 2

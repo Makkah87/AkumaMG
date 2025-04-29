@@ -354,6 +354,8 @@ trigger1 = ctrl
 trigger2 = hitdefattr = SC, NA, SA, HA
 trigger2 = stateno != [3050,3100)
 trigger2 = movecontact
+trigger3 = stateno = 220
+trigger4 = stateno = 300
 ;--------------------------------------------------------------------
 ;Messatsu Gou Hadou
 [State -1, Messatsu Gou Hadou]

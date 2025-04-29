@@ -16,16 +16,13 @@ Fixes
 
 To-Do
 -------
--Change FX graphics back to CPS quality
 -Add burning effect
 -Add hyper combo finish effect
--Refine SGS finish effect
 -Add more voice samples to basic attacks
 -EX moves?
 -Greater differentiation between regular and Shin Akuma. Possibly combine the two
 -Refine aerial tatsu
 -Implement Tenma Gou Rassen: QCBx2 + K
--Add Guard FX
 -Code Misogi
 
 
@@ -73,31 +70,30 @@ Shun Goku Satsu: lp,lp,F,lk,hp
 ---------------
 Notes
 ---------------
-I've toned down the A.I quite a bit but just in case you want to see what he was like before, I included a hard mode .cmd file. To use it simply open his .def file and replace "cmd = ZXAkuma.cmd" with 
-"cmd = ZXAkuma(hard).cmd".
+
 
 Credits
 ---------------
--Reu for being cool enough for allowing me to use some of his codes and sprites. Also for his awesome characters and for inspiring me to take  up the MUGEN fight.
+-Reu for being cool enough for allowing me to use some of his codes and sprites. Also for his awesome characters and for inspiring me to take up the MUGEN fight.
 
 -Elecbyte for creating MUGEN
 
--Phantom of the Server (P.o.t.S) for beta testing and allowing me to use his CVS2 hitsounds.
+-Phantom of the Server (P.o.t.S) - beta testing and allowing me to use his CVS2 hitsounds.
 
--Byakko for beta testing and whose CVS2 Ryo I used as a reference when  making the Shun Goku Satsu win pose as well as red after image effects.
+-Byakko - beta testing and whose CVS2 Ryo I used as a reference when  making the Shun Goku Satsu win pose.
 
 -Capcom for creating Akuma and the SF and CVS universes.
 
--To the guys over at bmt.mgbr.net for the cvs2 voice samples and sound  effects
+-Zweifuss - SF3 voice packs and Sprites
 
--Zweifuss for his SF3 voice packs
+-Kong - Jo Jo's Bizarre Adventure sprite rips
 
 -The guys behind Kawaks, the CPS2 emu I used to rip the sprites.
 
--The Dream Slayer/Open Source for his CVS2 rips, from where I got Shin Gouki's big kanji symbol.
+-Cybaster - bug reports and feedback
 
--Cybaster, for bug reports and feedback
+-Zytor -  Capcom palettes database.
 
--Zytor, for his Capcom palettes database.
+-DelusionTrim - for EX Shoryuken and Misogi edits.
 
 -Oh and anyone else I may have forgotten...please forgive me if I have,  i've got a REALLY bad memory, which unfortunately seems to be hereditory <:\ .
