@@ -8145,7 +8145,7 @@ volumescale = 100
 [State 3050, VelSet]
 type = Velset
 trigger1 = time = 0
-X = ifelse(Var(7)=0,6,7.3)
+X = ifelse(Var(7)=0,6,8.5)
 
 [State 3050, Red Shadows]
 type = null; Afterimage
