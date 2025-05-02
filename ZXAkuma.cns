@@ -4648,7 +4648,7 @@ type    = S
 movetype= A
 physics = S
 juggle  = 4
-poweradd= 120
+poweradd= 0
 anim = 1090
 ctrl = 0
 sprpriority = 2
@@ -8563,7 +8563,7 @@ volumescale = 100
 
 [State 3110,HCF BG]
 type = explod
-trigger1 = time = 0
+trigger1 = time = 0 && !var(2)
 anim = 3500
 id = 3500
 space = screen
@@ -8674,6 +8674,12 @@ type = AssertSpecial
 trigger1 = 1
 flag = noshadow
 ignorehitpause = 1
+
+[State 3200, WashiWaMutekiJa]
+type = nothitby
+trigger1 = !time
+value = SCA
+time = 999
 
 [State 3200, Particles]
 type = Explod
