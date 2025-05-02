@@ -88,6 +88,8 @@ Credits
 
 -Kong - Jo Jo's Bizarre Adventure sprite rips
 
+-G.D.T - whose SFA2 Gouki I swiped Shakunetsu, Messatsu Gou Hadou (regular Akuma) and Gou Zankuu projectile sprites from.
+
 -The guys behind Kawaks, the CPS2 emu I used to rip the sprites.
 
 -Cybaster - bug reports and feedback
