@@ -5433,7 +5433,7 @@ type = ChangeState
 triggerall = time > 5
 trigger1 = command = "x"
 trigger2 = command = "y"
-trigger3 = command = "z"
+;trigger3 = command = "z"
 value = 1113
 ctrl = 0
 
@@ -5444,6 +5444,197 @@ trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
 value = 1114
+ctrl = 0
+
+
+
+[State 800, 1]
+type = HitDef
+Trigger1 = command = "z"
+attr = A, ST
+hitflag = MAF
+priority = 3, Miss
+sparkno = -1
+p1facing = 1
+p2facing = 1 
+p1stateno = 1131
+p2stateno = 1132
+guard.dist = 0
+fall = 1 
+
+;============================================================================
+;Flip Throw (Akuma State)
+;============================================================================
+[Statedef 1131]
+type    = A
+movetype= A
+physics = N
+juggle  = 6
+poweradd= 100
+velset = 0,0
+anim = 1118
+ctrl = 0
+sprpriority = 3
+
+[State 1131, CornerPush]
+type = posadd
+trigger1 = !time && ((pos x + 60)+camerapos x) > screenwidth
+X = -60
+
+[State 1131, Corner_Free]
+type = velset
+trigger1 = ((pos x + 60)+camerapos x) > screenwidth
+X = 0
+
+[State 1131, PosFreeze]
+type = PosFreeze
+trigger1 = animelem = 1
+value = 1
+
+[State 1131, TargetBind1]
+type = TargetBind
+triggerall = anim = 1118
+trigger1 = animelemtime(1) >= 0 && animelemtime(2) <0
+pos = 0,40
+
+[State 1131, TargetBind1]
+type = TargetBind
+triggerall = anim = 1118
+trigger1 = animelemtime(2) >= 0 && animelemtime(3) <0
+pos = -15,-60
+
+[State 1131, TargetBind1]
+type = TargetBind
+triggerall = anim = 1118
+trigger1 = animelemtime(3) >= 0 && animelemtime(4) <0
+pos = -25,-70
+
+[State 1131, TargetBind1]
+type = TargetBind
+triggerall = anim = 1118
+trigger1 = animelemtime(4) >= 0
+pos = 15,-15
+
+[State 1131, TargetBind1]
+type = TargetBind
+triggerall = anim = 1119
+trigger1 = animelemtime(1) >= 0 && animelemtime(2) < 0
+pos = 15,0
+
+[State 1131, TargetBind1]
+type = TargetBind
+triggerall = anim = 1119
+trigger1 = (animelemtime(2) >= 0 && animelemtime(2) <= 16)
+pos = 15,0
+
+[State 1131, VelXY]
+type = velset
+trigger1 = animelemtime(2) = 1
+X = 3
+Y = -10.3
+
+[State 1131, Gravity]
+type = veladd
+trigger1 = animelemtime(2) > 1
+y = 0.60
+
+[State 1131, Attack]
+type = changeanim
+trigger1 = anim!=1119 && pos y >= 0
+value  = 1119
+
+[State 1131, Posset]
+type = posset
+trigger1 = pos y >= 0
+Y = 0
+
+[State 1131, Posset]
+type = velset
+trigger1 = pos y >= 0
+Y = 0
+X = 0
+
+[State 1131, Rumble]
+type  = envshake
+trigger1 = anim = 1119 && animelem = 2
+freq  = 115
+time  = 10
+ampl  = -4
+
+[State 1131, End]
+type = changestate
+trigger1 = anim = 1119 && !animtime
+value = 0
+ctrl = 1
+
+;--------------------------------------------------------------------
+;Flip Throw Victim State
+;--------------------------------------------------------------------
+[Statedef 1132]
+type    = A
+movetype= H
+physics = N
+juggle  = 6
+poweradd= 60
+ctrl = 0
+sprpriority = 3
+
+[State 1132, ChangeAnim2]
+type = changeanim2
+trigger1 = !time
+value = 1120
+
+[State 1132, ChangeAnim2]
+type = changeanim2
+trigger1 = enemynear, anim = 1119 && anim != 1121
+value = 1121
+
+[State 1132, FlyThroughAir]
+type = changestate
+trigger1 = anim = 1121 && !animtime
+value = 1133
+ctrl = 0
+
+[State 1132, Turn]
+type = turn
+trigger1 = anim = 1121 && !animtime
+
+[State 1132, Priority]
+type = sprpriority
+trigger1 = animelem = 4
+value = 6
+
+;--------------------------------------------------------------------
+;Flip Throw Victim State - End
+;--------------------------------------------------------------------
+[Statedef 1133]
+type    = A
+movetype= H
+physics = N
+poweradd= 60
+ctrl = 0
+sprpriority = 3
+
+[State 1133, Vel]
+type = velset
+trigger1 = time = 1
+X = -4
+Y = -9
+
+[State 1133, Gravity]
+type = veladd
+trigger1 = time > 1
+y =0.45
+
+[State 1133, ChangeAnim2]
+type = changeanim2
+trigger1 = !time
+value = 1122
+
+[State 1133, SelfState]
+type = selfstate
+trigger1 = time > 10 && pos y >= 0
+value = 5100
 ctrl = 0
 
 ;--------------------------------------------------------------------
@@ -9217,8 +9408,8 @@ waveform = sine
 [State -2, Debug data]
 type = displaytoclipboard
 trigger1 = time >= 0
-text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,backedgedist = %f,facing = %d, Damage Scale =%f,By Master Gouken"
-params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,backedgedist, facing, fvar(1)
+text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,frontedgedist = %f,facing = %d, Damage Scale =%f,By Master Gouken"
+params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,frontedgedist, facing, fvar(1)
 ignorehitpause = 1
 
 [State -2, Dizzy Groan]
