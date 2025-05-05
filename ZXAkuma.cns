@@ -8,13 +8,13 @@
 ;			Var(3) : Win Pose Decider
 ;              Var(4) : Shakunetsu Gou Hadou Resistance
 ;              Var(5) : Death Voice Add
-;              Var(6) : Death Indicator
+;              Var(6) : Death Indicator (Depreicated)
 ;			Var(7) : Shin Gouki Indicator
 ;			Var(8) : Hit Voice Randomizer
 ;			Var(9) : Mash Manager
 ;              Var(10): Shakunetsu Indicator
 ;              Var(11): Gou Hadou Limit
-;              Var(12): Tenma Gou Zankuu Resistance*
+;              Var(12): Tenma Gou Zankuu Resistance* (Deprecated)
 ;              Var(13): Artificial Intellegence
 ;              Var(14): Shoryuu limit (A.I)
 ;              Var(15): Messtatsu Gou Hadou Resistance
@@ -545,6 +545,19 @@ ctrl = 0
 velset = 0,0
 anim = 611
 sprpriority = 5
+
+[State 215, Voice]
+type = playsnd
+trigger1 = animelem = 4
+value = 50,11
+channel = 1
+volumescale = 100
+
+[State 215, Woosh]
+type = playsnd
+trigger1 = animelem = 4
+value = 0,0
+volumescale = 100
 
 [State 215, VelX]
 type = velset
@@ -6128,7 +6141,7 @@ ignorehitpause=1
 [State 1161, vel]
 type=velset
 trigger1= 1
-x=ifelse((time<2 && var(2)>1),0,7.2)
+x=ifelse((time<2 && var(2)>1),0,3.8)
 y=0
 
 [State 1161, InPlay]
@@ -6136,12 +6149,6 @@ type = parentvarset
 trigger1 = time = 0
 v = 11
 value = 1
-
-[State 1161, NoShadow]
-type = AssertSpecial
-trigger1 = 1
-flag = noshadow
-ignorehitpause = 1
 
 [State 1161, Hitdef]
 type = HitDef
@@ -6388,7 +6395,7 @@ ignorehitpause=1
 [State 1166, vel]
 type=velset
 trigger1= 1
-x=ifelse((time<2 && var(2)>1),0,7.2)
+x=ifelse((time<2 && var(2)>1),0,5.2)
 y=0
 
 [State 1166, InPlay]
@@ -7101,7 +7108,7 @@ trigger1 = AnimElemTime(1) = 2
 trigger2 = AnimElem = 7
 attr = S, HA
 animtype  = Hard
-damage    = ifelse(Var(0)<8,20,10),4
+damage    = 20,10
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7128,7 +7135,7 @@ trigger1 = AnimElem = 2
 trigger2 = AnimElem = 8
 attr = S, HA
 animtype  = Light
-damage    = ifelse(Var(0)<8,20,10),4
+damage    = 20,10
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7155,7 +7162,7 @@ trigger1 = AnimElem = 3
 trigger2 = AnimElem = 9
 attr = S, HA
 animtype  = Hard
-damage    = ifelse(Var(0)<8,20,10),4
+damage    = 20,10
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7181,7 +7188,7 @@ type = HitDef
 trigger1 = AnimElem = 13
 attr = S, HA
 animtype  = Hard
-damage    = ifelse(Var(0)<5,80,40),4
+damage    = 80,60
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7212,7 +7219,7 @@ trigger1 = AnimElem = 14
 attr = S, HA
 animtype  = Hard
 fall.animtype =light
-damage    = ifelse(Var(0)<5,80,40),4
+damage    = 80,60
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7246,7 +7253,7 @@ type = HitDef
 trigger1 = AnimElem = 15
 attr = S, HA
 animtype  = up
-damage    = ifelse(Var(0)<5,80,40),4
+damage    = 80,60
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7605,9 +7612,9 @@ ground.slidetime = 20
 ground.hittime  = 20
 ground.velocity = -5.7,-8
 guard.velocity = -7.5
-air.velocity = -4.7,-7
+air.velocity = -5.7,-6
 airguard.velocity = -5, -4
-yaccel = 0.5
+yaccel = 0.6
 fall = 1
 fall.recover = 0
 ground.cornerpush.veloff = 0
