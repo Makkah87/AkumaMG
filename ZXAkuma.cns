@@ -1795,7 +1795,6 @@ type = PlaySnd
 trigger1 = Time = 0
 value = 110, 0
 volumescale = 100
-freqmul = 1.5
 
 [State 810, Bind 1]
 type = TargetBind
@@ -4976,12 +4975,26 @@ trigger4 = command = "x"
 trigger5 = command = "y"
 trigger6 = command = "z"
 
+[State 1110, 1]
+type = HitDef
+Trigger1 = command = "grab1" && pos Y < -50 && p2dist x <= 80
+attr = A, ST
+hitflag = MAF
+priority = 6, Miss
+sparkno = -1
+p1facing = 1
+p2facing = 1 
+p1stateno = 1131
+p2stateno = 1132
+guard.dist = 0
+fall = 1 
+
 [State 1110, Punch]
 type = ChangeState
 triggerall = time > 5
 trigger1 = command = "x"
 trigger2 = command = "y"
-trigger3 = command = "z"
+trigger3 = command = "z" && command != "holdfwd"
 value = 1113
 ctrl = 0
 
@@ -5348,12 +5361,26 @@ trigger4 = command = "x"
 trigger5 = command = "y"
 trigger6 = command = "z"
 
+[State 1120, 1]
+type = HitDef
+Trigger1 = command = "grab1" && pos Y < -50 && p2dist x <= 80
+attr = A, ST
+hitflag = MAF
+priority = 6, Miss
+sparkno = -1
+p1facing = 1
+p2facing = 1 
+p1stateno = 1131
+p2stateno = 1132
+guard.dist = 0
+fall = 1 
+
 [State 1120, Punch]
 type = ChangeState
 triggerall = time > 5
 trigger1 = command = "x"
 trigger2 = command = "y"
-trigger3 = command = "z"
+trigger3 = command = "z" && command != "holdfwd"
 value = 1113
 ctrl = 0
 
@@ -5428,12 +5455,26 @@ trigger4 = command = "x"
 trigger5 = command = "y"
 trigger6 = command = "z"
 
+[State 1130, 1]
+type = HitDef
+Trigger1 = command = "grab1" && pos Y < -65 && p2dist x <= 80
+attr = A, ST
+hitflag = MAF
+priority = 6, Miss
+sparkno = -1
+p1facing = 1
+p2facing = 1 
+p1stateno = 1131
+p2stateno = 1132
+guard.dist = 0
+fall = 1 
+
 [State 1130, Punch]
 type = ChangeState
 triggerall = time > 5
 trigger1 = command = "x"
 trigger2 = command = "y"
-;trigger3 = command = "z"
+trigger3 = command = "z" && command != "holdfwd"
 value = 1113
 ctrl = 0
 
@@ -5446,22 +5487,6 @@ trigger3 = command = "c"
 value = 1114
 ctrl = 0
 
-
-
-[State 800, 1]
-type = HitDef
-Trigger1 = command = "z"
-attr = A, ST
-hitflag = MAF
-priority = 3, Miss
-sparkno = -1
-p1facing = 1
-p2facing = 1 
-p1stateno = 1131
-p2stateno = 1132
-guard.dist = 0
-fall = 1 
-
 ;============================================================================
 ;Flip Throw (Akuma State)
 ;============================================================================
@@ -5469,22 +5494,24 @@ fall = 1
 type    = A
 movetype= A
 physics = N
-juggle  = 6
+juggle  = 0
 poweradd= 100
 velset = 0,0
 anim = 1118
 ctrl = 0
 sprpriority = 3
 
-[State 1131, CornerPush]
-type = posadd
-trigger1 = !time && ((pos x + 60)+camerapos x) > screenwidth
-X = -60
+[State 1131, Grab Sound]
+type = PlaySnd
+trigger1 = Time = 0
+value = 110, 0
+volumescale = 100
+freqmul = 1.5
 
-[State 1131, Corner_Free]
-type = velset
-trigger1 = ((pos x + 60)+camerapos x) > screenwidth
-X = 0
+[State 1131, Posset]
+type = posset
+trigger1 = !time && target, pos Y >= 0
+y = target, ceil(const(size.height)*-0.7)
 
 [State 1131, PosFreeze]
 type = PosFreeze
@@ -5495,7 +5522,7 @@ value = 1
 type = TargetBind
 triggerall = anim = 1118
 trigger1 = animelemtime(1) >= 0 && animelemtime(2) <0
-pos = 0,40
+pos = 15,-40
 
 [State 1131, TargetBind1]
 type = TargetBind
@@ -5513,7 +5540,7 @@ pos = -25,-70
 type = TargetBind
 triggerall = anim = 1118
 trigger1 = animelemtime(4) >= 0
-pos = 15,-15
+pos = 15,-70
 
 [State 1131, TargetBind1]
 type = TargetBind
@@ -5525,7 +5552,7 @@ pos = 15,0
 type = TargetBind
 triggerall = anim = 1119
 trigger1 = (animelemtime(2) >= 0 && animelemtime(2) <= 16)
-pos = 15,0
+pos = 25,-20
 
 [State 1131, VelXY]
 type = velset
@@ -5557,9 +5584,102 @@ X = 0
 [State 1131, Rumble]
 type  = envshake
 trigger1 = anim = 1119 && animelem = 2
-freq  = 115
+freq  = 140
 time  = 10
 ampl  = -4
+
+[State 1131, Damage]
+type = targetlifeadd
+trigger1 = anim = 1119 && animelem = 2
+value = -80*fvar(1)
+
+[State 1131, Hit_Spark]
+type = Explod
+trigger1 = anim = 1119 && animelem = 2
+anim = 7003
+ID = 7003
+postype = p1
+pos = 10, 0
+facing = 1
+bindtime = 1
+vel = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = 10
+ontop = 1
+ownpal = 1
+
+[State 1131, Back_Spark]
+type = Explod
+trigger1 = anim = 1119 && animelem = 2
+anim = 7005
+ID = 7005
+postype = p1
+pos = 25, -40
+facing = 1
+bindtime = 1
+vel = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = -10
+ontop = 0
+ownpal = 1
+
+[State 1131, Dust]
+type = Explod
+trigger1 = anim = 1119 && animelem = 2
+anim = 7010
+ID = 7010
+postype = p1
+pos = 0,0
+facing = 1
+bindtime = 1
+vel = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = -10
+ontop = 0
+ownpal = 1
+
+[State 1131, Hit_SND]
+type = playsnd
+trigger1 = anim = 1119 && animelem = 2
+value = 120,9
+volumescale = 100
+
+[State 1131, Grunt]
+type = playsnd
+trigger1 = anim = 1119 && animelem = 2
+value = 50,15
+volumescale = 100
+channel = 1
+
+[State 1131, Onyx]
+type = StateTypeSet
+trigger1 = anim = 1119 && statetype != s
+statetype = s
+
+[State 1131, Limited Control]
+type = ctrlset
+trigger1 = anim = 1119 && animelemtime(3) = 0
+value = 1
+
+[State 1131, Limited Control]
+type = AssertSpecial
+trigger1 = anim = 1119 && animelemtime(3) >= 0
+flag = NoStandGuard
+flag2 = NoWalk
+
+[State 1131, CornerPush]
+type = posadd
+trigger1 = anim = 1119 && animelemtime(1)=1 && frontedgedist < 60
+X = -40
 
 [State 1131, End]
 type = changestate
@@ -5578,6 +5698,12 @@ juggle  = 6
 poweradd= 60
 ctrl = 0
 sprpriority = 3
+
+[State 1132, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
 
 [State 1132, ChangeAnim2]
 type = changeanim2
@@ -5618,8 +5744,8 @@ sprpriority = 3
 [State 1133, Vel]
 type = velset
 trigger1 = time = 1
-X = -4
-Y = -9
+X = -3.2
+Y = -7
 
 [State 1133, Gravity]
 type = veladd
@@ -9408,8 +9534,8 @@ waveform = sine
 [State -2, Debug data]
 type = displaytoclipboard
 trigger1 = time >= 0
-text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,frontedgedist = %f,facing = %d, Damage Scale =%f,By Master Gouken"
-params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,frontedgedist, facing, fvar(1)
+text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,PosX = %f,facing = %d, Damage Scale =%f,By Master Gouken"
+params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,pos x, facing, fvar(1)
 ignorehitpause = 1
 
 [State -2, Dizzy Groan]

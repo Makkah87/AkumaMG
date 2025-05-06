@@ -207,15 +207,27 @@ command = ~D, DB, B, c
 
 [Command]
 name = "grab1"
-command = x+y
+command = F+x
 
 [Command]
 name = "grab1"
-command = y+z
+command = F+y
 
 [Command]
 name = "grab1"
-command = x+z
+command = F+z
+
+[Command]
+name = "grab1"
+command = ~F+z
+
+[Command]
+name = "grab1"
+command = F,z
+
+[Command]
+name = "grab1"
+command = F,~z
 
 [Command]
 name = "grab2"
