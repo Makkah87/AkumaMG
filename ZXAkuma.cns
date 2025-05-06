@@ -6,21 +6,21 @@
 ;			Var(1) : Intro Decider
 ;			Var(2) : Special Condition - Finished opponent with SGS
 ;			Var(3) : Win Pose Decider
-;              Var(4) : Shakunetsu Gou Hadou Resistance
-;              Var(5) : Death Voice Add
-;              Var(6) : Death Indicator (Depreicated)
+;             	Var(4) : Shakunetsu Gou Hadou Resistance
+;              	Var(5) : Death Voice Add
+;              	Var(6) : Death Indicator (Depreicated)
 ;			Var(7) : Shin Gouki Indicator
 ;			Var(8) : Hit Voice Randomizer
 ;			Var(9) : Mash Manager
-;              Var(10): Shakunetsu Indicator
-;              Var(11): Gou Hadou Limit
-;              Var(12): Tenma Gou Zankuu Resistance* (Deprecated)
-;              Var(13): Artificial Intellegence
-;              Var(14): Shoryuu limit (A.I)
-;              Var(15): Messtatsu Gou Hadou Resistance
-;              Var(16): Hyper Hadou In Play
-;              Var(17): Juggle Manager
-;              Var(18): Projectile Hit Detection
+;             	Var(10): Shakunetsu Indicator
+;             	Var(11): Gou Hadou Limit
+;             	Var(12): Tenma Gou Zankuu Resistance* (Deprecated)
+;             	Var(13): Artificial Intellegence
+;              	Var(14): Shoryuu limit (A.I)
+;              	Var(15): Messtatsu Gou Hadou Resistance
+;              	Var(16): Hyper Hadou In Play
+;              	Var(17): Juggle Manager
+;              	Var(18): Projectile Hit Detection
 ;======================================================================
 ;			Floats
 ;----------------------------------------------------------------------
@@ -37,9 +37,13 @@ airjuggle = 25            ;Number of juggle points
 sparkno = 3               ;Default spark number
 guard.sparkno = s7006     ;Default spark number
 KO.echo = 0               ;Whether there should be an echo upon death
-volumescale = 100              ;Pretty much self explanitory
+volumescale = 100         ;Pretty much self explanitory
 IntPersistIndex = 60      ;Variables with this index and above will not 
 FloatPersistIndex = 40    ;have their values reset to 0 between rounds
+hitsound.channel = 6	  ;Default channel for hit sounds
+guardsound.channel = 6	  ;Default channel for guard sounds
+dizzypoints = 800	  	  ;Amount of dizzy points to start with
+guardpoints = 1000	  ;Amount of guard points to start with
 ;====================================================================
 
 [Size]
@@ -80,7 +84,16 @@ stand.friction = .85  ;Friction coefficient when standing
 crouch.friction = .82 ;Friction coefficient when crouching
 
 [Quotes]
-Victory1 = "Weak...."
+Victory1 = "Weakling..."
+Victory2 = "Your hubris is the pyre upon which your soul now burns."
+Victory3 = "Your weakness disgusts me."
+Victory4 = "Both god ad devil live in my fists"
+Victory5 = "I am the supreme master of the fist!"
+Victory6 = "You are unworthy of death by my hand. Never cross my path again!"
+Victory7 = "Humph... Broken... Hobble away and die like the wretch you are."
+Victory8 = "Is there none that can push me to my limit?"
+Victory9 = "I grow bored of this..."
+Victory10 = "...."
 
 ;--------------------------------------------------------------------
 ; Lose by Time Over
