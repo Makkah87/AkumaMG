@@ -2680,19 +2680,12 @@ ctrl = 0
 type    = S
 movetype= A
 physics = S
-juggle  = 15
+juggle  =  ifelse(prevstateno = 1131,0, 15)
 poweradd= 110
 velset = 0,0
 anim = 1030
 ctrl = 0
 sprpriority = 2
-
-[State 1030, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 2
-persistent = 0
-ignorehitpause = 1
 
 [State 1030, 1]
 type = PlaySnd
@@ -2918,13 +2911,6 @@ anim = 1030
 ctrl = 0
 sprpriority = 2
 
-[State 1035, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 2
-persistent = 0
-ignorehitpause = 1
-
 [State 1035, 1]
 type = PlaySnd
 trigger1 = Time = 1
@@ -3107,15 +3093,6 @@ velset = 0,0
 anim = 1030
 ctrl = 0
 sprpriority = 2
-
-[State 1040, VarAdd]
-type = VarAdd
-triggerall = (NumTarget > 0) && (MoveHit)
-trigger1 = animelem = 1
-trigger2 = animelem = 2
-var(0) = 2
-persistent = 0
-ignorehitpause = 1
 
 [State 1040, 1]
 type = PlaySnd
@@ -5592,6 +5569,11 @@ ampl  = -4
 type = targetlifeadd
 trigger1 = anim = 1119 && animelem = 2
 value = -80*fvar(1)
+
+[State 1131, HitAdd]
+type = hitadd
+trigger1 = anim = 1119 && animelem = 2
+value = 1
 
 [State 1131, Hit_Spark]
 type = Explod
