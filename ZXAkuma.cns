@@ -8219,7 +8219,7 @@ remvelocity = 0,0
 accel = 0,0
 projhits = 8
 projmisstime = 0
-projpriority = 1
+projpriority = 100
 offset = 50,-53
 postype = P1         ;P2, Front, Back, Left, Right
 projshadow = 0,0,0
@@ -8257,8 +8257,6 @@ air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
-
-
 
 [State 3020, set]
 type = posset
@@ -9085,28 +9083,27 @@ flag = invisible
 [State 9000, hgf]
 type = assertspecial
 triggerall = 1 && time  < 47
-trigger1 = parent,hitdefattr = SCA, HA
+trigger1 = parent,hitdefattr = SCA, HA,HP
 trigger2 = parent, Var(16) = 1
 trigger3 = numexplod(7000) = 1
 flag = nobg
 flag2 = nobardisplay
 flag3 = nofg
 
-[State 3020, Special K.O Effect]
+[State 9000, Special K.O Effect]
 type = bgpalfx
 trigger1 = time = 0 && (parent, hitdefattr = SCA, SA || parent,var(18))
-;trigger2 = numexplod(7000) && time = 46
 add = 255,255,255
 sinadd = -255,-255,-255,170
 time = 45
 
-[State 3020, Dramatic Freeze]
+[State 9000, Dramatic Freeze]
 type = null;pause
 trigger1 = time = 0 && parent, stateno != 3110
 time = 25
 ignorehitpause = 1
 
-[State 3020, Dramatic Sound]
+[State 9000, Dramatic Sound]
 type = playsnd
 trigger1 = time = 0
 value = 3000,2
@@ -9118,6 +9115,7 @@ type = playsnd
 triggerall = time = 0
 trigger1 = parent, hitdefattr = SCA, HA
 trigger2 = parent, Var(16) = 1
+trigger3 = parent, projhit3021 = 1, < 10
 value = 3000,6
 volumescale = 100
 
@@ -9126,21 +9124,25 @@ type = playsnd
 triggerall = time = 5
 trigger1 = parent, hitdefattr = SCA, HA
 trigger2 = parent, Var(16) = 1
+trigger3 = parent, projhit3021 = 1, < 10
 value = 3000,7
 volumescale = 100
 
-[State 2010, HyperComboFinish!]
+[State 9000, HyperComboFinish!]
 type = Explod
 triggerall = time = 0 && numexplod(7000)= 0
 trigger1 = parent, hitdefattr = SCA, HA
-trigger2 = parent, Var(16) = 1
-anim = 7000
-id = 7000
+trigger2 = parent, projhit3021 = 1, < 10
+trigger3 = parent,Var(16) = 1
+anim = 3500
+id = 7625
 postype = left
 bindtime = 99999
+removetime = 100
 pos = 0,0
 sprpriority = -5
-scale = 0.5,0.5
+scale = 0.83333333333333333333333333333333,1.0714285714285714285714285714286
+
 ;----------------------------------------------------------------------
 ; Override common states (use same number to override) :
 ;----------------------------------------------------------------------
