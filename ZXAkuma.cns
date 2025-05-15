@@ -8092,6 +8092,11 @@ value = 5,0
 ignorehitpause = 0
 channel = 6
 
+[State 3002, var(16) ReSet]
+type = parentvarset
+trigger1 = !animtime
+var(16) = 0
+
 [State 3018, Destroy]
 type = destroyself
 trigger1 = !animtime
@@ -8203,6 +8208,11 @@ pos = 50,-53
 ownpal = 1
 stateno = 3021
 id = 3021
+
+[State 3020, Proj_HCF_Trigger];Damn you Ikemen
+type = varset
+trigger1 = numprojid(3021) = 1
+var(16) = 1
 
 [State 3020, Projectile]
 type = Projectile
@@ -9082,7 +9092,7 @@ flag = invisible
 
 [State 9000, hgf]
 type = assertspecial
-triggerall = 1 && time  < 47
+triggerall = 1 && time  < 47 && roundstate = 3
 trigger1 = parent,hitdefattr = SCA, HA,HP
 trigger2 = parent, Var(16) = 1
 trigger3 = numexplod(7000) = 1
@@ -9133,7 +9143,8 @@ type = Explod
 triggerall = time = 0 && numexplod(7000)= 0
 trigger1 = parent, hitdefattr = SCA, HA
 trigger2 = parent, projhit3021 = 1, < 10
-trigger3 = parent,Var(16) = 1
+trigger3 = parent,Var(16) = 1 && roundstate = 3
+trigger4 = ProjHit3021=1
 anim = 3500
 id = 7625
 postype = left
@@ -9142,7 +9153,7 @@ removetime = 100
 pos = 0,0
 sprpriority = -5
 scale = 0.83333333333333333333333333333333,1.0714285714285714285714285714286
-
+ignorehitpause = 1
 ;----------------------------------------------------------------------
 ; Override common states (use same number to override) :
 ;----------------------------------------------------------------------
@@ -9531,8 +9542,8 @@ waveform = sine
 [State -2, Debug data]
 type = displaytoclipboard
 trigger1 = time >= 0
-text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,PosX = %f,facing = %d, Damage Scale =%f,By Master Gouken"
-params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,pos x, facing, fvar(1)
+text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(16) = %d,facing = %d, Damage Scale =%f,By Master Gouken"
+params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(16), facing, fvar(1)
 ignorehitpause = 1
 
 [State -2, Dizzy Groan]
@@ -9603,6 +9614,11 @@ trigger1 = prevstateno = 3050 && movetype = h
 add = 255,0,0
 time = 1
 sinadd = -255,-255,-255,240
+
+[State -2, var(16) ReSet]
+type = varset
+trigger1 = prevstateno = 3020 && numprojid(3021) = 0
+var(16) = 0
 
 [State -2, Damage based on hits]
 type=varset
