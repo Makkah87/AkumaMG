@@ -2,7 +2,7 @@
 ;======================================================================
 ;                            Variable Table		
 ;======================================================================
-;			Var(0) :	Old Damage Scaler (Depricated)
+;			Var(0) : Trip Memory
 ;			Var(1) : Intro Decider
 ;			Var(2) : Special Condition - Finished opponent with SGS
 ;			Var(3) : Win Pose Decider
@@ -397,13 +397,6 @@ type = PlaySnd
 trigger1 = Time = 2
 value = 0, 2
 
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 200, 1]
 type = HitDef
 trigger1 = Time = 0
@@ -457,14 +450,6 @@ ctrl = 0
 velset = 0,0
 anim = ifelse(p2dist x >= 40,210,211)
 sprpriority = -1
-
-[State 210, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 
 [State 210, 1]
 type = PlaySnd
@@ -674,13 +659,6 @@ type = PlaySnd
 trigger1 = AnimElem = 2 && anim = 221
 value = 0, 4
 
-[State 220, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 220, 2]
 type = HitDef
 trigger1 = Time = 0
@@ -741,13 +719,6 @@ velset = 0,0
 anim = 300
 sprpriority = 2
 
-[State 300, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 300, 1]
 type = PlaySnd
 trigger1 = Time = 2
@@ -797,14 +768,6 @@ ctrl = 0
 velset = 0,0
 anim = ifelse(p2dist x >= 50,310,312)
 sprpriority = 2
-
-[State 310, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 
 [State 310, 1]
 type = PlaySnd
@@ -881,13 +844,6 @@ velset = 0,0
 anim = 315
 sprpriority = 2
 
-[State 315, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 315, Voice]
 type = PlaySnd
 trigger1 = Time = 6
@@ -963,14 +919,6 @@ ctrl = 0
 velset = 0,0
 anim = ifelse(p2dist x >= 40,320,321)
 sprpriority = 2
-
-[State 320, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 
 [State 320, 1]
 type = PlaySnd
@@ -1079,13 +1027,6 @@ ctrl = 0
 anim = 400
 sprpriority = 2
 
-[State 400, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 400, 1]
 type = PlaySnd
 trigger1 = Time = 1
@@ -1143,13 +1084,6 @@ ctrl = 0
 anim = 410
 sprpriority = 2
 
-[State 410, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 410, 1]
 type = PlaySnd
 trigger1 = Time = 1
@@ -1199,13 +1133,6 @@ poweradd= 50
 ctrl = 0
 anim = 420
 sprpriority = 2
-
-[State 420, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
 
 [State 420, 1]
 type = PlaySnd
@@ -1266,13 +1193,6 @@ ctrl = 0
 anim = 430
 sprpriority = 2
 
-[State 430, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 430, 1]
 type = PlaySnd
 trigger1 = Time = 1
@@ -1325,13 +1245,6 @@ ctrl = 0
 anim = 440
 sprpriority = 2
 
-[State 440, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 440, 2]
 type = PlaySnd
 trigger1 = Time = 2
@@ -1381,13 +1294,6 @@ poweradd= 70
 ctrl = 0
 anim = 450
 sprpriority = 2
-
-[State 450, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
 
 [State 450, 2]
 type = PlaySnd
@@ -1439,13 +1345,6 @@ ctrl = 0
 anim = 600
 sprpriority = 2
 
-[State 600, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 600, 1]
 type = PlaySnd
 trigger1 = Time = 1
@@ -1489,13 +1388,6 @@ ctrl = 0
 anim = 610
 sprpriority = 2
 
-[State 610, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 610, 2]
 type = PlaySnd
 trigger1 = Time = 2
@@ -1534,13 +1426,6 @@ poweradd= 65
 ctrl = 0
 anim = 620
 sprpriority = 2
-
-[State 620, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
 
 [State 620, 2]
 type = PlaySnd
@@ -1581,13 +1466,6 @@ poweradd= 20
 ctrl = 0
 anim = ifelse(Vel X = 0,630,660)
 sprpriority = 2
-
-[State 630, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
 
 [State 630, 1]
 type = PlaySnd
@@ -1646,13 +1524,6 @@ ctrl = 0
 anim = ifelse(Vel X = 0,630,670)
 sprpriority = 2
 
-[State 640, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 640, 2]
 type = PlaySnd
 trigger1 = Time = 2
@@ -1708,13 +1579,6 @@ poweradd= 65
 ctrl = 0
 anim = ifelse(Vel X = 0,650,680)
 sprpriority = 2
-
-[State 650, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
 
 [State 650, 2]
 type = PlaySnd
@@ -2784,13 +2648,6 @@ physics = N
 velset = 2,-6
 anim = 1031
 
-[State 1031, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 1041, Juggle set]
 type = varset
 trigger1 = movehit
@@ -3019,13 +2876,6 @@ trigger1 = target, backedgedist = 0 && p2dist x < 90
 trigger1 = movecontact
 x = -2.5+(time/100)
 
-[State 1036, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 1036, 4]
 type = HitDef
 trigger1 = Time = 1
@@ -3187,13 +3037,6 @@ movetype= A
 physics = N
 velset = 2,-6
 anim = 1031
-
-[State 1041, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
 
 [State 1041, Juggle set]
 type = varset
@@ -3901,14 +3744,6 @@ anim = 1060
 ctrl = 0
 sprpriority = 3
 
-[State 1060, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-trigger2 = (animelem = 4 || animelem = 6) && movehit
-var(0) = 2
-persistent = 0
-ignorehitpause = 1
-
 [State 1060, NoProjHit]
 type = NotHitBy
 trigger1 = time = 0
@@ -4082,14 +3917,6 @@ anim = 1060
 ctrl = 0
 sprpriority = 3
 
-[State 1065, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-trigger2 = (animelem = 4 || animelem = 6) && movehit
-var(0) = 3
-persistent = 0
-ignorehitpause = 1
-
 [State 1065, NoProjHit]
 type = NotHitBy
 trigger1 = time = 0
@@ -4203,13 +4030,6 @@ anim = 1060
 ctrl = 0
 sprpriority = 3
 
-[State 1070, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 4
-persistent = 0
-ignorehitpause = 1
-
 [State 1070, NoProjHit]
 type = NotHitBy
 trigger1 = time = 0
@@ -4308,13 +4128,6 @@ anim = 1080
 ctrl = 0
 sprpriority = 2
 
-[State 1080, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 1080, NoProjHit]
 type = NotHitBy
 trigger1 = time = 0
@@ -4395,13 +4208,6 @@ poweradd= 110
 anim = 1080
 ctrl = 0
 sprpriority = 2
-
-[State 1081, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
 
 [State 1081, NoProjHit]
 type = NotHitBy
@@ -4484,13 +4290,6 @@ anim = 1080
 ctrl = 0
 sprpriority = 2
 
-[State 1085, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
-
 [State 1082, NoProjHit]
 type = NotHitBy
 trigger1 = time = 0
@@ -4572,13 +4371,6 @@ velset = 0,0
 anim = 1085
 ctrl = 0
 sprpriority = 3
-
-[State 1085, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
 
 [State 1085, Freeze]
 type = posfreeze
@@ -4695,13 +4487,6 @@ anim = 1085
 ctrl = 0
 sprpriority = 3
 
-[State 1095, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 3
-persistent = 0
-ignorehitpause = 1
-
 [State 1095, Freeze]
 type = posfreeze
 trigger1 = time = 0
@@ -4805,13 +4590,6 @@ anim = 1085
 ctrl = 0
 sprpriority = 3
 
-[State 1100, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 3
-persistent = 0
-ignorehitpause = 1
-
 [State 1100, Freeze]
 type = posfreeze
 trigger1 = time = 0
@@ -4867,7 +4645,7 @@ trigger2 = command = "b"
 trigger3 = command = "c"
 attr = S, SA
 animtype  = Medium
-damage    = ifelse(Var(0)<5,20,8), 10
+damage    = 10, 0
 priority  = 5
 guardflag = MA
 pausetime = 10,10
@@ -5181,13 +4959,6 @@ velset = 0,0
 anim = 1087
 ctrl = 0
 sprpriority = 3
-
-[State 1114, VarAdd]
-type = VarAdd
-trigger1 = (NumTarget > 0) && (MoveHit)
-var(0) = 1
-persistent = 0
-ignorehitpause = 1
 
 [State 1114, PosAdd]
 type = posadd
@@ -9228,6 +8999,39 @@ type = ChangeState
 trigger1 = Vel X >= 0 ;&& time  > 1
 value = 0
 ctrl = 1
+
+;---------------------------------------------------------------------------
+; Walk
+[Statedef 20]
+type    = S
+physics = S
+sprpriority = 0
+
+[State 20, 1]
+type = VelSet
+trigger1 = command = "holdfwd"
+x = ifelse(var(7)=0,const(velocity.walk.fwd.x),const(velocity.walk.fwd.x)*1.6)
+
+[State 20, 2]
+type = VelSet
+trigger1 = command = "holdback"
+x = ifelse(var(7)=0,const(velocity.walk.back.x),const(velocity.walk.back.x)*1.6)
+
+[State 20, 3]
+type = ChangeAnim
+triggerall = vel x > 0
+trigger1 = Anim != 20 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 20
+
+[State 20, 4]
+type = ChangeAnim
+triggerall = vel x < 0
+trigger1 = Anim != 21 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 21
+
+
 ;----------------------------------------------------------------------
 ; Jump Start
 [Statedef 40]
@@ -9255,9 +9059,15 @@ sysvar(1) = -1
 
 [State 40, 4]
 type = VelSet
-trigger1 = AnimTime = 0
+trigger1 = AnimTime = 0 && !var(7)
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
 y = const(velocity.jump.y)
+
+[State 40, Shin Jump Speed]
+type = VelSet
+trigger1 = AnimTime = 0 && var(7)
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x)*1.4, ifelse(sysvar(1)=1, const(velocity.jump.fwd.x)*1.4, const(velocity.jump.back.x)*1.4))
+y = const(velocity.jump.y)*1
 
 [State 40, Cpu_velset]
 type = velset
@@ -9325,6 +9135,62 @@ ctrl = 1
 ;--------------------------------------------------------------------
 ; Override common states (use same number to override) :
 ;--------------------------------------------------------------------
+;---------------------------------------------------------------------------
+; HIT_TRIP (shaking)
+[Statedef 5070]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 5070, 1]
+type = ChangeAnim 
+trigger1 = 1
+value = 5070
+
+[State 5070, 2]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 5071
+
+[State 5070, 3]
+type = ForceFeedback
+trigger1 = time = 0
+time = 12
+waveform = sinesquare
+ampl = 140
+
+;---------------------------------------------------------------------------
+; HIT_TRIP2 (fall through air)
+[Statedef 5071]
+type    = A
+movetype= H
+physics = N
+
+[State 5071, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 5071, 2] ;Acceleration
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 5071, TripMem]
+type = varset
+trigger1 = time = 0
+v = 0
+value = 1
+
+[State 5071, 3] ;Hit ground
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 15
+type = ChangeState
+value = 5100
+
+
 ; HIT_BOUNCE (hit ground)
 [Statedef 5100]
 type    = L
@@ -9766,6 +9632,10 @@ trigger2 = movetype = h
 value = 60, var(8)
 channel = 1
 
+[State -3, Fall_Pause]
+type = posfreeze
+trigger1 = Stateno = 5100 || stateno = 5110
+
 [State -3, Ground Hit]
 type = PlaySnd
 triggerall = Random < 330
@@ -9792,42 +9662,26 @@ trigger1 = !var(13) && roundstate = 2 && Ailevel
 v = 13
 value = 1
 
-[State -2, Back Spark Mid]
-type = explod
-triggerall = numtarget
-triggerall = (target,gethitvar(animtype)=2 || target,gethitvar(animtype)=0)
-triggerall = target, movetype = h
-triggerall = target, stateno != [120,155]
-triggerall = target, time = 0
-trigger1 = movehit =[1,3]
-trigger1 = hitdefattr = SCA, SA,HA,SP,HP
-trigger2 = projhit = 1
-anim = 7005
-id = 7005
-pos = target, const(size.mid.pos.x)-20,target, const(size.mid.pos.y)
-postype = p2
-bindtime = 999
-sprpriority = -10
-ignorehitpause = 1
-facing = -1
+;=================================Trip Fall
+[State -3, 3]
+type = HitFallVel
+trigger1 = Stateno = 5101 && Time = 0 && var(11) = 0
 
-[State -2, Back Spark High]
-type = explod
-triggerall = numtarget
-triggerall = target,gethitvar(animtype)>=3 || target,gethitvar(animtype)=1
-triggerall = target, movetype = h
-triggerall = target, stateno != [120,155]
-triggerall = target, time = 0
-trigger1 = movehit =[1,3]
-trigger1 = hitdefattr = SCA, SA,HA,SP,HP
-trigger2 = projhit = 1
-anim = 7005
-id = 7005
-pos = target, const(size.head.pos.x)-25,target, const(size.head.pos.y)
-postype = p2
-bindtime = 999
-sprpriority = -10
-ignorehitpause = 1
-facing = -1
+[State -3, Trip fall vel]
+type = velset
+trigger1 = Stateno = 5101 && time = 0 && Var(11) = 1
+y = -3.5
 
+[State -3, TripFallMuteki]
+type = nothitby
+trigger1 = stateno = 5101 && time = 0 && var(11) = 1
+value = SCA
+time = 10
+
+[State -3, Var(0) Reset (Trip Memory)]
+type = varset
+trigger1 = stateno = 5101 && time = 0
+v = 0
+value = 0
+;===========================
 
