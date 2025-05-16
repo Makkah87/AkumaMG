@@ -9252,11 +9252,29 @@ value = 5110 ;HIT_LIEDOWN
 [State 5100, 8]
 type = Explod
 trigger1 = Time = 1
-anim = F(60 + (sysvar(1) > Const720p(20)) + (sysvar(1) > Const720p(56)))
+anim = 7011
 postype = none
 pos = pos x + camerapos x, 0
 facing = facing
-sprpriority = ifelse (sysvar(1) <= Const720p(56), -10, 10)
+sprpriority = 10
+
+[State 5100, 8.5]
+type = Explod
+trigger1 = Time = 1
+anim = 7011
+postype = none
+pos = pos x-15 + camerapos x, 0
+facing = facing
+sprpriority = 10
+
+[State 5100, 8.75]
+type = Explod
+trigger1 = Time = 1
+anim = 7011
+postype = none
+pos = pos x+15 + camerapos x, 0
+facing = facing
+sprpriority = 10
 
 [State 5100, 9]
 type = HitFallDamage
@@ -9348,6 +9366,40 @@ postype = none
 pos = pos x + camerapos x, 0
 facing = facing
 sprpriority = ifelse (sysvar(1) <= Const720p(56), -10, 10)
+
+
+[State 5100, 8]
+type = Explod
+trigger1 = Time = 1
+trigger1 = !SysVar(0)
+anim = 7011
+postype = none
+pos = pos x + camerapos x, 0
+facing = facing
+sprpriority = 10
+scale = 0.5,0.5
+
+[State 5100, 8.5]
+type = Explod
+trigger1 = Time = 1
+trigger1 = !SysVar(0)
+anim = 7011
+postype = none
+pos = pos x-15 + camerapos x, 0
+facing = facing
+sprpriority = 10
+scale = 0.5,0.5
+
+[State 5100, 8.75]
+type = Explod
+trigger1 = Time = 1
+trigger1 = !SysVar(0)
+anim = 7011
+postype = none
+pos = pos x+15 + camerapos x, 0
+facing = facing
+sprpriority = 10
+scale = 0.5,0.5
 
 [State 5110, 8]
 type = VelSet
