@@ -3,23 +3,23 @@
 
 ; Player information
 [Info]
-name = "ZXAkuma"           ;Name of character
-displayname = "Akuma"   ;Name of character to display
-versiondate = 04,17,2022    ;Version date of character
-mugenversion = 1.1   ;Version of M.U.G.E.N character works on
-author = "Master Gouken"           ;Character author name
-pal.defaults = 6,3,4,2      ;Default palettes in order of preference
+name = "ZXAkuma"  
+displayname = "Akuma"  
+versiondate = 05,19,2025
+mugenversion = 1.1
+author = "Master Gouken" 
+pal.defaults = 6,3,4,2
 localcoord = 320,240
 
 ; Files for the player
 [Files]
 cmd     = ZXAkuma(hard).cmd   ;Command set
-cns     = ZXAkuma.cns   ;Constants
-st      = ZXAkuma.cns   ;States
-stcommon= common1.cns    ;Common states
-sprite  = ZXAkuma.sff   ;Sprite
-anim    = ZXAkuma.air   ;Animation
-sound   = ZXAkuma.snd   ;Sound
+cns     = ZXAkuma.cns 
+st      = ZXAkuma.cns
+stcommon= common1.cns 
+sprite  = ZXAkuma.sff
+anim    = ZXAkuma.air 
+sound   = ZXAkuma.snd
 ;====|Pallettes|====
 pal1    = Akuma1.act
 pal2    = Akuma2.act
