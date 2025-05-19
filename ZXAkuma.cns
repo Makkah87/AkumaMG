@@ -86,8 +86,8 @@ crouch.friction = .82 ;Friction coefficient when crouching
 [Quotes]
 Victory1 = "Weakling..."
 Victory2 = "Your hubris is the pyre upon which your soul now burns."
-Victory3 = "Your weakness disgusts me."
-Victory4 = "Both god ad devil live in my fists"
+Victory3 = "How did someone as weak as you survive to adulthood...?"
+Victory4 = "Both god and devil live in my fists."
 Victory5 = "I am the supreme master of the fist!"
 Victory6 = "You are unworthy of death by my hand. Never cross my path again!"
 Victory7 = "Humph... Broken... Hobble away and die like the wretch you are."
@@ -2192,7 +2192,7 @@ X = 1
 type = ParentVarSet
 trigger1 = 1
 v = 11
-value = 2
+value = 1
 
 [State 1016, PushEnable]
 type = playerpush
@@ -2412,7 +2412,7 @@ sprpriority = 4
 type = ParentVarSet
 trigger1 = 1
 v = 11
-value = 3
+value = 1
 
 [State 1021, Depreciate]
 type = ChangeState
@@ -5699,12 +5699,18 @@ sprpriority = -10
 ignorehitpause = 1
 facing = -1
 
-[State 1003, Hit]
+[State 1141, Hit]
 type = parentvarset
 trigger1 = movehit
 v = 18
 value = 1
 ignorehitpause = 1
+
+[State 1141, InPlay]
+type = parentvaradd
+trigger1 = time = 0
+v = 11
+value = 1
 
 [State 1141, End]
 type = ChangeState
@@ -5744,6 +5750,12 @@ type = ParentVarSet
 trigger1 = time = 0
 v = 16
 value = 0
+
+[State 1166, NotInPlay]
+type = parentvaradd
+trigger1 = time = 0
+v = 11
+value = -1
 
 [State 1142, Effect]
 type = playsnd
@@ -5820,6 +5832,12 @@ y = 0
 type = posset
 trigger1 = pos Y > 2
 y = 0
+
+[State 1146, InPlay]
+type = parentvaradd
+trigger1 = time = 0
+v = 11
+value = 1
 
 [State 1145, BodySlam]
 type = ChangeState
@@ -5925,12 +5943,18 @@ sprpriority = -10
 ignorehitpause = 1
 facing = -1
 
-[State 1003, Hit]
+[State 1146, Hit]
 type = parentvarset
 trigger1 = movehit
 v = 18
 value = 1
 ignorehitpause = 1
+
+[State 1146, InPlay]
+type = parentvaradd
+trigger1 = time = 0
+v = 11
+value = 1
 
 [State 1146, End]
 type = ChangeState
@@ -6114,6 +6138,12 @@ trigger1 = movehit
 v = 18
 value = 1
 ignorehitpause = 1
+
+[State 1151, InPlay]
+type = parentvaradd
+trigger1 = time = 0
+v = 11
+value = 1
 
 [State 1151, End]
 type = ChangeState
@@ -7634,7 +7664,7 @@ ignorehitpause=1
 [State 3005, anim]
 type=changeanim
 trigger1= !time && !prevstateno
-value=3017
+value=ifelse(parent,var(7)=1,3017,3016)
 
 [State 3005, hitvar]
 type=varadd
@@ -7764,7 +7794,7 @@ movetype= A
 physics = N
 juggle  = 0
 velset = 0,0
-anim = 3017
+anim = ifelse(parent,var(7)=1,3017,3016)
 ctrl = 0
 sprpriority = 6
 hitcountpersist = 1
@@ -7840,7 +7870,7 @@ movetype= I
 physics = N
 juggle  = 0
 velset = 0,0
-anim = 3018
+anim = ifelse(parent,var(7)=1,3018,1003)
 ctrl = 0
 sprpriority = 6
 
@@ -7989,20 +8019,20 @@ var(16) = 1
 type = Projectile
 trigger1 = animelemtime(9) = 2
 ProjID = 3021
-projanim = 3021
-projhitanim = 3026
-projremanim = 3026
+projanim = ifelse(var(7)=1,3021,3027)
+projhitanim = ifelse(var(7)=1,3026,3028)
+projremanim = ifelse(var(7)=1,3026,3028)
 projscale = 1,1
 projremove = 1
 projremovetime = -1
-velocity =5.6,3.6
+velocity =ifelse(var(7),5.6, 6.4),ifelse(var(7),3.6,3.0)
 remvelocity = 0,0
 accel = 0,0
 projhits = 8
 projmisstime = 0
 projpriority = 100
 offset = 50,-53
-postype = P1         ;P2, Front, Back, Left, Right
+postype = P1
 projshadow = 0,0,0
 supermovetime = 0
 pausemovetime = 0
@@ -8015,7 +8045,7 @@ priority = 5,hit
 damage = 27,18 ;20,8
 sparkno = s7004
 guard.sparkno = s7006
-sparkxy = 15,15
+sparkxy = 15,ifelse(var(7),8,-8)
 hitsound = s120,6
 guardsound = s5,0
 pausetime = 3,12 ;12
@@ -8641,8 +8671,9 @@ time = 240
 [State 3110, Blackout]
 type = AssertSpecial
 triggerall = Var(2) = 0
-trigger1 = time >= 0 && time < 260
+trigger1 = time >= 0 && numexplod(3500)=1
 flag = NoFG
+flag2 = nobg
 
 [State 3110, Taunt]
 type = playsnd
@@ -8863,7 +8894,7 @@ flag = invisible
 
 [State 9000, hgf]
 type = assertspecial
-triggerall = 1 && time  < 47 && roundstate = 3
+triggerall = 1 && roundstate = 3 ;&& time  < 47
 trigger1 = parent,hitdefattr = SCA, HA,HP
 trigger2 = parent, Var(16) = 1
 trigger3 = numexplod(7000) = 1
@@ -8879,36 +8910,25 @@ add = 255,255,255
 sinadd = -255,-255,-255,170
 time = 45
 
-[State 9000, Dramatic Freeze]
-type = null;pause
-trigger1 = time = 0 && parent, stateno != 3110
-time = 25
-ignorehitpause = 1
-
-[State 9000, Dramatic Sound]
+[State 9000, Dramatic KO Sound]
 type = playsnd
-trigger1 = time = 0
+triggerall = time = 0
+trigger1 = parent, hitdefattr = SCA, SA || parent,var(18)
+trigger2 = parent, hitdefattr = SCA, NA
 value = 3000,2
 ignorehitpause = 1
 volumescale = 100
 
-[State 9000, kablewy!]
+[State 9000, HCF_SND]
 type = playsnd
 triggerall = time = 0
 trigger1 = parent, hitdefattr = SCA, HA
-trigger2 = parent, Var(16) = 1
-trigger3 = parent, projhit3021 = 1, < 10
-value = 3000,6
-volumescale = 100
-
-[State 9000, kablewy!]
-type = playsnd
-triggerall = time = 5
-trigger1 = parent, hitdefattr = SCA, HA
-trigger2 = parent, Var(16) = 1
-trigger3 = parent, projhit3021 = 1, < 10
-value = 3000,7
-volumescale = 100
+trigger2 = parent, projhit3021 = 1, < 10
+trigger3 = parent,Var(16) = 1 && roundstate = 3
+trigger4 = ProjHit3021 = 1
+value = 3000,3
+volumescale = 200
+ignorehitpause = 1
 
 [State 9000, HyperComboFinish!]
 type = Explod
@@ -8941,6 +8961,15 @@ ctrl = 0
 type = ctrlset
 trigger1 = time = 5
 value = 1
+
+[State 100, Dust]
+type = explod
+trigger1 = time < 27 && time%5=0
+anim = 7011
+postype = none
+pos = pos x + camerapos x, 0
+facing = facing
+sprpriority = 10
 
 [State 100, 1]
 type = VelSet
@@ -8979,6 +9008,15 @@ ctrl = 0
 type = VelSet
 trigger1 = Time = 0
 x = -8
+
+[State 100, Dust]
+type = explod
+trigger1 = time < 27 && time%5=0
+anim = 7011
+postype = none
+pos = pos x + camerapos x, 0
+facing = facing
+sprpriority = 10
 
 [State 105, 2] ;Prevent run from canceling into walk
 type = AssertSpecial
@@ -9357,17 +9395,6 @@ trigger1 = Time = 0
 trigger1 = !SysVar(0)
 value = 40,1
 
-[State 5110, 7]
-type = Explod
-trigger1 = Time = 0
-trigger1 = !SysVar(0)
-anim = F(60 + (sysvar(1) > Const720p(20)) + (sysvar(1) > Const720p(56)))
-postype = none
-pos = pos x + camerapos x, 0
-facing = facing
-sprpriority = ifelse (sysvar(1) <= Const720p(56), -10, 10)
-
-
 [State 5100, 8]
 type = Explod
 trigger1 = Time = 1
@@ -9465,8 +9492,8 @@ waveform = sine
 [State -2, Debug data]
 type = displaytoclipboard
 trigger1 = time >= 0
-text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(16) = %d,facing = %d, Damage Scale =%f,By Master Gouken"
-params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(16), facing, fvar(1)
+text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(11) = %d,facing = %d, Damage Scale =%f,By Master Gouken"
+params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(11), facing, fvar(1)
 ignorehitpause = 1
 
 [State -2, Dizzy Groan]
@@ -9629,9 +9656,9 @@ x= ifelse(target, frontedgebodydist <= 0, -1, 1) * (target, facing) * fvar(5)
 [State -3, Corner Push]; Apply friction to the velocity
 type= varset
 triggerall = stateno != 3000
-trigger1= numtarget
-trigger1= target, gethitvar(hitshaketime) <= 0
-fvar(5)= fvar(5) * 0.85
+trigger1 = numtarget
+trigger1 = target, gethitvar(hitshaketime) <= 0
+fvar(5) = fvar(5) * 0.85
 ;-----------------------------------------------------------------
 
 [State -3,limit]

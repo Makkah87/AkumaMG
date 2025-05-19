@@ -668,6 +668,7 @@ type = ChangeState
 value = 1160
 triggerall = command = "metsu1"
 triggerall = Var(13) = 0
+triggerall = !Var(11)
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [300,399])
@@ -681,6 +682,7 @@ type = ChangeState
 value = 1165
 triggerall = command = "metsu2"
 triggerall = Var(13) = 0
+triggerall = !Var(11)
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [300,399])
@@ -694,6 +696,7 @@ type = ChangeState
 value = 1170
 triggerall = command = "metsu3"
 triggerall = Var(13) = 0
+triggerall = !Var(11)
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [300,399])
