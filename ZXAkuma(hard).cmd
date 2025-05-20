@@ -14,6 +14,10 @@ name = "shun"
 command = x,x,~F+a+z
 time = 50
 
+name = "misogi"
+command = D,DB,B,D,DB,B, b+c
+time = 20
+
 [Command]
 name = "gousho"
 command = ~D, DF, F, D, DF, F, x
@@ -354,6 +358,16 @@ time = 1
 ;====================================================================
 ;			Hyper Moves (Player)
 ;====================================================================
+;Misogi
+[State -1, Misogi]
+type = ChangeState
+value = 3120
+triggerall = command = "messatsu"
+triggerall = power >= 3000
+triggerall = statetype != A
+triggerall = Var(13) = 0
+trigger1 = ctrl
+
 ;Shun Goku Satsu
 [State -1, Shun Goku Satsu]
 type = ChangeState

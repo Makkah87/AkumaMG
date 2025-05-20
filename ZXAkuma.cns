@@ -19,7 +19,7 @@
 ;              	Var(14): Shoryuu limit (A.I)
 ;              	Var(15): Messtatsu Gou Hadou Resistance
 ;              	Var(16): Hyper Hadou In Play
-;              	Var(17): Juggle Manager
+;              	Var(17): Gou Shoryuken Juggle Manager
 ;              	Var(18): Projectile Hit Detection
 ;======================================================================
 ;			Floats
@@ -2441,7 +2441,7 @@ ctrl = 0
 type    = S
 movetype= A
 physics = S
-juggle  =  ifelse(prevstateno = 1131,0, 15)
+juggle  =  var(17)
 poweradd= 110
 velset = 0,0
 anim = 1030
@@ -5146,6 +5146,12 @@ anim = 1118
 ctrl = 0
 sprpriority = 3
 
+[State 1131, Shoryu_Juggle (Shin Only)]
+type = varset
+trigger1 = !time && var(7)
+v = 17
+value = 0
+
 [State 1131, Grab Sound]
 type = PlaySnd
 trigger1 = Time = 0
@@ -5344,7 +5350,6 @@ ctrl = 1
 type    = A
 movetype= H
 physics = N
-juggle  = 6
 poweradd= 60
 ctrl = 0
 sprpriority = 3
@@ -6961,8 +6966,8 @@ pos = 23,-47
 ownpal = 1
 size.xscale = 1
 size.yscale = 1
-stateno = 3200
-id = 3200
+stateno = 6000
+id = 6000
 supermovetime = 9999
 
 [State 3000, SuperBG]
@@ -7411,10 +7416,10 @@ name = "Super"
 postype = P1
 pos = -31,-46
 ownpal = 1
-stateno = 3200
+stateno = 6000
 size.xscale = 1
 size.yscale = 1
-id = 3200
+id = 6000
 supermovetime = 9999
 
 [State 3010, SuperBG]
@@ -7833,8 +7838,8 @@ pos = 60,-52
 ownpal = 1
 size.xscale = 1
 size.yscale = 1
-stateno = 3200
-id = 3200
+stateno = 6000
+id = 6000
 supermovetime = 9999
 
 [State 3020, SuperBG]
@@ -8111,8 +8116,8 @@ name = "Super"
 postype = P1
 pos = 20,-90
 ownpal = 1
-stateno = 3200
-id = 3200
+stateno = 6000
+id = 6000
 supermovetime = 9999
 
 [State 3020, Muteki]
@@ -8662,33 +8667,245 @@ type = ChangeState
 trigger1 = Time = 190 ;290
 value = 180
 ctrl = 1
+
+;======================================================================
+;Misogi
+;======================================================================
+[Statedef 3120]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+velset = 0,0
+anim = 3120
+ctrl = 0
+sprpriority = 4
+
+[State 3120, Attack anim]
+type = changeanim
+trigger1 = time = 46
+value = 3030
+
+[State 3120, After_Image 1]
+type = Explod
+trigger1 = Time = 46
+anim = 3121
+ID = 3121
+pos = 0,0
+postype = p1
+pos = 0,0
+facing = facing
+bindtime = 0
+vel = -0.3,0
+accel = -0.3,0
+removetime = 20
+ownpal = 1
+removeongethit = 1
+scale = 0.83333333333333333333333333333333,1.0714285714285714285714285714286
+
+[State 3120, After_Image 2]
+type = Explod
+trigger1 = Time = 46
+anim = 3121
+ID = 3121
+pos = 0,0
+postype = p1
+pos = 0,0
+facing = facing
+bindtime = 0
+vel = 0.3,0
+accel = 0.3,0
+removetime = 20
+ownpal = 1
+removeongethit = 1
+scale = 0.83333333333333333333333333333333,1.0714285714285714285714285714286
+
+[State 3120, Dust]
+type = Explod
+trigger1 = anim = 3031 && animelemtime(1) = 1
+anim = 7010
+ID = 7010
+postype = p1
+pos = 0,0
+facing = 1
+bindtime = 1
+vel = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = -10
+ontop = 0
+ownpal = 1
+
+[State 3120, Hit1]
+type = HitDef
+trigger1 = !time
+attr = S, HA
+animtype  = Hard
+damage    = 600,200
+getpower  = 0
+priority  = 6
+guardflag = M
+pausetime = 4,4
+sparkno = s7004
+guard.sparkno = s7006
+sparkxy = -5,-48
+hitsound   = s120,6
+guardsound = s5,0
+ground.type = Low
+ground.slidetime = 30
+ground.hittime  = 30
+ground.velocity = -0.9,5
+air.velocity = -0.9,5
+fall = 1
+fall.recover = 0
+p2facing = 1
+yaccel = 0.9
+
+[State 3120, Crumple]
+type = targetstate
+trigger1 = numtarget
+trigger1 = movehit = 1 && target, stateno != 3121
+trigger1 = target, statetype != a && target, stateno != 5030
+value = 3121
+ignorehitpause = 1
+
+[State 3120, Rumble]
+type  = envshake
+trigger1 = anim = 3031 && animelemtime(1) = 1
+freq  = 145
+time  = 10
+ampl  = -4
+
+[State 3120, Teleport]
+type = posset
+trigger1 = time = 46
+X = ifelse(facing = 1,(enemynear, pos x)-10,(enemynear, pos x)+10)
+y = -300
+
+[State 3120, Attack_Vel]
+type = velset
+trigger1 = (time > 48 && time < 63) && anim = 3030 && pos y < -8
+y = 20
+
+[State 3120, Land_Vel]
+type = velset
+trigger1 = anim = 3031
+Y = 0
+
+[State 3120, Land]
+type = Posset
+trigger1 = anim = 3031
+Y = 0
+
+[State 3120, Recover]
+type = changeanim
+trigger1 = anim = 3030 && pos y >= 0 && anim != 3031
+trigger2 = time = 63
+value = 3031
+
+[State 3120, NoPush]
+type = PlayerPush
+trigger1 = time > 45
+value = 0
+
+[State 3120, End]
+type = changestate
+trigger1 = anim = 3031 && !animtime
+value = 0
+ctrl = 1
+
+;================================================================
+;Misogi Victim State
+;================================================================
+
+[Statedef 3121]
+type    = S
+movetype= H
+physics = N
+juggle  = 0
+velset = 0,0
+anim = -1
+ctrl = 0
+sprpriority = -4
+
+[State 3121, Pos Add]
+type = posadd
+trigger1 = !time
+x = -20
+
+[State 3121, Pos Add]
+type = posset
+trigger1 = !time
+y = 0
+
+[State 3121, Anim Change 5950 Exists]
+type = ChangeAnim2
+trigger1 = !time && selfanimexist(5950) && anim != 5950
+value = 5950
+
+[State 3121, Lay]
+type = changeanim2
+trigger1 = anim = 5950 && !animtime
+value = 5150
+
+[State 3121, Get Up]
+type = selfstate
+trigger1 = anim = 5150 && time = 300
+value = 5120
+
+
+
+[State 3121, Anim Change 5950 Does NOT Exist (hit shake)]
+type = ChangeAnim2
+trigger1 = !time && !selfanimexist(5950) && anim != 3122
+value = 3122
+
+[State 3121, Fall Anim]
+type = ChangeAnim2
+trigger1 = anim = 3122 && time = 50
+value = 3123
+
+[State 3121, Lay]
+type = ChangeAnim2
+trigger1 = anim = 3123 && !animtime && anim != 5150
+value = 5150
+
+[State 3121, Get Up]
+type = selfstate
+trigger1 = anim = 5150 && time = 160
+value = 5120
+
 ;======================================================================
 ;superspark
-[statedef 3200]
+;======================================================================
+value = 
+[statedef 6000]
 type = S
 movetype = I
 physics = N
 anim = -1
 sprpriority = 5
 
-[state 3200, Invis]
+[state 6000, Invis]
 type = assertspecial
 trigger1 = 1
 flag = invisible
 
-[State 3200, Assert]
+[State 6000, Assert]
 type = AssertSpecial
 trigger1 = 1
 flag = noshadow
 ignorehitpause = 1
 
-[State 3200, WashiWaMutekiJa]
+[State 6000, WashiWaMutekiJa]
 type = nothitby
 trigger1 = !time
 value = SCA
 time = 999
 
-[State 3200, Particles]
+[State 6000, Particles]
 type = Explod
 trigger1 = !time
 anim = 3200
@@ -8706,7 +8923,7 @@ sprpriority = 10
 ontop = 1
 ownpal = 1
 
-[State 3200, Horizontal Lightening]
+[State 6000, Horizontal Lightening]
 type = Explod
 trigger1 = time = 32
 anim = 3202
@@ -8723,7 +8940,7 @@ scale = 1,1
 sprpriority = 10
 ownpal = 1
 
-[State 3200, Vertical Lightening]
+[State 6000, Vertical Lightening]
 type = Explod
 trigger1 = time = 43
 anim = 3203
@@ -8745,7 +8962,7 @@ type = AngleDraw
 trigger1 = 1
 scale = 1,1
 
-[state 3200, end]
+[state 6000, end]
 type = DestroySelf
 trigger1 = time > 43 && numexplod(3203) = 0
 
