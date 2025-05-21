@@ -8692,6 +8692,43 @@ stateno = 6000
 id = 6000
 supermovetime = 9999
 
+[State 3120, Voice 1]
+type = playsnd
+trigger1 = !time
+value = 80,2
+volumescale = 100
+channel = 1
+
+[State 3120, Voice 2]
+type = playsnd
+trigger1 = anim = 3030 && animelemtime(1) = 1
+value = 80,4
+volumescale = 100
+channel = 1
+
+[State 3120, Earthquake]
+type = playsnd
+trigger1 = time = 25
+value = 122,10
+volumescale = 100
+
+[State 6000, Vertical Lightening]
+type = Explod
+trigger1 = time = 25
+anim = 3203
+ID = 3203
+space = stage
+pos = Pos X + CameraPos X, 0
+facing = facing
+bindtime = 1
+vel = 0,0
+removetime = -2
+supermovetime = 999
+pausemovetime = 0
+scale = 1,1
+sprpriority = 10
+ownpal = 1
+
 [State 3120, Muteki]
 type = nothitby
 trigger1 = !time
@@ -8748,7 +8785,7 @@ ID = 3121
 pos = 0,0
 postype = p1
 pos = 0,0
-facing = facing
+facing = 1
 bindtime = 0
 vel = -0.3,0
 accel = -0.3,0
@@ -8765,7 +8802,7 @@ ID = 3121
 pos = 0,0
 postype = p1
 pos = 0,0
-facing = facing
+facing = 1
 bindtime = 0
 vel = 0.3,0
 accel = 0.3,0
@@ -8824,7 +8861,7 @@ pausetime = 4,4
 sparkno = s7004
 guard.sparkno = s7006
 sparkxy = -5,-48
-hitsound   = s120,6
+hitsound   = s120,12
 guardsound = s5,0
 ground.type = Low
 ground.slidetime = 30
@@ -8982,9 +9019,8 @@ trigger1 = time = 65
 value = ifelse(alive,5120,5150)
 
 ;======================================================================
-;superspark
+;Super Spark
 ;======================================================================
-value = 
 [statedef 6000]
 type = S
 movetype = I
@@ -9592,7 +9628,7 @@ sysvar(1) = floor(vel y)
 type = PlaySnd
 trigger1 = Time = 0
 trigger1 = !SysVar(0)
-value = 40,1
+value = 40,2
 
 [State 5100, 8]
 type = Explod
