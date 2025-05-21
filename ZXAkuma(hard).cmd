@@ -6,16 +6,29 @@ name = "shun"
 command = x,x,F,a,z
 time = 50
 
+[Command]
 name = "shun"
 command = x,x,~F+a,z
 time = 50
 
+[Command]
 name = "shun"
 command = x,x,~F+a+z
 time = 50
 
+[Command]
 name = "misogi"
-command = D,DB,B,D,DB,B, b+c
+command = ~D,D,D, b+c
+time = 20
+
+[Command]
+name = "misogi"
+command = ~D,D,D+b+c
+time = 20
+
+[Command]
+name = "misogi"
+command = ~D,D,D,~b+c
 time = 20
 
 [Command]
@@ -362,11 +375,16 @@ time = 1
 [State -1, Misogi]
 type = ChangeState
 value = 3120
-triggerall = command = "messatsu"
-triggerall = power >= 3000
+triggerall = command = "misogi"
+triggerall = power >= 3000 && var(7)
 triggerall = statetype != A
 triggerall = Var(13) = 0
 trigger1 = ctrl
+trigger2 = stateno = [10,12]
+trigger3 = stateno = [400,420]
+trigger3 = time <=3
+trigger4 = stateno = [300,320]
+trigger4 = time <=3
 
 ;Shun Goku Satsu
 [State -1, Shun Goku Satsu]
