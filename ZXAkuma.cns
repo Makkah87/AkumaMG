@@ -9,7 +9,7 @@
 ;             	Var(4) : Shakunetsu Gou Hadou Resistance
 ;              	Var(5) : Death Voice Add
 ;              	Var(6) : Death Indicator (Depreicated)
-;			Var(7) : Shin Gouki Indicator
+;			Var(7) : Shin Akuma Indicator
 ;			Var(8) : Hit Voice Randomizer
 ;			Var(9) : Mash Manager
 ;             	Var(10): ----
@@ -25,6 +25,7 @@
 ;			Floats
 ;----------------------------------------------------------------------
 ;			Fvar(1): Damage Dampener
+;			Fvar(2): Shin Akuma Attack Multiplier
 ;			Fvar(5): Cornerpush
 ;======================================================================
 [Data]
@@ -234,11 +235,25 @@ time = 1
 [Statedef 191]
 type = S
 
-[State -3,Shin Gouki]
+[State 191,Shin Gouki]
 type = Varset
 trigger1 = Palno > 6
 v = 7
 value = 1
+
+[State 191, Shin Gouki Stats]
+type = null;modifyplayer
+trigger1 = !time && var(7)
+lifebarname = "Shin Akuma"
+lifemax = 800
+dizzypointsmax = 700
+guardpointsmax = 1000
+
+[State 191,Shin Gouki Attack Power Increase]
+type = Varset
+trigger1 = var(7)
+fv = 2
+value = 0.35
 
 [State 191, 1]
 type = ChangeState
@@ -353,6 +368,12 @@ volumescale = 100
 type = varset
 trigger1 = !time
 var(7) = ifelse(var(7) =0,1,0)
+
+[State 191,Shin Gouki Attack Power]
+type = Varset
+trigger1 = var(7)
+fv = 2
+value = 0.25
 
 [State 195, Snd 2]
 type = PlaySnd
@@ -4674,6 +4695,15 @@ sprpriority = 3
 [State 1111, Turn]
 type = turn
 trigger1 = !time && p2dist x < 0
+
+[State 100, Dust]
+type = explod
+trigger1 = time%2=0 && time <10 && !movecontact
+anim = 7011
+postype = none
+pos = (pos x + camerapos x)-10, 0
+facing = facing
+sprpriority = 10
 
 [State 1111, 1]
 type = PlaySnd
@@ -9821,7 +9851,7 @@ fvar(1)=1
 [State -2, Dampener itself]
 type=attackmulset
 trigger1= 1
-value=fvar(1)
+value=fvar(1)*(1+fvar(2))
 ignorehitpause=1
 
 ;----------------------------------------------------------------------
