@@ -22,6 +22,7 @@ type = explod
 triggerall = !numexplod(1006)
 trigger1 = enemynear, movetype != h
 trigger2 = enemynear, stateno = 5100
+trigger3 = enemynear, stateno = 5110
 anim = 1006
 id = 1006
 postype = p1
@@ -34,6 +35,7 @@ type = explod
 triggerall = !numexplod(1007)
 trigger1 = enemynear, movetype != h
 trigger2 = enemynear, stateno = 5100
+trigger3 = enemynear, stateno = 5110
 anim = 1006
 id = 1007
 postype = p1
@@ -46,6 +48,7 @@ type = explod
 triggerall = !numexplod(1008)
 trigger1 = enemynear, movetype != h
 trigger2 = enemynear, stateno = 5100
+trigger3 = enemynear, stateno = 5110
 anim = 1006
 id = 1008
 postype = p1
@@ -57,3 +60,4 @@ ownpal = 1
 type = destroyself
 trigger1 = enemynear, movetype != h
 trigger2 = enemynear, stateno = 5100
+trigger3 = enemynear, stateno = 5110

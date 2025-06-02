@@ -6236,6 +6236,8 @@ facing = -1
 
 [State 1161, Burn_Effect]
 type = Helper
+triggerall = numtarget
+trigger1 = target, movetype = h
 trigger1 = movehit && !numhelper(7000)
 name = "fire"
 postype = P2
@@ -6547,6 +6549,8 @@ facing = -1
 
 [State 1166, Burn_Effect]
 type = Helper
+triggerall = numtarget
+trigger1 = target, movetype = h
 trigger1 = movehit && !numhelper(7000)
 name = "fire"
 postype = P2
@@ -6903,6 +6907,8 @@ facing = -1
 
 [State 1171, Burn_Effect]
 type = Helper
+triggerall = numtarget
+trigger1 = target, movetype = h
 trigger1 = movehit && !numhelper(7000)
 name = "fire"
 postype = P2
@@ -7689,6 +7695,8 @@ palfx.color = 20
 
 [State 3001, Burn_Effect]
 type = Helper
+triggerall = numtarget
+trigger1 = target, movetype = h
 trigger1 = movehit && !numhelper(7000)
 name = "fire"
 postype = P2
@@ -7978,6 +7986,8 @@ var(16) = 1
 
 [State 3020, Burn_Effect]
 type = Helper
+triggerall = numtarget
+trigger1 = target, movetype = h
 trigger1 = projhit3021 = 1 && !numhelper(7000)
 name = "fire"
 postype = P2
