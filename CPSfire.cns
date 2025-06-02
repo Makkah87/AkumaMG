@@ -1,0 +1,59 @@
+[Statedef 7000]
+anim = -1
+
+[State 7000, Anim]
+type = changeanim
+trigger1 = !time
+value = 1005
+
+[State 7000, Priority]
+type = sprpriority
+trigger1 = !time
+value = 10
+
+[State 7000, Bind]
+type = posset
+trigger1 = 1
+x = enemy, pos x
+y = enemy, pos y
+
+[State 7000, Snuff]
+type = explod
+triggerall = !numexplod(1006)
+trigger1 = enemynear, movetype != h
+trigger2 = enemynear, stateno = 5100
+anim = 1006
+id = 1006
+postype = p1
+pos = 0,30
+sprpriority = 10
+ownpal = 1
+
+[State 7000, Snuff]
+type = explod
+triggerall = !numexplod(1007)
+trigger1 = enemynear, movetype != h
+trigger2 = enemynear, stateno = 5100
+anim = 1006
+id = 1007
+postype = p1
+pos = -25,30
+sprpriority = -10
+ownpal = 1
+
+[State 7000, Snuff]
+type = explod
+triggerall = !numexplod(1008)
+trigger1 = enemynear, movetype != h
+trigger2 = enemynear, stateno = 5100
+anim = 1006
+id = 1008
+postype = p1
+pos = 17,30
+sprpriority = 10
+ownpal = 1
+
+[State 7000, Unalive]
+type = destroyself
+trigger1 = enemynear, movetype != h
+trigger2 = enemynear, stateno = 5100

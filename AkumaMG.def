@@ -3,7 +3,7 @@
 
 ; Player information
 [Info]
-name = "ZXAkuma"  
+name = "AkumaMG"  
 displayname = "Akuma"  
 versiondate = 05,19,2025
 mugenversion = 1.1
@@ -13,13 +13,14 @@ localcoord = 320,240
 
 ; Files for the player
 [Files]
-cmd     = ZXAkuma(hard).cmd   ;Command set
-cns     = ZXAkuma.cns 
-st      = ZXAkuma.cns
+cmd     = AkumaMG.cmd   ;Command set
+cns     = AkumaMG.cns 
+st      = AkumaMG.cns
+st1     = CPSfire.cns
 stcommon= common1.cns 
-sprite  = ZXAkuma.sff
-anim    = ZXAkuma.air 
-sound   = ZXAkuma.snd
+sprite  = AkumaMG.sff
+anim    = AkumaMG.air 
+sound   = AkumaMG.snd
 ;====|Pallettes|====
 pal1    = Akuma1.act
 pal2    = Akuma2.act

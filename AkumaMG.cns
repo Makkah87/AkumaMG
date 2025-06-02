@@ -1889,7 +1889,7 @@ type = Helper
 trigger1 = AnimElemtime(4) = 1 && time < 14
 name = "Gou_Hadou1"
 postype = P1
-pos = ifelse(var(7) = 1,57, 70),-55
+pos = ifelse(var(7) = 1,70, 75),-55
 ownpal = 1
 stateno = 1002
 id = 1002 
@@ -2126,7 +2126,7 @@ type = Helper
 trigger1 = AnimElemtime(4) = 1 && time < 14
 name = "Gou_Hadou2"
 postype = P1
-pos = ifelse(var(7) = 1,57, 70),-55
+pos = ifelse(var(7) = 1,70, 75),-55
 ownpal = 1
 stateno = 1016
 id = 1016 
@@ -2300,7 +2300,7 @@ type = Helper
 trigger1 = AnimElemtime(4) = 1 && time < 14
 name = "Gou_Hadou3"
 postype = P1
-pos = ifelse(var(7) = 1,57, 70),-55
+pos = ifelse(var(7) = 1,70, 75),-55
 ownpal = 1
 stateno = 1021
 id = 1021 
@@ -6234,6 +6234,17 @@ sprpriority = -10
 ignorehitpause = 1
 facing = -1
 
+[State 1161, Burn_Effect]
+type = Helper
+trigger1 = movehit && !numhelper(7000)
+name = "fire"
+postype = P2
+pos = 0,0
+ownpal = 1
+stateno = 7000
+id = 7000
+ignorehitpause = 1
+
 [State 1161, Reset]
 type = varset
 trigger1 = frontedgedist < -100
@@ -6533,6 +6544,17 @@ bindtime = 999
 sprpriority = -10
 ignorehitpause = 1
 facing = -1
+
+[State 1166, Burn_Effect]
+type = Helper
+trigger1 = movehit && !numhelper(7000)
+name = "fire"
+postype = P2
+pos = 0,0
+ownpal = 1
+stateno = 7000
+id = 7000
+ignorehitpause = 1
 
 [State 1166, Reset]
 type = varset
@@ -6878,6 +6900,17 @@ bindtime = 999
 sprpriority = -10
 ignorehitpause = 1
 facing = -1
+
+[State 1171, Burn_Effect]
+type = Helper
+trigger1 = movehit && !numhelper(7000)
+name = "fire"
+postype = P2
+pos = 0,0
+ownpal = 1
+stateno = 7000
+id = 7000
+ignorehitpause = 1
 
 [State 1171, Reset]
 type = varset
@@ -7649,6 +7682,21 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
+palfx.time = 40 ;20
+palfx.add = 217,61,0
+palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.color = 20
+
+[State 3001, Burn_Effect]
+type = Helper
+trigger1 = movehit && !numhelper(7000)
+name = "fire"
+postype = P2
+pos = 0,0
+ownpal = 1
+stateno = 7000
+id = 7000
+ignorehitpause = 1
 
 [State 3001, Back Spark High]
 type = explod
@@ -7927,6 +7975,17 @@ id = 3021
 type = varset
 trigger1 = numprojid(3021) = 1
 var(16) = 1
+
+[State 3020, Burn_Effect]
+type = Helper
+trigger1 = projhit3021 = 1 && !numhelper(7000)
+name = "fire"
+postype = P2
+pos = 0,0
+ownpal = 1
+stateno = 7000
+id = 7000
+ignorehitpause = 1
 
 [State 3020, Projectile]
 type = Projectile
