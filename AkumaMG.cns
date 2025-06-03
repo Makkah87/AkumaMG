@@ -1886,7 +1886,7 @@ volumescale = 100
 
 [State 1000, Hadouken]
 type = Helper
-trigger1 = AnimElemtime(4) = 1 && time < 14
+trigger1 = AnimElemtime(4) = 1 && time < 14 && !numhelper(1002)
 name = "Gou_Hadou1"
 postype = P1
 pos = ifelse(var(7) = 1,70, 75),-55
@@ -1901,7 +1901,7 @@ value = 1001
 
 [State 1000, 7]
 type = ChangeState
-trigger1 = time = 38 ;53
+trigger1 = time = ifelse(var(7),35,38)
 value = 0
 ctrl = 1
 ;====================================================================
@@ -2123,7 +2123,7 @@ volumescale = 100
 
 [State 1015, Hadouken]
 type = Helper
-trigger1 = AnimElemtime(4) = 1 && time < 14
+trigger1 = AnimElemtime(4) = 1 && time < 14 && !numhelper(1016)
 name = "Gou_Hadou2"
 postype = P1
 pos = ifelse(var(7) = 1,70, 75),-55
@@ -2138,7 +2138,7 @@ value = 1001
 
 [State 1015, 7]
 type = ChangeState
-trigger1 = time = 48
+trigger1 = time = ifelse(var(7),37,45)
 value = 0
 ctrl = 1
 ;====================================================================
@@ -2297,7 +2297,7 @@ volumescale = 100
 
 [State 1020, Hadouken]
 type = Helper
-trigger1 = AnimElemtime(4) = 1 && time < 14
+trigger1 = AnimElemtime(4) = 1 && time < 14 && !numhelper(1021)
 name = "Gou_Hadou3"
 postype = P1
 pos = ifelse(var(7) = 1,70, 75),-55
@@ -2312,7 +2312,7 @@ value = 1001
 
 [State 1020, 7]
 type = ChangeState
-trigger1 = time = 48
+trigger1 = time = ifelse(var(7),40,48)
 value = 0
 ctrl = 1
 
@@ -6111,7 +6111,7 @@ triggerall = !numhelper(1161)
 trigger1 = AnimElemtime(4) = 1 && anim = 1010 && time < 30
 name = "Shaku_Hadou3"
 postype = P1
-pos = 57,-55
+pos = 70,-55
 ownpal = 1
 stateno = 1161
 id = 1161 
@@ -6378,7 +6378,7 @@ triggerall = !numhelper(1166)
 trigger1 = AnimElemtime(4) = 1 && anim = 1010 && time < 30
 name = "Shaku_Hadou3"
 postype = P1
-pos = 57,-55
+pos = 70,-55
 ownpal = 1
 stateno = 1166
 id = 1166 
@@ -6699,7 +6699,7 @@ triggerall = !numhelper(1171)
 trigger1 = AnimElemtime(4) = 1 && anim = 1010
 name = "Shaku_Hadou3"
 postype = P1
-pos = 57,-55
+pos = 70,-55
 ownpal = 1
 stateno = 1171
 id = 1171 
@@ -7185,7 +7185,7 @@ hitsound   = s120,6
 guardsound = s5,0
 ground.type = Low
 ground.slidetime = 30
-ground.hittime  = 30
+ground.hittime  = 15
 ground.velocity = -8
 air.velocity = -3,-3
 air.fall = 1
@@ -7212,7 +7212,7 @@ hitsound   = s120,6
 guardsound = s5,0
 ground.type = Low
 ground.slidetime = 40
-ground.hittime  = 40
+ground.hittime  = 15
 ground.velocity = -8,0
 guard.velocity = -3
 air.velocity = -3,-3.2
@@ -7239,7 +7239,7 @@ hitsound   = s120,6
 guardsound = s5,0
 ground.type = High
 ground.slidetime = 40
-ground.hittime  = 40
+ground.hittime  = 15
 ground.velocity = -6,0
 guard.velocity = -3
 air.velocity = -3,-3.2
@@ -7265,7 +7265,7 @@ hitsound   = s120,9
 guardsound = s5,0
 ground.type = Low
 ground.slidetime = 40
-ground.hittime  = 40
+ground.hittime  = 15
 ground.velocity = -1,-3.2
 guard.velocity = -3
 air.velocity = -3,-3.2
@@ -7296,7 +7296,7 @@ hitsound   = s120,9
 guardsound = s5,0
 ground.type = Low
 ground.slidetime = 40
-ground.hittime  = 40
+ground.hittime  = 15
 ground.velocity = -3,-5
 guard.velocity = -12
 air.velocity = -3,-3.2
@@ -7330,7 +7330,7 @@ hitsound   = s120,9
 guardsound = s5,0
 ground.type = Low
 ground.slidetime = 40
-ground.hittime  = 40
+ground.hittime  = 15
 ground.velocity = -6,-9
 guard.velocity = -12
 air.velocity = -6,-9
@@ -8007,7 +8007,7 @@ projremanim = ifelse(var(7)=1,3026,3028)
 projscale = 1,1
 projremove = 1
 projremovetime = -1
-velocity =ifelse(var(7),5.6, 6.4),ifelse(var(7),3.6,3.0)
+velocity =ifelse(var(7),5.6, 7.4),ifelse(var(7),3.6,3.0)
 remvelocity = 0,0
 accel = 0,0
 projhits = 8
@@ -8225,16 +8225,6 @@ trigger1 = !time
 value = SCA
 time = 5
 
-[State 3050, FlameCharge]
-type = explod
-trigger1 = time = 0
-anim = 3201
-postype = p1
-pos = 19,-86
-supermovetime = 64
-sprpriority = 11
-ownpal = 1
-
 [State 3050, RedBG]
 type = bgpalfx
 trigger1 = time = 0
@@ -8402,12 +8392,6 @@ freq  = 125
 time  = 10
 ampl  = -4
 
-[State 3102, Hit]
-type = targetlifeadd
-trigger1 =(time >= 50 && time <= 130) && time%5=0
-value = -ceil(((target,lifemax)*0.47)/17)
-kill = 0
-
 [State 3102, Hitadd]
 type = hitadd
 trigger1 = (time >= 50 && time <= 130) && time%5=0
@@ -8415,8 +8399,13 @@ value = 1
 
 [State 3102,Final]
 type = targetlifeadd
-trigger1 = time = 130
-value = -160
+trigger1 = time = 130 && !var(7)
+value = ((target,lifemax)*0.47)*-1
+
+[State 3102,Final]
+type = targetlifeadd
+trigger1 = time = 130 && var(7)
+value = ((target,lifemax)*0.60)*-1
 
 [State 3102,hitspark1]
 type = explod
@@ -8834,16 +8823,6 @@ trigger1 = !time
 value = SCA
 time = 20
 
-[State 3120, FlameCharge]
-type = explod
-trigger1 = animelem = 4 && anim = 3120
-anim = 3201
-postype = p1
-pos = -10,-40
-supermovetime = 64
-sprpriority = 11
-ownpal = 1
-
 [State 3120, RedBG]
 type = bgpalfx
 trigger1 = animelem = 4 && anim = 3120
@@ -8864,7 +8843,7 @@ darken = 0
 [State 3120, Red Shadows]
 type = Afterimage
 trigger1 = animelem = 4 && anim = 3120
-time = 999
+time = 60
 length = 15
 PalPostBright = 0,0,0
 PalContrast = 160,20,20
@@ -8952,7 +8931,7 @@ type = HitDef
 trigger1 = !time
 attr = S, HA
 animtype  = Hard
-damage    = 600,200
+damage    = 500,200
 getpower  = 0
 priority  = 6
 guardflag = M
@@ -9132,6 +9111,16 @@ type = playsnd
 trigger1 = !time && parent, prevstateno >= 3000
 value = 3000, 4
 volumescale = 100
+
+[State 6000, FlameCharge]
+type = explod
+trigger1 = !time && parent, stateno >= 3050
+anim = 3201
+postype = p1
+pos = 0,0
+supermovetime = 64
+sprpriority = 11
+ownpal = 1
 
 [state 6000, Invis]
 type = assertspecial
@@ -9824,6 +9813,201 @@ trigger1 = Time = 0
 ampl = 200, 7, -.467
 time = 30
 waveform = sine
+
+;---------------------------------------------------------------------------
+; Ground Recover
+;---------------------------------------------------------------------------
+[Statedef 5201]
+type    = A
+movetype= H
+physics = N
+anim = 5200
+
+[State 5201, NoPush]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 5201, 1] ;Turn if not facing opponent
+type = Turn
+trigger1 = Time = 0
+trigger1 = p2dist X < Const720p(-20)
+trigger2 = Time = 30
+trigger2 = p2dist X < Const720p(-20)
+
+[State 5201, HitBy]
+type = hitby
+trigger1 = !time
+value = SCA, AT
+time = 30
+
+[State 5201, 2]
+type = VelSet
+trigger1 = Time = 0
+trigger2 = time = 30
+x = 0
+y = 0
+
+[State 5201, X_Accel]
+type = veladd
+trigger1 = (time > 3 && time < 30) && vel x < 12
+x = 0.75
+
+[State 5201, Stand Anim]
+type = changeanim
+trigger1 = time = 30
+value = 5201
+
+[State 5201, 3]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 5201, 4]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 5201, 5] ;Blink white
+type = PalFX
+trigger1 = Time = 0
+time = 3
+add = 128,128,128 ;256,256,256
+
+[State 5201, Dust]
+type = explod
+trigger1 = vel x != 0 && time%2=0
+anim = 7011
+postype = none
+pos = pos x + camerapos x, 0
+facing = facing
+sprpriority = 10
+
+[State 5201, End]
+type = changestate
+trigger1 = anim = 5201 && !animtime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Air get-hit (fall recovery in air)
+[Statedef 5210]
+type    = A
+movetype= I
+physics = N
+anim = 5210
+ctrl = 0
+
+[State 5210, Roll]
+type = changestate
+trigger1 = !time && pos y > -40
+value = 5201
+
+[State 5210, 1] ;Blink white
+type = PalFX
+trigger1 = Time = 0
+time = 3
+add = 128,128,128
+
+[State 5210, 1]
+type = PosFreeze
+trigger1 = Time < 4
+
+[State 5210, 2] ;Turn if not facing opponent
+type = Turn
+trigger1 = Time = 0
+trigger1 = p2dist X < Const720p(-80)
+
+[State 5210, 1.0 behavior 1]
+type = VelMul
+trigger1 = Time = 4
+x = Const(velocity.air.gethit.airrecover.mul.x)
+y = Const(velocity.air.gethit.airrecover.mul.y)
+
+[State 5210, 1.0 behavior 2]
+type = VelAdd
+trigger1 = Time = 4
+x = Const(velocity.air.gethit.airrecover.add.x)
+y = Const(velocity.air.gethit.airrecover.add.y)
+
+[State 5210, 2002.04.14 behavior 1]
+type = null;VelMul
+trigger1 = Time = 4
+x = .8
+y = .8
+
+[State 5210, 2002.04.14 behavior 2]
+type = null;VelAdd
+trigger1 = Time = 4
+x = 0 
+y = -4.5
+
+[State 5210, 2002.04.14 behavior 3]
+type = null;VelMul
+trigger1 = Time = 4
+trigger1 = Vel Y > 0
+y = .5
+
+[State 5210, 2002.04.14 behavior 4]
+type = null;VelAdd
+trigger1 = Time = 4
+trigger1 = Vel Y > -3
+y = -2
+
+[State 5210, 2002.04.14 behavior 5]
+type = null;VelAdd
+trigger1 = Time = 4
+trigger1 = Vel Y > -2
+y = -1
+
+[State 5210, 2] ;Go up
+type = VelAdd
+trigger1 = Time = 4
+trigger1 = Command = "holdup"
+y = Const(velocity.air.gethit.airrecover.up)
+
+[State 5210, 2] ;Go down
+type = VelAdd
+trigger1 = Time = 4
+trigger1 = Command = "holddown"
+y = Const(velocity.air.gethit.airrecover.down)
+
+[State 5210, 2] ;Go fwd
+type = VelAdd
+trigger1 = Time = 4
+trigger1 = Command = "holdfwd"
+x = Const(velocity.air.gethit.airrecover.fwd)
+
+[State 5210, 2] ;Go back
+type = VelAdd
+trigger1 = Time = 4
+trigger1 = Command = "holdback"
+x = Const(velocity.air.gethit.airrecover.back)
+
+[State 5210, 3]
+type = NotHitBy
+trigger1 = Time = 0
+value = SCA
+time = 15
+
+[State 5210, 4]
+type = CtrlSet
+trigger1 = Time = 20
+value = 1
+
+[State 5210, 5]
+type = VelAdd
+trigger1 = Time >= 4
+y = Const(movement.air.gethit.airrecover.yaccel)
+
+[State 5210, 5] ;Land on ground
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 52 ;Jump land
+ctrl = 1
+
 ;----------------------------------------------------------------------
 ; States that are always executed (use statedef -2)
 ;----------------------------------------------------------------------

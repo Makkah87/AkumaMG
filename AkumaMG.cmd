@@ -279,6 +279,21 @@ name = "recovery";Required (do not remove)
 command = x+y
 time = 1
 
+[Command]
+name = "recovery"
+command = y+z
+time = 1
+
+[Command]
+name = "recovery";Required (do not remove)
+command = a+b
+time = 1
+
+[Command]
+name = "recovery";Required (do not remove)
+command = b+c
+time = 1
+
 ;-| Dir + Button |---------------------------------------------------------
 [Command]
 name = "down_a"
