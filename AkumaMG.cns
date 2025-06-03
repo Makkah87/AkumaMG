@@ -5895,7 +5895,7 @@ y = 0.45
 
 [State 1150, ShinZankuu]
 type = Helper
-;trigger1 = Var(7) = 1
+trigger1 = Var(7) = 1
 trigger1 = AnimElemtime(1) = 1
 name = "Gou_Zankuu5"
 postype = P1
@@ -5916,7 +5916,7 @@ id = 1151
 
 [State 1150, Voice]
 type = playsnd
-trigger1 = AnimElemtime(1) = 1
+trigger1 = AnimElemtime(1) = 1 && Var(7) = 1
 trigger2 = AnimElemtime(3) = 1
 value = 50,15
 volumescale = 100
@@ -5924,7 +5924,7 @@ channel = 1
 
 [State 1150, Effect]
 type = playsnd
-trigger1 = AnimElemtime(1) = 1
+trigger1 = AnimElemtime(1) = 1 && Var(7) = 1
 trigger2 = AnimElemtime(3) = 1
 value = 122,7
 volumescale = 100
@@ -9126,6 +9126,12 @@ movetype = I
 physics = N
 anim = -1
 sprpriority = 5
+
+[State 6000, Cancel_SND]
+type = playsnd
+trigger1 = !time && parent, prevstateno >= 3000
+value = 3000, 4
+volumescale = 100
 
 [state 6000, Invis]
 type = assertspecial

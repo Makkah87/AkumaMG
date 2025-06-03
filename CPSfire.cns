@@ -6,6 +6,12 @@ type = changeanim
 trigger1 = !time
 value = 1005
 
+[State 7000, Engulf SND]
+type = playsnd
+trigger1 = !time
+value = 120,14
+volumescale = 200
+
 [State 7000, Priority]
 type = sprpriority
 trigger1 = !time
@@ -55,6 +61,15 @@ postype = p1
 pos = 17,30
 sprpriority = 10
 ownpal = 1
+
+[State 7000, Snuff SND]
+type = playsnd
+trigger1 = enemynear, movetype != h
+trigger2 = enemynear, stateno = 5100
+trigger3 = enemynear, stateno = 5110
+value = 120,15
+volumescale = 200
+channel = 7
 
 [State 7000, Unalive]
 type = destroyself
