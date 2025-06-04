@@ -2546,6 +2546,8 @@ type = ChangeState
 trigger1 = AnimTime = 0
 value = 1031
 ;====================================================================
+;Weak Gou Shoryu - Rising
+;====================================================================
 [Statedef 1031]
 type    = A
 movetype= A
@@ -2636,6 +2638,8 @@ y = 0
 type = ChangeState
 trigger1 = anim = 1032 && Pos Y >= 0
 value = 1033
+;====================================================================
+;Gou Shoryu Land State
 ;====================================================================
 [Statedef 1033]
 type    = S
@@ -2759,6 +2763,9 @@ fall = 1
 type = ChangeState
 trigger1 = AnimTime = 0
 value = 1036
+
+;====================================================================
+;Medium Gou Shoryu - Rising
 ;====================================================================
 [Statedef 1036]
 type    = A
@@ -2935,6 +2942,9 @@ fall = 1
 type = ChangeState
 trigger1 = AnimTime = 0
 value = 1041
+
+;====================================================================
+;Strong Gou Shoryu - Rising
 ;====================================================================
 [Statedef 1041]
 type    = A
@@ -3076,6 +3086,9 @@ x = -3
 type = ChangeState
 trigger1 = AnimTime = 0
 value = 1051
+
+;====================================================================
+;Move Forward (Long)
 ;====================================================================
 [Statedef 1051]
 type    = S
@@ -3171,6 +3184,8 @@ trigger1 = time > 4
 value = 1053
 ctrl = 0
 ;====================================================================
+;End
+;===================================================================
 [Statedef 1053]
 type    = S
 physics = S
@@ -3253,6 +3268,9 @@ x = 3
 type = ChangeState
 trigger1 = AnimTime = 0
 value = 1055
+
+;====================================================================
+;Move Back (Long)
 ;====================================================================
 [Statedef 1055]
 type    = S
@@ -3402,6 +3420,9 @@ x = -3
 type = ChangeState
 trigger1 = AnimTime = 0
 value = 1057
+
+;====================================================================
+;Move Forward (Short)
 ;====================================================================
 [Statedef 1057]
 type    = S
@@ -3546,6 +3567,9 @@ x = 3
 type = ChangeState
 trigger1 = AnimTime = 0
 value = 1059
+
+;====================================================================
+;Move Back (Short)
 ;====================================================================
 [Statedef 1059]
 type    = S
@@ -3773,6 +3797,8 @@ type = ChangeState
 trigger1 = pos y >= 0
 value = 1062
 ctrl = 0
+;====================================================================
+;Tatsu Land
 ;====================================================================
 [Statedef 1062]
 type    = A
@@ -4765,12 +4791,14 @@ guard.velocity = -5
 fall = 1
 fall.recover = 0
 
-
 [State 1111, End]
 type = ChangeState
 trigger1 = animtime = 0
 value = 1112
 ctrl = 0
+
+;====================================================================
+;Recover
 ;====================================================================
 [Statedef 1112]
 type    = S
@@ -4926,7 +4954,6 @@ airguard.velocity = -5.3,4.5
 air.fall = 1
 fall.recover = 0
 
-
 [State 1114, PosSet]
 type = posset
 trigger1 = pos y > 0
@@ -4942,37 +4969,7 @@ type = ChangeState
 trigger1 = Pos Y = 0
 value = 1090
 ctrl = 0
-;====================================================================
-[Statedef 1115]
-type    = L
-movetype= A
-physics = S
-juggle  = 6
-anim = 1115
-ctrl = 0
-sprpriority = 3
 
-[State 1115, Effect]
-type = PlaySnd
-trigger1 = Time = 0
-value = 40, 1
-volumescale = 100
-
-[State 1115, Land]
-type = velset
-trigger1 = Time = 0
-y = 0
-
-[State 1115, Land]
-type = posset
-trigger1 = Time = 0
-y = 0
-
-[State 1115, End]
-type = ChangeState
-trigger1 = Time = 40
-value = 5120
-ctrl = 1
 ;--------------------------------------------------------------------
 ;Hyakki Shuu (Medium)
 ;--------------------------------------------------------------------
