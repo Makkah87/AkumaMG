@@ -6209,9 +6209,9 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5	
-palfx.time = 40 ;20
+palfx.time = 45
 palfx.add = 217,61,0
-palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.sinadd = -64,-64,-64,5
 palfx.color = 20
 
 [State 1161, Back Spark High]
@@ -6481,9 +6481,9 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 40 ;20
+palfx.time = 45
 palfx.add = 217,61,0
-palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.sinadd = -64,-64,-64,5
 palfx.color = 20
 
 [State 1166, Hitdef]
@@ -6522,9 +6522,9 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 40 ;20
+palfx.time = 45
 palfx.add = 217,61,0
-palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.sinadd = -64,-64,-64,5
 palfx.color = 20
 
 [State 1166, Back Spark High]
@@ -6801,9 +6801,9 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 40 ;20
+palfx.time = 45
 palfx.add = 217,61,0
-palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.sinadd = -64,-64,-64,5
 palfx.color = 20
 
 [State 1171, Hitdef]
@@ -6840,9 +6840,9 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 40 ;20
+palfx.time = 45
 palfx.add = 217,61,0
-palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.sinadd = -64,-64,-64,5
 palfx.color = 20
 
 [State 1171, Hitdef]
@@ -6880,9 +6880,9 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 40 ;20
+palfx.time = 45
 palfx.add = 217,61,0
-palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.sinadd = -64,-64,-64,5
 palfx.color = 20
 
 [State 1171, Back Spark High]
@@ -7685,9 +7685,9 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 40 ;20
+palfx.time = 40
 palfx.add = 217,61,0
-palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.sinadd = -64,-64,-64,5
 palfx.color = 20
 
 [State 3001, Burn_Effect]
@@ -8036,9 +8036,9 @@ ground.velocity= -7.3,5
 ground.type = Low
 air.velocity= -7.3,5
 ground.slidetime = 18
-palfx.time = 40 ;20
+palfx.time = 40
 palfx.add = 217,61,0
-palfx.sinadd = -255,-255,-255,80 ; 40
+palfx.sinadd = -64,-64,-64,5
 palfx.color = 20
 fall = 1
 fall.recover = 0

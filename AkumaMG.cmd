@@ -1159,6 +1159,7 @@ triggerall = power >= 1000 && !winko
 triggerall = statetype != A
 triggerall = Var(13) = 1 && numhelper(3016)=0
 trigger1 = ctrl && P2dist X >= 160 && enemynear,movetype = A && (enemynear, statetype != A || (p2dist Y > -5 && enemynear, Vel Y > -2))
+trigger2 = numhelper
 trigger2 = helper,movehit && p2dist X < 160 && ctrl
 trigger3 = stateno = 3000 && animelem = 14 && movehit
 trigger4 = stateno = 440 && movehit
