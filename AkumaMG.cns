@@ -1,4 +1,4 @@
-;		       ZXAkuma v2.0 by Master Gouken
+;		       AkumaMG v2.0 by Makkah/Master Gouken
 ;======================================================================
 ;                            Variable Table		
 ;======================================================================
@@ -10,14 +10,14 @@
 ;              	Var(5) : Death Voice Add
 ;              	Var(6) : Death Indicator (Depreicated)
 ;			Var(7) : Shin Akuma Indicator
-;			Var(8) : Hit Voice Randomizer
+;			Var(8) : ----
 ;			Var(9) : Mash Manager
 ;             	Var(10): ----
 ;             	Var(11): Gou Hadou Limit
-;             	Var(12): Tenma Gou Zankuu Resistance* (Deprecated)
+;             	Var(12): ----
 ;             	Var(13): Artificial Intellegence
 ;              	Var(14): Shoryuu limit (A.I)
-;              	Var(15): Messtatsu Gou Hadou Resistance
+;              	Var(15): ----
 ;              	Var(16): Hyper Hadou In Play
 ;              	Var(17): Gou Shoryuken Juggle Manager
 ;              	Var(18): Projectile Hit Detection
@@ -76,6 +76,12 @@ runjump.fwd = 5,-9.1      ;.
 airjump.neu = 0,-8.1      ;.
 airjump.back = -2.55      ;Air jump speeds (opt)
 airjump.fwd = 2.5         ;.
+air.gethit.ko.add = 0,0,0
+air.gethit.ko.ymin = -3
+ground.gethit.ko.xmul = 1
+ground.gethit.ko.add = 0,0,0
+ground.gethit.ko.ymin = -3
+
 
 [Movement]
 airjump.num = 0      ;Number of air jumps allowed (opt)
@@ -241,20 +247,6 @@ trigger1 = Palno > 6
 v = 7
 value = 1
 
-[State 191, Shin Gouki Stats]
-type = null;modifyplayer
-trigger1 = !time && var(7)
-lifebarname = "Shin Akuma"
-lifemax = 800
-dizzypointsmax = 700
-guardpointsmax = 1000
-
-[State 191,Shin Gouki Attack Power Increase]
-type = Varset
-trigger1 = var(7)
-fv = 2
-value = 0.35
-
 [State 191, 1]
 type = ChangeState
 trigger1 = Time = 0
@@ -368,12 +360,6 @@ volumescale = 100
 type = varset
 trigger1 = !time
 var(7) = ifelse(var(7) =0,1,0)
-
-[State 191,Shin Gouki Attack Power]
-type = Varset
-trigger1 = var(7)
-fv = 2
-value = 0.25
 
 [State 195, Snd 2]
 type = PlaySnd
@@ -2514,7 +2500,7 @@ ground.velocity = 2,-7
 guard.velocity = -7
 air.velocity = 2,-1
 fall = 1
-
+maxdist = 30
 
 [State 1030, 4]
 type = HitDef
@@ -2540,6 +2526,14 @@ air.velocity = 0,-7
 fall = 1
 yaccel = 0.45
 
+[State 1030, PalFX_Continue]
+type = modifyhitdef
+trigger1 = numhelper(7000)
+palfx.time = 45
+palfx.add = 217,61,0
+palfx.sinadd = -64,-64,-64,5
+palfx.color = 20
+ignorehitpause = 1
 
 [State 1030, GoingUp]
 type = ChangeState
@@ -2593,6 +2587,15 @@ air.velocity = -1.6,-10.5
 fall = 1
 fall.recover = 0
 yaccel = 0.50
+
+[State 1031, PalFX_Continue]
+type = modifyhitdef
+trigger1 = numhelper(7000)
+palfx.time = 61
+palfx.add = 217,61,0
+palfx.sinadd = -64,-64,-64,5
+palfx.color = 20
+ignorehitpause = 1
 
 [State 1031, UpWard]
 type = velset
@@ -2735,6 +2738,7 @@ ground.velocity = -2.3,-7
 guard.velocity = -7
 air.velocity = -3.5,-1
 fall = 1
+maxdist = 30
 
 [State 1035, 4]
 type = HitDef
@@ -2758,6 +2762,15 @@ ground.velocity = -2,-7.3
 guard.velocity = -7
 air.velocity = 0,-7.3
 fall = 1
+
+[State 1035, PalFX_Continue]
+type = modifyhitdef
+trigger1 = numhelper(7000)
+palfx.time = 45
+palfx.add = 217,61,0
+palfx.sinadd = -64,-64,-64,5
+palfx.color = 20
+ignorehitpause = 1
 
 [State 1035, GoingUp]
 type = ChangeState
@@ -2813,6 +2826,14 @@ fall = 1
 fall.recover = 0
 yaccel = 0.50
 
+[State 1036, PalFX_Continue]
+type = modifyhitdef
+trigger1 = numhelper(7000)
+palfx.time = 61
+palfx.add = 217,61,0
+palfx.sinadd = -64,-64,-64,5
+palfx.color = 20
+ignorehitpause = 1
 
 [State 1036, UpWard]
 type = velset
@@ -2910,6 +2931,7 @@ guardsound = s5,0
 ground.type = Low
 ground.slidetime = 18
 ground.hittime  = 18
+maxdist = 30
 ground.velocity = -2,-7
 guard.velocity = -7
 air.velocity = -3.5,-2
@@ -2937,6 +2959,15 @@ ground.velocity = -2,-7.3
 guard.velocity = -7
 air.velocity = 0,-7.3
 fall = 1
+
+[State 1040, PalFX_Continue]
+type = modifyhitdef
+trigger1 = numhelper(7000)
+palfx.time = 45
+palfx.add = 217,61,0
+palfx.sinadd = -64,-64,-64,5
+palfx.color = 20
+ignorehitpause = 1
 
 [State 1040, GoingUp]
 type = ChangeState
@@ -2972,7 +3003,7 @@ type = HitDef
 trigger1 = Time = 1
 attr = A, SA
 animtype  = hard
-fall.animtype = up
+fall.animtype = back
 damage    = 21, 14
 priority  = 5
 guardflag = M
@@ -2992,6 +3023,14 @@ fall = 1
 fall.recover = 0
 yaccel = 0.50
 
+[State 1041, PalFX_Continue]
+type = modifyhitdef
+trigger1 = numhelper(7000)
+palfx.time = 74
+palfx.add = 217,61,0
+palfx.sinadd = -64,-64,-64,5
+palfx.color = 20
+ignorehitpause = 1
 
 [State 1041, UpWard]
 type = velset
@@ -8036,7 +8075,7 @@ ground.velocity= -7.3,5
 ground.type = Low
 air.velocity= -7.3,5
 ground.slidetime = 18
-palfx.time = 40
+palfx.time = 24
 palfx.add = 217,61,0
 palfx.sinadd = -64,-64,-64,5
 palfx.color = 20
@@ -8097,11 +8136,7 @@ trigger1 = time = 0
 v = 16
 value = 1
 
-[State 3021, Resistance]
-type = parentvaradd
-trigger1 = time = 0
-v = 15
-value = -1
+
 
 [State 3021, Set]
 type = posset
@@ -8188,7 +8223,6 @@ ctrl = 0
 type = ChangeState
 trigger1 = Pos Y = 4
 trigger2 = uniqhitcount = Parent, Var(15)
-;trigger3 = Var(12) <= 0
 value = 1142
 ctrl = 0
 
@@ -9218,7 +9252,7 @@ type = assertspecial
 trigger1 = 1
 flag = invisible
 
-[State 9000, hgf]
+[State 9000, hcf]
 type = assertspecial
 triggerall = 1 && roundstate = 3 ;&& time  < 47
 trigger1 = parent,hitdefattr = SCA, HA,HP
@@ -10013,8 +10047,8 @@ ctrl = 1
 [State -2, Debug data]
 type = displaytoclipboard
 trigger1 = time >= 0
-text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(11) = %d,facing = %d, Damage Scale =%f,By Master Gouken"
-params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(11), facing, fvar(1)
+text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(11) = %d,facing = %d,By Makkah/Master Gouken"
+params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(11), facing
 ignorehitpause = 1
 
 [State -2, Dizzy Groan]
@@ -10022,7 +10056,9 @@ type = PlaySnd
 triggerall = Time = 1
 triggerall = Alive = 1
 trigger1 = Anim = 5300
-value = 60, 5
+value = 5000,3
+volumescale = 100
+channel = 1
 
 [State -2, K.O!]
 type = Helper
@@ -10115,6 +10151,34 @@ ignorehitpause=1
 ;----------------------------------------------------------------------
 [Statedef -3]
 
+[State -3, Shin Gouki Stats]
+type = modifyplayer
+trigger1 = var(7)
+lifebarname = "Shin Akuma"
+lifemax = 800
+dizzypointsmax = 700
+guardpointsmax = 1000
+
+[State -3,Shin Gouki Attack Power Increase]
+type = Varset
+trigger1 = var(7)
+fv = 2
+value = 0.35
+
+[State -3, Gouki Stats]
+type = modifyplayer
+trigger1 = !var(7)
+lifebarname = "Akuma"
+lifemax = 900
+dizzypointsmax = 800
+guardpointsmax = 1000
+
+[State -3,Gouki Attack Power]
+type = Varset
+trigger1 = !var(7)
+fv = 2
+value = 0
+
 [State -3, Landing Sound]
 type = PlaySnd
 triggerall = Time = 1
@@ -10190,28 +10254,18 @@ trigger1 = enemynear,statetype = L
 v = 14
 value = 0
 
-[State -3, MGHDepreciate] ;Adjust to affect MGH and TGZ hitcount
-type = Varset
-trigger1 = Var(16) = 0
-v = 15
-value = 9
-
-[State -3, Randomizer]
-type = varRandom
-trigger1 = StateNo = 5000 || StateNo = 5010 || StateNo = 5020 || StateNo = 5070 || StateNo = 5100
-v = 8
-range = 1,2
-
 [State -3, GetHurt Sound]
 type = PlaySnd
-triggerall = Random < 330
 triggerall = Time = 1
 triggerall = Alive = 1
-trigger1 = StateNo = 5000 || StateNo = 5010 || StateNo = 5020 || StateNo = 5070 
-trigger2 = prevstateno = [1000,4999]
-trigger2 = movetype = h
-value = 60, var(8)
+trigger1 = (StateNo = 5000 || StateNo = 5010 || StateNo = 5020 || StateNo = 5070) && Random < 330 && enemynear, hitdefattr = SCA, NA
+trigger2 = (StateNo = 5000 || StateNo = 5010 || StateNo = 5020 || StateNo = 5070) && enemynear, hitdefattr = SCA, HA, HP
+trigger3 = (StateNo = 5000 || StateNo = 5010 || StateNo = 5020 || StateNo = 5070) && enemynear, hitdefattr = SCA, SA, SP && random < 600
+trigger4 = (StateNo = 5000 || StateNo = 5010 || StateNo = 5020 || StateNo = 5070) &&prevstateno = [200,3999]
+trigger5 = (StateNo = 5000 || StateNo = 5010 || StateNo = 5020 || StateNo = 5070) && enemynear, stateno = [3000,3999]
+value = 5000, random%6
 channel = 1
+volumescale = 100
 
 [State -3, Fall_Pause]
 type = posfreeze

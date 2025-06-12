@@ -6,7 +6,7 @@
 name = "AkumaMG"  
 displayname = "Akuma"  
 versiondate = 05,19,2025
-mugenversion = 1.1
+ikemenversion = 1.0
 author = "Master Gouken" 
 pal.defaults = 6,3,4,2
 localcoord = 320,240
