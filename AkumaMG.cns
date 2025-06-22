@@ -1,32 +1,32 @@
-;		       AkumaMG v2.0 by Makkah/Master Gouken
+;				AkumaMG v2.0 by Makkah/Master Gouken
 ;======================================================================
-;                            Variable Table		
+;					Variable Table		
 ;======================================================================
-;			Var(0) : Trip Memory
-;			Var(1) : Intro Decider
-;			Var(2) : Special Condition - Finished opponent with SGS
-;			Var(3) : Win Pose Decider
-;             	Var(4) : Shakunetsu Gou Hadou Resistance
-;              	Var(5) : Death Voice Add
-;              	Var(6) : Death Indicator (Depreicated)
-;			Var(7) : Shin Akuma Indicator
-;			Var(8) : ----
-;			Var(9) : Mash Manager
-;             	Var(10): ----
-;             	Var(11): Gou Hadou Limit
-;             	Var(12): ----
-;             	Var(13): Artificial Intellegence
-;              	Var(14): Shoryuu limit (A.I)
-;              	Var(15): ----
-;              	Var(16): Hyper Hadou In Play
-;              	Var(17): Gou Shoryuken Juggle Manager
-;              	Var(18): Projectile Hit Detection
+;				Var(0) : Trip Memory
+;				Var(1) : Intro Decider
+;				Var(2) : Finished opponent with SGS
+;				Var(3) : Win Pose Decider
+;				Var(4) : Shakunetsu Gou Hadou Resistance
+;				Var(5) : Death Voice Add
+;				Var(6) : Death Indicator (Depreicated)
+;				Var(7) : Shin Akuma Indicator
+;				Var(8) : ----
+;				Var(9) : Mash Manager
+;				Var(10): ----
+;				Var(11): Gou Hadou Limit
+;				Var(12): ----
+;				Var(13): Artificial Intellegence
+;				Var(14): Shoryuu limit (A.I)
+;				Var(15): ----
+;				Var(16): Hyper Hadou In Play
+;				Var(17): Gou Shoryuken Juggle Manager
+;				Var(18): Projectile Hit Detection
 ;======================================================================
-;			Floats
+;					Floats
 ;----------------------------------------------------------------------
-;			Fvar(1): Damage Dampener
-;			Fvar(2): Shin Akuma Attack Multiplier
-;			Fvar(5): Cornerpush
+;				Fvar(1): Damage Dampener
+;				Fvar(2): Shin Akuma Attack Multiplier
+;				Fvar(5): Cornerpush
 ;======================================================================
 [Data]
 life = 900                ;Amount of life to start with
@@ -10047,8 +10047,8 @@ ctrl = 1
 [State -2, Debug data]
 type = displaytoclipboard
 trigger1 = time >= 0
-text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(11) = %d,facing = %d,By Makkah/Master Gouken"
-params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(11), facing
+text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(11) = %d,Special State = %f,By Makkah/Master Gouken"
+params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(11), map(special_cancel_timer)
 ignorehitpause = 1
 
 [State -2, Dizzy Groan]

@@ -887,7 +887,7 @@ trigger5 = stateno = 1090
 ;--------------------------------------------------------------------
 ;Command Overhead
 ;--------------------------------------------------------------------
-[State -1, Standing Hop Kick]
+[State -1, Command Overhead]
 type = ChangeState
 value = 215
 triggerall = command = "holdfwd" && command = "y"
@@ -912,6 +912,7 @@ trigger2 = stateno = 200
 trigger2 = time > 6
 trigger3 = stateno = 52
 trigger4 = stateno = 1090
+trigger5 = (stateno = 400 || stateno = 430) && movecontact
 ;--------------------------------------------------------------------
 ;Stand Medium Punch
 ;--------------------------------------------------------------------
@@ -927,6 +928,7 @@ trigger2 = (stateno = 200 || stateno = 230) && MoveContact
 trigger3 = stateno = 300 && MoveContact
 trigger4 = stateno = 52
 trigger5 = stateno = 1090
+trigger6 = (stateno = 400 || stateno = 430) && movecontact
 ;--------------------------------------------------------------------
 ;Stand Strong Punch
 ;--------------------------------------------------------------------
@@ -942,6 +944,7 @@ trigger2 = (stateno = 200 || stateno = 300) && MoveContact
 trigger3 = (stateno = 210 || stateno = 310) && MoveContact
 trigger4 = stateno = 52
 trigger5 = stateno = 1090
+trigger6 = (stateno = 400 || stateno = 430 || stateno = 410 || stateno = 440) && movecontact
 ;--------------------------------------------------------------------
 ;Stand Light Kick
 ;--------------------------------------------------------------------
@@ -955,6 +958,7 @@ trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 52
 trigger3 = stateno = 1090 && time > 1
+trigger4 = (stateno = 400 || stateno = 430) && movecontact
 ;--------------------------------------------------------------------
 ;Standing Medium Kick
 ;--------------------------------------------------------------------
@@ -970,6 +974,7 @@ trigger2 = (stateno = 300||stateno = 200) && MoveContact
 trigger3 = stateno = 200 && MoveContact
 trigger4 = stateno = 52
 trigger5 = stateno = 1090 && time > 1
+trigger6 = (stateno = 400 || stateno = 430) && movecontact
 ;--------------------------------------------------------------------
 ;Standing Strong Kick
 ;--------------------------------------------------------------------
@@ -986,6 +991,7 @@ trigger3 = (stateno = 200 || stateno = 310) && MoveContact
 trigger4 = stateno = 210 && MoveContact
 trigger5 = stateno = 52
 trigger6 = stateno = 1090 && time > 1
+trigger7 = (stateno = 400 || stateno = 430 || stateno = 410 || stateno = 440) && movecontact
 ;--------------------------------------------------------------------
 ;Taunt
 [State -1, Taunt]
@@ -1008,6 +1014,7 @@ trigger1 = statetype = C
 trigger1 = ctrl
 trigger2 = stateno = 52
 trigger3 = stateno = 1090
+trigger4 = (stateno = 200 || stateno = 300) && movecontact
 ;--------------------------------------------------------------------
 ;Crouching Medium Punch
 [State -1, Crouching Medium Punch]
@@ -1021,6 +1028,8 @@ trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 430) && movecontact
 trigger3 = stateno = 52
 trigger4 = stateno = 1090
+trigger5 = (stateno = 200 || stateno = 300) && movecontact
+trigger6 = (stateno = 200 || stateno = 300) && movecontact
 ;--------------------------------------------------------------------
 ;Crouching Strong Punch
 [State -1, Crouching Strong Punch]
@@ -1035,6 +1044,7 @@ trigger2 = (stateno = 400 || stateno = 430) && MoveContact
 trigger3 = (stateno = 410 || stateno = 440) && MoveContact
 trigger4 = stateno = 52
 trigger5 = stateno = 1090
+trigger6 = (stateno = 200 || stateno = 300 || stateno = 210 || stateno = 310) && movecontact
 ;--------------------------------------------------------------------
 ;Crouching Light Kick
 [State -1, Crouching Light Kick]
@@ -1048,6 +1058,8 @@ trigger1 = ctrl
 trigger2 = (stateno = 430) && (time > 9) && (movecontact && time > 5)
 trigger3 = stateno = 52
 trigger4 = stateno = 1090 && time >= 1
+trigger5 = (stateno = 430 || stateno = 400) && movecontact
+trigger6 = (stateno = 200 || stateno = 300) && movecontact
 ;--------------------------------------------------------------------
 ;Crouching Medium Kick
 [State -1, Crouching Medium Kick]
@@ -1061,6 +1073,8 @@ trigger1 = ctrl
 trigger2 = (stateno = 400 || stateno = 430) && movecontact
 trigger3 = stateno = 52
 trigger4 = stateno = 1090 && time >= 1
+trigger5 = (stateno = 200 || stateno = 300) && movecontact
+trigger6 = (stateno = 200 || stateno = 300 || stateno = 210 || stateno = 310) && movecontact
 ;--------------------------------------------------------------------
 ;Crouching Strong Kick
 [State -1, Crouching Strong Kick]
@@ -1074,6 +1088,7 @@ trigger1 = ctrl
 trigger2 = (stateno = 400 || stateno = 430 || stateno = 440) && movecontact
 trigger3 = stateno = 52
 trigger4 = stateno = 1090 && time >= 1
+trigger5 = (stateno = 200 || stateno = 300 || stateno = 210 || stateno = 310) && movecontact
 ;--------------------------------------------------------------------
 ;Jump Light Punch
 [State -1, Jump Light Punch]
@@ -1666,6 +1681,7 @@ trigger1 = statetype = C
 trigger1 = ctrl
 trigger2 = stateno = 52
 trigger3 = stateno = 1090
+trigger4 = stateno = 400 || stateno = 430 && movecontact
 ;--------------------------------------------------------------------
 ;Crouching Medium Punch
 [State -1, Crouching Medium Punch]

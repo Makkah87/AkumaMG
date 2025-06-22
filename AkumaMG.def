@@ -17,6 +17,7 @@ cmd     = AkumaMG.cmd   ;Command set
 cns     = AkumaMG.cns 
 st      = AkumaMG.cns
 st1     = CPSfire.cns
+st2     = buffer.zss
 stcommon= common1.cns 
 sprite  = AkumaMG.sff
 anim    = AkumaMG.air 

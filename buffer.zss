@@ -1,0 +1,125 @@
+#Command Buffer System
+[StateDef -4]
+
+
+############################################################################
+#								Map Table									
+############################################################################
+#								special_cancel
+#								special_cancel_timer
+#								super_cancel
+#								super_cancel_timer
+############################################################################
+
+
+
+if map(special_cancel_timer) > 0 {mapadd {map: "special_cancel_timer"; value:-1}}
+if map(super_cancel_timer) > 0 {mapadd{map: "special_cancel_timer"; value:-1}}
+
+###########################################################################
+#load Special States
+###########################################################################
+#Gou Hadou
+	if command = "Gou1" && statetype = S {mapset {map:"special_cancel"; value:1000}
+							mapset {map:"super_cancel_timer"; value : 30}
+							}
+	
+	if command = "Gou2" && statetype = S {mapset {map:"special_cancel"; value:1015}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+	if command = "Gou3" && statetype = S {mapset {map:"special_cancel"; value:1020}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+#Shakunetsu Gou Hadou
+	if command = "metsu1"{mapset {map:"special_cancel"; value:1160}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+	
+	if command = "metsu2"{mapset {map:"special_cancel"; value:1165}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+	if command = "metsu3"{mapset {map:"special_cancel"; value:1170}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+#Gou Shoryu
+	if command = "shoryu1"{mapset {map:"special_cancel"; value:1030}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+	
+	if command = "shoryu2"{mapset {map:"special_cancel"; value:1035}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+	if command = "shoryu3"{mapset {map:"special_cancel"; value:1040}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+#Tatsumaki Zankuu Kyaku
+	if command = "tatsu1" && statetype = S {mapset {map:"special_cancel"; value:1060}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+	
+	if command = "tatsu2" && statetype = S {mapset {map:"special_cancel"; value:1065}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+	if command = "tatsu3" && statetype = S {mapset {map:"special_cancel"; value:1070}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+#Hyakki Shuu
+	if command = "hyakki1"{mapset {map:"special_cancel"; value:1110}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+	
+	if command = "hyakki2"{mapset {map:"special_cancel"; value:1120}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+	if command = "hyakki3"{mapset {map:"special_cancel"; value:1130}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+
+###########Air							
+#Gou Zankuu
+	if command = "Gou1" && statetype = A {mapset {map:"special_cancel"; value:1140}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+	
+	if command = "Gou2" && statetype = A {mapset {map:"special_cancel"; value:1145}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+	if command = "Gou3" && statetype = A {mapset {map:"special_cancel"; value:1150}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+#Air Tatsumaki Zankuu Kyaku
+	if command = "tatsu1" && statetype = A {mapset {map:"special_cancel"; value:1080}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+	
+	if command = "tatsu2" && statetype = A {mapset {map:"special_cancel"; value:1081}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+	if command = "tatsu3" && statetype = A {mapset {map:"special_cancel"; value:1082}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+#Tenma Kuujin Kyaku
+	if command = "kujin1" && statetype = A {mapset {map:"special_cancel"; value:1085}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+	
+	if command = "kujin2" && statetype = A {mapset {map:"special_cancel"; value:1095}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+	if command = "kujin3" && statetype = A {mapset {map:"special_cancel"; value:1100}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
