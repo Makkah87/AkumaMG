@@ -63,17 +63,17 @@ time = 20
 
 [Command]
 name = "rassen"
-command = ~D, DB, B, D, DB, B, a
+command = ~D, DB, B, D, DB, a
 time = 20
 
 [Command]
 name = "rassen"
-command = ~D, DB, B, D, DB, B, b
+command = ~D, DB, B, D, DB, b
 time = 20
 
 [Command]
 name = "rassen"
-command = ~D, DB, B, D, DB, B, c
+command = ~D, DB, B, D, DB, c
 time = 20
 
 ;-| Special Motions |------------------------------------------------------
