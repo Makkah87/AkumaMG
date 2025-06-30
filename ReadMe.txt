@@ -13,17 +13,20 @@ Fixes
 -Chain combos still work but are no longer the focus
 -A lot of balance changes related to OTGs, +/- frames and recovery of control
 -Toned down env shakes, and in many cases, outright removed them
+-Added burning effect
+-Added hyper combo finish effect
+-Greater differentiation between regular and Shin Akuma.
+-Added Misogi
+-Implemented Tenma Gou Rassen: QCBx2 + K
 
 To-Do
 -------
--Add burning effect
--Add hyper combo finish effect
+
+
 -Add more voice samples to basic attacks
--EX moves?
--Greater differentiation between regular and Shin Akuma. Possibly combine the two
--Refine aerial tatsu
--Implement Tenma Gou Rassen: QCBx2 + K
--Code Misogi
+
+
+
 
 
 

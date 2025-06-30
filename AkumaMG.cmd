@@ -61,54 +61,69 @@ name = "messatsu"
 command = ~D, DB, B, D, DB, B, z
 time = 20
 
+[Command]
+name = "rassen"
+command = ~D, DB, B, D, DB, B, a
+time = 20
+
+[Command]
+name = "rassen"
+command = ~D, DB, B, D, DB, B, b
+time = 20
+
+[Command]
+name = "rassen"
+command = ~D, DB, B, D, DB, B, c
+time = 20
+
 ;-| Special Motions |------------------------------------------------------
 [Command]
 name = "asurafwd1"
-command = ~F, D, DF, z+c
+command = ~F, D, DF, x+y
 
-;[Command]
-;name = "asurafwd1"
-;command = ~F, D, DF, y+z
+[Command]
+name = "asurafwd1"
+command = ~F, D, DF, y+z
 
-;[Command]
-;name = "asurafwd1"
-;command = ~F, D, DF, x+z
+[Command]
+name = "asurafwd1"
+command = ~F, D, DF, x+z
 
 [Command]
 name = "asurabk1"
-command = ~B, D, DB, z+c
+command = ~B, D, DB, x+y
 
-;[Command]
-;name = "asurabk1"
-;command = ~B, D, DB, y+z
+[Command]
+name = "asurabk1"
+command = ~B, D, DB, y+z
 
-;[Command]
-;name = "asurabk1"
-;command = ~B, D, DB, x+z
+[Command]
+name = "asurabk1"
+command = ~B, D, DB, x+z
 
 [Command]
 name = "asurafwd2"
-command = ~F, D, DF, y+b
+command = ~F, D, DF, y+z
 
-;[Command]
-;name = "asurafwd2"
-;command = ~F, D, DF, b+c
+[Command]
+name = "asurafwd2"
+command = ~F, D, DF, b+c
 
-;[Command]
-;name = "asurafwd2"
-;command = ~F, D, DF, a+c
+[Command]
+name = "asurafwd2"
+command = ~F, D, DF, a+c
 
 [Command]
 name = "asurabk2"
-command = ~B, D, DB, y+b
+command = ~B, D, DB, y+z
 
-;[Command]
-;name = "asurabk2"
-;command = ~B, D, DB, b+c
+[Command]
+name = "asurabk2"
+command = ~B, D, DB, b+c
 
-;[Command]
-;name = "asurabk2"
-;command = ~B, D, DB, a+c
+[Command]
+name = "asurabk2"
+command = ~B, D, DB, a+c
 
 [Command]
 name = "shoryu1"
@@ -429,6 +444,19 @@ trigger2 = hitdefattr = SC, NA, SA, HA
 trigger2 = stateno != [3050,3100)
 trigger2 = movecontact
 trigger3 = (stateno = 1000 || stateno = 1015 || stateno = 1020) && animelemtime(4) >= 0 && enemy, movetype = h
+
+;----------------------------------------------------------------------
+;Messatsu Gou Rassen
+[State -1, Messatsu Gou Rassen]
+type = ChangeState
+value = 3040
+triggerall = command = "rassen"
+triggerall = power >= 1000
+triggerall = Var(13) = 0
+trigger1 = ctrl
+trigger2 = hitdefattr = SCA, NA, SA, HA
+trigger2 = stateno != [3050,3100)
+trigger2 = movecontact
 ;--------------------------------------------------------------------
 ;Tenma Gou Zankuu
 [State -1, Tenma Gou Zankuu]

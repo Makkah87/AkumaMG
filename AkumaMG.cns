@@ -76,11 +76,6 @@ runjump.fwd = 5,-9.1      ;.
 airjump.neu = 0,-8.1      ;.
 airjump.back = -2.55      ;Air jump speeds (opt)
 airjump.fwd = 2.5         ;.
-air.gethit.ko.add = 0,0,0
-air.gethit.ko.ymin = -3
-ground.gethit.ko.xmul = 1
-ground.gethit.ko.add = 0,0,0
-ground.gethit.ko.ymin = -3
 
 
 [Movement]
@@ -714,6 +709,12 @@ trigger1 = HitPauseTime <= 10
 value = 221
 elem = 3
 ignoreHitPause = 1
+
+[State 200, Special_Canel]
+type = changestate
+trigger1 = movecontact || (!animtime && map(special_cancel))
+value = map(special_cancel)
+ctrl = ifelse(map(special_cancel),0,1)
 
 [State 220, 5]
 type = ChangeState
@@ -8315,6 +8316,199 @@ trigger2 = uniqhitcount = Parent, Var(15)
 value = 1142
 ctrl = 0
 
+;----------------------------------------------------------------------
+; Messatsu Gou Rassen
+;----------------------------------------------------------------------
+[Statedef 3040]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 3040, Anim]
+type = changeanim
+trigger1= !time
+value = 3040
+elem = ifelse(prevstatetype = A,5,1)
+
+[State 3040, Pos Add]
+type = posadd
+trigger1 = animelem = 3 && prevstatetype = S
+y = -20
+
+[State 3040, AirType]
+type = statetypeset
+trigger1 = animelemtime(3) >= 0
+statetype = A
+
+[State 3040, YVel]
+type = veladd
+trigger1 = animelemtime(6) >= 0 && vel Y > -7
+Y = -0.45
+
+[State 3040, SuperCharge]
+type = Helper
+trigger1 = Time = 0
+name = "Super"
+postype = P1
+pos = 23,-47
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+stateno = 6000
+id = 6000
+supermovetime = 9999
+
+[State 3040, SuperBG]
+type = bgpalfx
+trigger1 = time = 0
+add = -128,-128,-128
+time = 45
+
+[State 3040, Messatsu!!]
+type = PlaySnd
+trigger1 = time = 0
+value = 90, 0
+volumescale = 100
+channel = 0
+
+[State 3040, Super A]
+type = SuperPause
+trigger1 = time = 0
+pos = 25, -57
+anim = -1
+sound = s3000, 1
+poweradd = -1000
+time = 54
+darken = 0
+
+[State 1070, Knee]
+type = HitDef
+trigger1 = !time
+attr = A, HaA
+animtype  = Medium
+fall.animtype = hard
+damage    = 35, 20
+priority  = 5
+guardflag = MA
+pausetime = 14,13
+sparkno = s7003
+guard.sparkno = s7006
+sparkxy = 0,-65
+hitsound   = s120,9
+guardsound = s5,0
+ground.type = Low
+air.type = low
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = 2,-10
+guard.velocity = -4
+air.velocity = 0,-3.6
+fall = 1
+
+[State 1070, 4]
+type = HitDef
+trigger1 = animelem = 6 || animelem = 10
+attr = A, HA
+animtype  = Hard
+fall.animtype = hard
+damage    = 30, 40
+priority  = 5
+guardflag = MA
+pausetime = 4,4
+sparkno = s7003
+guard.sparkno = s7006
+sparkxy = -16,-65
+hitsound   = s120,9
+guardsound = s5,0
+ground.type = Low
+air.type = low
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = 0,-5.5+(vel y*0.3)
+guard.velocity = -6
+air.velocity = 0,-4.7+(vel y*0.6)
+fall = 1
+yaccel = 0.6
+maxdist = 30
+
+[State 1070, 4]
+type = null;HitDef
+trigger1 = animelem = 6 || animelem = 8 || animelem = 10
+attr = A, SA
+animtype  = Hard
+fall.animtype = hard
+damage    = 30, 40
+priority  = 5
+guardflag = MA
+pausetime = 4,4
+sparkno = s7003
+guard.sparkno = s7006
+sparkxy = -16,-65
+hitsound   = s120,9
+guardsound = s5,0
+ground.type = Low
+air.type = low
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = 0,-5.5+(vel y*0.3)
+guard.velocity = -6
+air.velocity = 0,-4.7+(vel y*0.6)
+fall = 1
+yaccel = 0.6
+maxdist = 30
+
+[State 1070, Final Kick]
+type = HitDef
+trigger1 = anim = 3041 && animelem = 2 
+attr = A, HA
+animtype  = Medium
+fall.animtype = diagup
+damage    = 45, 15
+priority  = 5
+guardflag = MA
+pausetime = 15,15
+sparkno = s7003
+guard.sparkno = s7006
+sparkxy = 0,-65
+hitsound   = s120,9
+guardsound = s5,0
+ground.type = Low
+air.type = low
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = 1.3,-9
+guard.velocity = -4
+air.velocity = -12,-6
+yaccel = 0.8
+fall = 1
+
+[State 1040, PalFX_Continue]
+type = modifyhitdef
+trigger1 = numhelper(7000)
+palfx.time = 45
+palfx.add = 217,61,0
+palfx.sinadd = -64,-64,-64,5
+palfx.color = 20
+ignorehitpause = 1
+
+[State 3040, Kikkuda!]
+type = changeanim
+trigger1 = time = 50
+value = 3041
+
+[State 3040, Gravity]
+type = veladd
+trigger1 = time > 50
+y = 0.7
+
+[State 3040, Land]
+type = changestate
+trigger1 = pos Y >= vel Y && anim = 3041
+value = 1062
+
 ;--------------------------------------------------------------------
 ;Shun Goku Satsu
 ;--------------------------------------------------------------------
@@ -8761,10 +8955,11 @@ time = 240
 
 [State 3110, Blackout]
 type = AssertSpecial
-triggerall = Var(2) = 0
-trigger1 = time >= 0 && numexplod(3500)=1
+;triggerall = Var(2) = 0
+trigger1 =  numexplod(3500) ;&& time >= 0
 flag = NoFG
 flag2 = nobg
+flag3 = nobardisplay
 
 [State 3110, Taunt]
 type = playsnd
@@ -9344,10 +9539,10 @@ flag = invisible
 [State 9000, hcf]
 type = assertspecial
 triggerall = 1 && roundstate = 3 ;&& time  < 47
-trigger1 = parent,hitdefattr = SCA, HA,HP
-trigger2 = parent, Var(16) = 1
-trigger3 = numexplod(7000) = 1
-trigger4 = numexplod(7625) = 1
+;trigger1 = parent,hitdefattr = SCA, HA,HP
+;trigger2 = parent, Var(16) = 1
+trigger1 = numexplod(7000) = 1
+trigger2 = numexplod(7625) = 1
 flag = nobg
 flag2 = nobardisplay
 flag3 = nofg
@@ -10133,7 +10328,7 @@ ctrl = 1
 type = displaytoclipboard
 trigger1 = time >= 0
 text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(11) = %d,Special State = %f,By Makkah/Master Gouken"
-params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(11), map(special_cancel_timer)
+params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(11), map(special_cancel)
 ignorehitpause = 1
 
 [State -2, Dizzy Groan]
