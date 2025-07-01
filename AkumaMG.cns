@@ -8348,17 +8348,30 @@ type = veladd
 trigger1 = animelemtime(6) >= 0 && vel Y > -7
 Y = -0.45
 
-[State 3040, SuperCharge]
+[State 3040, SuperCharge_Ground]
 type = Helper
-trigger1 = Time = 0
+trigger1 = Time = 0 && statetype = S
 name = "Super"
 postype = P1
-pos = 23,-47
+pos = -30,-3
 ownpal = 1
 size.xscale = 1
 size.yscale = 1
 stateno = 6000
 id = 6000
+supermovetime = 9999
+
+[State 3040, SuperCharge_Air]
+type = Helper
+trigger1 = Time = 0 && statetype = A
+name = "Super"
+postype = P1
+pos = -5,-60
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+stateno = 6000
+id = 6001
 supermovetime = 9999
 
 [State 3040, SuperBG]
@@ -8373,6 +8386,14 @@ trigger1 = time = 0
 value = 90, 0
 volumescale = 100
 channel = 0
+
+[State 3040, DUWUDIYAHH!!!]
+type = playsnd
+trigger1 = anim = 3041 && animelem = 2
+value = 50,13
+volumescale = 100
+channel = 1
+ignorehitpause = 1
 
 [State 3040, Super A]
 type = SuperPause
@@ -8433,6 +8454,14 @@ air.velocity = 0,-2.3+(vel y*0.8)
 fall = 1
 yaccel = 0.6
 maxdist = 30
+fall.recover = 0
+
+[State 3040, Woosh]
+type = PlaySnd
+trigger1 = anim = 3040 && (animelem = 6 || animelem = 10)
+trigger2 = anim = 3041 && (animelem = 2)
+value = 0, 4
+channel = 3
 
 [State 1070, 4]
 type = null;HitDef
@@ -8484,6 +8513,7 @@ guard.velocity = -4
 air.velocity = -9,-12
 yaccel = 0.8
 fall = 1
+fall.recover = 0
 
 [State 1040, PalFX_Continue]
 type = modifyhitdef
