@@ -1924,6 +1924,17 @@ ownpal = 1
 stateno = 1002
 id = 1002 
 
+[State 1030, Rising Dust]
+type = explod
+trigger1 = AnimElemtime(4) = 1 && time < 14 && !numexplod(7013)
+anim = 7013
+id = 7013
+postype = p1
+pos = 60,3
+ownpal = 1
+sprpriority = 5
+scale = 0.75,0.75
+
 [State 1000,2]
 type = ChangeAnim
 trigger1 = time = 50
@@ -2161,6 +2172,17 @@ ownpal = 1
 stateno = 1016
 id = 1016 
 
+[State 1030, Rising Dust]
+type = explod
+trigger1 = AnimElemtime(4) = 1 && time < 14 && !numexplod(7013)
+anim = 7013
+id = 7013
+postype = p1
+pos = 60,3
+ownpal = 1
+sprpriority = 5
+scale = 0.85,0.85
+
 [State 1015,2]
 type = ChangeAnim
 trigger1 = time = 45
@@ -2334,6 +2356,17 @@ pos = ifelse(var(7) = 1,70, 75),-55
 ownpal = 1
 stateno = 1021
 id = 1021 
+
+[State 1030, Rising Dust]
+type = explod
+trigger1 = AnimElemtime(4) = 1 && time < 14 && !numexplod(7013)
+anim = 7013
+id = 7013
+postype = p1
+pos = 60,3
+ownpal = 1
+sprpriority = 5
+scale = 1,1
 
 [State 1020,2]
 type = ChangeAnim
@@ -2514,6 +2547,16 @@ time = ifelse(var(7),10,6)
 type = velset
 trigger1 = time = 1
 x = 2
+
+[State 1030, Rising Dust]
+type = explod
+trigger1 = !animtime
+anim = 7012
+postype = p1
+pos = -20,10
+ownpal = 1
+sprpriority = 5
+scale = 0.55,0.55
 
 [State 1030, Voice]
 type = playsnd
@@ -2763,6 +2806,16 @@ type = velset
 trigger1 = time = 1
 x = 2
 
+[State 1035, Rising Dust]
+type = explod
+trigger1 = !animtime
+anim = 7012
+postype = p1
+pos = -20,10
+ownpal = 1
+sprpriority = 5
+scale = 0.75,0.75
+
 [State 1035, Voice]
 type = playsnd
 trigger1 = time = 0
@@ -2959,6 +3012,16 @@ time = ifelse(var(7),10,6)
 type = velset
 trigger1 = time = 1
 x = 2
+
+[State 1040, Rising Dust]
+type = explod
+trigger1 = !animtime
+anim = 7012
+postype = p1
+pos = -20,10
+ownpal = 1
+sprpriority = 5
+scale = 1,1
 
 [State 1040, Voice]
 type = playsnd
@@ -3808,6 +3871,17 @@ trigger1 = time > 8
 X = 3.2
 Y = 0
 
+[State 1060, Rising Dust]
+type = explod
+trigger1 = !time
+anim = 7013
+id = 7013
+postype = p1
+pos = 25,3
+ownpal = 1
+sprpriority = 5
+scale = 0.75,0.75
+
 [State 1060, Knee]
 type = HitDef
 trigger1 = Time = 1
@@ -4002,6 +4076,17 @@ trigger1 = time > 8
 X = 3.8
 Y = 0
 
+[State 1065, Rising Dust]
+type = explod
+trigger1 = !time
+anim = 7013
+id = 7013
+postype = p1
+pos = 25,3
+ownpal = 1
+sprpriority = 5
+scale = 0.75,0.75
+
 [State 1065, Knee]
 type = HitDef
 trigger1 = Time = 1
@@ -4113,6 +4198,17 @@ type = Velset
 trigger1 = time > 8
 X = 4.8 ;3.6
 Y = 0
+
+[State 1030, Rising Dust]
+type = explod
+trigger1 = !time
+anim = 7013
+id = 7013
+postype = p1
+pos = 25,3
+ownpal = 1
+sprpriority = 5
+scale = 0.75,0.75
 
 [State 1070, Knee]
 type = HitDef
@@ -6272,6 +6368,17 @@ ownpal = 1
 stateno = 1161
 id = 1161 
 
+[State 1160, Rising Dust]
+type = explod
+trigger1 = AnimElemtime(4) = 1 && anim = 1010 && time < 30 && !numexplod(7013)
+anim = 7013
+id = 7013
+postype = p1
+pos = 60,3
+ownpal = 1
+sprpriority = 5
+scale = 1,1
+
 [State 1160, Recover]
 type = changestate
 trigger1 = anim = 1010 && time = 45
@@ -6538,6 +6645,17 @@ pos = 70,-55
 ownpal = 1
 stateno = 1166
 id = 1166 
+
+[State 1165, Rising Dust]
+type = explod
+trigger1 = AnimElemtime(4) = 1 && anim = 1010 && time < 30 && !numexplod(7013)
+anim = 7013
+id = 7013
+postype = p1
+pos = 60,3
+ownpal = 1
+sprpriority = 5
+scale = 1,1
 
 [State 1165, Recover]
 type = changestate
@@ -6859,6 +6977,17 @@ pos = 70,-55
 ownpal = 1
 stateno = 1171
 id = 1171 
+
+[State 1170, Rising Dust]
+type = explod
+trigger1 = AnimElemtime(4) = 1 && anim = 1010 && time < 30 && !numexplod(7013)
+anim = 7013
+id = 7013
+postype = p1
+pos = 60,3
+ownpal = 1
+sprpriority = 5
+scale = 1,1
 
 [State 1170, Recover]
 type = changestate
@@ -7266,6 +7395,20 @@ trigger1 = AnimElem = 2
 trigger2 = AnimElem = 7
 trigger3 = AnimElem = 13
 value = 0, 3
+
+[State 3000, Rising Dust]
+type = explod
+triggerall = !numexplod(7012)
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 7
+trigger3 = AnimElem = 13
+anim = 7012
+postype = p1
+pos = -20,10
+ownpal = 1
+sprpriority = 5
+scale = 1,1
+
 
 [State 3000, 4]
 type = VelSet
@@ -7720,18 +7863,6 @@ trigger1 = time = 0
 value = 130,2
 volumescale = 100
 
-[State 3015, Shadows]
-type = null;Afterimage
-trigger1 = Time = 0
-time = 999
-length = 21
-PalBright   =   0,  0,  0
-PalContrast = 128,128,128
-PalAdd      =   0,  0,  0
-PalMul      =  0.9,0.9,0.9
-FrameGap = 10
-Trans = Add1
-
 [State 3015, Super C]
 type = AfterImageTime
 trigger1 = Time = 60
@@ -7746,6 +7877,18 @@ pos = 61,-52
 ownpal = 1
 stateno = 3016
 id = 3016 
+
+[State 1160, Rising Dust]
+type = explod
+trigger1 = animelem = 4 && time < 10 && !numexplod(7013)
+anim = 7013
+id = 7013
+postype = p1
+pos = 60,3
+ownpal = 1
+sprpriority = 5
+scale = 1,1
+
 
 [State 3015, ChangeState]
 type = changestate
@@ -8640,7 +8783,7 @@ volumescale = 100
 
 [State 3050, VelSet]
 type = Velset
-trigger1 = time = 0
+trigger1 = time = 1
 X = ifelse(Var(7)=0,6,8.5)
 
 [State 3050, Red Shadows]
@@ -8748,6 +8891,7 @@ type = AssertSpecial
 trigger1 = time > 40 && animelemtime(2) < 0
 flag = Invisible
 flag2 = noFG
+flag3 = nobardisplay
 
 [State 3102 CharBlackout]
 type = palfx
@@ -9065,7 +9209,7 @@ trigger1 = time = 0 && var(7) = 0
 anim = 3104
 id = 3104
 space = screen
-pos = 160, 120
+pos = 160, 100
 facing = 1
 ownpal = 1
 sprpriority = -5
@@ -9855,6 +9999,16 @@ trigger1 = !time&&p2dist x<0
 type = VelSet
 trigger1 = Time = 0
 y = 0
+
+[State 52, Landing Dust]
+type = explod
+trigger1 = !time
+anim = 7010
+postype = p1
+pos = 0,0
+ownpal = 1
+sprpriority = -5
+scale = 0.5,0.5
 
 [State 52, 2]
 type = PosSet
