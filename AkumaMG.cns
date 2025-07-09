@@ -2550,13 +2550,13 @@ x = 2
 
 [State 1030, Rising Dust]
 type = explod
-trigger1 = !animtime
+trigger1 = !time
 anim = 7012
 postype = p1
 pos = -20,10
 ownpal = 1
 sprpriority = 5
-scale = 0.55,0.55
+scale = 1,1
 
 [State 1030, Voice]
 type = playsnd
@@ -2808,13 +2808,13 @@ x = 2
 
 [State 1035, Rising Dust]
 type = explod
-trigger1 = !animtime
+trigger1 = !time
 anim = 7012
 postype = p1
 pos = -20,10
 ownpal = 1
 sprpriority = 5
-scale = 0.75,0.75
+scale = 1,1
 
 [State 1035, Voice]
 type = playsnd
@@ -3015,7 +3015,7 @@ x = 2
 
 [State 1040, Rising Dust]
 type = explod
-trigger1 = !animtime
+trigger1 = !time
 anim = 7012
 postype = p1
 pos = -20,10
@@ -4627,6 +4627,11 @@ time = 2
 [State 1090, VelSet]
 type = velset
 trigger1 = Time = 0
+y = 0
+
+[State 1090, Posset]
+type = posset
+trigger1 = !time
 y = 0
 
 [State 1090, 1]
@@ -8719,7 +8724,7 @@ y = 0.7
 [State 3040, Land]
 type = changestate
 trigger1 = pos Y >= vel Y && anim = 3041
-value = 1062
+value = 1090
 
 ;--------------------------------------------------------------------
 ;Shun Goku Satsu
