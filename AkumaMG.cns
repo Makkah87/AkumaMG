@@ -6447,7 +6447,7 @@ value = 1
 [State 1161, Hitdef]
 type = HitDef
 trigger1 = !time
-attr = S, HP
+attr = S, SP
 animtype = hard
 damage = 62, 45
 getpower = 0
@@ -6731,7 +6731,7 @@ ignorehitpause = 1
 [State 1166, Hitdef]
 type = HitDef
 trigger1 = var(2) <=1
-attr = S, HP
+attr = S, SP
 animtype = hard
 damage = 35, 20
 getpower = 0
@@ -6771,7 +6771,7 @@ palfx.color = 20
 [State 1166, Hitdef]
 type = HitDef
 trigger1 = !time && var(2) =2
-attr = S, HP
+attr = S, SP
 animtype = hard
 damage = 35, 20
 getpower = 0
@@ -7063,7 +7063,7 @@ ignorehitpause = 1
 [State 1171, Hitdef]
 type = HitDef
 trigger1 = !time && var(2) <1
-attr = S, HP
+attr = S, SP
 animtype  = hard
 damage    = 28, 18
 getpower  = 0
@@ -7102,7 +7102,7 @@ palfx.color = 20
 [State 1171, Hitdef]
 type = HitDef
 trigger1 = !time && var(2) <3
-attr = S, HP
+attr = S, SP
 animtype  = hard
 damage    = 28, 18
 getpower  = 0
@@ -7141,7 +7141,7 @@ palfx.color = 20
 [State 1171, Hitdef]
 type = HitDef
 trigger1 = !time && var(2) >=3
-attr = S, HP
+attr = S, SP
 animtype  = hard
 damage    = 21, 12
 getpower  = 0
@@ -9764,6 +9764,7 @@ flag3 = nofg
 [State 9000, Special K.O Effect]
 type = bgpalfx
 trigger1 = time = 0 && (parent, hitdefattr = SCA, SA || parent,var(18))
+trigger2 = !time && parent, winspecial
 add = 255,255,255
 sinadd = -255,-255,-255,170
 time = 45
@@ -10567,6 +10568,7 @@ channel = 1
 [State -2, K.O!]
 type = Helper
 trigger1 = winko && numhelper(9000)=0
+trigger1 = roundstate = 3
 name = "KO"
 postype = P1
 pos = 38,0
@@ -10674,6 +10676,7 @@ value = 0.35
 type = modifyplayer
 trigger1 = !var(7)
 lifebarname = "Akuma"
+displayname = "Akuma"
 lifemax = 900
 dizzypointsmax = 800
 guardpointsmax = 1000

@@ -103,7 +103,7 @@ command = ~B, D, DB, x+z
 
 [Command]
 name = "asurafwd2"
-command = ~F, D, DF, y+z
+command = ~F, D, DF, a+b
 
 [Command]
 name = "asurafwd2"
@@ -115,7 +115,7 @@ command = ~F, D, DF, a+c
 
 [Command]
 name = "asurabk2"
-command = ~B, D, DB, y+z
+command = ~B, D, DB, a+b
 
 [Command]
 name = "asurabk2"
