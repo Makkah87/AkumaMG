@@ -71,9 +71,34 @@ value = 120,15
 volumescale = 200
 channel = 7
 
+[State 7000, Target_PalFX]
+type = palfx
+trigger1 = !time
+time = 9999
+add = 217,61,0
+sinadd = -64,-64,-64,5
+color = 20
+ignorehitpause = 1
+redirectid = root,map(target_id);57
+
+[State 7000, Target_PalFX_End]
+type = palfx
+trigger1 = enemynear, movetype != h
+trigger2 = enemynear, stateno = 5100
+trigger3 = enemynear, stateno = 5110
+trigger4 = root, stateno = 1131
+time = 1
+add = 217,61,0
+sinadd = -64,-64,-64,5
+color = 20
+ignorehitpause = 1
+redirectid = root,map(target_id);57
+
+
 [State 7000, Unalive]
 type = destroyself
 trigger1 = enemynear, movetype != h
 trigger2 = enemynear, stateno = 5100
 trigger3 = enemynear, stateno = 5110
 trigger4 = enemynear, statetype = l
+trigger5 = root, stateno = 1131

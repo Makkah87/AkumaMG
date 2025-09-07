@@ -698,15 +698,6 @@ air.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 
-[State 200, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 200, HitAnimElem]
 type = ChangeAnim
 triggerall = anim = 221
@@ -1085,15 +1076,6 @@ air.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 
-[State 400, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 37
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 400, 3]
 type = CtrlSet
 trigger1 = Time = 5
@@ -1148,15 +1130,6 @@ air.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 
-[State 410, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 40
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 410, 4]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -1206,15 +1179,6 @@ guard.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
-
-[State 420, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 43
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
 
 [State 420, HitAnimElem]
 type = ChangeAnim
@@ -2613,15 +2577,6 @@ air.velocity = 0,-7
 fall = 1
 yaccel = 0.45
 
-[State 1030, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 1030, GoingUp]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -2674,15 +2629,6 @@ air.velocity = -1.6,-10.5
 fall = 1
 fall.recover = 0
 yaccel = 0.50
-
-[State 1031, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 61
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
 
 [State 1031, UpWard]
 type = velset
@@ -2870,15 +2816,6 @@ guard.velocity = -7
 air.velocity = 0,-7.3
 fall = 1
 
-[State 1035, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 1035, GoingUp]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -2932,15 +2869,6 @@ air.velocity = -2,-11
 fall = 1
 fall.recover = 0
 yaccel = 0.50
-
-[State 1036, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 61
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
 
 [State 1036, UpWard]
 type = velset
@@ -3077,15 +3005,6 @@ guard.velocity = -7
 air.velocity = 0,-7.3
 fall = 1
 
-[State 1040, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 1040, GoingUp]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -3139,15 +3058,6 @@ air.velocity = -2.3,-12.5
 fall = 1
 fall.recover = 0
 yaccel = 0.50
-
-[State 1041, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 74
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
 
 [State 1041, UpWard]
 type = velset
@@ -3931,15 +3841,6 @@ air.velocity = ifelse(p2dist x > 0,-1.9, 1.9),-9
 fall = 1
 yaccel = 0.45
 
-[State 1060, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 60
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 1060, 5]
 type = ChangeState
 trigger1 = AnimTime = 0 && time > 10
@@ -4139,15 +4040,6 @@ air.velocity = ifelse(p2dist x > 0,-4.7,4.7),-4.4
 fall = 1
 yaccel = 0.45
 
-[State 1040, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 50
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 1065, 5]
 type = ChangeState
 trigger1 = AnimTime = 0 && time > 20
@@ -4258,15 +4150,6 @@ guard.velocity = -6
 air.velocity = -5.6,-4.7
 fall = 1
 yaccel = 0.6
-
-[State 1040, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
 
 [State 1070, 5]
 type = ChangeState
@@ -5120,15 +5003,6 @@ fall.envshake.time = 15
 fall.envshake.freq = 176
 fall.envshake.ampl = 3
 
-[State 1113, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 35
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 1113, Land]
 type = posset
 trigger1 = Pos Y > 0 && vel Y > 0
@@ -5204,15 +5078,6 @@ air.velocity = -2,-2
 airguard.velocity = -5.3,4.5
 air.fall = 1
 fall.recover = 0
-
-[State 1114, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
 
 [State 1114, PosSet]
 type = posset
@@ -6480,10 +6345,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5	
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
 
 [State 1161, Back Spark High]
 type = explod
@@ -6513,6 +6374,14 @@ pos = 0,0
 ownpal = 1
 stateno = 7000
 id = 7000
+ignorehitpause = 1
+
+[State 1161, Target_ID_Get]
+type = parentmapset
+triggerall = numtarget
+trigger1 = movehit
+map = "target_id"
+value = target, id
 ignorehitpause = 1
 
 [State 1161, Reset]
@@ -6763,10 +6632,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
 
 [State 1166, Hitdef]
 type = HitDef
@@ -6804,10 +6669,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
 
 [State 1166, Back Spark High]
 type = explod
@@ -6837,6 +6698,14 @@ pos = 0,0
 ownpal = 1
 stateno = 7000
 id = 7000
+ignorehitpause = 1
+
+[State 1166, Target_ID_Get]
+type = parentmapset
+triggerall = numtarget
+trigger1 = movehit
+map = "target_id"
+value = target, id
 ignorehitpause = 1
 
 [State 1166, Reset]
@@ -7094,10 +6963,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
 
 [State 1171, Hitdef]
 type = HitDef
@@ -7133,10 +6998,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
 
 [State 1171, Hitdef]
 type = HitDef
@@ -7173,10 +7034,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
 
 [State 1171, Back Spark High]
 type = explod
@@ -7206,6 +7063,14 @@ pos = 0,0
 ownpal = 1
 stateno = 7000
 id = 7000
+ignorehitpause = 1
+
+[State 1171, Target_ID_Get]
+type = parentmapset
+triggerall = numtarget
+trigger1 = movehit
+map = "target_id"
+value = target, id
 ignorehitpause = 1
 
 [State 1171, Reset]
@@ -7654,15 +7519,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 
-[State 3054, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 53
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
-
 [State 3054, Furashu]
 type = envcolor
 triggerall = numtarget
@@ -8001,10 +7857,6 @@ down.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 p1sprpriority = 5
-palfx.time = 40
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
 
 [State 3001, Burn_Effect]
 type = Helper
@@ -8017,6 +7869,14 @@ pos = 0,0
 ownpal = 1
 stateno = 7000
 id = 7000
+ignorehitpause = 1
+
+[State 3001, Target_ID_Get]
+type = parentmapset
+triggerall = numtarget
+trigger1 = movehit
+map = "target_id"
+value = target, id
 ignorehitpause = 1
 
 [State 3001, Back Spark High]
@@ -8352,10 +8212,6 @@ ground.velocity= -7.3,5
 ground.type = Low
 air.velocity= -7.3,5
 ground.slidetime = 18
-palfx.time = 24
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
 fall = 1
 fall.recover = 0
 ground.cornerpush.veloff = 0
@@ -8475,10 +8331,6 @@ ground.velocity=ifelse(uniqhitcount<Parent,Var(15),-7.3,-8.5),ifelse(uniqhitcoun
 ground.type = Low
 air.velocity=ifelse(uniqhitcount<Parent, Var(15),-7.3,-8.5),ifelse(uniqhitcount< Parent, Var(15),5,5.5)
 ground.slidetime = 18
-palfx.time = 40 ;20
-palfx.add = 217,61,0
-palfx.sinadd = -255,-255,-255,80 ; 40
-palfx.color = 20
 fall = 1
 envshake.time = 6
 envshake.ampl = -6 ;up and down
@@ -8701,15 +8553,6 @@ air.velocity = -9,-12
 yaccel = 0.8
 fall = 1
 fall.recover = 0
-
-[State 1040, PalFX_Continue]
-type = modifyhitdef
-trigger1 = numhelper(7000)
-palfx.time = 45
-palfx.add = 217,61,0
-palfx.sinadd = -64,-64,-64,5
-palfx.color = 20
-ignorehitpause = 1
 
 [State 3040, Kikkuda!]
 type = changeanim
@@ -10552,8 +10395,8 @@ ctrl = 1
 [State -2, Debug data]
 type = displaytoclipboard
 trigger1 = time >= 0
-text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(11) = %d,Special State = %f,By Makkah/Master Gouken"
-params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(11), map(special_cancel)
+text = "Enemy Anim Type =%d,P2Dist X = %f,P2Dist Y = %f,var(11) = %d,Special State = %f, Target_ID = %f,By Makkah/Master Gouken"
+params = enemy,gethitvar(animtype),P2Dist X,P2Dist Y,var(11), map(special_cancel), map(target_id)
 ignorehitpause = 1
 
 [State -2, Dizzy Groan]
@@ -10564,6 +10407,15 @@ trigger1 = Anim = 5300
 value = 5000,3
 volumescale = 100
 channel = 1
+
+[State -2, Target_ID_Get]
+type = mapset
+triggerall = numtarget
+trigger1 = movehit
+trigger2 = numproj = 1 && projhit = 1
+map = "target_id"
+value = target, id
+ignorehitpause = 1
 
 [State -2, K.O!]
 type = Helper
