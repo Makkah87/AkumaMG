@@ -55,6 +55,8 @@ triggerall = !numexplod(1008)
 trigger1 = enemynear, movetype != h
 trigger2 = enemynear, stateno = 5100
 trigger3 = enemynear, stateno = 5110
+trigger4 = root, stateno = 1131
+trigger5 = enemynear, statetype = l
 anim = 1006
 id = 1008
 postype = p1
@@ -87,6 +89,7 @@ trigger1 = enemynear, movetype != h
 trigger2 = enemynear, stateno = 5100
 trigger3 = enemynear, stateno = 5110
 trigger4 = root, stateno = 1131
+trigger5 = enemynear, statetype = l
 time = 1
 add = 217,61,0
 sinadd = -64,-64,-64,5

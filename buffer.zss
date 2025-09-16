@@ -7,17 +7,18 @@
 ############################################################################
 #								special_cancel
 #								special_cancel_timer
-#								special_cancel
-#								special_cancel_timer
+#								super_cancel
+#								super_cancel_timer
 ############################################################################
 
 
 
 if map(special_cancel_timer) > 0 {mapadd {map: "special_cancel_timer"; value:-1}}
-#if map(super_cancel_timer) > 0 {mapadd{map: "super_cancel_timer"; value:-1}}
+if map(super_cancel_timer) > 0 {mapadd{map: "super_cancel_timer"; value:-1}}
 
 #Special Reset
-if (stateno = [200,699] || ctrl = 1 || map(special_cancel_timer)=0) {mapset {map: "special_cancel"; value:0}}
+if (stateno = [200,699] || map(special_cancel_timer)=0) {mapset {map: "special_cancel"; value:0}}
+#if (stateno = [200,699] || ctrl = 1 || map(special_cancel_timer)=0) {mapset {map: "special_cancel"; value:0}}
 
 ###########################################################################
 #load Special States
@@ -126,3 +127,42 @@ if (stateno = [200,699] || ctrl = 1 || map(special_cancel_timer)=0) {mapset {map
 	if command = "kujin3" && statetype = A {mapset {map:"special_cancel"; value:1100}
 							mapset {map:"special_cancel_timer"; value :30}
 							}
+
+
+######################################################################################################
+#Hyper Combos
+######################################################################################################
+#Misogi
+	if (command = "misogi")&& power >= 3000{mapset {map:"super_cancel"; value:3120}
+							mapset {map:"super_cancel_timer"; value :30}
+							}							
+#Messatsu Gou Shoryu
+	if command = "gousho"{mapset {map:"super_cancel"; value:3000}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+#Messatsu Gou Hadou
+	if command = "messatsu"{mapset {map:"super_cancel"; value:3010}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+#Shun Goku Satsu							
+	if command = "shun" && power >= 3000 {mapset {map:"super_cancel"; value:3050}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+							
+#Messatsu Gou Rassen
+	if command = "rassen" && statetype = S {mapset {map:"uper_cancel"; value:3040}
+							mapset {map:"super_cancel_timer"; value :30}
+							}
+
+
+#############Reversal Buffer
+###Super Attack
+if (power >= 1000 && anim = 5120 && !animtime && statetype != A && map(super_cancel_timer))  && map(super_cancel) {changestate{value:map(super_cancel)}
+	mapset {map:"super_cancel_timer"; value :30}
+}
+
+
+###Special Attack
+if (anim = 5120 && !animtime && statetype != A)  && map(special_cancel){changestate{value:map(special_cancel)}
+	mapset {map:"special_cancel_timer"; value :30}
+}

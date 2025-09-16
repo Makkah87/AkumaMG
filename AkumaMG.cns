@@ -2021,6 +2021,16 @@ sprpriority = -10
 ignorehitpause = 1
 facing = -1
 
+[State 1002, Dust]
+type = Helper
+trigger1 = !time
+name = "Hadou_Dust"
+postype = P1
+pos = ifelse(var(7) = 1,70, 10),30
+ownpal = 1
+stateno = 1004
+id = 1004 
+
 [State 1003, Hit]
 type = parentvarset
 trigger1 = movehit
@@ -2098,6 +2108,39 @@ value = 0
 [State 1003]
 type = Destroyself
 trigger1 = animtime = 0
+
+;---------------------------------------------------------------------
+;Hadou Dust
+;---------------------------------------------------------------------
+[Statedef 1004]
+type    = S
+movetype= I
+physics = N
+anim = 1013
+ctrl = 0
+sprpriority = 10
+
+[State 1004, Posset]
+type = posset
+trigger1 = !time
+Y = 0
+
+[State 1004, Velset]
+type = velset
+trigger1 = 1
+x = parent, vel x
+
+[State 1004, ChangeAnim]
+type = changeanim
+trigger1 = parent, stateno = 1003 || parent, stateno = 3018
+trigger1 = anim != 1014
+value = 1014
+ignorehitpause = 1
+
+[State 1004, Destroyed]
+type = destroyself
+triggerall = anim = 1014
+trigger1 = !animtime
 
 ;--------------------------------------------------------------------
 ; Gou Hadou (Medium)
@@ -2268,6 +2311,16 @@ bindtime = 999
 sprpriority = -10
 ignorehitpause = 1
 facing = -1
+
+[State 1003, Dust]
+type = Helper
+trigger1 = !time
+name = "Hadou_Dust"
+postype = P1
+pos = ifelse(var(7) = 1,70, 10),30
+ownpal = 1
+stateno = 1004
+id = 1004 
 
 [State 1003, Hit]
 type = parentvarset
@@ -2465,6 +2518,16 @@ bindtime = 999
 sprpriority = -10
 ignorehitpause = 1
 facing = -1
+
+[State 1002, Dust]
+type = Helper
+trigger1 = !time
+name = "Hadou_Dust"
+postype = P1
+pos = ifelse(var(7) = 1,70, 10),30
+ownpal = 1
+stateno = 1004
+id = 1004 
 
 [State 1021, Hit]
 type = parentvarset
@@ -6384,6 +6447,16 @@ map = "target_id"
 value = target, id
 ignorehitpause = 1
 
+[State 1002, Dust]
+type = Helper
+trigger1 = !time
+name = "Hadou_Dust"
+postype = P1
+pos = ifelse(var(7) = 1,70, 10),30
+ownpal = 1
+stateno = 1004
+id = 1004 
+
 [State 1161, Reset]
 type = varset
 trigger1 = frontedgedist < -100
@@ -6716,6 +6789,16 @@ trigger3 = parent, var(16) = 0
 trigger4 = hitcount = 2
 v = 8
 value = 0
+
+[State 1002, Dust]
+type = Helper
+trigger1 = !time
+name = "Hadou_Dust"
+postype = P1
+pos = ifelse(var(7) = 1,70, 10),30
+ownpal = 1
+stateno = 1004
+id = 1004 
 
 [State 1166, NotInPlay]
 type = parentvarset
@@ -7081,6 +7164,16 @@ trigger3 = parent, var(16) = 0
 trigger4 = hitcount = 3
 v = 8
 value = 0
+
+[State 1002, Dust]
+type = Helper
+trigger1 = !time
+name = "Hadou_Dust"
+postype = P1
+pos = ifelse(var(7) = 1,70, 10),30
+ownpal = 1
+stateno = 1004
+id = 1004 
 
 [State 1171, NotInPlay]
 type = parentvarset
@@ -7895,6 +7988,16 @@ bindtime = 999
 sprpriority = -10
 ignorehitpause = 1
 facing = -1
+
+[State 1002, Dust]
+type = Helper
+trigger1 = !time
+name = "Hadou_Dust"
+postype = P1
+pos = ifelse(var(7) = 1,70, 10),30
+ownpal = 1
+stateno = 1004
+id = 1004 
 
 [State 3001, Reset]
 type = varset
