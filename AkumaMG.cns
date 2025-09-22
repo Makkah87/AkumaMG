@@ -10405,7 +10405,7 @@ ctrl = 0
 
 [State 5210, Roll]
 type = changestate
-trigger1 = !time && pos y > -40
+trigger1 = !time && pos y > -30
 value = 5201
 
 [State 5210, 1] ;Blink white
@@ -10434,36 +10434,6 @@ type = VelAdd
 trigger1 = Time = 4
 x = Const(velocity.air.gethit.airrecover.add.x)
 y = Const(velocity.air.gethit.airrecover.add.y)
-
-[State 5210, 2002.04.14 behavior 1]
-type = null;VelMul
-trigger1 = Time = 4
-x = .8
-y = .8
-
-[State 5210, 2002.04.14 behavior 2]
-type = null;VelAdd
-trigger1 = Time = 4
-x = 0 
-y = -4.5
-
-[State 5210, 2002.04.14 behavior 3]
-type = null;VelMul
-trigger1 = Time = 4
-trigger1 = Vel Y > 0
-y = .5
-
-[State 5210, 2002.04.14 behavior 4]
-type = null;VelAdd
-trigger1 = Time = 4
-trigger1 = Vel Y > -3
-y = -2
-
-[State 5210, 2002.04.14 behavior 5]
-type = null;VelAdd
-trigger1 = Time = 4
-trigger1 = Vel Y > -2
-y = -1
 
 [State 5210, 2] ;Go up
 type = VelAdd
@@ -10639,7 +10609,7 @@ type = modifyplayer
 trigger1 = var(7)
 lifebarname = "Shin Akuma"
 displayname = "Shin Akuma"
-lifemax = 800
+lifemax = 750
 dizzypointsmax = 700
 guardpointsmax = 1000
 
