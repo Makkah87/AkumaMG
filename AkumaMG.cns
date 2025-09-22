@@ -4099,7 +4099,7 @@ trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = hard
 fall.animtype = hard
-damage    = 43, 30
+damage    = 35, 15
 priority  = 5
 guardflag = MA
 pausetime = 12,11
@@ -4126,7 +4126,7 @@ trigger1 = AnimTime = 0 && time > 20
 value = 1061
 
 ;--------------------------------------------------------------------
-;Tatsumaki Zankuu Kyaku (Hard)
+;Tatsumaki Zankuu Kyaku (Strong)
 ;--------------------------------------------------------------------
 [Statedef 1070]
 type    = A
@@ -4188,7 +4188,7 @@ trigger1 = Time = 1
 attr = A, SA
 animtype  = Medium
 fall.animtype = hard
-damage    = 35, 20
+damage    = 20, 10
 priority  = 5
 guardflag = MA
 pausetime = 14,13
@@ -4212,7 +4212,7 @@ trigger1 = animelem = 4 || animelem = 6
 attr = A, SA
 animtype  = Hard
 fall.animtype = hard
-damage    = 51, 40
+damage    = 42, 18
 priority  = 5
 guardflag = MA
 pausetime = 12,11
@@ -4225,11 +4225,16 @@ ground.type = Low
 air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
-ground.velocity = -3,-5.5
+ground.velocity = ifelse(p2dist x > 0,-3,3),-5.5
 guard.velocity = -6
 air.velocity = -5.6,-4.7
 fall = 1
 yaccel = 0.6
+
+[State 1070, No_Shoryu]
+type = varset
+trigger1 = movehit
+var(17) = 99
 
 [State 1070, 5]
 type = ChangeState
