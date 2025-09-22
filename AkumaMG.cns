@@ -2023,7 +2023,7 @@ facing = -1
 
 [State 1002, Dust]
 type = Helper
-trigger1 = !time
+trigger1 = !time && numhelper(1004) = 0
 name = "Hadou_Dust"
 postype = P1
 pos = ifelse(var(7) = 1,70, 10),30
@@ -2120,22 +2120,39 @@ anim = 1013
 ctrl = 0
 sprpriority = 10
 
+[State 1004, ParentType]
+type = varset
+trigger1 = !time
+var(0) = ifelse(parent, stateno < 3000,1,2)
+
 [State 1004, Posset]
 type = posset
 trigger1 = !time
 Y = 0
 
+[State 1004, Universal PosXAdj]
+type = posadd
+trigger1 = !time
+X = -20
+
 [State 1004, Velset]
 type = velset
 trigger1 = 1
+trigger1 = root, var(11) =1 || root, var(16) =1
 x = parent, vel x
 
 [State 1004, ChangeAnim]
 type = changeanim
-trigger1 = parent, stateno = 1003 || parent, stateno = 3018
-trigger1 = anim != 1014
+triggerall = anim != 1014
+trigger1 = root, var(11) =0 && var(0) = 1
+trigger2 = root, var(16) = 0 && var(0) = 2
 value = 1014
 ignorehitpause = 1
+
+[State 1004, DestroyVelset]
+type = velset
+trigger1 = anim = 1014
+x = 0
 
 [State 1004, Destroyed]
 type = destroyself
@@ -2314,7 +2331,7 @@ facing = -1
 
 [State 1003, Dust]
 type = Helper
-trigger1 = !time
+trigger1 = !time && numhelper(1004) = 0
 name = "Hadou_Dust"
 postype = P1
 pos = ifelse(var(7) = 1,70, 10),30
@@ -2521,7 +2538,7 @@ facing = -1
 
 [State 1002, Dust]
 type = Helper
-trigger1 = !time
+trigger1 = !time && numhelper(1004) = 0
 name = "Hadou_Dust"
 postype = P1
 pos = ifelse(var(7) = 1,70, 10),30
@@ -6449,7 +6466,7 @@ ignorehitpause = 1
 
 [State 1002, Dust]
 type = Helper
-trigger1 = !time
+trigger1 = !time && numhelper(1004) = 0
 name = "Hadou_Dust"
 postype = P1
 pos = ifelse(var(7) = 1,70, 10),30
@@ -6792,7 +6809,7 @@ value = 0
 
 [State 1002, Dust]
 type = Helper
-trigger1 = !time
+trigger1 = !time && numhelper(1004) = 0
 name = "Hadou_Dust"
 postype = P1
 pos = ifelse(var(7) = 1,70, 10),30
@@ -7167,7 +7184,7 @@ value = 0
 
 [State 1002, Dust]
 type = Helper
-trigger1 = !time
+trigger1 = !time && numhelper(1004) = 0
 name = "Hadou_Dust"
 postype = P1
 pos = ifelse(var(7) = 1,70, 10),30
@@ -7991,7 +8008,7 @@ facing = -1
 
 [State 1002, Dust]
 type = Helper
-trigger1 = !time
+trigger1 = !time && numhelper(1004) = 0
 name = "Hadou_Dust"
 postype = P1
 pos = ifelse(var(7) = 1,70, 10),30
