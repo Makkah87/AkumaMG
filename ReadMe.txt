@@ -8,8 +8,12 @@ After crushing Gen in a long and brutal battle, Akuma finds himself internally d
 
 Fixes
 -------
+-Switched to Ikemen!
 -Complete overhaul to bring him to my current standards in 2025
 -Animations have been redone
+-Redid pretty much all of his CLSNs
+-Switched to CPS2/3 effects
+-Removed all alpha effects to evoke that classic look
 -Chain combos still work but are no longer the focus
 -A lot of balance changes related to OTGs, +/- frames and recovery of control
 -Toned down env shakes, and in many cases, outright removed them
@@ -21,13 +25,11 @@ Fixes
 
 To-Do
 -------
-
-
--Add more voice samples to basic attacks
-
-
-
-
+-Ikemen movelist
+-EX Moves?
+-Lv3s?
+-Adjust or just plain redo the AI
+-Add some more flavor to Misogi
 
 
 Move list
@@ -48,13 +50,14 @@ Tenma Kujin Kyaku : QCF + K (in air)
        -pressing K repeatedly will inflict additional damage
 
 Hyakki Shuu : dp + K
-       -Hyakki Gou Zan:  Press nothing
-       -Kyakki Gou Shou: P (during hyakki shuu)
-       -Hyakki Gou Jin : K (during hyakki shuu)
+       -Hyakki Gou Zan:  No input
+       -Kyakki Gou Shou: P (during Hyakki Shuu)
+       -Hyakki Gou Jin : K (during Hyakki Shuu)
+       -Hyakki Gou Sai: F+HP (during Hyakki Shuu as you approach the opponents upper body)
 
-Ashura Senkuu : dp + HP+HK / dp + MP+MK (forward)
-                rev dp +HP+HK / rev dp +MP+MK (backward)
-*Hard P+K versions travel further
+Ashura Senkuu : dp + PP / dp + KK (forward)
+                rev dp PP / rev dp KK (backward)
+*Punches go farther than kicks
 
 ----------------
 Super Arts
@@ -70,10 +73,17 @@ Tenma Gou Rassen: QCBx2 + K
 
 Shun Goku Satsu: lp,lp,F,lk,hp
 
+Misogi: D, D, D + KK
+
 ---------------
 Notes
 ---------------
-
+--Hyakki Shuu switches sides automatically and is a pretty powerful tool overall.
+--You can buffer specials and supers while rising to gain the upper hand on aggressive opponents.
+--Gou Shoryuken is unblockable in the air. Make your opponents fear thoughtless jumpins! >=D
+--Hold Start at the select screen to select Shin Akuma.
+--Akuma and Shin, especially, are glass cannons. Stay out of your opponents reach!
+--Whiffing or failing to hit deep with Messatsu Gou Shoryu is not in your best interest.
 
 Credits
 ---------------

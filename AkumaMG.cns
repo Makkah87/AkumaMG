@@ -708,12 +708,6 @@ value = 221
 elem = 3
 ignoreHitPause = 1
 
-[State 200, Special_Canel]
-type = changestate
-trigger1 = movecontact || (!animtime && map(special_cancel))
-value = map(special_cancel)
-ctrl = ifelse(map(special_cancel),0,1)
-
 [State 220, 5]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -8512,6 +8506,18 @@ type = veladd
 trigger1 = animelemtime(6) >= 0 && vel Y > -7
 Y = -0.45
 
+[State 3040, Blue Shadows]
+type = Afterimage
+trigger1 = Time = 0
+time = 999
+length = 20
+palbright = 50,50,255
+palcontrast = 255,255,255
+palpostbright = 50,50,255
+PalAdd = -40,-40,0
+PalMul = 0.7,0.7,0.7
+FrameGap = 5
+
 [State 3040, SuperCharge_Ground]
 type = Helper
 trigger1 = Time = 0 && statetype = S
@@ -9609,7 +9615,7 @@ sprpriority = 5
 
 [State 6000, Cancel_SND]
 type = playsnd
-trigger1 = !time && parent, prevstateno >= 3000
+trigger1 = !time && parent, prevstateno >= 3000 && parent, prevstateno < 5000
 value = 3000, 4
 volumescale = 100
 
