@@ -1725,6 +1725,7 @@ value = 821
 [State 810, CornerPush]
 type = posadd
 trigger1 = animelemtime(5) >= 0 && target,frontedgebodydist <=10 && p2dist x > -140
+trigger1 = target, incustomstate
 x = 10
 
 [State 810, Voice]
