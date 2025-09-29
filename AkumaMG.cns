@@ -21,6 +21,7 @@
 ;				Var(16): Hyper Hadou In Play
 ;				Var(17): Gou Shoryuken Juggle Manager
 ;				Var(18): Projectile Hit Detection
+;				Var(21): Ground Bounce
 ;======================================================================
 ;					Floats
 ;----------------------------------------------------------------------
@@ -1008,6 +1009,7 @@ ground.slidetime = 12
 ground.hittime  = 15
 ground.velocity = -7
 air.velocity = -2.2,15
+yaccel = 0.0000000000000001
 air.fall = 1
 fall.envshake.time = 15
 fall.envshake.freq = 176
@@ -1017,6 +1019,37 @@ guard.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
+
+
+[State 230, Ground_Bounce]
+type = targetstate
+trigger1 = numtarget
+trigger1 = target,gethitvar(yaccel) = 0.0000000000000001
+trigger1 = movehit && target, gethitvar(fall) = 1 && target, stateno != 2000
+trigger1 = target, Pos Y >= 0 && !var(21)
+value = 2000
+
+[State 230, Ground_Bounce_Var]
+type = varset
+trigger1 = numtarget
+trigger1 = target, stateno = 2000 && !var(21)
+V = 21
+value = 1
+
+[State 230, Yes_Shoryu]
+type = varset
+trigger1 = var(21)
+V = 17
+value = 0
+
+[State 230, Bounce_SND]
+type = playsnd
+trigger1 = numtarget
+trigger1 = target, stateno = 2000 && target, time = 0
+trigger1 = target, Pos Y >= 0
+value = 5100,3
+
+
 
 [State 320, 4]
 type = ChangeState
@@ -2426,6 +2459,11 @@ trigger1 = 1
 v = 11
 value = 1
 
+[State 1021, SlowMotion]
+type = pause
+trigger1 = movehit
+time = 1
+ignorehitpause = 1
 
 [State 1021, HitOverride]
 type = HitOverride
@@ -7276,6 +7314,73 @@ trigger1 = time = 4 && !Var(30)
 trigger2 = time = 5 && Var(30)
 value = prevstateno
 
+;==========================================================================
+;Custom Juggle States
+;==========================================================================
+;Ground Bounce - HitFloor
+;--------------------------------------------------------------------------
+[Statedef 2000]
+type    = S
+movetype= H
+physics = N
+ctrl = 0
+sprpriority = 3
+
+[State 2000, No_Vel]
+type = velset
+trigger1 = !time
+Y = 0
+X = 0
+
+[State 2000, EarthShake]
+type = envshake
+trigger1 = !time
+time = 6
+ampl = -12
+freq = 160
+ignorehitpause = 1
+
+[State 2000, PosSet]
+type = posset
+trigger1 = Pos Y >= 0
+Y = 0
+
+[State 2000, HitShake]
+type = changeanim2
+trigger1 = anim!= 4000 && !time
+value = 4000
+
+[State 2000, ChangeState]
+type = changestate
+trigger1 = time = 8
+value = 2005
+
+;==========================================================================
+;Ground Bounce - In Air
+;--------------------------------------------------------------------------
+[Statedef 2005]
+type    = A
+movetype= H
+physics = N
+ctrl = 0
+velset = -2,-12.5
+sprpriority = 3
+
+[State 2000, Gravity]
+type = veladd
+trigger1 = 1
+Y = 0.7
+
+[State 2000, Air_Launch]
+type = changeanim2
+trigger1 = anim!= 4010 && !time
+value = 4010
+
+[State 2000, Back2Reality]
+type = selfstate
+trigger1 = Vel Y >= 0 && Pos Y >= 0
+value = 5100
+
 ;----------------------------------------------------------------------
 ; Super Arts
 ;----------------------------------------------------------------------
@@ -10530,6 +10635,28 @@ ownpal = 1
 stateno = 9000
 id = 9000
 ignorehitpause = 1
+
+[State -2, Bounce_Impact_Dust]
+type = Explod
+trigger1 = numtarget
+trigger1 = target, stateno = 2000 && target, time = 1
+trigger1 = target, Pos Y >= 0
+anim = 6155
+id = 6155
+postype = p2
+pos = -50,0
+bindtime = 1
+sprpriority = 0
+removeongethit = 0
+ownpal = 1
+scale = 1,1
+vel = 0,0
+
+[State -2, Ground_Bounce_Var_Reset]
+type = varset
+trigger1 = enemy, movetype != h && var(21)
+V = 21
+value = 0
 
 [State -2, Back Spark Mid]
 type = explod
