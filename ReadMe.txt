@@ -22,6 +22,7 @@ Fixes
 -Greater differentiation between regular and Shin Akuma.
 -Added Misogi
 -Implemented Tenma Gou Rassen: QCBx2 + K
+-Added quick rise and recovery roll
 
 To-Do
 -------
@@ -33,6 +34,12 @@ To-Do
 
 
 Move list
+---------------
+System
+===============
+Quick Rise: PP while close to the ground (unless in a hard fall state).
+Recovery Roll: F + PP while close to the ground (unless in a hard fall state).
+
 ---------------
 Special
 ===============
@@ -83,6 +90,7 @@ Notes
 --Gou Shoryuken is unblockable in the air. Make your opponents fear thoughtless jumpins! >=D
 --Hold Start at the select screen to select Shin Akuma.
 --Akuma and Shin, especially, are glass cannons. Stay out of your opponents reach!
+--Shin Akuma is faster and hits considerably harder than his regular form.
 --Whiffing or failing to hit deep with Messatsu Gou Shoryu is not in your best interest.
 
 Credits

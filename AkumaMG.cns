@@ -10446,7 +10446,7 @@ waveform = sine
 type    = A
 movetype= H
 physics = N
-anim = 5200
+anim = Ifelse(command != "holdback",5120,5200)
 
 [State 5201, NoPush]
 type = playerpush
@@ -10475,12 +10475,13 @@ y = 0
 
 [State 5201, X_Accel]
 type = veladd
+triggerall = anim = 5200
 trigger1 = (time > 3 && time < 30) && vel x < 12
 x = 0.75
 
 [State 5201, Stand Anim]
 type = changeanim
-trigger1 = time = 30
+trigger1 = time = 30 && anim = 5200
 value = 5201
 
 [State 5201, 3]
@@ -10512,6 +10513,7 @@ sprpriority = 10
 [State 5201, End]
 type = changestate
 trigger1 = anim = 5201 && !animtime
+trigger2 = !animtime && anim = 5120
 value = 0
 ctrl = 1
 
