@@ -4262,11 +4262,12 @@ ground.type = Low
 air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
-ground.velocity = ifelse(p2dist x > 0,-3,3),-5.5
+ground.velocity = ifelse(p2dist x > 15,-3,3),-5.5
 guard.velocity = -6
 air.velocity = -5.6,-4.7
 fall = 1
 yaccel = 0.6
+
 
 [State 1070, No_Shoryu]
 type = varset
