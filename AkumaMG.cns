@@ -2723,7 +2723,7 @@ type = HitDef
 trigger1 = Time = 1
 attr = A, SA
 animtype  = Medium
-fall.animtype = up
+fall.animtype = hard
 damage    = 21, 14
 priority  = 5
 guardflag = M
@@ -2733,7 +2733,8 @@ guard.sparkno = s7006
 sparkxy = -10,-90
 hitsound   = s120,6
 guardsound = s5,0
-ground.type = low
+ground.type = high
+air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
 ground.velocity = -2,-9
@@ -2963,7 +2964,7 @@ type = HitDef
 trigger1 = Time = 1
 attr = A, SA
 animtype  = hard
-fall.animtype = up
+fall.animtype = hard
 damage    = 21, 14
 priority  = 5
 guardflag = M
@@ -2973,7 +2974,8 @@ guard.sparkno = s7006
 sparkxy = -10,-90
 hitsound   = s120,6
 guardsound = s5,0
-ground.type = Low
+ground.type = high
+air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
 ground.velocity = -2,-12
@@ -3111,6 +3113,7 @@ sparkxy = -10,-65
 hitsound   = s120,6
 guardsound = s5,0
 ground.type = Low
+air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
 ground.velocity = -2,-7.3
@@ -3152,7 +3155,7 @@ type = HitDef
 trigger1 = Time = 1
 attr = A, SA
 animtype  = hard
-fall.animtype = back
+fall.animtype = hard
 damage    = 21, 14
 priority  = 5
 guardflag = M
@@ -3162,7 +3165,8 @@ guard.sparkno = s7006
 sparkxy = -10,-90
 hitsound   = s120,6
 guardsound = s5,0
-ground.type = Low
+ground.type = high
+air.type = low
 ground.slidetime = 18
 ground.hittime  = 18
 ground.velocity = -2.3,-11
@@ -7336,8 +7340,8 @@ X = 0
 type = envshake
 trigger1 = !time
 time = 6
-ampl = -12
-freq = 160
+ampl = -8
+freq = 110
 ignorehitpause = 1
 
 [State 2000, PosSet]
@@ -7365,6 +7369,11 @@ physics = N
 ctrl = 0
 velset = -2,-12.5
 sprpriority = 3
+
+[State 2005, Turn_Vel]
+type = velset
+trigger1 = !time && facing = enemynear, facing
+x = 2
 
 [State 2000, Gravity]
 type = veladd
