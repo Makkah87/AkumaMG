@@ -18,6 +18,7 @@ cns     = AkumaMG.cns
 st      = AkumaMG.cns
 st1     = CPSfire.cns
 st2     = buffer.zss
+st3		= ai.cns
 stcommon= common1.cns 
 sprite  = AkumaMG.sff
 anim    = AkumaMG.air 

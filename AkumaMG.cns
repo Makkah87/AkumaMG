@@ -364,6 +364,12 @@ type = varset
 trigger1 = !time
 var(7) = ifelse(var(7) =0,1,0)
 
+
+[State 195, AI Toggle]
+type = varset
+trigger1 = command =  "a"
+var(13) = ifelse(var(13) =0,1,0)
+
 [State 195, Snd 2]
 type = PlaySnd
 trigger1 = AnimElem = 5
@@ -9198,7 +9204,7 @@ ctrl = 1
 ;Victim State
 ;======================================================================
 [Statedef 3103]
-type    = S
+type    = L
 movetype= H
 physics = N
 juggle  = 6
