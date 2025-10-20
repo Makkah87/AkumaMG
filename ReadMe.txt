@@ -1,5 +1,5 @@
 =======================================================================
-		 ZXAkuma V2.0 by Makkah aka Master Gouken
+	AkumaMG V2.0 by Makkah aka Master Gouken (formerly ZXAkuma)
                      E-mail: gouken1987@hotmail.com
 =======================================================================
 Story
@@ -92,6 +92,7 @@ Notes
 --Akuma and Shin, especially, are glass cannons. Stay out of your opponents reach!
 --Shin Akuma is faster and hits considerably harder than his regular form.
 --Whiffing or failing to hit deep with Messatsu Gou Shoryu is not in your best interest.
+--Close HK and Hyakki Shuu cause the opponent into a ground bounce state
 
 Credits
 ---------------

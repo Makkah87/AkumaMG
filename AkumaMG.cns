@@ -880,7 +880,7 @@ Y = 0.30
 
 [State 315, AirType]
 type = statetypeset
-trigger1 = AnimElemTime(2) >= 2
+trigger1 = AnimElemTime(2) >= 0
 Statetype = A
 Physics = A
 
@@ -1047,15 +1047,6 @@ type = varset
 trigger1 = var(21)
 V = 17
 value = 0
-
-[State 230, Bounce_SND]
-type = playsnd
-trigger1 = numtarget
-trigger1 = target, stateno = 2000 && target, time = 0
-trigger1 = target, Pos Y >= 0
-value = 5100,3
-
-
 
 [State 320, 4]
 type = ChangeState
@@ -5127,10 +5118,32 @@ envshake.freq = 176
 fall.envshake.time = 15
 fall.envshake.freq = 176
 fall.envshake.ampl = 3
-yaccel = 0.60
+yaccel = 0.6011111111111
 fall.envshake.time = 15
 fall.envshake.freq = 176
 fall.envshake.ampl = 3
+
+
+[State 230, Ground_Bounce]
+type = targetstate
+trigger1 = numtarget
+trigger1 = target,gethitvar(yaccel) = 0.6011111111111
+trigger1 = movehit && target, gethitvar(fall) = 1 && target, stateno != 2000
+trigger1 = target, Pos Y >= 0 && !var(21)
+value = 2000
+
+[State 230, Ground_Bounce_Var]
+type = varset
+trigger1 = numtarget
+trigger1 = target, stateno = 2000 && !var(21)
+V = 21
+value = 1
+
+[State 230, Yes_Shoryu]
+type = varset
+trigger1 = var(21)
+V = 17
+value = 0
 
 [State 1113, Land]
 type = posset
@@ -10659,16 +10672,22 @@ type = Explod
 trigger1 = numtarget
 trigger1 = target, stateno = 2000 && target, time = 1
 trigger1 = target, Pos Y >= 0
-anim = 6155
+anim = 7010
 id = 6155
 postype = p2
-pos = -50,0
+pos = 0,0
 bindtime = 1
 sprpriority = 0
 removeongethit = 0
 ownpal = 1
 scale = 1,1
 vel = 0,0
+[State -2, P2 Bounce Sound]
+type= playsnd
+trigger1 = numtarget
+trigger1 = target, stateno = 2000 && target, time = 1
+trigger1 = target, Pos Y >= 0
+value = 40,1
 
 [State -2, Ground_Bounce_Var_Reset]
 type = varset

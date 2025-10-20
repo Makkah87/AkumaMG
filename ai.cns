@@ -18,9 +18,16 @@ value = 3120
 triggerall = power >= 3000 && var(7)
 triggerall = statetype != A
 triggerall = Var(13) = 1
-triggerall = ctrl
-trigger1 = enemy, statetype = A
+triggerall = ctrl && enemy, movetype != h
+trigger1 = enemy, statetype = A && enemy, pos y <= -60
+trigger2 = enemy, vel x = 0 && p2dist x >= 200
 
+[State -1, Messatsu Gou Rassen]
+type = ChangeState
+value = 3040
+triggerall = power >= 1000
+triggerall = Var(13) = 1
+trigger1 = stateno = 1070 && movehit && UniqHitCount >= 2 && p2dist x <= 60
 ;--------------------------------------------------------------------
 ;Messatsu Gou Hadou
 [State -1, Messatsu Gou Hadou(A.I)]
@@ -85,7 +92,8 @@ triggerall = Var(13) = 1  && !winko
 triggerall = statetype != A
 trigger1 = ctrl
 trigger1 = enemynear,movetype = A && p2dist X <= 100 && backedgebodydist >= 110 && random <= 60
-trigger2 = enemynear, statetype = L && p2dist x <= 100 && random > 800 && ctrl && backedgebodydist >= 110 && random < 60
+trigger2 = enemynear, statetype = L && p2dist x <= 100  && ctrl && backedgebodydist >= 110
+trigger2 = random  <= 10
 ;--------------------------------------------------------------------
 ;Asura Senkuu (Short Forward)
 ;[State -1, Asura Senkuu (ShortForward)(A.I)]
@@ -102,18 +110,19 @@ type = ChangeState
 value = 1058
 triggerall = Var(13) = 1 && !winko
 trigger1 = statetype != A
-trigger1 =  enemynear, statetype = L && p2dist x <= 100 && random > 800 && ctrl && backedgebodydist >= 110 && (random >= 200 && random <= 400)
+trigger1 =  enemynear, statetype = L && p2dist x <= 100 && random <= 10 && ctrl && backedgebodydist >= 110
 ;--------------------------------------------------------------------
 ;Gou Shoryu (Weak)
 [State -1, Gou Shoryu (Weak)(A.I)]
 type = ChangeState
 value = 1030
 triggerall = Var(13) = 1 && Var(14) = 0 && !winko
-triggerall = statetype != A && p2dist x >= 0
+triggerall = statetype != A && p2dist x = [0,60]
 trigger1 = ctrl && P2dist X <= 80 && enemynear,movetype = A  
-trigger2 = stateno = 1090 && P2dist X <= 90 && enemynear,movetype = A  
-trigger3 = stateno = 200 && movehit && (random > 700 && random <= 800) && p2dist x <= 80
-trigger4 = stateno = 220 & movehit && (random >= 300 && random <= 500) && p2dist x <= 80
+trigger2 = stateno = 1090 && enemynear,movetype = A  
+trigger3 = stateno = 200 && movehit && (random > 700 && random <= 800)
+trigger4 = stateno = 220 & movehit && (random >= 300 && random <= 500)
+trigger5 = prevstateno = 1062 && enemynear, movetype = h && p2dist y >= -65
 ;--------------------------------------------------------------------
 ;Gou Shoryu (Medium)
 [State -1, Gou Shoryu (Medium)(A.I)]
@@ -130,13 +139,13 @@ trigger3 = ctrl && P2dist X <= 90 && enemynear,movetype = A && enemynear,movetyp
 type = ChangeState
 value = 1040
 triggerall = Var(13) = 1  & !winko && enemynear, statetype != L
-triggerall = statetype != A && p2dist x >= 0
+triggerall = statetype != A && p2dist x = [50,65]
 trigger1 = ctrl && P2dist X <= 100 && enemynear,movetype = A && facing != enemynear, facing
-;trigger2 = stateno = 1090 && P2dist X <= 100 && enemynear,movetype = A
 trigger2 = P2Dist X < 100 && enemynear,Statetype = A && enemynear,movetype != A && ctrl && enemynear,movetype != H
 trigger3 = P2Dist X = [30,60] && enemynear,Statetype = A && enemynear,movetype != A && ctrl && prevstateno = 1062 && Var(14) <= 2 && enemynear, movetype = H
-trigger4 = stateno = 200 && movehit && (random >= 600 && random <= 700) && p2dist x <= 80
-trigger5 = stateno = 220 & movehit && random <= 300 && p2dist x <= 80
+trigger4 = stateno = 200 && movehit && (random <= 700) && p2dist x <= 50
+trigger5 = stateno = 220 & movehit && random <= 300 && p2dist x <= 50
+trigger5 =  enemynear, movetype = h && p2dist y >= -65
 ;--------------------------------------------------------------------
 ;Hyakki Shuu (Weak)
 [State -1, Hyakki Shuu (Weak)(A.I)]
@@ -214,9 +223,10 @@ type = ChangeState
 value = 1020
 triggerall = Var(13) = 1 && !winko && enemy, numproj = 0
 triggerall = Var(11) = 0
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl && P2dist X >= 160 && enemynear,movetype = A && (enemynear, statetype != A || (p2dist Y > -5 && enemynear, Vel Y > -2))
 trigger2 = (Stateno = 220 || stateno = 320) && movehit
+trigger3 = ctrl && p2dist x = [80, 120] && random <= 100 && var(7) && (EnemyNear, statetype = S || EnemyNear, statetype = C)
 ;--------------------------------------------------------------------
 ;Gou Zankuu (Weak)
 [State -1, Gou Zankuu (Weak)(A.I)]
@@ -256,6 +266,7 @@ triggerall = statetype = A && Var(7)=1 && p2dist x <= 190
 trigger1 = enemynear,movetype = A && p2Dist Y <= -3 && ctrl
 trigger2 = P2movetype = A && p2dist X <= 210 && ctrl && pos Y < -50
 trigger3 = pos Y <= -80 && enemynear, movetype != A && ctrl 
+trigger4 = stateno = 450 && movehit
 ;--------------------------------------------------------------------
 ;Tenma Kujin Kyaku (Weak)
 [State -1, Tenma Kujin Kyaku (Weak)(A.I)]
@@ -318,21 +329,16 @@ trigger4 = (stateno = [400,499]) && movecontact
 [State -1, Metsu Gou Hadou (Strong)(A.I)]
 type = ChangeState
 value = 1170
-triggerall = command = "metsu3"
-triggerall = Var(13) = 0
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = (stateno = [200,299]) || (stateno = [300,399])
-trigger2 = movecontact
-trigger3 = stateno = 1090
-trigger4 = (stateno = [400,499]) && movecontact
+triggerall = Var(13) = 1 && !winko
+trigger1 = statetype =S
+trigger1 = ctrl && p2dist x = [200, 300] && random <= 100 && prevstateno != 1170
 ;--------------------------------------------------------------------
 [State -1, Tatsumaki Zankuu Kyaku (Weak)]
 type = ChangeState
 value = 1060
 triggerall = Var(13) = 1 && !winko && enemynear, statetype != L
 trigger1 = statetype != A
-trigger1 = stateno = 300 && movehit && p2dist X <= 115
+trigger1 = stateno = 300 && movehit && p2dist X <= 50
 ;--------------------------------------------------------------------
 ;Tatsumaki Zankuu Kyaku (Medium)
 [State -1, Tatsumaki Zankuu Kyaku (Medium)]
@@ -352,6 +358,7 @@ trigger1 = (stateno = [200,299]) || (stateno = [300,399])
 trigger1 = p2dist X > 100 && movehit && random > 750
 trigger2 = stateno = 1090 && p2dist X <= 120 && enemynear,movetype = H
 trigger3 = (p2dist X > 110&&p2dist X <= 115) && enemynear,movetype = A && random < 400 && ctrl
+trigger3 = stateno = 300 && movehit && p2dist X > 80
 ;--------------------------------------------------------------------
 ;Air Tatsumaki Zankuu Kyaku (Weak)
 [State -1, Air Tatsumaki Zankuu Kyaku (Weak)]
@@ -393,9 +400,8 @@ trigger4 = (stateno = [400,499]) && movecontact
 [State -1, Run Fwd(A.I)]
 type = ChangeState
 value = 100
-triggerall = Var(13) = 1 && !winko
-trigger1 = statetype = S && Stateno != 100
-trigger1 = ctrl
+triggerall = Var(13) = 1 && !winko && stateno != 100 && ctrl
+triggerall = statetype = S
 trigger1 = P2dist X > 50 && enemynear,movetype != A && random < 200
 ;--------------------------------------------------------------------
 ;Run Back
@@ -464,10 +470,10 @@ type = ChangeState
 value = 210
 triggerall = Var(13) = 1 && !winko&& enemynear, statetype != L
 triggerall = statetype = S
-triggerall = p2dist X <= 90
+triggerall = p2dist X <= 75
 triggerall = enemynear,statetype = S
 trigger1 = stateno = 200 && movehit && random <= 500
-trigger2 = ctrl && P2dist X <= 90 && enemynear, Movetype != A && (random > 200 && random <= 350)
+trigger2 = ctrl && enemynear, Movetype != A && (random > 200 && random <= 350)
 ;--------------------------------------------------------------------
 ;Stand Strong Punch
 ;--------------------------------------------------------------------
@@ -476,7 +482,7 @@ type = ChangeState
 value = 220
 triggerall = Var(13) = 1 && !winko && enemynear, statetype != L
 triggerall = enemynear,statetype = S
-triggerall = statetype = S && p2dist X <= 100
+triggerall = statetype = S && p2dist X <= 80
 trigger1 = stateno = 210 && random <= 500 && movehit
 trigger2 = ctrl && p2dist x <=40 && enemynear, movetype = I && random <= 200
 trigger3 = ctrl && p2dist x <= 40 && p2dist y >= -60 && random <= 300
@@ -490,7 +496,7 @@ value = 300
 triggerall = Var(13) = 1 && !winko && enemynear, statetype != L
 triggerall = enemynear,statetype = S
 trigger1 = statetype = S
-trigger1 = ctrl && P2dist X <= 50 && enemynear, Movetype != A && random > 200 ;&& random < = 600
+trigger1 = ctrl && P2dist X <= 45 && enemynear, Movetype != A && random > 200 ;&& random < = 600
 trigger2 = stateno = 1090 && P2dist X <= 80 && random > 500
 trigger3 = stateno = 100 && p2dist X <= 80 && enemynear,statetype = S && enemynear, movetype != A
 ;--------------------------------------------------------------------
@@ -501,7 +507,7 @@ type = ChangeState
 value = 310
 triggerall = Var(13) = 1 && !winko
 triggerall = statetype = S
-triggerall = p2dist X <= 90
+triggerall = p2dist X <= 60
 triggerall = enemynear,statetype = S
 trigger1 = stateno = 200 && movehit && random > 500
 ;--------------------------------------------------------------------
@@ -512,11 +518,11 @@ type = ChangeState
 value = 320
 triggerall = Var(13) = 1 && !winko && enemynear, statetype != L
 triggerall = statetype = S
-triggerall = p2dist X <= 100
+triggerall = p2dist X <= 70
 triggerall = enemynear,statetype = S
 trigger1 = stateno = 210 && movehit && random <= 500
 trigger2 = ctrl && enemynear, statetype = A && (p2dist x < 90 && p2dist x > 0) && enemynear, pos y >= -90 && random <= 170
-trigger12= enemynear, movetype = H
+trigger2= enemynear, movetype = H
 ;--------------------------------------------------------------------
 ;Taunt
 ;[State -1, Taunt]
@@ -588,7 +594,7 @@ value = 450
 triggerall = Var(13) = 1 && !winko && enemynear, statetype != l && enemynear, statetype != a
 triggerall = statetype = C
 trigger1 = stateno = 440 && movehit && random <= 500
-trigger2 = ctrl && p2dist x <= 100 && enemynear, backedgebodydist <= 90 && random <= 300
+trigger2 = ctrl && p2dist x <= 90 && random <= 300
 ;--------------------------------------------------------------------
 ;Jump Light Punch
 [State -1, Jump Light Punch]
