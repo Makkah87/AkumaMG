@@ -1,10 +1,10 @@
 =======================================================================
-	AkumaMG V2.0 by Makkah aka Master Gouken (formerly ZXAkuma)
+		 ZXAkuma V2.0 by Makkah aka Master Gouken
                      E-mail: gouken1987@hotmail.com
 =======================================================================
 Story
 ------
-After crushing Gen in a long and brutal battle, Akuma finds himself internally damaged. He travels all over the world in an effort to find Ryu in order to end his life in a battle worthy of him. While on a raft sailing over the Bermuda Triangle, Akuma finds himself entangled in a powerfull vortex which transfers him to another dimension. A demension filled with many powerfull opponents for him to unleash his frustration. Akuma discovers a tournament called M.U.G.E.N where only the most powerfull fighters congregate and he hears rumors that Ryu, with "awakened powers" has entered. He also witnesses the arival of himself from different time streams and Ken Masters who also seems to possess "evil intent". With a new challenge awaiting him, Akuma ventures into the tournament arena to fulfill his quest.
+After crushing Gen in a long and brutal battle, Akuma finds himself internally damaged. He travels all over the world in an effort to find Ryu in order to end his life in a battle worthy of him. While on a raft sailing over the Bermuda Triangle, Akuma finds himself entangled in a powerful vortex which transfers him to another dimension. A dimension filled with many powerful opponents for him to unleash his frustration. Akuma discovers a tournament called M.U.G.E.N where only the most powerful fighters congregate and he hears rumors that Ryu, with "awakened powers" has entered. He also witnesses the arrival of himself from different time streams and Ken Masters who also seems to possess "evil intent". With a new challenge awaiting him, Akuma ventures into the tournament arena to fulfill his quest.
 
 Fixes
 -------
@@ -58,7 +58,7 @@ Tenma Kujin Kyaku : QCF + K (in air)
 
 Hyakki Shuu : dp + K
        -Hyakki Gou Zan:  No input
-       -Kyakki Gou Shou: P (during Hyakki Shuu)
+       -Hyakki Gou Shou: P (during Hyakki Shuu)
        -Hyakki Gou Jin : K (during Hyakki Shuu)
        -Hyakki Gou Sai: F+HP (during Hyakki Shuu as you approach the opponents upper body)
 
@@ -92,7 +92,6 @@ Notes
 --Akuma and Shin, especially, are glass cannons. Stay out of your opponents reach!
 --Shin Akuma is faster and hits considerably harder than his regular form.
 --Whiffing or failing to hit deep with Messatsu Gou Shoryu is not in your best interest.
---Close HK and Hyakki Shuu cause the opponent into a ground bounce state
 
 Credits
 ---------------
