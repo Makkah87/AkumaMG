@@ -278,17 +278,7 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = (stateno = [600,699]) || (stateno = [400,499])
 trigger2 = movecontact
-;--------------------------------------------------------------------
-;Tenma Kujin Kyaku (Medium)
-[state -4, Tenma Kujin Kyaku (Medium)(A.I)]
-type = ChangeState
-value = 1095
-triggerall = command = "kujin2"
-triggerall = Var(13) = 0
-triggerall = statetype = A
-trigger1 = ctrl
-trigger2 = (stateno = [600,699]) || (stateno = [400,499])
-trigger2 = movecontact
+
 ;--------------------------------------------------------------------
 ;Tenma Kujin Kyaku (Strong)
 [state -4, Tenma Kujin Kyaku (Strong)(A.I)]
@@ -369,31 +359,7 @@ triggerall = statetype = A && enemynear, statetype != L
 trigger1 = P2movetype = A && p2dist X <= 120 && ctrl && pos Y > -50
 trigger1 = p2dist Y < 17
 ;--------------------------------------------------------------------
-;Air Tatsumaki Zankuu Kyaku (Medium)
-[state -4, Air Tatsumaki Zankuu Kyaku (Medium)]
-type = ChangeState
-value = 1081
-triggerall = command = "tatsu2"
-triggerall = Var(13) = 0
-trigger1 = statetype = A
-trigger1 = ctrl
-trigger2 = (stateno = [200,299]) || (stateno = [300,399])
-trigger2 = movecontact
-trigger3 = stateno = 1090
-trigger4 = (stateno = [400,499]) && movecontact
-;--------------------------------------------------------------------
-;Air Tatsumaki Zankuu Kyaku (Strong)
-[state -4, Air Tatsumaki Zankuu Kyaku (Strong)]
-type = ChangeState
-value = 1082
-triggerall = command = "tatsu3"
-triggerall = Var(13) = 0
-trigger1 = statetype = A
-trigger1 = ctrl
-trigger2 = (stateno = [200,299]) || (stateno = [300,399])
-trigger2 = movecontact
-trigger3 = stateno = 1090
-trigger4 = (stateno = [400,499]) && movecontact
+
 ;====================================================================
 ;--------------------------------------------------------------------
 ;Run Fwd
