@@ -1,12 +1,37 @@
 =======================================================================
-		 ZXAkuma V2.0 by Makkah aka Master Gouken
+		 ZXAkuma V2.0.2 by Makkah aka Master Gouken
                      E-mail: gouken1987@hotmail.com
 =======================================================================
 Story
 ------
 After crushing Gen in a long and brutal battle, Akuma finds himself internally damaged. He travels all over the world in an effort to find Ryu in order to end his life in a battle worthy of him. While on a raft sailing over the Bermuda Triangle, Akuma finds himself entangled in a powerful vortex which transfers him to another dimension. A dimension filled with many powerful opponents for him to unleash his frustration. Akuma discovers a tournament called M.U.G.E.N where only the most powerful fighters congregate and he hears rumors that Ryu, with "awakened powers" has entered. He also witnesses the arrival of himself from different time streams and Ken Masters who also seems to possess "evil intent". With a new challenge awaiting him, Akuma ventures into the tournament arena to fulfill his quest.
 
-Fixes
+Changes
+-------
+
+v 2.0.2
+-------
+-Fixed size of first frame of Gou Hadou which has a larger hitbox persisting longer than intended.
+-Adjusted jump hurt boxes a bit.
+-Changed null anim values from -1 to -2 to fit Ikemen's standards.
+-Fixed an issue where F+MP could be guarded low.
+-Added more recovery to normal Akuma's Ashura Senkuu.
+-Fixed an issue where the super cancel sound would always play for Tenma Gou Zankuu.
+-Misogi now works with all kick button combinations.
+-Changed absurd guard damage done by supers. They are now all 30% rounded down.
+-Fixed issue where hop kick could be triggered by releasing F then pressing MK.
+-Jump start state is now throw invincible.
+-Disabled some debug stuff.
+-Reduced horizontal reach of normal Akuma's Tenma Gou Zankuu. Changed the sprite as well.    
+
+v 2.0.1
+-------
+—Fixed a bug where some special moves were difficult to execute.
+—Fixed a bug where MK tatsu reset Akuma to a neutral state allowing for unintentional shenanigans.
+—Canceling standing close HK no longer cancels enemy ground bounce state.
+—Sweeping the opponent now has pushback.
+
+v 2.0
 -------
 -Switched to Ikemen!
 -Complete overhaul to bring him to my current standards in 2025
