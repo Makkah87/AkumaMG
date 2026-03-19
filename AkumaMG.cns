@@ -10675,6 +10675,13 @@ map = "target_id"
 value = target, id
 ignorehitpause = 1
 
+[State 3040, Rassen_Sig]
+type = mapset
+trigger1 = movetype = H
+trigger2 = movetype = I
+map = "rassen_sig"
+value = 0
+
 [State -2, K.O!]
 type = Helper
 trigger1 = winko && numhelper(9000)=0
