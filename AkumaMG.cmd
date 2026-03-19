@@ -18,7 +18,7 @@ time = 50
 
 [Command]
 name = "misogi"
-command = ~D,D,D, b+c
+command = ~D,D,D,b+c
 time = 20
 
 [Command]
@@ -30,6 +30,37 @@ time = 20
 name = "misogi"
 command = ~D,D,D,~b+c
 time = 20
+
+[Command]
+name = "misogi"
+command = ~D,D,D,a+c
+time = 20
+
+[Command]
+name = "misogi"
+command = ~D,D,D+a+c
+time = 20
+
+[Command]
+name = "misogi"
+command = ~D,D,D,~a+c
+time = 20
+
+[Command]
+name = "misogi"
+command = ~D,D,D,a+b
+time = 20
+
+[Command]
+name = "misogi"
+command = ~D,D,D+a+b
+time = 20
+
+[Command]
+name = "misogi"
+command = ~D,D,D,~a+b
+time = 20
+
 
 [Command]
 name = "gousho"
@@ -275,7 +306,7 @@ command = a+c
 
 [Command]
 name = "hop_k"
-command = /$F,b ;/$
+command = F+b ;/$
 
 ;-| Double Tap |-----------------------------------------------------------
 [Command]
@@ -415,6 +446,9 @@ trigger3 = stateno = [400,420]
 trigger3 = time <=3
 trigger4 = stateno = [300,320]
 trigger4 = time <=3
+trigger5 = stateno = [430,450]
+trigger5 = time <=3
+trigger6 = stateno = [10,12]
 
 ;Shun Goku Satsu
 [State -1, Shun Goku Satsu]

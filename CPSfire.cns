@@ -1,5 +1,5 @@
 [Statedef 7000]
-anim = -1
+anim = -2
 
 [State 7000, Anim]
 type = changeanim

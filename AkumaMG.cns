@@ -119,6 +119,11 @@ time = 1
 [Statedef 180]
 type = S
 
+[State 180, ScoreAdd]
+type = scoreadd
+trigger1 = !time
+value = (life*50)+ifelse(winhyper, 30000,ifelse(winspecial,10000,1000))
+
 [State 180, Randomizer]
 type = varRandom
 triggerall = Var(2) = 0
@@ -559,6 +564,11 @@ velset = 0,0
 anim = 611
 sprpriority = 5
 
+[State 215, Pos_Add]
+type = posadd
+trigger1 = animelem = 4
+x = 2
+
 [State 215, Voice]
 type = playsnd
 trigger1 = animelem = 4
@@ -588,7 +598,7 @@ trigger1 = time = 0
 attr = S, NA
 animtype  = Medium
 Damage = 21,0
-guardflag = MA
+guardflag = H
 pausetime = 10,10
 guard.sparkno = s7006
 sparkno = S7001
@@ -1087,7 +1097,7 @@ damage = 21,0
 priority  = 3
 animtype  = Light
 hitflag = MAF
-guardflag = L
+guardflag = M
 pausetime = 8,8
 sparkno = S7000
 guard.sparkno = s7006
@@ -3379,7 +3389,7 @@ type    = S
 physics = S
 movetype = A
 ctrl = 0
-anim = 47
+anim = 1053+var(7)
 
 [State 1053, Turn]
 type = turn
@@ -3397,7 +3407,7 @@ y = 0
 
 [State 1053, 3]
 type = CtrlSet
-trigger1 = Time = 3
+trigger1 = var(7) && Time = 3
 value = 1
 
 [State 1053, 4]
@@ -3570,11 +3580,6 @@ type = Playsnd
 trigger1 = Time = 0
 value = 50,17
 volumescale = 100
-
-[State 1056, 2]
-type = Playsnd
-trigger1 = Time = 0
-value = 4,5
 
 [State 1056, 2]
 type = NotHitBy
@@ -7479,7 +7484,7 @@ channel = 0
 type = SuperPause
 trigger1 = time = 0
 pos = 25, -57
-anim = -1
+anim = -2
 sound = s3000, 1
 poweradd = -1000
 time = 54
@@ -7602,7 +7607,7 @@ trigger1 = AnimElemTime(1) = 2
 trigger2 = AnimElem = 7
 attr = S, HA
 animtype  = Hard
-damage    = 20,10
+damage    = 20,6
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7629,7 +7634,7 @@ trigger1 = AnimElem = 2
 trigger2 = AnimElem = 8
 attr = S, HA
 animtype  = Light
-damage    = 20,10
+damage    = 20,6
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7656,7 +7661,7 @@ trigger1 = AnimElem = 3
 trigger2 = AnimElem = 9
 attr = S, HA
 animtype  = Hard
-damage    = 20,10
+damage    = 20,6
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7682,7 +7687,7 @@ type = HitDef
 trigger1 = AnimElem = 13
 attr = S, HA
 animtype  = Hard
-damage    = 80,60
+damage    = 80,24
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7713,7 +7718,7 @@ trigger1 = AnimElem = 14
 attr = S, HA
 animtype  = Hard
 fall.animtype =light
-damage    = 80,60
+damage    = 80,24
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7747,7 +7752,7 @@ type = HitDef
 trigger1 = AnimElem = 15
 attr = S, HA
 animtype  = up
-damage    = 80,60
+damage    = 80,24
 getpower  = 0
 priority  = 6
 guardflag = MA
@@ -7931,7 +7936,7 @@ time = 54
 type = SuperPause
 trigger1 = AnimElem = 4
 pos = -5, -55
-anim = -1
+anim = -2
 sound = s3000, 1
 poweradd = -1000
 time = 54
@@ -8089,7 +8094,7 @@ type = HitDef
 trigger1 = !time
 attr = S, HP
 animtype  = hard
-damage    = 32, 20
+damage    = 32, 10
 getpower  = 0
 priority  = 4
 guardflag = M
@@ -8328,6 +8333,13 @@ anim = 3020
 ctrl = 0
 sprpriority = 2
 
+[State 3020, Cancel_SND]
+type = playsnd
+triggerall = !time
+trigger1 = map(rassen_sig) = 1
+value = 3000, 4
+volumescale = 100
+
 [State 3020, VelSet]
 type = velset
 trigger1 = animelemtime(9) = 3
@@ -8382,7 +8394,7 @@ time = 45
 type = SuperPause
 trigger1 = Time = 0
 pos = 60, -65
-anim = -1
+anim = -2
 sound = s3000,1
 poweradd = -1000
 time = 71
@@ -8468,7 +8480,7 @@ hitflag = MAF
 guardflag = M
 animtype = Hard
 priority = 5,hit
-damage = 27,18 ;20,8
+damage = 27,8
 sparkno = s7004
 guard.sparkno = s7006
 sparkxy = 15,ifelse(var(7),8,-8)
@@ -8637,6 +8649,12 @@ velset = 0,0
 ctrl = 0
 sprpriority = 3
 
+[State 3040, Rassen_Sig]
+type = mapset
+trigger1 = !time
+map = "rassen_sig"
+value = 1
+
 [State 3040, Anim]
 type = changeanim
 trigger1= !time
@@ -8721,7 +8739,7 @@ ignorehitpause = 1
 type = SuperPause
 trigger1 = time = 0
 pos = 25, -57
-anim = -1
+anim = -2
 sound = s3000, 1
 poweradd = -1000
 time = 54
@@ -8733,7 +8751,7 @@ trigger1 = !time
 attr = A, HaA
 animtype  = Medium
 fall.animtype = hard
-damage    = 35, 20
+damage    = 35, 10
 priority  = 5
 guardflag = MA
 pausetime = 14,13
@@ -8757,7 +8775,7 @@ trigger1 = animelem = 6 || animelem = 10
 attr = A, HA
 animtype  = Hard
 fall.animtype = hard
-damage    = 30, 40
+damage    = 30, 10
 priority  = 5
 guardflag = MA
 pausetime = 4,4
@@ -8785,39 +8803,13 @@ trigger2 = anim = 3041 && (animelem = 2)
 value = 0, 4
 channel = 3
 
-[State 1070, 4]
-type = null;HitDef
-trigger1 = animelem = 6 || animelem = 8 || animelem = 10
-attr = A, SA
-animtype  = Hard
-fall.animtype = hard
-damage    = 30, 40
-priority  = 5
-guardflag = MA
-pausetime = 4,4
-sparkno = s7003
-guard.sparkno = s7006
-sparkxy = -16,-65
-hitsound   = s120,9
-guardsound = s5,0
-ground.type = Low
-air.type = low
-ground.slidetime = 18
-ground.hittime  = 18
-ground.velocity = 0,-5.5+(vel y*0.3)
-guard.velocity = -6
-air.velocity = 0,-4.7+(vel y*0.6)
-fall = 1
-yaccel = 0.6
-maxdist = 30
-
 [State 1070, Final Kick]
 type = HitDef
 trigger1 = anim = 3041 && animelem = 2 
 attr = A, HA
 animtype  = Medium
 fall.animtype = diagup
-damage    = 45, 15
+damage    = 45, 13
 priority  = 5
 guardflag = MA
 pausetime = 15,15
@@ -8893,7 +8885,7 @@ sinadd = -255,-255,-255,240
 type = SuperPause
 trigger1 = Time = 0
 pos = -5, -55
-anim = -1
+anim = -2
 sound = s3000,1
 poweradd = -3000
 time = 64
@@ -9493,7 +9485,7 @@ sinadd = -255,-255,-255,102
 type = SuperPause
 trigger1 = animelem = 4 && anim = 3120
 pos = -5, -55
-anim = -1
+anim = -2
 sound = s3000,1
 poweradd = -3000
 time = 64
@@ -9590,7 +9582,7 @@ type = HitDef
 trigger1 = !time
 attr = S, HA
 animtype  = Hard
-damage    = 500,200
+damage    = 500,150
 getpower  = 0
 priority  = 6
 guardflag = M
@@ -9681,7 +9673,7 @@ movetype= H
 physics = N
 juggle  = 0
 velset = 0,0
-anim = -1
+anim = -2
 ctrl = 0
 sprpriority = 4
 
@@ -9741,7 +9733,7 @@ movetype= H
 physics = N
 juggle  = 0
 velset = 0,0
-anim = -1
+anim = -2
 ctrl = 0
 sprpriority = 4
 
@@ -9762,12 +9754,14 @@ value = ifelse(alive,5120,5150)
 type = S
 movetype = I
 physics = N
-anim = -1
+anim = -2
 sprpriority = 5
 
 [State 6000, Cancel_SND]
 type = playsnd
-trigger1 = !time && parent, prevstateno >= 3000 && parent, prevstateno < 5000
+triggerall = !time
+trigger1 = root, prevstateno =[3000,3500]
+trigger1 = root, stateno != 3020
 value = 3000, 4
 volumescale = 100
 
@@ -9867,7 +9861,7 @@ trigger1 = time > 43 && numexplod(3203) = 0
 [Statedef 9000]
 type    = S
 physics = S
-anim = -1
+anim = -2
 ctrl = 0
 
 [State 9000, NHB]
@@ -10061,6 +10055,12 @@ anim = 40
 ctrl = 0
 sprpriority = 1
 velset =0,0
+
+[State 40, NoThrow]
+type = NotHitBy
+trigger1 = 1
+value = SCA, AT
+time = 1
 
 [State 40, 1]
 type = VarSet
