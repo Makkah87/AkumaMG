@@ -77,7 +77,10 @@ runjump.fwd = 5,-9.1      ;.
 airjump.neu = 0,-8.1      ;.
 airjump.back = -2.55      ;Air jump speeds (opt)
 airjump.fwd = 2.5         ;.
-
+ground.gethit.ko.ymin = -4
+ground.gethit.ko.xmul = 0.42
+ground.gethit.ko.add = 0,0
+air.gethit.ko.add = 0,0
 
 [Movement]
 airjump.num = 0      ;Number of air jumps allowed (opt)

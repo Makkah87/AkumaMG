@@ -1,6 +1,5 @@
 #Command Buffer System
 [StateDef -4]
- assertspecial{flag: nokovelocity}
 
 ############################################################################
 #								Map Table									
