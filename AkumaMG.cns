@@ -9886,8 +9886,7 @@ flag3 = nofg
 
 [State 9000, Special K.O Effect]
 type = bgpalfx
-trigger1 = time = 0 && (parent, hitdefattr = SCA, SA || parent,var(18))
-trigger2 = !time && parent, winspecial
+trigger1 = !time && parent, winspecial
 add = 255,255,255
 sinadd = -255,-255,-255,170
 time = 45
@@ -9895,8 +9894,7 @@ time = 45
 [State 9000, Dramatic KO Sound]
 type = playsnd
 triggerall = time = 0
-trigger1 = parent, hitdefattr = SCA, SA || parent,var(18)
-trigger2 = parent, hitdefattr = SCA, NA
+trigger1 = parent, winko && !parent, winhyper
 value = 3000,2
 ignorehitpause = 1
 volumescale = 100
@@ -9904,21 +9902,14 @@ volumescale = 100
 [State 9000, HCF_SND]
 type = playsnd
 triggerall = time = 0
-trigger1 = parent, hitdefattr = SCA, HA
-trigger2 = parent, projhit3021 = 1, < 10
-trigger3 = parent,Var(16) = 1 && roundstate = 3
-trigger4 = ProjHit3021 = 1
+trigger1 = parent, winhyper
 value = 3000,3
 volumescale = 200
 ignorehitpause = 1
 
 [State 9000, HyperComboFinish!]
 type = Explod
-triggerall = time = 0 && numexplod(7625)= 0
-trigger1 = parent, hitdefattr = SCA, HA
-trigger2 = parent, projhit3021 = 1, < 10
-trigger3 = parent,Var(16) = 1 && roundstate = 3
-trigger4 = ProjHit3021=1
+trigger1 = time = 0 && parent, winhyper
 anim = 3501
 id = 7625
 postype = left
