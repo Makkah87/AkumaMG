@@ -9895,6 +9895,7 @@ time = 45
 type = playsnd
 triggerall = time = 0
 trigger1 = parent, winko && !parent, winhyper
+trigger1 = root, stateno!= 3110
 value = 3000,2
 ignorehitpause = 1
 volumescale = 100
@@ -9903,6 +9904,7 @@ volumescale = 100
 type = playsnd
 triggerall = time = 0
 trigger1 = parent, winhyper
+trigger1 = root, stateno!= 3110
 value = 3000,3
 volumescale = 200
 ignorehitpause = 1
@@ -9910,6 +9912,7 @@ ignorehitpause = 1
 [State 9000, HyperComboFinish!]
 type = Explod
 trigger1 = time = 0 && parent, winhyper
+trigger1 = root, stateno!= 3110
 anim = 3501
 id = 7625
 postype = left
