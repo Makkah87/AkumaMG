@@ -1,5 +1,5 @@
 =======================================================================
-		 ZXAkuma V2.0.2 by Makkah aka Master Gouken
+		 ZXAkuma V2.0.3 by Makkah aka Master Gouken
                      E-mail: gouken1987@hotmail.com
 =======================================================================
 Story
@@ -8,6 +8,10 @@ After crushing Gen in a long and brutal battle, Akuma finds himself internally d
 
 Changes
 -------
+v 2.0.3
+-------
+-Fixed a bug where, on newer nightly builds, hyper combo finish would trigger on every victory
+-Changed velocities when Akuma is KO'd
 
 v 2.0.2
 -------
