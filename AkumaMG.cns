@@ -2719,7 +2719,7 @@ value = 1031
 type    = A
 movetype= A
 physics = N
-velset = 2,-6
+;velset = 2,-6
 anim = 1031
 
 [State 1041, Juggle set]
@@ -2764,18 +2764,18 @@ yaccel = 0.50
 
 [State 1031, UpWard]
 type = velset
-trigger1 = time = 0
+trigger1 = time = 1
 y = -6
 x = 4
 
 [State 1031, 2]
 type = VelMul
-trigger1 = Time >= 0 
+trigger1 = Time >= 1 
 x = .88
 
 [State 1031, 3]
 type = VelAdd
-trigger1 = Time >= 0
+trigger1 = Time >= 1
 y = .40
 
 ;[State 1031, gravity]
@@ -2960,7 +2960,7 @@ value = 1036
 type    = A
 movetype= A
 physics = N
-velset = 2,-6
+;velset = 2,-6
 anim = 1031
 
 [State 1036, Juggle set]
@@ -3005,18 +3005,18 @@ yaccel = 0.50
 
 [State 1036, UpWard]
 type = velset
-trigger1 = time = 0
+trigger1 = time = 1
 y = -8.5
 x = 8 ;13
 
 [State 1036, 2]
 type = VelMul
-trigger1 = Time >= 0 
+trigger1 = Time >= 1 
 x = .85
 
 [State 1036, 3]
 type = VelAdd
-trigger1 = Time >= 0
+trigger1 = Time >= 1
 y = .44
 
 [State 1036, Decend anim]
@@ -3151,7 +3151,7 @@ value = 1041
 type    = A
 movetype= A
 physics = N
-velset = 2,-6
+;velset = 2,-6
 anim = 1031
 
 [State 1041, Juggle set]
@@ -3196,18 +3196,18 @@ yaccel = 0.50
 
 [State 1041, UpWard]
 type = velset
-trigger1 = time = 0
+trigger1 = time = 1
 y = -11
 x = 10 ;14
 
 [State 1041, 2]
 type = VelMul
-trigger1 = Time >= 0 
+trigger1 = Time >= 1 
 x = .90
 
 [State 1041, 3]
 type = VelAdd
-trigger1 = Time >= 0
+trigger1 = Time >= 1
 y = .46
 
 [State 1041, Decendanim]
