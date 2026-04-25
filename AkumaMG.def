@@ -13,29 +13,29 @@ localcoord = 320,240
 
 ; Files for the player
 [Files]
-cmd     = AkumaMG.cmd   ;Command set
-cns     = AkumaMG.cns 
-st      = AkumaMG.cns
-st1     = CPSfire.cns
-st2     = buffer.zss
-st3		= ai.cns
+cmd     = Logic/AkumaMG.cmd
+cns     = Logic/AkumaMG.cns 
+st      = Logic/AkumaMG.cns
+st1     = Logic/CPSfire.cns
+st2     = Logic/buffer.zss
+st3		= Logic/ai.cns
 stcommon= common1.cns 
-sprite  = AkumaMG.sff
-anim    = AkumaMG.air 
-sound   = AkumaMG.snd
+sprite  = Assets/AkumaMG.sff
+anim    = Logic/AkumaMG.air 
+sound   = Assets/AkumaMG.snd
 ;====|Pallettes|====
-pal1    = svc1p.act
-pal2    = Akuma2.act
-pal3    = cvs2-white.act
-pal4    = Akuma4.act
-pal5    = Akuma5.act
-pal6    = cvs2_green-yellow.act
-pal7    = CVS2ShinAkuma.act
-pal8    = ShinAkuma2.act
-pal9    = svc2p.act
-pal10   = cfjshinakumap2.act
-pal11   = ShinAkuma5.act
-pal12   = ShinAkuma6.act
+pal1    = Assets/Palettes/svc1p.act
+pal2    = Assets/Palettes/Akuma2.act
+pal3    = Assets/Palettes/cvs2-white.act
+pal4    = Assets/Palettes/Akuma4.act
+pal5    = Assets/Palettes/Akuma5.act
+pal6    = Assets/Palettes/cvs2_green-yellow.act
+pal7    = Assets/Palettes/CVS2ShinAkuma.act
+pal8    = Assets/Palettes/ShinAkuma2.act
+pal9    = Assets/Palettes/svc2p.act
+pal10   = Assets/Palettes/cfjshinakumap2.act
+pal11   = Assets/Palettes/ShinAkuma5.act
+pal12   = Assets/Palettes/ShinAkuma6.act
 
 [Palette Keymap]
 a = 1
